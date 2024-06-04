@@ -1,1 +1,2 @@
 C:\Users\PC\OneDrive\Máy tính\S7_SU24\SWD392\MilmomStore\milmomstore.client\obj\Debug\milmomstore.client.esproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\MilmomSystemV2\milmomstore.client\obj\Debug\milmomstore.client.esproj.CoreCompileInputs.cache

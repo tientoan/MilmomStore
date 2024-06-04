@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,6 +32,30 @@ namespace MilmomStore_BusinessObject.Model
                 .WithOne(e => e.ShippingInfor)
                 .HasForeignKey<Order>(e => e.ShippingInforID)
                 .IsRequired();
+            List<IdentityRole> roles = new List<IdentityRole>
+            {
+                new IdentityRole
+                {
+                    Name = "Admin",
+                    NormalizedName = "ADMIN"
+                },
+                new IdentityRole
+                {
+                    Name = "Customer",
+                    NormalizedName = "CUSTOMER"
+                },
+                 new IdentityRole
+                {
+                    Name = "Staff",
+                    NormalizedName = "STAFF"
+                },
+                  new IdentityRole
+                {
+                    Name = "Manager",
+                    NormalizedName = "MANAGER"
+                }
+            };
+            modelBuilder.Entity<IdentityRole>().HasData(roles);
         }
 
         //

@@ -22,9 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\milmomstore.client\milmomstore.client.esproj">
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
     <ProjectReference Include="..\Milmom_Service\Milmom_Service.csproj" />
   </ItemGroup>
 

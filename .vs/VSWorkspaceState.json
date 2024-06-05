@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\MilmomStore.Server",
+    "\\MilmomStore.Server\\Controllers",
+    "\\Milmom_Service",
+    "\\Milmom_Service\\IService",
+    "\\Milmom_Service\\Model",
+    "\\Milmom_Service\\Model\\Response",
+    "\\Milmom_Service\\Model\\Response\\AccountApplication",
+    "\\Milmom_Service\\Model\\Response\\Product"
+  ],
+  "SelectedNode": "\\MilmomStore.sln",
+  "PreviewInSolutionExplorer": false
+}

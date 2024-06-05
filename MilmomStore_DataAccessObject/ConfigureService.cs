@@ -16,6 +16,8 @@ namespace MilmomStore_DataAccessObject
         public static IServiceCollection ConfigureDataAccessObjectService(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<AccountApplication>();
+            services.AddScoped<Product>();
+            services.AddScoped<ImageProduct>();
             
             services.AddScoped(typeof(IBaseDAO<>), typeof(BaseDAO<>));
             return services;

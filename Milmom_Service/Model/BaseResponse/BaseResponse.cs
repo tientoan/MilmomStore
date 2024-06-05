@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClinicBookingSystem_Service.Models.Enums;
+using Milmom_Service.Models.Enums;
 
 namespace Milmom_Service.Model.BaseResponse
 {

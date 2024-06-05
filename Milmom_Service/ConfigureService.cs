@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Milmom_Service.IService;
+using Milmom_Service.Service;
 
 namespace Milmom_Service
 {
@@ -14,8 +16,8 @@ namespace Milmom_Service
         public static IServiceCollection ConfigureServiceService(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddAutoMapper(typeof(MappingProfile));
-            //services.AddScoped<IUserService, UserService>();
-            //services.AddScoped<ISlotService, SlotService>();
+            services.AddScoped<IAccountApplicationService, AccountApplicationService>();
+            
             return services;
         }
     }

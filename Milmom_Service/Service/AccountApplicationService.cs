@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using ClinicBookingSystem_Service.IService;
-using ClinicBookingSystem_Service.Models.Enums;
 using Milmom_Repository.IRepository;
+using Milmom_Service.IService;
 using Milmom_Service.Model.BaseResponse;
 using Milmom_Service.Model.Request.AccountApplication;
 using Milmom_Service.Model.Response.AccountApplication;
+using Milmom_Service.Models.Enums;
 using MilmomStore_BusinessObject.Model;
 
 namespace Milmom_Service.Service

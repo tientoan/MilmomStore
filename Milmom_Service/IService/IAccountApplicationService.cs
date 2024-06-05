@@ -7,7 +7,7 @@ using Milmom_Service.Model.BaseResponse;
 using Milmom_Service.Model.Request.AccountApplication;
 using Milmom_Service.Model.Response.AccountApplication;
 
-namespace ClinicBookingSystem_Service.IService;
+namespace Milmom_Service.IService;
 
 public interface IAccountApplicationService
 {

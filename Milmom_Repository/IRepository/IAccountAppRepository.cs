@@ -10,6 +10,7 @@ namespace Milmom_Repository.IRepository
 {
     public interface IAccountAppRepository : IBaseRepository<AccountApplication>
     {
+
         
     }
 }

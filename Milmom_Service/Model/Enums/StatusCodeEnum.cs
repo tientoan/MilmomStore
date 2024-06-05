@@ -1,4 +1,4 @@
-﻿namespace ClinicBookingSystem_Service.Models.Enums;
+﻿namespace Milmom_Service.Models.Enums;
 
 public enum StatusCodeEnum
 {

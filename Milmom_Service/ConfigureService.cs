@@ -17,6 +17,8 @@ namespace Milmom_Service
         {
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddScoped<IAccountApplicationService, AccountApplicationService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IImageProductService, ImageProductService>();
             
             return services;
         }

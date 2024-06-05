@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Milmom_Service.Model.Request.AccountApplication;
 using Milmom_Service.Model.Response.AccountApplication;
+using Milmom_Service.Model.Response.ImageProduct;
+using Milmom_Service.Model.Response.Product;
 using MilmomStore_BusinessObject.Model;
 
 namespace Milmom_Service.Mapping
@@ -21,6 +23,9 @@ namespace Milmom_Service.Mapping
             CreateMap<AccountApplication, DeleteUserResponse>();
             CreateMap<AccountApplication, UpdateUserResponse>();
             CreateMap<UpdateUserRequest, AccountApplication>().ReverseMap();
+            CreateMap<Product, GetAllProductsResponse>();
+            CreateMap<Product, GetProductByIdResponse>();
+            CreateMap<ImageProduct, GetAllImageProductsResponse>();
         }
     }
 }

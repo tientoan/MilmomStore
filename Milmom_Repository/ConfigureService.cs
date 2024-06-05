@@ -19,8 +19,12 @@ namespace Milmom_Repository
         {
             
             services.AddScoped<IAccountAppRepository, AccountAppRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IImageProductRepository, ImageProductRepository>();
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<AccountDAO>();
+            services.AddScoped<ProductDAO>();
+            services.AddScoped<ImageProductDAO>();
             //
             
             return services;

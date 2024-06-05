@@ -42,5 +42,10 @@ namespace MilmomStore_DataAccessObject.BaseDAO
             return await _dbContext.Set<T>().ToListAsync();
 
         }
+
+        public async Task<T> GetByStringIdAsync(string id)
+        {
+            return await _dbContext.Set<T>().FindAsync(id);
+        }
     }
 }

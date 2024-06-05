@@ -17,7 +17,7 @@ namespace Milmom_Service.Service
             _tokenRepository = tokenRepository;
         }
 
-        public string createToken(AccountApplication application)
+        public Task<string> createToken(AccountApplication application)
         {
             return _tokenRepository.createToken(application);
         }

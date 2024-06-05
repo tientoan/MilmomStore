@@ -7,6 +7,10 @@ using Microsoft.IdentityModel.Tokens;
 using Milmom_Service;
 using Microsoft.OpenApi.Models;
 using Milmom_Repository;
+using Milmom_Repository.IBaseRepository;
+using Milmom_Repository.BaseRepository;
+using Milmom_Service.IService;
+using Milmom_Service.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +31,8 @@ builder.Services.AddDbContext<MilmomSystemContext>(p
 builder.Services.ConfigureRepositoryService(builder.Configuration);
 builder.Services.ConfigureServiceService(builder.Configuration);
 builder.Services.ConfigureDataAccessObjectService(builder.Configuration);
+builder.Services.AddScoped<ITokenRepository, TokenRepository>();
+builder.Services.AddScoped<ITokenService,TokenService>();
 //
 builder.Services.AddSwaggerGen(option =>
 {

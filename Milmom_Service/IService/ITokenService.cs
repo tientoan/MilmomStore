@@ -9,6 +9,6 @@ namespace Milmom_Service.IService
 {
     public interface ITokenService
     {
-        string createToken(AccountApplication application);
+        public Task<string> createToken(AccountApplication application);
     }
 }

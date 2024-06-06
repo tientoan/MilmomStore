@@ -1,17 +1,29 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\MilmomStore\\",
+  "WorkspaceRootPath": "C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\MilmomStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|c:\\users\\admin\\desktop\\milmomstore\\milmomstore.server\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|c:\\users\\pc\\onedrive\\m\u00E1y t\u00EDnh\\milmomstore\\milmomstore.server\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|solutionrelative:milmomstore.server\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore.server\\controllers\\accountappcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\MilmomStore\\milmomstore_dataaccessobject\\milmomsystemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|solutionrelative:milmomstore_dataaccessobject\\milmomsystemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\MilmomStore\\milmomstore.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|solutionrelative:milmomstore.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\MilmomStore\\milmomstore.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|solutionrelative:milmomstore.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\MilmomStore\\milmomstore.server\\controllers\\accountappcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|solutionrelative:milmomstore.server\\controllers\\accountappcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\baserepository\\tokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\MilmomStore\\milmom_repository\\baserepository\\tokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|solutionrelative:milmom_repository\\baserepository\\tokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,27 +34,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+              "Name": "ST:0:0:{f5cd1b51-c771-5648-966f-646d419b1e7c}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{f5cd1b51-c771-5648-966f-646d419b1e7c}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MilmomSystemContext.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\MilmomStore\\MilmomStore_DataAccessObject\\MilmomSystemContext.cs",
+              "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\MilmomSystemContext.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\MilmomStore\\MilmomStore_DataAccessObject\\MilmomSystemContext.cs",
+              "RelativeToolTip": "MilmomStore_DataAccessObject\\MilmomSystemContext.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAmwCYAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T15:05:15.937Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\MilmomStore\\MilmomStore.Server\\appsettings.json",
+              "RelativeDocumentMoniker": "MilmomStore.Server\\appsettings.json",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\MilmomStore\\MilmomStore.Server\\appsettings.json",
+              "RelativeToolTip": "MilmomStore.Server\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-05T15:00:01.944Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\MilmomStore\\MilmomStore.Server\\Program.cs",
+              "RelativeDocumentMoniker": "MilmomStore.Server\\Program.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\MilmomStore\\MilmomStore.Server\\Program.cs",
+              "RelativeToolTip": "MilmomStore.Server\\Program.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAHQAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T14:59:41.534Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "AccountAppController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\AccountAppController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\MilmomStore\\MilmomStore.Server\\Controllers\\AccountAppController.cs",
               "RelativeDocumentMoniker": "MilmomStore.Server\\Controllers\\AccountAppController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\AccountAppController.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\MilmomStore\\MilmomStore.Server\\Controllers\\AccountAppController.cs",
               "RelativeToolTip": "MilmomStore.Server\\Controllers\\AccountAppController.cs",
               "ViewState": "AQIAABsAAAAAAAAAAAAYwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -50,11 +94,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "TokenRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\BaseRepository\\TokenRepository.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\MilmomStore\\Milmom_Repository\\BaseRepository\\TokenRepository.cs",
               "RelativeDocumentMoniker": "Milmom_Repository\\BaseRepository\\TokenRepository.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\BaseRepository\\TokenRepository.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\MilmomStore\\Milmom_Repository\\BaseRepository\\TokenRepository.cs",
               "RelativeToolTip": "Milmom_Repository\\BaseRepository\\TokenRepository.cs",
               "ViewState": "AQIAACcAAAAAAAAAAAAYwCkAAABPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -64,11 +108,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\MilmomStore\\MilmomStore.Server\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "MilmomStore.Server\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\MilmomStore\\MilmomStore.Server\\Controllers\\AccountController.cs",
               "RelativeToolTip": "MilmomStore.Server\\Controllers\\AccountController.cs",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAwwFsAAABTAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAAwwCUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-05T06:34:20.794Z",
               "EditorCaption": ""

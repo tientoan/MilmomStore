@@ -13,5 +13,6 @@ namespace MilmomStore_DataAccessObject.IBaseDAO
         Task<T> UpdateAsync(T entity);
         Task<T> DeleteAsync(T entity);
         Task<IEnumerable<T>> GetAllAsync();
+        Task<T> GetByStringIdAsync(string id);
     }
 }

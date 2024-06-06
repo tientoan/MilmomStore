@@ -9,6 +9,6 @@ namespace Milmom_Repository.IBaseRepository
 {
     public interface ITokenRepository
     {
-        string createToken(AccountApplication application);
+       public Task<string> createToken(AccountApplication application);
     }
 }

@@ -29,6 +29,11 @@ namespace Milmom_Repository.Repository
             return await _accountDao.GetByIdAsync(id);
         }
 
+        public async Task<AccountApplication> GetByStringIdAsync(string id)
+        {
+            return await _accountDao.GetByStringIdAsync(id);
+        }
+
         public async Task<AccountApplication> AddAsync(AccountApplication entity)
         {
             return await _accountDao.AddAsync(entity);

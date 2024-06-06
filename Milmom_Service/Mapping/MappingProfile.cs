@@ -20,6 +20,7 @@ namespace Milmom_Service.Mapping
             CreateMap<AccountApplication, CreateNewUserResponse>().ReverseMap();
             CreateMap<AccountApplication, GetAllUserResponse>();
             CreateMap<AccountApplication, GetUserByIdResponse>();
+            CreateMap<AccountApplication, GetUserByStringIdResponse>();
             CreateMap<AccountApplication, DeleteUserResponse>();
             CreateMap<AccountApplication, UpdateUserResponse>();
             CreateMap<UpdateUserRequest, AccountApplication>().ReverseMap();

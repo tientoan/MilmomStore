@@ -36,5 +36,10 @@ namespace Milmom_Repository.BaseRepository
         {
             return await _baseDao.DeleteAsync(entity);
         }
+
+        public async Task<T> GetByStringId(string id)
+        {
+            return await _baseDao.GetByStringIdAsync(id);
+        }
     }
 }

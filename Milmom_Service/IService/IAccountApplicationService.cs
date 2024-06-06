@@ -21,4 +21,5 @@ public interface IAccountApplicationService
     Task<BaseResponse<DeleteUserResponse>> DeleteUserFromBase(int id);
     //Task<BaseResponse<CreateNewUserResponse>> CreateUser(CreateNewUserRequest request);
     Task<BaseResponse<CreateNewUserResponse>> CreateUserFromBase(CreateNewUserRequest request);
+    Task<BaseResponse<GetUserByStringIdResponse>> GetUserByStringIdFromBase(string id);
 }

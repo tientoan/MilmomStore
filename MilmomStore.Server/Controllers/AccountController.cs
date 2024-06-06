@@ -32,7 +32,7 @@ namespace MilmomStore.Server.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Name == loginDto.Username.ToLower());
+            var user = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == loginDto.Username.ToLower());
 
             if (user == null) return Unauthorized("Invalid username!");
 
@@ -48,7 +48,7 @@ namespace MilmomStore.Server.Controllers
                     Email = user.Email,
                     Roles = roles.ToList(),
 
-                    Token = _tokenService.createToken(user)
+                    Token = await _tokenService.createToken(user)
                 }
             );
         }
@@ -89,7 +89,7 @@ namespace MilmomStore.Server.Controllers
                                 Address = accountApp.Address,
                                 Phone = accountApp.Phone,
                                 Image = accountApp.Image,
-                                Token = _tokenService.createToken(accountApp)
+                                Token = await _tokenService.createToken(accountApp)
                             }
                         );
                     }
@@ -162,7 +162,7 @@ namespace MilmomStore.Server.Controllers
                                     Phone = accountApp.Phone,
                                     Image = accountApp.Image,
                                     Roles = userRoles.ToList(),
-                                    Token = _tokenService.createToken(accountApp)
+                                    Token = await _tokenService.createToken(accountApp)
                                 }
                             );
                         }

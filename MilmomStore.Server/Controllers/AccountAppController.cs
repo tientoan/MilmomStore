@@ -34,6 +34,13 @@ namespace MilmomStore.Server.Controllers
         }
         //
         [HttpGet]
+        [Route("base/string/{id}")]
+        public async Task<ActionResult<BaseResponse<GetUserByStringIdResponse>>> GetUserByStringIdFromBase(string id)
+        {
+            return await _userService.GetUserByStringIdFromBase(id);
+        }
+        //
+        [HttpGet]
         [Route("base")]
         public async Task<ActionResult<BaseResponse<IEnumerable<GetAllUserResponse>>>> GetAllUserFromBase()
         {

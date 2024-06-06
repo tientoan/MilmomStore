@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Milmom_Repository.IBaseRepository;
@@ -16,20 +17,28 @@ namespace Milmom_Repository.BaseRepository
     {
         private readonly IConfiguration _config;
         private readonly SymmetricSecurityKey _key;
+        private readonly UserManager<AccountApplication> _userManager;
 
-        public TokenRepository(IConfiguration config)
+        public TokenRepository(IConfiguration config, UserManager<AccountApplication> userManager)
         {
             _config = config;
+            _userManager = userManager;
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWT:SigningKey"]));
         }
-        public string createToken(AccountApplication accountApplication)
+
+        public async Task<string> createToken(AccountApplication accountApplication)
         {
+            var user = await _userManager.FindByEmailAsync(accountApplication.Email);
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Email, accountApplication.Email),
-                new Claim(JwtRegisteredClaimNames.GivenName, accountApplication.UserName)
+                new Claim(JwtRegisteredClaimNames.GivenName, accountApplication.UserName),
             };
-
+            var userRoles = await _userManager.GetRolesAsync(user);
+            foreach (var role in userRoles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role.ToString()));
+            }
             var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
 
             var tokenDescriptor = new SecurityTokenDescriptor

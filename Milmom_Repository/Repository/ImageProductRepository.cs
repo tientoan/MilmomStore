@@ -43,5 +43,7 @@ namespace Milmom_Repository.Repository
         {
             return await _imageProductDao.DeleteAsync(entity);
         }
+
+        
     }
 }

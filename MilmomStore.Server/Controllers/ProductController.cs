@@ -32,5 +32,12 @@ namespace MilmomStore.Server.Controllers
         {
             return await _productService.GetProductByIdFromBase(id);
         }
+
+        [HttpGet]
+        [Route("/ProductDetail/base/{id}")]
+        public async Task<ActionResult<BaseResponse<GetProductDetailsResponse>>> GetProductDetailByIdFromBase(int id)
+        {
+            return await _productService.GetProductDetailByIdFromBase(id);
+        }
     }
 }

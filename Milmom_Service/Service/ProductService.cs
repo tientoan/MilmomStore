@@ -40,5 +40,13 @@ namespace Milmom_Service.Service
             return new BaseResponse<GetProductByIdResponse>("Get product by id as base success", StatusCodeEnum.OK_200,
                 result);
         }
+
+        public async Task<BaseResponse<GetProductDetailsResponse>> GetProductDetailByIdFromBase(int id)
+        {
+            Product product = await _productRepository.GetByIdAsync(id);
+            var result = _mapper.Map<GetProductDetailsResponse>(product);
+            return new BaseResponse<GetProductDetailsResponse>("Get product by id as base success", StatusCodeEnum.OK_200,
+                result);
+        }
     }
 }

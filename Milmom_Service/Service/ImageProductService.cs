@@ -33,5 +33,7 @@ namespace Milmom_Service.Service
             return new BaseResponse<IEnumerable<GetAllImageProductsResponse>>("Get all image product as base success",
                 StatusCodeEnum.OK_200, image);
         }
+
+        
     }
 }

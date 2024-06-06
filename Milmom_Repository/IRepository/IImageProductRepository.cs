@@ -10,6 +10,6 @@ namespace Milmom_Repository.IRepository
 {
     public interface IImageProductRepository:IBaseRepository<ImageProduct>
     {
-
+        
     }
 }

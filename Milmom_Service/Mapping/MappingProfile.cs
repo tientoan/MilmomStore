@@ -25,7 +25,10 @@ namespace Milmom_Service.Mapping
             CreateMap<UpdateUserRequest, AccountApplication>().ReverseMap();
             CreateMap<Product, GetAllProductsResponse>();
             CreateMap<Product, GetProductByIdResponse>();
+            CreateMap<Product, GetProductDetailsResponse>();
             CreateMap<ImageProduct, GetAllImageProductsResponse>();
+            
+
         }
     }
 }

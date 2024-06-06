@@ -14,6 +14,7 @@ namespace Milmom_Service.IService
     {
         Task<BaseResponse<IEnumerable<GetAllProductsResponse>>> GetAllProductsFromBase();
         Task<BaseResponse<GetProductByIdResponse>> GetProductByIdFromBase(int id);
+        Task<BaseResponse<GetProductDetailsResponse>> GetProductDetailByIdFromBase(int id);
 
     }
 }

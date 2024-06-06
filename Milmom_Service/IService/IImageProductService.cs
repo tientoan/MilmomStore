@@ -12,5 +12,6 @@ namespace Milmom_Service.IService
     public interface IImageProductService
     {
         Task<BaseResponse<IEnumerable<GetAllImageProductsResponse>>> GetAllImageProductsFromBase();
+        
     }
 }

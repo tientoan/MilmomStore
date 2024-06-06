@@ -23,6 +23,13 @@ namespace MilmomStore_DataAccessObject
            .Include(p => p.ImageProducts).ToListAsync();
 
         }
+
+        public async Task<Product> GetByIdAsync(int id)
+        {
+            return await _context.Products
+                .Include(p => p.ImageProducts)
+                .SingleOrDefaultAsync(p => p.ProductID == id);
+        }
     }
     
 }

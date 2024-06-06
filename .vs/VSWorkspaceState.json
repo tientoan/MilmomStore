@@ -1,15 +1,17 @@
 {
   "ExpandedNodes": [
     "",
-    "\\MilmomStore.Server",
-    "\\MilmomStore.Server\\Controllers",
+    "\\MilmomStore_BusinessObject",
+    "\\MilmomStore_BusinessObject\\Model",
     "\\Milmom_Service",
     "\\Milmom_Service\\IService",
     "\\Milmom_Service\\Model",
     "\\Milmom_Service\\Model\\Response",
     "\\Milmom_Service\\Model\\Response\\AccountApplication",
-    "\\Milmom_Service\\Model\\Response\\Product"
+    "\\Milmom_Service\\Model\\Response\\ImageProduct",
+    "\\Milmom_Service\\Model\\Response\\Product",
+    "\\Milmom_Service\\Service"
   ],
-  "SelectedNode": "\\MilmomStore.sln",
+  "SelectedNode": "\\Milmom_Service\\Service\\ProductService.cs",
   "PreviewInSolutionExplorer": false
 }

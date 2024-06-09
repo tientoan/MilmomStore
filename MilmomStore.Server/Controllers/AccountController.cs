@@ -47,7 +47,10 @@ namespace MilmomStore.Server.Controllers
                     UserName = user.UserName,
                     Email = user.Email,
                     Roles = roles.ToList(),
-
+                    Phone = user.Phone,
+                    Name = user.Name,
+                    Address = user.Address,
+                    Image = user.Image,
                     Token = await _tokenService.createToken(user)
                 }
             );

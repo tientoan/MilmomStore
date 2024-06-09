@@ -14,7 +14,7 @@ namespace MilmomStore_BusinessObject.Model
         [Key]
         public int ImageProductsID { get; set; }
         [Required]
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
         //
         public int ProductID { get; set; }
         [ForeignKey("ProductID")]

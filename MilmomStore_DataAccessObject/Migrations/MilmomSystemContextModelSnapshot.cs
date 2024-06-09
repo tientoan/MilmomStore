@@ -47,6 +47,36 @@ namespace MilmomStore.Server.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1794057e-55f2-44f4-a911-e5dc847e26fe",
+                            ConcurrencyStamp = "d129051b-8481-4949-9565-94c90fce3f47",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "07aa36c7-d918-4160-b072-4c6e2b7c23d2",
+                            ConcurrencyStamp = "26f6b5a8-6ead-44c1-8349-d5a7efda0fcf",
+                            Name = "Customer",
+                            NormalizedName = "CUSTOMER"
+                        },
+                        new
+                        {
+                            Id = "5cb4cce8-ff02-4c2d-bf41-b7a66360c4b8",
+                            ConcurrencyStamp = "cced79a5-490d-4838-a474-27b5bf7a9190",
+                            Name = "Staff",
+                            NormalizedName = "STAFF"
+                        },
+                        new
+                        {
+                            Id = "99cb7fe8-fff7-4bbb-a300-b81af72e90f2",
+                            ConcurrencyStamp = "86b9b35d-5cc0-4483-9b8a-9359415e9bd9",
+                            Name = "Manager",
+                            NormalizedName = "MANAGER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -279,6 +309,25 @@ namespace MilmomStore.Server.Migrations
                     b.ToTable("Blogs");
                 });
 
+            modelBuilder.Entity("MilmomStore_BusinessObject.Model.Cart", b =>
+                {
+                    b.Property<int>("CartID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartID"), 1L, 1);
+
+                    b.Property<string>("AccountID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("CartID");
+
+                    b.HasIndex("AccountID");
+
+                    b.ToTable("Cart");
+                });
+
             modelBuilder.Entity("MilmomStore_BusinessObject.Model.CartItem", b =>
                 {
                     b.Property<int>("CartItemID")
@@ -287,9 +336,11 @@ namespace MilmomStore.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartItemID"), 1L, 1);
 
-                    b.Property<string>("AccountID")
-                        .IsRequired()
+                    b.Property<string>("AccountApplicationId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("CartID")
+                        .HasColumnType("int");
 
                     b.Property<int>("ProductID")
                         .HasColumnType("int");
@@ -299,7 +350,9 @@ namespace MilmomStore.Server.Migrations
 
                     b.HasKey("CartItemID");
 
-                    b.HasIndex("AccountID");
+                    b.HasIndex("AccountApplicationId");
+
+                    b.HasIndex("CartID");
 
                     b.HasIndex("ProductID");
 
@@ -331,9 +384,9 @@ namespace MilmomStore.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImageProductsID"), 1L, 1);
 
-                    b.Property<byte[]>("Image")
+                    b.Property<string>("Image")
                         .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductID")
                         .HasColumnType("int");
@@ -767,11 +820,26 @@ namespace MilmomStore.Server.Migrations
                     b.Navigation("Account");
                 });
 
-            modelBuilder.Entity("MilmomStore_BusinessObject.Model.CartItem", b =>
+            modelBuilder.Entity("MilmomStore_BusinessObject.Model.Cart", b =>
                 {
                     b.HasOne("MilmomStore_BusinessObject.Model.AccountApplication", "AccountsApplication")
-                        .WithMany("CartItems")
+                        .WithMany()
                         .HasForeignKey("AccountID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AccountsApplication");
+                });
+
+            modelBuilder.Entity("MilmomStore_BusinessObject.Model.CartItem", b =>
+                {
+                    b.HasOne("MilmomStore_BusinessObject.Model.AccountApplication", null)
+                        .WithMany("CartItems")
+                        .HasForeignKey("AccountApplicationId");
+
+                    b.HasOne("MilmomStore_BusinessObject.Model.Cart", "Cart")
+                        .WithMany("CartItem")
+                        .HasForeignKey("CartID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -781,7 +849,7 @@ namespace MilmomStore.Server.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AccountsApplication");
+                    b.Navigation("Cart");
 
                     b.Navigation("Product");
                 });
@@ -920,6 +988,11 @@ namespace MilmomStore.Server.Migrations
                     b.Navigation("Reports");
 
                     b.Navigation("Reviews");
+                });
+
+            modelBuilder.Entity("MilmomStore_BusinessObject.Model.Cart", b =>
+                {
+                    b.Navigation("CartItem");
                 });
 
             modelBuilder.Entity("MilmomStore_BusinessObject.Model.Category", b =>

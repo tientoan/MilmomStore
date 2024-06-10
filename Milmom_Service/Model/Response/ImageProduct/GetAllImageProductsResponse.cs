@@ -8,6 +8,6 @@ namespace Milmom_Service.Model.Response.ImageProduct
 {
     public class GetAllImageProductsResponse
     {
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
     }
 }

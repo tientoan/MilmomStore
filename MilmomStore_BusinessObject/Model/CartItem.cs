@@ -19,9 +19,9 @@ namespace MilmomStore_BusinessObject.Model
         [ForeignKey("ProductID")]
         public Product Product { get; set; }
         //
-        public string AccountID { get; set; }
-        [ForeignKey("AccountID")]
-        public AccountApplication AccountsApplication { get; set; }
+        public int CartID { get; set; }
+        [ForeignKey("CartID")]
+        public Cart Cart { get; set; }
 
     }
 }

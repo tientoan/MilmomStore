@@ -77,7 +77,11 @@ namespace MilmomStore_DataAccessObject
         public DbSet<Slider> Slider { set; get; }
         public DbSet<Transaction> Transaction { set; get; }
         //
+<<<<<<< Updated upstream
         public const string ConnectString = @"Data Source=TOANNT\\SQLEXPRESS,1433;Initial Catalog=MilmomStore;User ID=sa;Password=12345";
+=======
+        public const string ConnectString = @"Data Source=localhost;Initial Catalog=MilmomStore;User ID=sa;Password=12345";
+>>>>>>> Stashed changes
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

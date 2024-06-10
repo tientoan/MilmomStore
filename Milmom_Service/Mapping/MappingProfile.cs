@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Milmom_Service.Model.Request.AccountApplication;
 using Milmom_Service.Model.Response.AccountApplication;
+using Milmom_Service.Model.Response.Cart;
 using Milmom_Service.Model.Response.ImageProduct;
 using Milmom_Service.Model.Response.Product;
 using MilmomStore_BusinessObject.Model;
@@ -26,10 +27,9 @@ namespace Milmom_Service.Mapping
             CreateMap<UpdateUserRequest, AccountApplication>().ReverseMap();
             CreateMap<Product, GetAllProductsResponse>();
             CreateMap<Product, GetProductByIdResponse>();
-            CreateMap<Product, GetProductDetailsResponse>();
             CreateMap<ImageProduct, GetAllImageProductsResponse>();
-            
-
+            CreateMap<Cart, CartResponse>();
+            CreateMap<CartItem, CartItemResponse>();
         }
     }
 }

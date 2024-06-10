@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MilmomStore_DataAccessObject;
 
@@ -11,9 +12,10 @@ using MilmomStore_DataAccessObject;
 namespace MilmomStore.Server.Migrations
 {
     [DbContext(typeof(MilmomSystemContext))]
-    partial class MilmomSystemContextModelSnapshot : ModelSnapshot
+    [Migration("20240608161850_FixCart")]
+    partial class FixCart
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,29 +53,29 @@ namespace MilmomStore.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "053d5b34-b408-4d58-9cf9-e9e859bc94ac",
-                            ConcurrencyStamp = "48bb6122-ef85-426d-bc65-05c91633d100",
+                            Id = "1794057e-55f2-44f4-a911-e5dc847e26fe",
+                            ConcurrencyStamp = "d129051b-8481-4949-9565-94c90fce3f47",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "e1aeabae-9e2d-411c-8faa-644003c09382",
-                            ConcurrencyStamp = "51b4e27c-fc7b-417f-bbab-82d4169bbcd8",
+                            Id = "07aa36c7-d918-4160-b072-4c6e2b7c23d2",
+                            ConcurrencyStamp = "26f6b5a8-6ead-44c1-8349-d5a7efda0fcf",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "be66a18a-eeb5-4535-b279-3d6d60083f2f",
-                            ConcurrencyStamp = "7cdd6863-1bbc-47f5-9ab7-d43716fe7927",
+                            Id = "5cb4cce8-ff02-4c2d-bf41-b7a66360c4b8",
+                            ConcurrencyStamp = "cced79a5-490d-4838-a474-27b5bf7a9190",
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         },
                         new
                         {
-                            Id = "e22fe111-fcef-42f3-969c-ad0fd6e5b5e5",
-                            ConcurrencyStamp = "c22f4ce7-ac33-4050-b381-5c34d23b8e54",
+                            Id = "99cb7fe8-fff7-4bbb-a300-b81af72e90f2",
+                            ConcurrencyStamp = "86b9b35d-5cc0-4483-9b8a-9359415e9bd9",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         });
@@ -325,7 +327,7 @@ namespace MilmomStore.Server.Migrations
 
                     b.HasIndex("AccountID");
 
-                    b.ToTable("Carts");
+                    b.ToTable("Cart");
                 });
 
             modelBuilder.Entity("MilmomStore_BusinessObject.Model.CartItem", b =>
@@ -499,10 +501,6 @@ namespace MilmomStore.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Instruction")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("InventoryQuantity")
                         .HasColumnType("int");
 
@@ -529,9 +527,6 @@ namespace MilmomStore.Server.Migrations
 
                     b.Property<DateTime>("UpdateAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<double>("Weight")
-                        .HasColumnType("float");
 
                     b.HasKey("ProductID");
 

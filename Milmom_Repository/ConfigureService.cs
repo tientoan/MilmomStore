@@ -17,14 +17,18 @@ namespace Milmom_Repository
     {
         public static IServiceCollection ConfigureRepositoryService(this IServiceCollection services, IConfiguration configuration)
         {
-            
+            //
             services.AddScoped<IAccountAppRepository, AccountAppRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IImageProductRepository, ImageProductRepository>();
+            services.AddScoped<ICartRepository, CartRepository>();
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+            
+            //
             services.AddScoped<AccountDAO>();
             services.AddScoped<ProductDAO>();
             services.AddScoped<ImageProductDAO>();
+            services.AddScoped<CartDAO>();
             //
             
             return services;

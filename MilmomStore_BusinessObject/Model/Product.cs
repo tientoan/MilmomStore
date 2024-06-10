@@ -32,6 +32,9 @@ namespace MilmomStore_BusinessObject.Model
         [Required]
         public DateTime ExpiredDate { get; set; }
         public string Ingredient { get; set; }
+        //add more
+        public string Instruction { get; set; }
+        public double Weight { get; set; }
         //
         public int CategoryID { get; set; }
         [ForeignKey("CategoryID")]

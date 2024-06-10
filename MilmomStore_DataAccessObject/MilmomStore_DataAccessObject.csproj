@@ -25,8 +25,4 @@
     <ProjectReference Include="..\MilmomStore_BusinessObject\MilmomStore_BusinessObject.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DbContext\" />
-  </ItemGroup>
-
 </Project>

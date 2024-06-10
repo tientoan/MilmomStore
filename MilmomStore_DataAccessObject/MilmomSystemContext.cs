@@ -64,6 +64,7 @@ namespace MilmomStore_DataAccessObject
 
         //
         public DbSet<Blog> Blogs { set; get; }
+        public DbSet<Cart> Carts { set; get; }
         public DbSet<CartItem> CartItems { set; get; }
         public DbSet<Category> Categories { set; get; }
         public DbSet<ImageProduct> ImageProducts { set; get; }
@@ -77,13 +78,13 @@ namespace MilmomStore_DataAccessObject
         public DbSet<Slider> Slider { set; get; }
         public DbSet<Transaction> Transaction { set; get; }
         //
-        //public const string ConnectStrring = @"Data Source=localhost,1433;Initial Catalog=MilmomStore_Db;User ID=sa;Password=12345";
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer(ConnectStrring);
-
-        //}
+        // public const string ConnectString = @"Data Source=TOANNT\\SQLEXPRESS,1433;Initial Catalog=MilmomStore;User ID=sa;Password=12345";
+        //
+        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        // {
+        //     optionsBuilder.UseSqlServer(ConnectString);
+        //
+        // }
 
         //    private ILoggerFactory GetLoggerFactory()
         //    {

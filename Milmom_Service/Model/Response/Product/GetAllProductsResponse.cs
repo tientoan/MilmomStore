@@ -11,6 +11,7 @@ namespace Milmom_Service.Model.Response.Product
 {
     public class GetAllProductsResponse
     {
+        public int ProductId { get; set; }
         public string Name { get; set; }
         public double PurchasePrice { get; set; }
         //thieu rating voi image

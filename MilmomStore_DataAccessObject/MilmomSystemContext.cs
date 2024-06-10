@@ -77,13 +77,13 @@ namespace MilmomStore_DataAccessObject
         public DbSet<Slider> Slider { set; get; }
         public DbSet<Transaction> Transaction { set; get; }
         //
-        //public const string ConnectStrring = @"Data Source=localhost,1433;Initial Catalog=MilmomStore_Db;User ID=sa;Password=12345";
+        public const string ConnectString = @"Data Source=TOANNT\\SQLEXPRESS,1433;Initial Catalog=MilmomStore;User ID=sa;Password=12345";
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer(ConnectStrring);
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(ConnectString);
 
-        //}
+        }
 
         //    private ILoggerFactory GetLoggerFactory()
         //    {

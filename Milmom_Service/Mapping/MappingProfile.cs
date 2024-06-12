@@ -25,6 +25,8 @@ namespace Milmom_Service.Mapping
             CreateMap<AccountApplication, DeleteUserResponse>();
             CreateMap<AccountApplication, UpdateUserResponse>();
             CreateMap<UpdateUserRequest, AccountApplication>().ReverseMap();
+            CreateMap<AccountApplication, UpdateUserResponseByString>();
+            CreateMap<UpdateUserRequestByString, AccountApplication>().ReverseMap();
             CreateMap<Product, GetAllProductsResponse>();
             CreateMap<Product, GetProductByIdResponse>();
             CreateMap<ImageProduct, GetAllImageProductsResponse>();

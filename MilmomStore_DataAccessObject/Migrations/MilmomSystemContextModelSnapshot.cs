@@ -51,29 +51,29 @@ namespace MilmomStore.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "053d5b34-b408-4d58-9cf9-e9e859bc94ac",
-                            ConcurrencyStamp = "48bb6122-ef85-426d-bc65-05c91633d100",
+                            Id = "e6a83981-2a46-49c5-b1d3-ead1ec170e2b",
+                            ConcurrencyStamp = "9191e9b9-9fe6-4174-ac77-faeedb544aa5",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "e1aeabae-9e2d-411c-8faa-644003c09382",
-                            ConcurrencyStamp = "51b4e27c-fc7b-417f-bbab-82d4169bbcd8",
+                            Id = "11c6cbc9-f45b-413b-851c-c79e20fa1142",
+                            ConcurrencyStamp = "79aa2dbc-dfa7-432f-8b4b-5cc18252c2fc",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "be66a18a-eeb5-4535-b279-3d6d60083f2f",
-                            ConcurrencyStamp = "7cdd6863-1bbc-47f5-9ab7-d43716fe7927",
+                            Id = "e99618f6-ccdb-433f-a051-903382645066",
+                            ConcurrencyStamp = "1cf9f73a-50db-497f-bd78-30c7a15f64dd",
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         },
                         new
                         {
-                            Id = "e22fe111-fcef-42f3-969c-ad0fd6e5b5e5",
-                            ConcurrencyStamp = "c22f4ce7-ac33-4050-b381-5c34d23b8e54",
+                            Id = "36d94568-871e-4cc3-bb39-3049a7b9be1e",
+                            ConcurrencyStamp = "1d379941-ba95-4af5-9d07-62426187f8a6",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         });

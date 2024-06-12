@@ -22,4 +22,5 @@ public interface IAccountApplicationService
     //Task<BaseResponse<CreateNewUserResponse>> CreateUser(CreateNewUserRequest request);
     Task<BaseResponse<CreateNewUserResponse>> CreateUserFromBase(CreateNewUserRequest request);
     Task<BaseResponse<GetUserByStringIdResponse>> GetUserByStringIdFromBase(string id);
+    Task<BaseResponse<UpdateUserResponseByString>> UpdateUserByStringFromBase(string id, UpdateUserRequestByString user);
 }

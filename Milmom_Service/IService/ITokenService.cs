@@ -1,4 +1,5 @@
-﻿using MilmomStore_BusinessObject.Model;
+﻿using MilmomStore_BusinessObject.IdentityModel;
+using MilmomStore_BusinessObject.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Milmom_Service.IService
 {
     public interface ITokenService
     {
-        public Task<string> createToken(AccountApplication application);
+        public Task<TokenModel> createToken(AccountApplication application);
     }
 }

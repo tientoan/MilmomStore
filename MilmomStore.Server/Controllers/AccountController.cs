@@ -41,6 +41,7 @@ namespace MilmomStore.Server.Controllers
             if (!result.Succeeded) return Unauthorized("Username not found and/or password incorrect");
 
             var roles = await _userManager.GetRolesAsync(user);
+            var token = await _tokenService.createToken(user);
             return Ok(
                 new NewUserDto
                 {
@@ -51,7 +52,8 @@ namespace MilmomStore.Server.Controllers
                     Name = user.Name,
                     Address = user.Address,
                     Image = user.Image,
-                    Token = await _tokenService.createToken(user)
+                    Token = token.AccessToken,
+                    RefreshToken = token.RefreshToken
                 }
             );
         }
@@ -81,8 +83,10 @@ namespace MilmomStore.Server.Controllers
                 if (createdUser.Succeeded)
                 {
                     var roleResult = await _userManager.AddToRoleAsync(accountApp, "CUSTOMER");
+                    var token = await _tokenService.createToken(accountApp);
                     if (roleResult.Succeeded)
                     {
+                        var userRoles = await _userManager.GetRolesAsync(accountApp);
                         return Ok(
                             new NewUserDto
                             {
@@ -92,7 +96,9 @@ namespace MilmomStore.Server.Controllers
                                 Address = accountApp.Address,
                                 Phone = accountApp.Phone,
                                 Image = accountApp.Image,
-                                Token = await _tokenService.createToken(accountApp)
+                                Roles = userRoles.ToList(),
+                                Token = token.AccessToken,
+                                RefreshToken = token.RefreshToken
                             }
                         );
                     }
@@ -155,6 +161,7 @@ namespace MilmomStore.Server.Controllers
                         if (roleResult.Succeeded)
                         {
                             var userRoles = await _userManager.GetRolesAsync(accountApp);
+                            var token = await _tokenService.createToken(accountApp);
                             return Ok(
                                 new NewUserDto
                                 {
@@ -165,7 +172,8 @@ namespace MilmomStore.Server.Controllers
                                     Phone = accountApp.Phone,
                                     Image = accountApp.Image,
                                     Roles = userRoles.ToList(),
-                                    Token = await _tokenService.createToken(accountApp)
+                                    Token = token.AccessToken,
+                                    RefreshToken = token.RefreshToken
                                 }
                             );
                         }
@@ -188,6 +196,61 @@ namespace MilmomStore.Server.Controllers
             {
                 return StatusCode(500, e);
             }
+        }
+
+        [HttpPost("Reset-Password-Token")]
+        public async Task<IActionResult> ResetPasswordToken([FromBody] ResetTokenModel resetTokenModel)
+        {
+            var user = await _userManager.FindByEmailAsync(resetTokenModel.Email);
+            if (user == null)
+            {
+                return BadRequest("Cannot find Email, Please check again!");
+            }
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            return Ok(new { token = token });
+        }
+
+        [HttpPost("Reset-Password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetToken resetToken)
+        {
+            var user = await _userManager.FindByEmailAsync(resetToken.Email);
+            if (user == null)
+            {
+                return BadRequest("UserName is wrong, Please check again!");
+            }
+
+            user = await _userManager.FindByNameAsync(resetToken.Username);
+            if (user == null)
+            {
+                return BadRequest("Cannot find Email, Please check again!");
+            }
+
+            if (string.Compare(resetToken.Password, resetToken.ConfirmPassword) != 0)
+            {
+                return BadRequest("Password and ConfirmPassword doesnot match! ");
+            }
+            if (string.IsNullOrEmpty(resetToken.Token))
+            {
+                return BadRequest("Invalid Token! ");
+            }
+            var result = await _userManager.ResetPasswordAsync(user, resetToken.Token, resetToken.Password);
+            if (!result.Succeeded)
+            {
+                var errors = new List<string>();
+                foreach (var error in result.Errors)
+                {
+                    errors.Add(error.Description);
+                }
+                return StatusCode(500, result.Errors);
+            }
+            return Ok(new UserDto
+            {
+                Email = resetToken.Email,
+                Username = resetToken.Username,
+                Password = resetToken.Password,
+                ConfirmPassword = resetToken.ConfirmPassword,
+                Token = resetToken.Token,
+            });
         }
     }
 }

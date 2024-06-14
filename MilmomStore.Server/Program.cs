@@ -105,6 +105,13 @@ builder.Services.AddAuthentication(options =>
     };
 });
 //
+//life span
+builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
+{
+    options.TokenLifespan = TimeSpan.FromHours(1);
+});
+//
+
 var app = builder.Build();
 
 app.UseDefaultFiles();

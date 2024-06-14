@@ -1,5 +1,6 @@
 ﻿using Milmom_Repository.IBaseRepository;
 using Milmom_Service.IService;
+using MilmomStore_BusinessObject.IdentityModel;
 using MilmomStore_BusinessObject.Model;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace Milmom_Service.Service
             _tokenRepository = tokenRepository;
         }
 
-        public Task<string> createToken(AccountApplication application)
+        public Task<TokenModel> createToken(AccountApplication application)
         {
             return _tokenRepository.createToken(application);
         }

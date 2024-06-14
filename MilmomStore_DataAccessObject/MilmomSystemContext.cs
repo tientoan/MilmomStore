@@ -76,13 +76,13 @@ namespace MilmomStore_DataAccessObject
         public DbSet<Slider> Slider { set; get; }
         public DbSet<Transaction> Transaction { set; get; }
         //
-        public const string ConnectString = @"Data Source=TOANNT\\SQLEXPRESS,1433;Initial Catalog=MilmomStore;User ID=sa;Password=12345";
-        
+        /*public const string ConnectString = "server=DESKTOP-88329MO\\KHANHVU21;database=MilmomStore;uid=sa;pwd=12345;Integrated Security=true;Trusted_Connection=false;TrustServerCertificate=True";
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(ConnectString);
-        
-        }
+
+        }*/
 
         //    private ILoggerFactory GetLoggerFactory()
         //    {

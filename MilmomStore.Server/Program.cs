@@ -67,6 +67,11 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 });
 //
+
+//builder.Services.AddSession();
+//builder.Services.AddHttpContextAccessor();
+builder.Services.AddHttpClient();
+//
 builder.Services.AddIdentity<AccountApplication, IdentityRole>(options =>
     {
         options.Password.RequireDigit = true;
@@ -116,6 +121,7 @@ app.UseCors(builder => builder
     .AllowAnyMethod()
     .AllowAnyHeader());
 //
+//app.UseSession();
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();

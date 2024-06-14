@@ -3,17 +3,19 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MilmomStore_DataAccessObject;
 
 #nullable disable
 
-namespace MilmomStore.Server.Migrations
+namespace MilmomStore_DataAccessObject.Migrations
 {
     [DbContext(typeof(MilmomSystemContext))]
-    partial class MilmomSystemContextModelSnapshot : ModelSnapshot
+    [Migration("20240611145548_AddInforProduct")]
+    partial class AddInforProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -633,15 +635,7 @@ namespace MilmomStore.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShippingInforID"), 1L, 1);
 
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DetailAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("District")
+                    b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -649,7 +643,7 @@ namespace MilmomStore.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ReceiverName")
+                    b.Property<string>("Receiver")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

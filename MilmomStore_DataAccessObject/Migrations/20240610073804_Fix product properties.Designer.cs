@@ -3,17 +3,19 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MilmomStore_DataAccessObject;
 
 #nullable disable
 
-namespace MilmomStore.Server.Migrations
+namespace MilmomStore_DataAccessObject.Migrations
 {
     [DbContext(typeof(MilmomSystemContext))]
-    partial class MilmomSystemContextModelSnapshot : ModelSnapshot
+    [Migration("20240610073804_Fix product properties")]
+    partial class Fixproductproperties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,6 +49,36 @@ namespace MilmomStore.Server.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "053d5b34-b408-4d58-9cf9-e9e859bc94ac",
+                            ConcurrencyStamp = "48bb6122-ef85-426d-bc65-05c91633d100",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "e1aeabae-9e2d-411c-8faa-644003c09382",
+                            ConcurrencyStamp = "51b4e27c-fc7b-417f-bbab-82d4169bbcd8",
+                            Name = "Customer",
+                            NormalizedName = "CUSTOMER"
+                        },
+                        new
+                        {
+                            Id = "be66a18a-eeb5-4535-b279-3d6d60083f2f",
+                            ConcurrencyStamp = "7cdd6863-1bbc-47f5-9ab7-d43716fe7927",
+                            Name = "Staff",
+                            NormalizedName = "STAFF"
+                        },
+                        new
+                        {
+                            Id = "e22fe111-fcef-42f3-969c-ad0fd6e5b5e5",
+                            ConcurrencyStamp = "c22f4ce7-ac33-4050-b381-5c34d23b8e54",
+                            Name = "Manager",
+                            NormalizedName = "MANAGER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -383,8 +415,7 @@ namespace MilmomStore.Server.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("ShippingInforID")
-                        .IsRequired()
+                    b.Property<int>("ShippingInforID")
                         .HasColumnType("int");
 
                     b.Property<int>("Status")
@@ -466,9 +497,6 @@ namespace MilmomStore.Server.Migrations
                     b.Property<DateTime>("ExpiredDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<double>("Height")
-                        .HasColumnType("float");
-
                     b.Property<string>("Ingredient")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -479,9 +507,6 @@ namespace MilmomStore.Server.Migrations
 
                     b.Property<int>("InventoryQuantity")
                         .HasColumnType("int");
-
-                    b.Property<double>("Length")
-                        .HasColumnType("float");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -508,9 +533,6 @@ namespace MilmomStore.Server.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<double>("Weight")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Width")
                         .HasColumnType("float");
 
                     b.HasKey("ProductID");
@@ -633,15 +655,7 @@ namespace MilmomStore.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShippingInforID"), 1L, 1);
 
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DetailAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("District")
+                    b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -649,7 +663,7 @@ namespace MilmomStore.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ReceiverName")
+                    b.Property<string>("Receiver")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

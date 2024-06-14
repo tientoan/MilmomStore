@@ -75,6 +75,26 @@ public class CartDAO : BaseDAO<Cart>
             .FirstOrDefaultAsync(c => c.AccountID == accountId);
         
     }
+    public async Task<double> GetAmount(string accountId)
+{
+    var cart = await _context.Carts
+        .Include(c => c.CartItem)
+        .ThenInclude(ci => ci.Product)
+        .FirstOrDefaultAsync(c => c.AccountID == accountId);
+
+    if (cart == null)
+    {
+        throw new Exception("Cart not found");
+    }
+
+    double totalAmount = 0;
+    foreach (var item in cart.CartItem)
+    {
+        totalAmount += item.Product.PurchasePrice * item.Quantity;
+    }
+
+    return totalAmount;
+}
 
     public async Task ClearCart(string accountId)
     {       

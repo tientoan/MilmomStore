@@ -31,4 +31,9 @@ public class CartRepository : ICartRepository
     {
         await _cartDAO.ClearCart(accountId);
     }
+
+    public async Task<double> GetAmount(string accountId)
+    {
+        return await _cartDAO.GetAmount(accountId);
+    }
 }

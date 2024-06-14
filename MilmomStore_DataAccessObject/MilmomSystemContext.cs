@@ -29,37 +29,35 @@ namespace MilmomStore_DataAccessObject
             modelBuilder.Entity<Transaction>()
                 .HasOne(e => e.Order)
             .WithOne(e => e.Transaction)
-                .HasForeignKey<Order>(e => e.transactionID)
-                .IsRequired();
+                .HasForeignKey<Order>(e => e.transactionID);
             modelBuilder.Entity<ShippingInfor>()
                 .HasOne(e => e.Order)
                 .WithOne(e => e.ShippingInfor)
-                .HasForeignKey<Order>(e => e.ShippingInforID)
-                .IsRequired();
-            List<IdentityRole> roles = new List<IdentityRole>
-            {
-                new IdentityRole
-                {
-                    Name = "Admin",
-                    NormalizedName = "ADMIN"
-                },
-                new IdentityRole
-                {
-                    Name = "Customer",
-                    NormalizedName = "CUSTOMER"
-                },
-                new IdentityRole
-                {
-                    Name = "Staff",
-                    NormalizedName = "STAFF"
-                },
-                new IdentityRole
-                {
-                    Name = "Manager",
-                    NormalizedName = "MANAGER"
-                }
-            };
-            modelBuilder.Entity<IdentityRole>().HasData(roles);
+                .HasForeignKey<Order>(e => e.ShippingInforID);
+            // List<IdentityRole> roles = new List<IdentityRole>
+            // {
+            //     new IdentityRole
+            //     {
+            //         Name = "Admin",
+            //         NormalizedName = "ADMIN"
+            //     },
+            //     new IdentityRole
+            //     {
+            //         Name = "Customer",
+            //         NormalizedName = "CUSTOMER"
+            //     },
+            //     new IdentityRole
+            //     {
+            //         Name = "Staff",
+            //         NormalizedName = "STAFF"
+            //     },
+            //     new IdentityRole
+            //     {
+            //         Name = "Manager",
+            //         NormalizedName = "MANAGER"
+            //     }
+            //};
+            //modelBuilder.Entity<IdentityRole>().HasData(roles);
         }
 
         //

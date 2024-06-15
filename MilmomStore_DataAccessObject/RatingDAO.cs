@@ -1,0 +1,33 @@
+﻿using Microsoft.EntityFrameworkCore;
+using MilmomStore_BusinessObject.Model;
+using MilmomStore_DataAccessObject.BaseDAO;
+
+namespace MilmomStore_DataAccessObject;
+
+public class RatingDAO : BaseDAO<Rating>
+{
+    private readonly MilmomSystemContext _context;
+    public RatingDAO(MilmomSystemContext context) : base(context)
+    {
+        _context = context;
+    }
+    
+    //get avaerage rating of product
+    public async Task<double> GetAverageRating(int productId)
+    {
+        var ratings = await _context.Rating
+            .Where(r => r.ProductID == productId)
+            .ToListAsync();
+
+        if (ratings.Count == 0)
+        {
+            return 0;
+        }
+
+        var sum = ratings.Sum(r => r.Rate);
+        var average = (double)sum / ratings.Count;
+
+        return average;
+    }
+    
+}

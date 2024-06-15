@@ -49,4 +49,9 @@ public class OrderDAO : BaseDAO<Order>
         await _context.Orders.AddAsync(order);
         await _context.SaveChangesAsync();
     }
+    public async Task<bool> HasPurchasedProductAsync(string accountId, int productId)
+    {
+        return await _context.OrderDetails
+            .AnyAsync(od => od.Order.AccountID == accountId && od.ProductID == productId);
+    }
 }

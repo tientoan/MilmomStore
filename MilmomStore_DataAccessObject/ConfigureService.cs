@@ -23,6 +23,7 @@ namespace MilmomStore_DataAccessObject
             services.AddScoped<OrderDetail>();
             services.AddScoped<ShippingInfor>();
             services.AddScoped<Transaction>();
+            services.AddScoped<Rating>();
             services.AddScoped(typeof(IBaseDAO<>), typeof(BaseDAO<>));
             return services;
         }

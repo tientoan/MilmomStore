@@ -2,8 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Milmom_Service.IService;
 using Milmom_Service.Model.BaseResponse;
+using Milmom_Service.Model.Request.AccountApplication;
+using Milmom_Service.Model.Request.Product;
 using Milmom_Service.Model.Response.AccountApplication;
 using Milmom_Service.Model.Response.Product;
+using MilmomStore_BusinessObject.Model;
 
 namespace MilmomStore.Server.Controllers
 {
@@ -19,25 +22,49 @@ namespace MilmomStore.Server.Controllers
         }
 
         [HttpGet]
-        [Route("base")]
-        public async Task<ActionResult<BaseResponse<IEnumerable<GetAllProductsResponse>>>> GetAllProductsFromBase()
+        [Route("GetForManagement")]
+        public async Task<ActionResult<BaseResponse<IEnumerable<GetAllProductsForManagerResponse>>>> GetAllProductsForManager()
         {
             var products = await _productService.GetAllProductsFromBase();
             return Ok(products);
         }
 
         [HttpGet]
-        [Route("base/{id}")]
-        public async Task<ActionResult<BaseResponse<GetProductByIdResponse>>> GetProductByIdFromBase(int id)
+        [Route("productDetails/{id}")]
+        public async Task<ActionResult<BaseResponse<GetProductDetailForHP>>> GetProductDetailForHomePage(int id)
         {
             return await _productService.GetProductByIdFromBase(id);
         }
+<<<<<<< Updated upstream
 
         [HttpGet]
         [Route("/ProductDetail/base/{id}")]
         public async Task<ActionResult<BaseResponse<GetProductDetailsResponse>>> GetProductDetailByIdFromBase(int id)
         {
             return await _productService.GetProductDetailByIdFromBase(id);
+=======
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<ActionResult<BaseResponse<Product>>> DeleteProduct(int id)
+        {
+            return await _productService.DeleteProduct(id);
+        }
+
+        [HttpGet]
+        [Route("viewProduct")]
+        public async Task<ActionResult<BaseResponse<IEnumerable<ViewProductHomePageResponse>>>> ViewProductForHomePage()
+        {
+            var products = await _productService.ViewProductHomePage();
+            return Ok(products);
+        }
+
+        [HttpPut]
+        [Route("UpdateForManagement")]
+
+        public async Task<ActionResult<BaseResponse<UpdateProductRequest>>> UpdateProductFromBase(int id, [FromBody] UpdateProductRequest product)
+        {
+            return await _productService.UpdateProductFromBase(id, product);
+>>>>>>> Stashed changes
         }
     }
 }

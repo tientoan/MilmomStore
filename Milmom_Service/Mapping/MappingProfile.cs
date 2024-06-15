@@ -5,10 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Milmom_Service.Model.Request.AccountApplication;
+using Milmom_Service.Model.Request.Product;
 using Milmom_Service.Model.Response.AccountApplication;
 using Milmom_Service.Model.Response.Cart;
 using Milmom_Service.Model.Response.ImageProduct;
 using Milmom_Service.Model.Response.Product;
+using Milmom_Service.Model.Response.Rating;
 using MilmomStore_BusinessObject.Model;
 
 namespace Milmom_Service.Mapping
@@ -25,9 +27,27 @@ namespace Milmom_Service.Mapping
             CreateMap<AccountApplication, DeleteUserResponse>();
             CreateMap<AccountApplication, UpdateUserResponse>();
             CreateMap<UpdateUserRequest, AccountApplication>().ReverseMap();
+<<<<<<< Updated upstream
             CreateMap<Product, GetAllProductsResponse>();
             CreateMap<Product, GetProductByIdResponse>();
+=======
+            CreateMap<AccountApplication, UpdateUserResponseByString>();
+            CreateMap<UpdateUserRequestByString, AccountApplication>().ReverseMap();
+            //
+
+            CreateMap<Product, GetAllProductsForManagerResponse>();
+            CreateMap<Product, GetProductDetailForHP>();
+>>>>>>> Stashed changes
             CreateMap<ImageProduct, GetAllImageProductsResponse>();
+            CreateMap<Product, ViewProductHomePageResponse>();
+            CreateMap<UpdateProductRequest, Product>().ReverseMap();
+            CreateMap<Product, UpdateProductRequest>();
+
+            //
+            CreateMap<Rating, GetRatingResponse>();
+
+            //
+
             CreateMap<Cart, CartResponse>();
             CreateMap<CartItem, CartItemResponse>();
         }

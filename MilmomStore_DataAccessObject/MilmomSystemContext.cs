@@ -77,6 +77,7 @@ namespace MilmomStore_DataAccessObject
         public DbSet<ShippingInfor> ShippingInfor { set; get; }
         public DbSet<Slider> Slider { set; get; }
         public DbSet<Transaction> Transaction { set; get; }
+<<<<<<< Updated upstream
         //
         public const string ConnectString = @"Data Source=TOANNT\\SQLEXPRESS,1433;Initial Catalog=MilmomStore;User ID=sa;Password=12345";
         
@@ -84,6 +85,15 @@ namespace MilmomStore_DataAccessObject
         {
             optionsBuilder.UseSqlServer(ConnectString);
         
+=======
+
+        public const string ConnectString = "server=localhost;database=MilmomStore;uid=sa;pwd=12345;Integrated Security=true;Trusted_Connection=false;TrustServerCertificate=True";
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(ConnectString);
+
+>>>>>>> Stashed changes
         }
 
         //    private ILoggerFactory GetLoggerFactory()

@@ -11,6 +11,7 @@ namespace Milmom_Repository.IRepository
 {
     public interface IProductRepository:IBaseRepository<Product>
     {
-
+        public Task<int> DeleteProduct(Product product);
+        public Task<IEnumerable<Product>> ViewProductForHomePage();
     }
 }

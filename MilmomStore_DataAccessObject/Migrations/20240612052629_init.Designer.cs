@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MilmomStore_DataAccessObject;
 
@@ -11,9 +12,10 @@ using MilmomStore_DataAccessObject;
 namespace MilmomStore.Server.Migrations
 {
     [DbContext(typeof(MilmomSystemContext))]
-    partial class MilmomSystemContextModelSnapshot : ModelSnapshot
+    [Migration("20240612052629_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,49 +53,29 @@ namespace MilmomStore.Server.Migrations
                     b.HasData(
                         new
                         {
-<<<<<<< Updated upstream
-                            Id = "053d5b34-b408-4d58-9cf9-e9e859bc94ac",
-                            ConcurrencyStamp = "48bb6122-ef85-426d-bc65-05c91633d100",
-=======
                             Id = "4fc7d7c5-cb48-4c9f-8e0a-9f2e9e49be05",
                             ConcurrencyStamp = "7fdc3f71-8a71-4301-aa0a-442773b07a31",
->>>>>>> Stashed changes
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-<<<<<<< Updated upstream
-                            Id = "e1aeabae-9e2d-411c-8faa-644003c09382",
-                            ConcurrencyStamp = "51b4e27c-fc7b-417f-bbab-82d4169bbcd8",
-=======
                             Id = "f2c72f15-eee8-4dc8-87ea-90441eeca3d3",
                             ConcurrencyStamp = "02e1bf3d-6e97-4752-8be1-0c7e007181fb",
->>>>>>> Stashed changes
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-<<<<<<< Updated upstream
-                            Id = "be66a18a-eeb5-4535-b279-3d6d60083f2f",
-                            ConcurrencyStamp = "7cdd6863-1bbc-47f5-9ab7-d43716fe7927",
-=======
                             Id = "8990ec72-73d0-4c08-88bc-185ffcd3b819",
                             ConcurrencyStamp = "9f716c9a-7a5d-49e5-bbb9-e17accfebed8",
->>>>>>> Stashed changes
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         },
                         new
                         {
-<<<<<<< Updated upstream
-                            Id = "e22fe111-fcef-42f3-969c-ad0fd6e5b5e5",
-                            ConcurrencyStamp = "c22f4ce7-ac33-4050-b381-5c34d23b8e54",
-=======
                             Id = "89e47aca-b2ec-4254-884c-cc1cf9407633",
                             ConcurrencyStamp = "76bd22ab-b5c8-4ac4-9427-47d09a45011e",
->>>>>>> Stashed changes
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         });

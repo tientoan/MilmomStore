@@ -30,6 +30,7 @@ namespace MilmomStore_BusinessObject.Model
             modelBuilder.Entity<ShippingInfor>()
                 .HasOne(e => e.Order)
                 .WithOne(e => e.ShippingInfor)
+<<<<<<< Updated upstream:MilmomStore_DataAccessObject/DbContext/MilmomSystemContext.cs
                 .HasForeignKey<Order>(e => e.ShippingInforID)
                 .IsRequired();
             List<IdentityRole> roles = new List<IdentityRole>
@@ -54,6 +55,31 @@ namespace MilmomStore_BusinessObject.Model
                     Name = "Manager",
                     NormalizedName = "MANAGER"
                 }
+=======
+                .HasForeignKey<Order>(e => e.ShippingInforID);
+             List<IdentityRole> roles = new List<IdentityRole>
+             {
+                 new IdentityRole
+                 {
+                     Name = "Admin",
+                     NormalizedName = "ADMIN"
+                 },
+                 new IdentityRole
+                 {
+                     Name = "Customer",
+                     NormalizedName = "CUSTOMER"
+                 },
+                 new IdentityRole
+                 {
+                     Name = "Staff",
+                     NormalizedName = "STAFF"
+                 },
+                 new IdentityRole
+                 {
+                     Name = "Manager",
+                     NormalizedName = "MANAGER"
+                 }
+>>>>>>> Stashed changes:MilmomStore_DataAccessObject/MilmomSystemContext.cs
             };
             modelBuilder.Entity<IdentityRole>().HasData(roles);
         }
@@ -73,6 +99,7 @@ namespace MilmomStore_BusinessObject.Model
         public DbSet<Slider> Slider { set; get; }
         public DbSet<Transaction> Transaction { set; get; }
         //
+<<<<<<< Updated upstream:MilmomStore_DataAccessObject/DbContext/MilmomSystemContext.cs
         //    public const string ConnectStrring = @"Data Source=localhost,1433;Initial Catalog=MilmomStore_Db;User ID=sa;Password=12345";
 
         //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -80,6 +107,15 @@ namespace MilmomStore_BusinessObject.Model
         //        optionsBuilder.UseSqlServer(ConnectStrring);
         //        optionsBuilder.UseLoggerFactory(GetLoggerFactory());       // bật logger
         //    }
+=======
+        public const string ConnectString = "server=DESKTOP-88329MO\\KHANHVU21;database=MilmomStore;uid=sa;pwd=12345;Integrated Security=true;Trusted_Connection=false;TrustServerCertificate=True";
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(ConnectString);
+
+        }
+>>>>>>> Stashed changes:MilmomStore_DataAccessObject/MilmomSystemContext.cs
 
         //    private ILoggerFactory GetLoggerFactory()
         //    {

@@ -25,7 +25,7 @@ namespace MilmomStore.Server.Controllers
         {
             return await _ratingService.AddRating(request);
         }
-        [HttpPost]
+        [HttpPut]
         [Route("updateRating")]
         public async Task<ActionResult<BaseResponse<RatingResponse>>> UpdateRatingAsync(UpdateRatingRequest request)
         {
@@ -37,7 +37,8 @@ namespace MilmomStore.Server.Controllers
         {
             return await _ratingService.DeleteRatingAsync(ratingId);
         }
-
+        [HttpGet]
+        [Route("getRatingByAccountId")]
         public async Task<ActionResult<BaseResponse<IEnumerable<RatingResponse>>>> 
             GetRatingByAccountId(string accountId)
         {

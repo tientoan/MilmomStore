@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using Milmom_Service.InterfaceService;
+using Milmom_Service.IService;
+using MilmomStore_BusinessObject.IdentityModel;
 using MilmomStore_BusinessObject.Model;
-using MilmomStore_DataAccessObject.Dtos;
 
 namespace MilmomStore.Server.Controllers
 {
@@ -18,7 +17,7 @@ namespace MilmomStore.Server.Controllers
         private readonly SignInManager<AccountApplication> _signinManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AccountController(UserManager<AccountApplication> userManager, ITokenService tokenService, 
+        public AccountController(UserManager<AccountApplication> userManager, ITokenService tokenService,
             SignInManager<AccountApplication> signInManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
@@ -42,14 +41,19 @@ namespace MilmomStore.Server.Controllers
             if (!result.Succeeded) return Unauthorized("Username not found and/or password incorrect");
 
             var roles = await _userManager.GetRolesAsync(user);
+            var token = await _tokenService.createToken(user);
             return Ok(
                 new NewUserDto
                 {
                     UserName = user.UserName,
                     Email = user.Email,
                     Roles = roles.ToList(),
-
-                    Token = _tokenService.createToken(user)
+                    Phone = user.Phone,
+                    Name = user.Name,
+                    Address = user.Address,
+                    Image = user.Image,
+                    Token = token.AccessToken,
+                    RefreshToken = token.RefreshToken
                 }
             );
         }
@@ -72,15 +76,17 @@ namespace MilmomStore.Server.Controllers
                     Image = registerDto.Image
                 };
 
-                
+
 
                 var createdUser = await _userManager.CreateAsync(accountApp, registerDto.Password);
 
                 if (createdUser.Succeeded)
                 {
                     var roleResult = await _userManager.AddToRoleAsync(accountApp, "CUSTOMER");
+                    var token = await _tokenService.createToken(accountApp);
                     if (roleResult.Succeeded)
                     {
+                        var userRoles = await _userManager.GetRolesAsync(accountApp);
                         return Ok(
                             new NewUserDto
                             {
@@ -90,7 +96,9 @@ namespace MilmomStore.Server.Controllers
                                 Address = accountApp.Address,
                                 Phone = accountApp.Phone,
                                 Image = accountApp.Image,
-                                Token = _tokenService.createToken(accountApp)
+                                Roles = userRoles.ToList(),
+                                Token = token.AccessToken,
+                                RefreshToken = token.RefreshToken
                             }
                         );
                     }
@@ -135,7 +143,7 @@ namespace MilmomStore.Server.Controllers
 
                 var createdUser = await _userManager.CreateAsync(accountApp, createAccountDto.Password);
 
-                
+
 
                 if (createdUser.Succeeded)
                 {
@@ -153,6 +161,7 @@ namespace MilmomStore.Server.Controllers
                         if (roleResult.Succeeded)
                         {
                             var userRoles = await _userManager.GetRolesAsync(accountApp);
+                            var token = await _tokenService.createToken(accountApp);
                             return Ok(
                                 new NewUserDto
                                 {
@@ -163,7 +172,8 @@ namespace MilmomStore.Server.Controllers
                                     Phone = accountApp.Phone,
                                     Image = accountApp.Image,
                                     Roles = userRoles.ToList(),
-                                    Token = _tokenService.createToken(accountApp)
+                                    Token = token.AccessToken,
+                                    RefreshToken = token.RefreshToken
                                 }
                             );
                         }
@@ -186,6 +196,61 @@ namespace MilmomStore.Server.Controllers
             {
                 return StatusCode(500, e);
             }
+        }
+
+        [HttpPost("Reset-Password-Token")]
+        public async Task<IActionResult> ResetPasswordToken([FromBody] ResetTokenModel resetTokenModel)
+        {
+            var user = await _userManager.FindByEmailAsync(resetTokenModel.Email);
+            if (user == null)
+            {
+                return BadRequest("Cannot find Email, Please check again!");
+            }
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            return Ok(new { token = token });
+        }
+
+        [HttpPost("Reset-Password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetToken resetToken)
+        {
+            var user = await _userManager.FindByEmailAsync(resetToken.Email);
+            if (user == null)
+            {
+                return BadRequest("UserName is wrong, Please check again!");
+            }
+
+            user = await _userManager.FindByNameAsync(resetToken.Username);
+            if (user == null)
+            {
+                return BadRequest("Cannot find Email, Please check again!");
+            }
+
+            if (string.Compare(resetToken.Password, resetToken.ConfirmPassword) != 0)
+            {
+                return BadRequest("Password and ConfirmPassword doesnot match! ");
+            }
+            if (string.IsNullOrEmpty(resetToken.Token))
+            {
+                return BadRequest("Invalid Token! ");
+            }
+            var result = await _userManager.ResetPasswordAsync(user, resetToken.Token, resetToken.Password);
+            if (!result.Succeeded)
+            {
+                var errors = new List<string>();
+                foreach (var error in result.Errors)
+                {
+                    errors.Add(error.Description);
+                }
+                return StatusCode(500, result.Errors);
+            }
+            return Ok(new UserDto
+            {
+                Email = resetToken.Email,
+                Username = resetToken.Username,
+                Password = resetToken.Password,
+                ConfirmPassword = resetToken.ConfirmPassword,
+                Token = resetToken.Token,
+            });
         }
     }
 }

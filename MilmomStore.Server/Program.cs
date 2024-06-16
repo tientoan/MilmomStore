@@ -81,28 +81,6 @@ builder.Services.AddIdentity<AccountApplication, IdentityRole>(options =>
 })
     .AddEntityFrameworkStores<MilmomSystemContext>().AddDefaultTokenProviders();
 
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme =
-        options.DefaultChallengeScheme =
-            options.DefaultForbidScheme =
-                options.DefaultScheme =
-                    options.DefaultSignInScheme =
-                        options.DefaultSignOutScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidIssuer = builder.Configuration["JWT:Issuer"],
-        ValidateAudience = true,
-        ValidAudience = builder.Configuration["JWT:Audience"],
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(
-            System.Text.Encoding.UTF8.GetBytes(builder.Configuration["JWT:SigningKey"])
-        )
-    };
-});
 //
 //life span
 builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>

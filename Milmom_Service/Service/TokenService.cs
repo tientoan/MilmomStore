@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MilmomStore_BusinessObject.IdentityModel;
 
 namespace Milmom_Service.Service
 {
@@ -17,9 +18,9 @@ namespace Milmom_Service.Service
             _tokenRepository = tokenRepository;
         }
 
-        public string createToken(AccountApplication application)
+        public async Task<TokenModel> createToken(AccountApplication application)
         {
-            return _tokenRepository.createToken(application);
+            return await _tokenRepository.createToken(application);
         }
     }
 }

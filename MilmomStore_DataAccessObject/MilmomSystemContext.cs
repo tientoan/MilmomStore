@@ -85,7 +85,7 @@ namespace MilmomStore_DataAccessObject
         
     }*/
 
-        public const string ConnectString = "server=localhost;database=MilmomStore;uid=sa;pwd=12345;Integrated Security=true;Trusted_Connection=false;TrustServerCertificate=True";
+        public const string ConnectString = "server=TOANNT\\SQLEXPRESS;database=MilmomStore;uid=sa;pwd=12345;Integrated Security=true;Trusted_Connection=false;TrustServerCertificate=True";
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

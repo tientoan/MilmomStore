@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Milmom_Repository.IBaseRepository;
+using MilmomStore_BusinessObject.IdentityModel;
 using MilmomStore_BusinessObject.Model;
 
 namespace Milmom_Repository.BaseRepository
@@ -26,7 +28,7 @@ namespace Milmom_Repository.BaseRepository
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWT:SigningKey"]));
         }
 
-        public async Task<string> createToken(AccountApplication accountApplication)
+        public async Task<TokenModel> createToken(AccountApplication accountApplication)
         {
             var user = await _userManager.FindByEmailAsync(accountApplication.Email);
             var claims = new List<Claim>
@@ -54,7 +56,14 @@ namespace Milmom_Repository.BaseRepository
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            return tokenHandler.WriteToken(token);
+            var accessToken = tokenHandler.WriteToken(token);
+            return new TokenModel
+            {
+                AccessToken = accessToken,
+                RefreshToken = GenerateRefreshToken()
+            };
         }
+
+        private string GenerateRefreshToken() => Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
     }
 }

@@ -61,5 +61,12 @@ namespace MilmomStore.Server.Controllers
         {
             return await _userService.UpdateUserFromBase(id, user);
         }
+
+        [HttpPut]
+        [Route("base/string/{id}")]
+        public async Task<ActionResult<BaseResponse<UpdateUserResponseByString>>> UpdateUserByStringFromBase(string id, [FromBody] UpdateUserRequestByString user)
+        {
+            return await _userService.UpdateUserByStringFromBase(id, user);
+        }
     }
 }

@@ -51,49 +51,29 @@ namespace MilmomStore.Server.Migrations
                     b.HasData(
                         new
                         {
-<<<<<<< Updated upstream
-                            Id = "053d5b34-b408-4d58-9cf9-e9e859bc94ac",
-                            ConcurrencyStamp = "48bb6122-ef85-426d-bc65-05c91633d100",
-=======
-                            Id = "4fc7d7c5-cb48-4c9f-8e0a-9f2e9e49be05",
-                            ConcurrencyStamp = "7fdc3f71-8a71-4301-aa0a-442773b07a31",
->>>>>>> Stashed changes
+                            Id = "e6a83981-2a46-49c5-b1d3-ead1ec170e2b",
+                            ConcurrencyStamp = "9191e9b9-9fe6-4174-ac77-faeedb544aa5",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-<<<<<<< Updated upstream
-                            Id = "e1aeabae-9e2d-411c-8faa-644003c09382",
-                            ConcurrencyStamp = "51b4e27c-fc7b-417f-bbab-82d4169bbcd8",
-=======
-                            Id = "f2c72f15-eee8-4dc8-87ea-90441eeca3d3",
-                            ConcurrencyStamp = "02e1bf3d-6e97-4752-8be1-0c7e007181fb",
->>>>>>> Stashed changes
+                            Id = "11c6cbc9-f45b-413b-851c-c79e20fa1142",
+                            ConcurrencyStamp = "79aa2dbc-dfa7-432f-8b4b-5cc18252c2fc",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-<<<<<<< Updated upstream
-                            Id = "be66a18a-eeb5-4535-b279-3d6d60083f2f",
-                            ConcurrencyStamp = "7cdd6863-1bbc-47f5-9ab7-d43716fe7927",
-=======
-                            Id = "8990ec72-73d0-4c08-88bc-185ffcd3b819",
-                            ConcurrencyStamp = "9f716c9a-7a5d-49e5-bbb9-e17accfebed8",
->>>>>>> Stashed changes
+                            Id = "e99618f6-ccdb-433f-a051-903382645066",
+                            ConcurrencyStamp = "1cf9f73a-50db-497f-bd78-30c7a15f64dd",
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         },
                         new
                         {
-<<<<<<< Updated upstream
-                            Id = "e22fe111-fcef-42f3-969c-ad0fd6e5b5e5",
-                            ConcurrencyStamp = "c22f4ce7-ac33-4050-b381-5c34d23b8e54",
-=======
-                            Id = "89e47aca-b2ec-4254-884c-cc1cf9407633",
-                            ConcurrencyStamp = "76bd22ab-b5c8-4ac4-9427-47d09a45011e",
->>>>>>> Stashed changes
+                            Id = "36d94568-871e-4cc3-bb39-3049a7b9be1e",
+                            ConcurrencyStamp = "1d379941-ba95-4af5-9d07-62426187f8a6",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         });
@@ -433,7 +413,8 @@ namespace MilmomStore.Server.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ShippingInforID")
+                    b.Property<int?>("ShippingInforID")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int>("Status")
@@ -515,6 +496,9 @@ namespace MilmomStore.Server.Migrations
                     b.Property<DateTime>("ExpiredDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<double>("Height")
+                        .HasColumnType("float");
+
                     b.Property<string>("Ingredient")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -525,6 +509,9 @@ namespace MilmomStore.Server.Migrations
 
                     b.Property<int>("InventoryQuantity")
                         .HasColumnType("int");
+
+                    b.Property<double>("Length")
+                        .HasColumnType("float");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -551,6 +538,9 @@ namespace MilmomStore.Server.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<double>("Weight")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Width")
                         .HasColumnType("float");
 
                     b.HasKey("ProductID");
@@ -673,7 +663,15 @@ namespace MilmomStore.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShippingInforID"), 1L, 1);
 
-                    b.Property<string>("Address")
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DetailAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("District")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -681,7 +679,7 @@ namespace MilmomStore.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Receiver")
+                    b.Property<string>("ReceiverName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

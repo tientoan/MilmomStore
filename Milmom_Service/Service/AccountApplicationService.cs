@@ -79,5 +79,15 @@ namespace Milmom_Service.Service
             return new BaseResponse<GetUserByStringIdResponse>("Get user by id as base success", StatusCodeEnum.OK_200,
                 result);
         }
+
+        public async Task<BaseResponse<UpdateUserResponseByString>> UpdateUserByStringFromBase(string id, UpdateUserRequestByString request)
+        {
+            AccountApplication user = await _accountAppRepository.GetByStringId(id);
+            _mapper.Map(request, user);
+            await _accountAppRepository.UpdateAsync(user);
+
+            var result = _mapper.Map<UpdateUserResponseByString>(user);
+            return new BaseResponse<UpdateUserResponseByString>("Update user as base success", StatusCodeEnum.OK_200, result);
+        }
     }
 }

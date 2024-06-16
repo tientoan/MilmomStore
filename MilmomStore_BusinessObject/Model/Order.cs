@@ -14,7 +14,8 @@ namespace MilmomStore_BusinessObject.Model
     {
         [Key]
         public int OrderID { get; set; }
-        public DateTime OrderDate { get; set; }
+
+        public DateTime OrderDate { get; set; } = DateTime.Now;
         [EnumDataType(typeof(OrderStatus))]
         public OrderStatus Status { get; set; }
         public double Total { get; set; }
@@ -23,8 +24,8 @@ namespace MilmomStore_BusinessObject.Model
         [ForeignKey("AccountID")]
         public AccountApplication AccountApplication { get; set; }
 
-        public string transactionID { get; set; }
-        public int ShippingInforID { get; set; }
+        public string? transactionID { get; set; }
+        public int? ShippingInforID { get; set; }
         //
         public ICollection<OrderDetail> OrderDetails { get; set; }
         public Transaction Transaction { get; set; } = null!;

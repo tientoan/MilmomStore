@@ -59,14 +59,15 @@ namespace Milmom_Service.Service
                 result);
         }
 
-<<<<<<< Updated upstream
         public async Task<BaseResponse<GetProductDetailsResponse>> GetProductDetailByIdFromBase(int id)
         {
             Product product = await _productRepository.GetByIdAsync(id);
             var result = _mapper.Map<GetProductDetailsResponse>(product);
-            return new BaseResponse<GetProductDetailsResponse>("Get product by id as base success", StatusCodeEnum.OK_200,
+            return new BaseResponse<GetProductDetailsResponse>("Get product by id as base success",
+                StatusCodeEnum.OK_200,
                 result);
-=======
+        }
+
         public async Task<BaseResponse<UpdateProductRequest>> UpdateProductFromBase(int id, UpdateProductRequest request)
         {
             Product existingProduct = await _productRepository.GetByIdAsync(id);
@@ -83,7 +84,21 @@ namespace Milmom_Service.Service
             var product = _mapper.Map<IEnumerable<ViewProductHomePageResponse>>(products);
             return new BaseResponse<IEnumerable<ViewProductHomePageResponse>>("Get all product for home page success",
                 StatusCodeEnum.OK_200, product);
->>>>>>> Stashed changes
+        }
+        public async Task<BaseResponse<IEnumerable<GetSearchProductResponse>>> GetSearchProductFromBase(string search, int pageIndex, int pageSize)
+        {
+            IEnumerable<Product> products = await _productRepository.SearchProductAsync(search, pageIndex, pageSize);
+            var product = _mapper.Map<IEnumerable<GetSearchProductResponse>>(products);
+            return new BaseResponse<IEnumerable<GetSearchProductResponse>>("Get search product as base success",
+                StatusCodeEnum.OK_200, product);
+        }
+
+        public async Task<BaseResponse<IEnumerable<GetFilterProductResponse>>> FilterProductFromBase(double? lowPrice, double? highPrice, int? category, string? sortBy, int pageIndex, int pageSize)
+        {
+            IEnumerable<Product> products = await _productRepository.FilterProductAsync(lowPrice,highPrice,category, sortBy, pageIndex, pageSize);
+            var product = _mapper.Map<IEnumerable<GetFilterProductResponse>>(products);
+            return new BaseResponse<IEnumerable<GetFilterProductResponse>>("Get filter product as base success",
+                StatusCodeEnum.OK_200, product);
         }
     }
 }

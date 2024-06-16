@@ -15,17 +15,17 @@ namespace Milmom_Service.IService
 {
     public interface IProductService
     {
-<<<<<<< Updated upstream
-        Task<BaseResponse<IEnumerable<GetAllProductsResponse>>> GetAllProductsFromBase();
-        Task<BaseResponse<GetProductByIdResponse>> GetProductByIdFromBase(int id);
+        
         Task<BaseResponse<GetProductDetailsResponse>> GetProductDetailByIdFromBase(int id);
 
-=======
+
         Task<BaseResponse<IEnumerable<GetAllProductsForManagerResponse>>> GetAllProductsFromBase();
         Task<BaseResponse<GetProductDetailForHP>> GetProductByIdFromBase(int id);
         Task<BaseResponse<Product>> DeleteProduct(int id);
         Task<BaseResponse<UpdateProductRequest>> UpdateProductFromBase(int id, UpdateProductRequest product);
         Task<BaseResponse<IEnumerable<ViewProductHomePageResponse>>> ViewProductHomePage();
->>>>>>> Stashed changes
+        Task<BaseResponse<IEnumerable<GetSearchProductResponse>>> GetSearchProductFromBase(string search, int pageIndex, int pageSize);
+        Task<BaseResponse<IEnumerable<GetFilterProductResponse>>> FilterProductFromBase(double? lowPrice, double? highPrice, int? category, string? sortBy, int pageIndex, int pageSize);
+
     }
 }

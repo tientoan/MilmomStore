@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Milmom_Service.Model.Request.AccountApplication;
+using Milmom_Service.Model.Request.Product;
+using Milmom_Service.Model.Request.Rating;
 using Milmom_Service.Model.Response.AccountApplication;
 using Milmom_Service.Model.Response.Cart;
 using Milmom_Service.Model.Response.ImageProduct;

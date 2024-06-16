@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Milmom_Service.IService;
 using Milmom_Service.Model.BaseResponse;
+using Milmom_Service.Model.Request.Product;
 using Milmom_Service.Model.Response.AccountApplication;
 using Milmom_Service.Model.Response.Product;
+using MilmomStore_BusinessObject.Model;
 
 namespace MilmomStore.Server.Controllers
 {
@@ -57,11 +59,13 @@ namespace MilmomStore.Server.Controllers
 
         [HttpPut]
         [Route("UpdateForManagement")]
-
-        public async Task<ActionResult<BaseResponse<UpdateProductRequest>>> UpdateProductFromBase(int id, [FromBody] UpdateProductRequest product)
+        public async Task<ActionResult<BaseResponse<UpdateProductRequest>>> UpdateProductFromBase(int id,
+            [FromBody] UpdateProductRequest product)
         {
             return await _productService.UpdateProductFromBase(id, product);
+        }
 
+        [HttpGet]
         [Route("base/{id}")]
         public async Task<ActionResult<BaseResponse<GetProductByIdResponse>>> GetProductByIdFromBase(int id)
         {
@@ -82,5 +86,4 @@ namespace MilmomStore.Server.Controllers
             return await _productService.FilterProductFromBase(lowPrice, highPrice, category, sortBy, pageIndex, pageSize);
         }
     }
-}
 }

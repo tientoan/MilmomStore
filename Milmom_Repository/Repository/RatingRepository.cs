@@ -19,14 +19,13 @@ public class RatingRepository : BaseRepository<Rating>, IRatingRepository
         return _ratingDao.GetAverageRating(productId);
     }
 
-    public Task<Rating> UpdateRatingAsync(Rating rating)
+    public async Task<IEnumerable<Rating>> GetRatingByProductId(int productId)
     {
-        return _ratingDao.UpdateAsync(rating);
+        return await _ratingDao.GetRatingByProductId(productId);
     }
 
-    public async Task<Rating> DeleteRatingAsync(int ratingId)
+    public async Task<IEnumerable<Rating>> GetRatingByAccountId(string accountId)
     {
-         var rating = await _ratingDao.GetByIdAsync(ratingId);
-         return await _ratingDao.DeleteAsync(rating);
+        return await _ratingDao.GetRatingByAccountId(accountId);
     }
 }

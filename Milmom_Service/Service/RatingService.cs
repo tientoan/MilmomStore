@@ -2,8 +2,10 @@
 using AutoMapper;
 using Milmom_Repository.IRepository;
 using Milmom_Service.IService;
+using Milmom_Service.Model.BaseResponse;
 using Milmom_Service.Model.Request.Rating;
 using Milmom_Service.Model.Response.Rating;
+using Milmom_Service.Models.Enums;
 using MilmomStore_BusinessObject.Model;
 
 namespace Milmom_Service.Service;
@@ -19,31 +21,60 @@ public class RatingService : IRatingService
         _orderRepository = orderRepository;
         _mapper = mapper;
     }
-    
-    public async Task<bool> AddRating(string accountId, int productId, int rating)
+
+    public async Task<BaseResponse<RatingResponse>> AddRating(CreateRatingRequest createRating)
     {
-        if (!await _orderRepository.HasPurchasedProductAsync(accountId, productId))
-            return false;
+        if (!await _orderRepository.HasPurchasedProductAsync(createRating.AccountID, createRating.ProductID))
+        {
+            return new BaseResponse<RatingResponse>
+            (
+                "User has not purchased this product",
+                StatusCodeEnum.BadRequest_400,
+                null
+            );
+        }
+        //check just add one time
         var newRating = new Rating
         {
-            AccountID = accountId,
-            ProductID = productId,
-            Rate = rating,
+            AccountID = createRating.AccountID,
+            ProductID = createRating.ProductID,
+            Rate = createRating.Rate,
             CreatedAt = DateTime.Now
         };
-        await _ratingRepository.AddAsync(newRating);
+        var response = await _ratingRepository.AddAsync(newRating);
+        var result = _mapper.Map<RatingResponse>(response);
+        return new BaseResponse<RatingResponse>("Add rating successfully", StatusCodeEnum.OK_200, result);
+    }
+
+    public async Task<bool> DeleteRatingAsync(int ratingId)
+    {
+        var ratingExist = await _ratingRepository.GetByIdAsync(ratingId);
+        await _ratingRepository.DeleteAsync(ratingExist);
         return true;
     }
-    public async Task<RatingResponse> UpdateRatingAsync(RatingRequest rating)
+
+    public async Task<BaseResponse<IEnumerable<RatingResponse>>> GetRatingByProductId(int productId)
     {
-        var ratingExist = await _ratingRepository.GetByIdAsync(rating.RatingID);
-        _mapper.Map(rating, ratingExist);
-        var updatedRating = await _ratingRepository.UpdateRatingAsync(ratingExist);
-        return _mapper.Map<RatingResponse>(updatedRating);
+        var ratings = await _ratingRepository.GetRatingByProductId(productId);
+        var result = _mapper.Map<IEnumerable<RatingResponse>>(ratings);
+        return new BaseResponse<IEnumerable<RatingResponse>>("Get done", StatusCodeEnum.OK_200, result);
     }
-    public async Task<RatingResponse> DeleteRatingAsync(int ratingId)
+
+    public async Task<BaseResponse<IEnumerable<RatingResponse>>> GetRatingByAccountId(string accountId)
     {
-        var deletedRating = await _ratingRepository.DeleteRatingAsync(ratingId);
-        return _mapper.Map<RatingResponse>(deletedRating);
+        var ratings = await _ratingRepository.GetRatingByAccountId(accountId);
+        var result = _mapper.Map<IEnumerable<RatingResponse>>(ratings);
+        return new BaseResponse<IEnumerable<RatingResponse>>("Get done", StatusCodeEnum.OK_200, result);
     }
+
+    public async Task<BaseResponse<RatingResponse>> UpdateRatingAsync(UpdateRatingRequest request)
+    {
+        var ratingExist = await _ratingRepository.GetByIdAsync(request.RatingID);
+        _mapper.Map(request, ratingExist);
+        await _ratingRepository.UpdateAsync(ratingExist);
+        var result = _mapper.Map<RatingResponse>(ratingExist);
+        return new BaseResponse<RatingResponse>("Update rate successfully", StatusCodeEnum.OK_200, result);
+    }
+
+    
 }

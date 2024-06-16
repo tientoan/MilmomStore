@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Milmom_Service.IService;
+using Milmom_Service.Model.BaseResponse;
 using Milmom_Service.Model.Request.Rating;
 using Milmom_Service.Model.Response.Rating;
 using MilmomStore_BusinessObject.Model;
@@ -19,22 +20,28 @@ namespace MilmomStore.Server.Controllers
         }
 
         [HttpPost]
-        [Route("addRating/{accountId}")]
-        public async Task<ActionResult<bool>> AddRating(string accountId, int productId, int rating)
+        [Route("addRating")]
+        public async Task<ActionResult<BaseResponse<RatingResponse>>> AddRating(CreateRatingRequest request)
         {
-            return await _ratingService.AddRating(accountId, productId, rating);
+            return await _ratingService.AddRating(request);
         }
         [HttpPost]
         [Route("updateRating")]
-        public async Task<ActionResult<RatingResponse>> UpdateRatingAsync(RatingRequest rating)
+        public async Task<ActionResult<BaseResponse<RatingResponse>>> UpdateRatingAsync(UpdateRatingRequest request)
         {
-            return await _ratingService.UpdateRatingAsync(rating);
+            return await _ratingService.UpdateRatingAsync(request);
         }
         [HttpDelete]
         [Route("deleteRating")]
-        public async Task<ActionResult<RatingResponse>> DeleteRatingAsync(int ratingId)
+        public async Task<ActionResult<bool>> DeleteRatingAsync(int ratingId)
         {
             return await _ratingService.DeleteRatingAsync(ratingId);
+        }
+
+        public async Task<ActionResult<BaseResponse<IEnumerable<RatingResponse>>>> 
+            GetRatingByAccountId(string accountId)
+        {
+            return await _ratingService.GetRatingByAccountId(accountId);
         }
     }
 }

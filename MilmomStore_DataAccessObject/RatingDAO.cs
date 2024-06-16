@@ -29,5 +29,16 @@ public class RatingDAO : BaseDAO<Rating>
 
         return average;
     }
-    
+    public async Task<IEnumerable<Rating>> GetRatingByProductId(int productId)
+    {
+        return await _context.Rating
+            .Where(r => r.ProductID == productId)
+            .ToListAsync();
+    }
+    public async Task<IEnumerable<Rating>> GetRatingByAccountId(string accountId)
+    {
+        return await _context.Rating
+            .Where(r => r.AccountID == accountId)
+            .ToListAsync();
+    }
 }

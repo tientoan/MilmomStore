@@ -35,7 +35,7 @@ namespace Milmom_Service.Mapping
             CreateMap<Cart, CartResponse>();
             CreateMap<CartItem, CartItemResponse>();
             CreateMap<Rating, RatingResponse>();
-            CreateMap<RatingRequest, Rating>().ReverseMap();
+            CreateMap<CreateRatingRequest, Rating>().ReverseMap();
         }
     }
 }

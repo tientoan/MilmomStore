@@ -6,7 +6,6 @@ namespace Milmom_Repository.IRepository;
 public interface IRatingRepository : IBaseRepository<Rating>
 {
     public Task<double> GetAverageRating(int productId);
-    public Task<Rating> UpdateRatingAsync(Rating rating);
-    //public Task<Rating> GetRatingAsync(string accountId, int productId);
-    public Task<Rating> DeleteRatingAsync(int ratingId);
+    public Task<IEnumerable<Rating>> GetRatingByProductId(int productId);
+    public Task<IEnumerable<Rating>> GetRatingByAccountId(string accountId);
 }

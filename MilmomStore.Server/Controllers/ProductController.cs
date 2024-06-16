@@ -2,11 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Milmom_Service.IService;
 using Milmom_Service.Model.BaseResponse;
-using Milmom_Service.Model.Request.AccountApplication;
-using Milmom_Service.Model.Request.Product;
 using Milmom_Service.Model.Response.AccountApplication;
 using Milmom_Service.Model.Response.Product;
-using MilmomStore_BusinessObject.Model;
 
 namespace MilmomStore.Server.Controllers
 {
@@ -30,19 +27,19 @@ namespace MilmomStore.Server.Controllers
         }
 
         [HttpGet]
+
         [Route("productDetails/{id}")]
         public async Task<ActionResult<BaseResponse<GetProductDetailForHP>>> GetProductDetailForHomePage(int id)
         {
             return await _productService.GetProductByIdFromBase(id);
         }
-<<<<<<< Updated upstream
 
         [HttpGet]
         [Route("/ProductDetail/base/{id}")]
         public async Task<ActionResult<BaseResponse<GetProductDetailsResponse>>> GetProductDetailByIdFromBase(int id)
         {
             return await _productService.GetProductDetailByIdFromBase(id);
-=======
+        }
         [HttpDelete]
         [Route("{id}")]
         public async Task<ActionResult<BaseResponse<Product>>> DeleteProduct(int id)
@@ -64,7 +61,26 @@ namespace MilmomStore.Server.Controllers
         public async Task<ActionResult<BaseResponse<UpdateProductRequest>>> UpdateProductFromBase(int id, [FromBody] UpdateProductRequest product)
         {
             return await _productService.UpdateProductFromBase(id, product);
->>>>>>> Stashed changes
+
+        [Route("base/{id}")]
+        public async Task<ActionResult<BaseResponse<GetProductByIdResponse>>> GetProductByIdFromBase(int id)
+        {
+            return await _productService.GetProductByIdFromBase(id);
+        }
+
+        [HttpGet]
+        [Route("base/string")]
+        public async Task<ActionResult<BaseResponse<IEnumerable<GetSearchProductResponse>>>> GetSearchProductFromBase(string search, int pageIndex, int pageSize)
+        {
+            return await _productService.GetSearchProductFromBase(search, pageIndex, pageSize);
+        }
+
+        [HttpGet]
+        [Route("base/filter")]
+        public async Task<ActionResult<BaseResponse<IEnumerable<GetFilterProductResponse>>>> GetFilterProductFromBase(double? lowPrice, double? highPrice, int? category, string? sortBy, int pageIndex, int pageSize)
+        {
+            return await _productService.FilterProductFromBase(lowPrice, highPrice, category, sortBy, pageIndex, pageSize);
         }
     }
+}
 }

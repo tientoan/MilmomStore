@@ -42,6 +42,8 @@ namespace Milmom_Service.Mapping
             CreateMap<Product, ViewProductHomePageResponse>();
             CreateMap<UpdateProductRequest, Product>().ReverseMap();
             CreateMap<Product, UpdateProductRequest>();
+            CreateMap<AddProductRequest, Product>().ReverseMap();
+            CreateMap<Product, AddProductRequest>();
 
             //
             CreateMap<Rating, GetRatingResponse>();

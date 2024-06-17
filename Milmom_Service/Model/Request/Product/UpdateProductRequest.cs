@@ -27,6 +27,9 @@ namespace Milmom_Service.Model.Request.Product
 
         public string Instruction { get; set; }
         public double Weight { get; set; }
-        public ICollection<GetAllImageProductsResponse> ImageProducts { get; set; }
+
+        public double Height { get; set; }
+        public double Width { get; set; }
+        public double Length { get; set; }
     }
 }

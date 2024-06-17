@@ -52,15 +52,19 @@ namespace Milmom_Repository.Repository
             return await _productDao.DeleteAsync(entity);
         }
 
-        public async Task<int> DeleteProduct(Product product)
-        {
-            return await _productDao.DeleteProduct(product);
-        }
+        //public async Task<int> DeleteProduct(Product product)
+        //{
+        //    return await _productDao.DeleteProduct(product);
+        //}
 
         public async Task<IEnumerable<Product>> ViewProductForHomePage()
         {
             return await _productDao.ViewProductForHomePage();
         }
-        
+
+        public async Task<bool> DeleteTest(Product product)
+        {
+            return await _productDao.DeleteTest(product);
+        }
     }
 }

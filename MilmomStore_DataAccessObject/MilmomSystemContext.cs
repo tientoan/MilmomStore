@@ -34,33 +34,33 @@ namespace MilmomStore_DataAccessObject
                 .HasOne(e => e.Order)
                 .WithOne(e => e.ShippingInfor)
                 .HasForeignKey<Order>(e => e.ShippingInforID);
-            // List<IdentityRole> roles = new List<IdentityRole>
-            // {
-            //     new IdentityRole
-            //     {
-            //         Name = "Admin",
-            //         NormalizedName = "ADMIN"
-            //     },
-            //     new IdentityRole
-            //     {
-            //         Name = "Customer",
-            //         NormalizedName = "CUSTOMER"
-            //     },
-            //     new IdentityRole
-            //     {
-            //         Name = "Staff",
-            //         NormalizedName = "STAFF"
-            //     },
-            //     new IdentityRole
-            //     {
-            //         Name = "Manager",
-            //         NormalizedName = "MANAGER"
-            //     }
-            //};
-            //modelBuilder.Entity<IdentityRole>().HasData(roles);
+            List<IdentityRole> roles = new List<IdentityRole>
+             {
+                 new IdentityRole
+                 {
+                     Name = "Admin",
+                     NormalizedName = "ADMIN"
+                 },
+                 new IdentityRole
+                 {
+                     Name = "Customer",
+                     NormalizedName = "CUSTOMER"
+                 },
+                 new IdentityRole
+                 {
+                     Name = "Staff",
+                     NormalizedName = "STAFF"
+                 },
+                 new IdentityRole
+                 {
+                     Name = "Manager",
+                     NormalizedName = "MANAGER"
+                 }
+            };
+            modelBuilder.Entity<IdentityRole>().HasData(roles);
         }
 
-        //
+
         public DbSet<Blog> Blogs { set; get; }
         public DbSet<Cart> Carts { set; get; }
         public DbSet<CartItem> CartItems { set; get; }
@@ -85,7 +85,7 @@ namespace MilmomStore_DataAccessObject
         
     }*/
 
-        public const string ConnectString = "server=TOANNT\\SQLEXPRESS;database=MilmomStore;uid=sa;pwd=12345;Integrated Security=true;Trusted_Connection=false;TrustServerCertificate=True";
+        public const string ConnectString = "server=localhost;database=MilmomStore;uid=sa;pwd=12345;Integrated Security=true;Trusted_Connection=false;TrustServerCertificate=True";
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

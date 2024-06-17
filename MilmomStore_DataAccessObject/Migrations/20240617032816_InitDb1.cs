@@ -1,11 +1,11 @@
-﻿ using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace MilmomStore.Server.Migrations
+namespace MilmomStore_DataAccessObject.Migrations
 {
-    public partial class InitialDb : Migration
+    public partial class InitDb1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -72,8 +72,10 @@ namespace MilmomStore.Server.Migrations
                 {
                     ShippingInforID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Receiver = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DetailAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    District = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ReceiverName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ShippingCost = table.Column<double>(type: "float", nullable: false)
                 },
@@ -257,6 +259,25 @@ namespace MilmomStore.Server.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Carts",
+                columns: table => new
+                {
+                    CartID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AccountID = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Carts", x => x.CartID);
+                    table.ForeignKey(
+                        name: "FK_Carts_AspNetUsers_AccountID",
+                        column: x => x.AccountID,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Product",
                 columns: table => new
                 {
@@ -274,6 +295,11 @@ namespace MilmomStore.Server.Migrations
                     Status = table.Column<bool>(type: "bit", nullable: false),
                     ExpiredDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Ingredient = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Instruction = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Weight = table.Column<double>(type: "float", nullable: false),
+                    Height = table.Column<double>(type: "float", nullable: false),
+                    Width = table.Column<double>(type: "float", nullable: false),
+                    Length = table.Column<double>(type: "float", nullable: false),
                     CategoryID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -331,16 +357,22 @@ namespace MilmomStore.Server.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     ProductID = table.Column<int>(type: "int", nullable: false),
-                    AccountID = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    CartID = table.Column<int>(type: "int", nullable: false),
+                    AccountApplicationId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CartItems", x => x.CartItemID);
                     table.ForeignKey(
-                        name: "FK_CartItems_AspNetUsers_AccountID",
-                        column: x => x.AccountID,
+                        name: "FK_CartItems_AspNetUsers_AccountApplicationId",
+                        column: x => x.AccountApplicationId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_CartItems_Carts_CartID",
+                        column: x => x.CartID,
+                        principalTable: "Carts",
+                        principalColumn: "CartID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_CartItems_Product_ProductID",
@@ -356,7 +388,7 @@ namespace MilmomStore.Server.Migrations
                 {
                     ImageProductsID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ProductID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -487,6 +519,17 @@ namespace MilmomStore.Server.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "03f12fd9-e139-466c-8c18-aa14b972b999", "6911fa52-0bf5-4349-ae73-5761e084af8b", "Manager", "MANAGER" },
+                    { "404ae228-1360-4ead-8140-2ca2040cec1c", "b8820e36-f165-4616-90cc-c4d5eda4ae68", "Customer", "CUSTOMER" },
+                    { "5d2c0eea-018e-41c0-b02f-2b5d7c57a7b1", "31cbf3dc-fb3a-4f2d-9208-2c407286de25", "Staff", "STAFF" },
+                    { "f9738a7e-b295-442c-beff-2785d59302c8", "c9da5d61-8bf3-4c7f-83f7-200f8b247374", "Admin", "ADMIN" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -532,14 +575,24 @@ namespace MilmomStore.Server.Migrations
                 column: "AccountID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CartItems_AccountID",
+                name: "IX_CartItems_AccountApplicationId",
                 table: "CartItems",
-                column: "AccountID");
+                column: "AccountApplicationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CartItems_CartID",
+                table: "CartItems",
+                column: "CartID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CartItems_ProductID",
                 table: "CartItems",
                 column: "ProductID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Carts_AccountID",
+                table: "Carts",
+                column: "AccountID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ImageProduct_ProductID",
@@ -652,6 +705,9 @@ namespace MilmomStore.Server.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Carts");
 
             migrationBuilder.DropTable(
                 name: "Order");

@@ -8,7 +8,7 @@ using MilmomStore_DataAccessObject;
 
 #nullable disable
 
-namespace MilmomStore.Server.Migrations
+namespace MilmomStore_DataAccessObject.Migrations
 {
     [DbContext(typeof(MilmomSystemContext))]
     partial class MilmomSystemContextModelSnapshot : ModelSnapshot
@@ -51,29 +51,29 @@ namespace MilmomStore.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e6a83981-2a46-49c5-b1d3-ead1ec170e2b",
-                            ConcurrencyStamp = "9191e9b9-9fe6-4174-ac77-faeedb544aa5",
+                            Id = "f9738a7e-b295-442c-beff-2785d59302c8",
+                            ConcurrencyStamp = "c9da5d61-8bf3-4c7f-83f7-200f8b247374",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "11c6cbc9-f45b-413b-851c-c79e20fa1142",
-                            ConcurrencyStamp = "79aa2dbc-dfa7-432f-8b4b-5cc18252c2fc",
+                            Id = "404ae228-1360-4ead-8140-2ca2040cec1c",
+                            ConcurrencyStamp = "b8820e36-f165-4616-90cc-c4d5eda4ae68",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "e99618f6-ccdb-433f-a051-903382645066",
-                            ConcurrencyStamp = "1cf9f73a-50db-497f-bd78-30c7a15f64dd",
+                            Id = "5d2c0eea-018e-41c0-b02f-2b5d7c57a7b1",
+                            ConcurrencyStamp = "31cbf3dc-fb3a-4f2d-9208-2c407286de25",
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         },
                         new
                         {
-                            Id = "36d94568-871e-4cc3-bb39-3049a7b9be1e",
-                            ConcurrencyStamp = "1d379941-ba95-4af5-9d07-62426187f8a6",
+                            Id = "03f12fd9-e139-466c-8c18-aa14b972b999",
+                            ConcurrencyStamp = "6911fa52-0bf5-4349-ae73-5761e084af8b",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         });

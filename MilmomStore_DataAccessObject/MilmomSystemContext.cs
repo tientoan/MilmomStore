@@ -34,6 +34,7 @@ namespace MilmomStore_DataAccessObject
                 .HasOne(e => e.Order)
                 .WithOne(e => e.ShippingInfor)
                 .HasForeignKey<Order>(e => e.ShippingInforID);
+
             //  List<IdentityRole> roles = new List<IdentityRole>
             //  {
             //      new IdentityRole
@@ -57,10 +58,10 @@ namespace MilmomStore_DataAccessObject
             //          NormalizedName = "MANAGER"
             //      }
             // };
-            // modelBuilder.Entity<IdentityRole>().HasData(roles);
+            //  modelBuilder.Entity<IdentityRole>().HasData(roles);
         }
 
-        //
+
         public DbSet<Blog> Blogs { set; get; }
         public DbSet<Cart> Carts { set; get; }
         public DbSet<CartItem> CartItems { set; get; }
@@ -85,8 +86,10 @@ namespace MilmomStore_DataAccessObject
         
     }*/
 
+
         public const string ConnectString = "server=TOANNT\\SQLEXPRESS;database=MilmomStore;uid=sa;pwd=12345;Integrated Security=true;Trusted_Connection=false;TrustServerCertificate=True";
         
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(ConnectString);

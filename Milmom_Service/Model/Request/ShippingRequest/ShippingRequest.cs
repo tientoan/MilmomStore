@@ -7,4 +7,6 @@ public class ShippingRequest
     public string District { get; set; }
     public string ReceiverName { get; set; }
     public string Phone { get; set; }
+    
+    
 }

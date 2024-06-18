@@ -47,6 +47,36 @@ namespace MilmomStore_DataAccessObject.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "70e5ff66-0b3f-4efb-83f0-0ca055e5394f",
+                            ConcurrencyStamp = "6ab62be2-271b-4943-ab13-8ba23f1e7dbc",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "39f37c8c-2379-4793-a07d-92d6aa222952",
+                            ConcurrencyStamp = "a7080e2a-6213-4e3e-9d9d-11c453fdd402",
+                            Name = "Customer",
+                            NormalizedName = "CUSTOMER"
+                        },
+                        new
+                        {
+                            Id = "b70707db-7811-4937-83bf-ffc472c41b41",
+                            ConcurrencyStamp = "36e5a9ba-cb2f-4a0f-b3b4-dc3f9b3e3a7e",
+                            Name = "Staff",
+                            NormalizedName = "STAFF"
+                        },
+                        new
+                        {
+                            Id = "8e270673-94d8-4cac-9d3e-df7c9472d2fa",
+                            ConcurrencyStamp = "bf5f5b9d-c49b-459e-8136-7e7ee9e91e3f",
+                            Name = "Manager",
+                            NormalizedName = "MANAGER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -394,7 +424,6 @@ namespace MilmomStore_DataAccessObject.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("transactionID")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("OrderID");
@@ -405,7 +434,8 @@ namespace MilmomStore_DataAccessObject.Migrations
                         .IsUnique();
 
                     b.HasIndex("transactionID")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[transactionID] IS NOT NULL");
 
                     b.ToTable("Order");
                 });
@@ -710,10 +740,14 @@ namespace MilmomStore_DataAccessObject.Migrations
                     b.Property<string>("ResponseId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
+                    b.Property<long>("Amount")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("BankCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BankTranNo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -721,11 +755,16 @@ namespace MilmomStore_DataAccessObject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OrderInfo")
-                        .HasColumnType("int");
+                    b.Property<string>("OrderInfo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ResponseCode")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("PayDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ResponseCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecureHash")
                         .IsRequired()
@@ -735,14 +774,17 @@ namespace MilmomStore_DataAccessObject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TransactionNo")
-                        .HasColumnType("int");
+                    b.Property<string>("TransactionNo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TransactionStatus")
-                        .HasColumnType("int");
+                    b.Property<string>("TransactionStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TransactionType")
-                        .HasColumnType("int");
+                    b.Property<string>("TransactionType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TxnRef")
                         .IsRequired()
@@ -876,9 +918,7 @@ namespace MilmomStore_DataAccessObject.Migrations
 
                     b.HasOne("MilmomStore_BusinessObject.Model.Transaction", "Transaction")
                         .WithOne("Order")
-                        .HasForeignKey("MilmomStore_BusinessObject.Model.Order", "transactionID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MilmomStore_BusinessObject.Model.Order", "transactionID");
 
                     b.Navigation("AccountApplication");
 

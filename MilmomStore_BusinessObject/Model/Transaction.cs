@@ -21,21 +21,24 @@ namespace MilmomStore_BusinessObject.Model
 
         public string TxnRef { get; set; }
 
-        public int Amount { get; set; }
+        public long Amount { get; set; }
 
-        public int OrderInfo { get; set; }
+        public string OrderInfo { get; set; }
 
-        public int ResponseCode { get; set; }
+        public string ResponseCode { get; set; }
 
         public string Message { get; set; }
 
+        public string BankTranNo { get; set; }
+        
+        public DateTime PayDate { get; set; }
         public string BankCode { get; set; }
 
-        public int TransactionNo { get; set; }
+        public string TransactionNo { get; set; }
 
-        public int TransactionType { get; set; }
+        public string TransactionType { get; set; }
 
-        public int TransactionStatus { get; set; }
+        public string TransactionStatus { get; set; }
 
         public string SecureHash { get; set; }
 

@@ -77,11 +77,7 @@ public class CheckoutService : ICheckoutService
         await _cartRepository.ClearCart(accountId);
         return order;
     }
-    // public void StoreAddressInSession(ShippingRequest shippingRequest)
-    // {
-    //     var json = JsonSerializer.Serialize(shippingRequest);
-    //     _httpContextAccessor.HttpContext.Session.SetString("ShippingRequest", json);
-    // }
+
     public async Task<bool> ValidateCart(string accountId)
     {
         var cart = await _cartRepository.GetCart(accountId);
@@ -103,41 +99,17 @@ public class CheckoutService : ICheckoutService
         return true;
     }
 
-public async Task<Order> CreateOrder(string accountId, ShippingRequest shippingRequest)
+public async Task<Order> CreateOrder(int orderId, Transaction transaction)
 {
-    
-    var cart = await _cartRepository.GetCart(accountId);
-    var order = new Order
+    var order = await _orderRepository.GetByIdAsync(orderId);
+    if (order == null)
     {
-        AccountID = accountId,
-        OrderDate = DateTime.Now,
-        OrderDetails = cart.CartItem.Select(x => new OrderDetail
-        {
-            ProductID = x.ProductID,
-            Quantity = x.Quantity
-        }).ToList(),
-        Status = OrderStatus.ToPay,
-        ShippingInfor = new ShippingInfor
-        {
-            DetailAddress = shippingRequest.DetailAddress,
-            City = shippingRequest.City,
-            District = shippingRequest.District,
-            Phone = shippingRequest.Phone,
-            ReceiverName = shippingRequest.ReceiverName
-        }
-    };
-    double total = 0;
-    foreach (var item in order.OrderDetails)
-    {
-        var product = await _productRepository.GetByIdAsync(item.ProductID);
-        if (product != null)
-        {
-            total += item.Quantity * product.PurchasePrice;
-        }
+        throw new Exception("Order not found");
     }
-    order.Total = total;
-    await _orderRepository.AddOrderAsync(order);
-    await _cartRepository.ClearCart(accountId);
+
+    order.Transaction = transaction;
+    order.Status = OrderStatus.ToShip;
+    await _orderRepository.UpdateAsync(order);
     return order;
 }
 

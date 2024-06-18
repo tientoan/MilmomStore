@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MilmomStore_DataAccessObject.Migrations
 {
-    public partial class InitDb1 : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -112,14 +112,16 @@ namespace MilmomStore_DataAccessObject.Migrations
                     ResponseId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     TmnCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TxnRef = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Amount = table.Column<int>(type: "int", nullable: false),
-                    OrderInfo = table.Column<int>(type: "int", nullable: false),
-                    ResponseCode = table.Column<int>(type: "int", nullable: false),
+                    Amount = table.Column<long>(type: "bigint", nullable: false),
+                    OrderInfo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ResponseCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Message = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BankTranNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PayDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     BankCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TransactionNo = table.Column<int>(type: "int", nullable: false),
-                    TransactionType = table.Column<int>(type: "int", nullable: false),
-                    TransactionStatus = table.Column<int>(type: "int", nullable: false),
+                    TransactionNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TransactionType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TransactionStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SecureHash = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -323,7 +325,7 @@ namespace MilmomStore_DataAccessObject.Migrations
                     Status = table.Column<int>(type: "int", nullable: false),
                     Total = table.Column<double>(type: "float", nullable: false),
                     AccountID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    transactionID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    transactionID = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     ShippingInforID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -345,8 +347,7 @@ namespace MilmomStore_DataAccessObject.Migrations
                         name: "FK_Order_Transaction_transactionID",
                         column: x => x.transactionID,
                         principalTable: "Transaction",
-                        principalColumn: "ResponseId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ResponseId");
                 });
 
             migrationBuilder.CreateTable(
@@ -524,10 +525,10 @@ namespace MilmomStore_DataAccessObject.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "0a93dd34-8501-4360-817f-495edb44bbb7", "f6782b29-9148-486a-8207-60c54b40b468", "Manager", "MANAGER" },
-                    { "30403810-a2f9-4919-a189-c5c0a4426ae0", "4db2c324-3086-45f9-aa8c-d25940064ae9", "Customer", "CUSTOMER" },
-                    { "6e7387cb-4aad-4067-a60e-2dada4b79119", "2ff53a4b-f3f7-468b-9131-e1d80880d5ec", "Staff", "STAFF" },
-                    { "f200e1f3-8291-4071-bd62-6504c5077370", "401fed8b-db61-44eb-b778-088c02e7a0d0", "Admin", "ADMIN" }
+                    { "39f37c8c-2379-4793-a07d-92d6aa222952", "a7080e2a-6213-4e3e-9d9d-11c453fdd402", "Customer", "CUSTOMER" },
+                    { "70e5ff66-0b3f-4efb-83f0-0ca055e5394f", "6ab62be2-271b-4943-ab13-8ba23f1e7dbc", "Admin", "ADMIN" },
+                    { "8e270673-94d8-4cac-9d3e-df7c9472d2fa", "bf5f5b9d-c49b-459e-8136-7e7ee9e91e3f", "Manager", "MANAGER" },
+                    { "b70707db-7811-4937-83bf-ffc472c41b41", "36e5a9ba-cb2f-4a0f-b3b4-dc3f9b3e3a7e", "Staff", "STAFF" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -614,7 +615,8 @@ namespace MilmomStore_DataAccessObject.Migrations
                 name: "IX_Order_transactionID",
                 table: "Order",
                 column: "transactionID",
-                unique: true);
+                unique: true,
+                filter: "[transactionID] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderDetail_OrderID",

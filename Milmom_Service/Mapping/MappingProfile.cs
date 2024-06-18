@@ -5,10 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Milmom_Service.Model.Request.AccountApplication;
+using Milmom_Service.Model.Request.Category;
 using Milmom_Service.Model.Request.Product;
 using Milmom_Service.Model.Request.Rating;
 using Milmom_Service.Model.Response.AccountApplication;
 using Milmom_Service.Model.Response.Cart;
+using Milmom_Service.Model.Response.Category;
 using Milmom_Service.Model.Response.ImageProduct;
 using Milmom_Service.Model.Response.Product;
 using Milmom_Service.Model.Response.Rating;
@@ -44,6 +46,12 @@ namespace Milmom_Service.Mapping
             CreateMap<Product, UpdateProductRequest>();
             CreateMap<AddProductRequest, Product>().ReverseMap();
             CreateMap<Product, AddProductRequest>();
+            CreateMap<Product, GetFilterProductResponse>();
+            CreateMap<Product, GetSearchProductResponse>();
+
+            CreateMap<Category, GetAllCategoryResponse>();
+            CreateMap<CreateCategoryRequest, Category>().ReverseMap();
+            CreateMap<UpdateCategoryRequest, Category>().ReverseMap();
 
             //
             CreateMap<Rating, GetRatingResponse>();

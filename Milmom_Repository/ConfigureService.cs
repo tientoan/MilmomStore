@@ -24,6 +24,7 @@ namespace Milmom_Repository
             services.AddScoped<ICartRepository, CartRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IRatingRepository, RatingRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             
             //
@@ -33,6 +34,7 @@ namespace Milmom_Repository
             services.AddScoped<CartDAO>();
             services.AddScoped<OrderDAO>();
             services.AddScoped<RatingDAO>();
+            services.AddScoped<CategoryDAO>();
             //
             
             return services;

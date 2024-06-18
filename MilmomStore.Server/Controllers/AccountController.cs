@@ -187,5 +187,168 @@ namespace MilmomStore.Server.Controllers
                 return StatusCode(500, e);
             }
         }
+<<<<<<< Updated upstream
+=======
+
+        [HttpPut("Update-Account")]
+        public async Task<IActionResult> UpdateAccount( string userId, [FromBody] UpdateAccountDto updateAccountDto)
+        {
+            try
+            {
+                var user = await _userManager.FindByIdAsync(userId);
+
+                if (user == null)
+                {
+                    return NotFound($"User with ID '{userId}' not found.");
+                }
+                if (!string.IsNullOrEmpty(updateAccountDto.Username))
+                {
+                    user.UserName = updateAccountDto.Username;
+                }
+
+                // Update role if provided
+                if (!string.IsNullOrEmpty(updateAccountDto.Role))
+                {
+                    // Check if the new role exists
+                    var newRole = updateAccountDto.Role.ToUpper();
+                    var roleExists = await _roleManager.RoleExistsAsync(newRole);
+                    if (!roleExists)
+                    {
+                        return BadRequest($"Role '{newRole}' does not exist.");
+                    }
+
+                    // Remove current roles and assign new role
+                    var currentRoles = await _userManager.GetRolesAsync(user);
+                    var roleRemoveResult = await _userManager.RemoveFromRolesAsync(user, currentRoles);
+                    if (!roleRemoveResult.Succeeded)
+                    {
+                        return StatusCode(500, roleRemoveResult.Errors);
+                    }
+
+                    var roleAddResult = await _userManager.AddToRoleAsync(user, newRole);
+                    if (!roleAddResult.Succeeded)
+                    {
+                        return StatusCode(500, roleAddResult.Errors);
+                    }
+                }
+
+                // Update other account properties
+                user.Name = updateAccountDto.Name ?? user.Name;
+                user.Address = updateAccountDto.Address ?? user.Address;
+                user.Phone = updateAccountDto.Phone ?? user.Phone;
+                user.Image = updateAccountDto.Image ?? user.Image;
+
+                // Save changes
+                var updateResult = await _userManager.UpdateAsync(user);
+
+                if (updateResult.Succeeded)
+                {
+                    // Optionally, return updated user information
+                    var updatedUserRoles = await _userManager.GetRolesAsync(user);
+                    return Ok(new NewUserDto
+                    {
+                        UserName = user.UserName,
+                        Email = user.Email,
+                        Name = user.Name,
+                        Address = user.Address,
+                        Phone = user.Phone,
+                        Image = user.Image,
+                        Roles = updatedUserRoles.ToList()
+                    });
+                }
+                else
+                {
+                    return StatusCode(500, updateResult.Errors);
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e);
+            }
+
+        }
+        [HttpGet("Get-all-accounts")]
+        public async Task<IActionResult> GetAllAccounts()
+        {
+            try
+            {
+                // Retrieve all user accounts asynchronously
+                var allAccounts = await _userManager.Users.ToListAsync();
+
+                // Map to DTOs for response
+                var accountInfoList = allAccounts.Select(user => new NewUserDto
+                {
+                    UserName = user.UserName,
+                    Email = user.Email,
+                    Name = user.Name,
+                    Address = user.Address,
+                    Phone = user.Phone,
+                    Image = user.Image,
+                    Roles = _userManager.GetRolesAsync(user).Result.ToList() // This should ideally be await _userManager.GetRolesAsync(user)
+                }).ToList();
+
+                return Ok(accountInfoList);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, $"Failed to retrieve account information: {e.Message}");
+            }
+        }
+
+        [HttpPost("Reset-Password-Token")]
+        public async Task<IActionResult> ResetPasswordToken([FromBody] ResetTokenModel resetTokenModel)
+        {
+            var user = await _userManager.FindByEmailAsync(resetTokenModel.Email);
+            if (user == null)
+            {
+                return BadRequest("Cannot find Email, Please check again!");
+            }
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            return Ok(new { token = token });
+        }
+
+        [HttpPost("Reset-Password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetToken resetToken)
+        {
+            var user = await _userManager.FindByEmailAsync(resetToken.Email);
+            if (user == null)
+            {
+                return BadRequest("UserName is wrong, Please check again!");
+            }
+
+            user = await _userManager.FindByNameAsync(resetToken.Username);
+            if (user == null)
+            {
+                return BadRequest("Cannot find Email, Please check again!");
+            }
+
+            if (string.Compare(resetToken.Password, resetToken.ConfirmPassword) != 0)
+            {
+                return BadRequest("Password and ConfirmPassword doesnot match! ");
+            }
+            if (string.IsNullOrEmpty(resetToken.Token))
+            {
+                return BadRequest("Invalid Token! ");
+            }
+            var result = await _userManager.ResetPasswordAsync(user, resetToken.Token, resetToken.Password);
+            if (!result.Succeeded)
+            {
+                var errors = new List<string>();
+                foreach (var error in result.Errors)
+                {
+                    errors.Add(error.Description);
+                }
+                return StatusCode(500, result.Errors);
+            }
+            return Ok(new UserDto
+            {
+                Email = resetToken.Email,
+                Username = resetToken.Username,
+                Password = resetToken.Password,
+                ConfirmPassword = resetToken.ConfirmPassword,
+                Token = resetToken.Token,
+            });
+        }
+>>>>>>> Stashed changes
     }
 }

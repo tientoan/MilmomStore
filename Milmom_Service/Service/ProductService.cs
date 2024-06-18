@@ -44,6 +44,39 @@ namespace Milmom_Service.Service
                 result);
         }
 
+<<<<<<< Updated upstream
+=======
+        public async Task<BaseResponse<GetProductDetailsResponse>> GetProductDetailByIdFromBase(int id)
+        {
+            Product product = await _productRepository.GetByIdAsync(id);
+            var result = _mapper.Map<GetProductDetailsResponse>(product);
+            return new BaseResponse<GetProductDetailsResponse>("Get product by id as base success",
+                StatusCodeEnum.OK_200,
+                result);
+        }
+
+        public async Task<BaseResponse<UpdateProductRequest>> UpdateProductFromBase(int id, UpdateProductRequest request)
+        {
+            Product existingProduct = await _productRepository.GetByIdAsync(id);
+            _mapper.Map(request, existingProduct);
+            await _productRepository.UpdateAsync(existingProduct);
+
+            var result = _mapper.Map<UpdateProductRequest>(existingProduct);
+            return new BaseResponse<UpdateProductRequest>("Update Product as base success", StatusCodeEnum.OK_200, result);
+        }
+
+        public async Task<BaseResponse<IEnumerable<ViewProductHomePageResponse>>> ViewProductHomePage()
+        {
+            IEnumerable<Product> products = await _productRepository.ViewProductForHomePage();
+            var product = _mapper.Map<IEnumerable<ViewProductHomePageResponse>>(products);
+            foreach (var item in product)
+            {
+                item.AverageRating = await _ratingRepository.GetAverageRating(item.ProductId);
+            }
+            return new BaseResponse<IEnumerable<ViewProductHomePageResponse>>("Get all product for home page success",
+                StatusCodeEnum.OK_200, product);
+        }
+>>>>>>> Stashed changes
         public async Task<BaseResponse<IEnumerable<GetSearchProductResponse>>> GetSearchProductFromBase(string search, int pageIndex, int pageSize)
         {
             IEnumerable<Product> products = await _productRepository.SearchProductAsync(search, pageIndex, pageSize);

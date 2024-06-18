@@ -77,7 +77,7 @@ namespace Milmom_Service.Service
             await _productRepository.UpdateAsync(existingProduct);
 
             var result = _mapper.Map<UpdateProductRequest>(existingProduct);
-            return new BaseResponse<UpdateProductRequest>("Update user as base success", StatusCodeEnum.OK_200, result);
+            return new BaseResponse<UpdateProductRequest>("Update Product as base success", StatusCodeEnum.OK_200, result);
         }
 
         public async Task<BaseResponse<IEnumerable<ViewProductHomePageResponse>>> ViewProductHomePage()

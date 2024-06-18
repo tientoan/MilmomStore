@@ -10,7 +10,7 @@ using Milmom_Repository;
 using Milmom_Repository.InterfaceRepository;
 using Milmom_Repository.Repository;
 using Milmom_Service;
-using Milmom_Service.InterfaceService;
+using Milmom_Service.IService;
 using Milmom_Service.Service;
 
 var builder = WebApplication.CreateBuilder(args);

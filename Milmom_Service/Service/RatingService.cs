@@ -24,6 +24,17 @@ public class RatingService : IRatingService
 
     public async Task<BaseResponse<RatingResponse>> AddRating(CreateRatingRequest createRating)
     {
+        // Check if the user has already rated this product
+        var existingRating = await _ratingRepository.GetRatingByUserIdAndProduct(createRating.AccountID, createRating.ProductID);
+        if (existingRating != null)
+        {
+            return new BaseResponse<RatingResponse>
+            (
+                "User has already rated this product",
+                StatusCodeEnum.BadRequest_400,
+                null
+            );
+        }
         if (!await _orderRepository.HasPurchasedProductAsync(createRating.AccountID, createRating.ProductID))
         {
             return new BaseResponse<RatingResponse>
@@ -33,7 +44,7 @@ public class RatingService : IRatingService
                 null
             );
         }
-        //check just add one time
+        //create rating
         var newRating = new Rating
         {
             AccountID = createRating.AccountID,

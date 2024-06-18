@@ -23,6 +23,7 @@ namespace Milmom_Service
             services.AddScoped<ICheckoutService, CheckoutService>();
             services.AddScoped<IVnPayService, VnPayService>();
             services.AddScoped<IRatingService, RatingService>();
+            //services.AddScoped<ITokenService, TokenService>();
             return services;
         }
     }

@@ -14,5 +14,5 @@ public interface IRatingService
     
     public Task<BaseResponse<IEnumerable<RatingResponse>>> GetRatingByProductId(int productId);
     public Task<BaseResponse<IEnumerable<RatingResponse>>> GetRatingByAccountId(string accountId);
-    
+    //public Task<Rating> GetRatingByUserIdAndProduct(string accountId, int productId)
 }

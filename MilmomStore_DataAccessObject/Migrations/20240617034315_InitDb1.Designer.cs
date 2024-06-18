@@ -9,11 +9,11 @@ using MilmomStore_DataAccessObject;
 
 #nullable disable
 
-namespace MilmomStore.Server.Migrations
+namespace MilmomStore_DataAccessObject.Migrations
 {
     [DbContext(typeof(MilmomSystemContext))]
-    [Migration("20240604155541_InitialDb3")]
-    partial class InitialDb3
+    [Migration("20240617034315_InitDb1")]
+    partial class InitDb1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,6 +49,36 @@ namespace MilmomStore.Server.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "f200e1f3-8291-4071-bd62-6504c5077370",
+                            ConcurrencyStamp = "401fed8b-db61-44eb-b778-088c02e7a0d0",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "30403810-a2f9-4919-a189-c5c0a4426ae0",
+                            ConcurrencyStamp = "4db2c324-3086-45f9-aa8c-d25940064ae9",
+                            Name = "Customer",
+                            NormalizedName = "CUSTOMER"
+                        },
+                        new
+                        {
+                            Id = "6e7387cb-4aad-4067-a60e-2dada4b79119",
+                            ConcurrencyStamp = "2ff53a4b-f3f7-468b-9131-e1d80880d5ec",
+                            Name = "Staff",
+                            NormalizedName = "STAFF"
+                        },
+                        new
+                        {
+                            Id = "0a93dd34-8501-4360-817f-495edb44bbb7",
+                            ConcurrencyStamp = "f6782b29-9148-486a-8207-60c54b40b468",
+                            Name = "Manager",
+                            NormalizedName = "MANAGER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -281,6 +311,25 @@ namespace MilmomStore.Server.Migrations
                     b.ToTable("Blogs");
                 });
 
+            modelBuilder.Entity("MilmomStore_BusinessObject.Model.Cart", b =>
+                {
+                    b.Property<int>("CartID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartID"), 1L, 1);
+
+                    b.Property<string>("AccountID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("CartID");
+
+                    b.HasIndex("AccountID");
+
+                    b.ToTable("Carts");
+                });
+
             modelBuilder.Entity("MilmomStore_BusinessObject.Model.CartItem", b =>
                 {
                     b.Property<int>("CartItemID")
@@ -289,9 +338,11 @@ namespace MilmomStore.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartItemID"), 1L, 1);
 
-                    b.Property<string>("AccountID")
-                        .IsRequired()
+                    b.Property<string>("AccountApplicationId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("CartID")
+                        .HasColumnType("int");
 
                     b.Property<int>("ProductID")
                         .HasColumnType("int");
@@ -301,7 +352,9 @@ namespace MilmomStore.Server.Migrations
 
                     b.HasKey("CartItemID");
 
-                    b.HasIndex("AccountID");
+                    b.HasIndex("AccountApplicationId");
+
+                    b.HasIndex("CartID");
 
                     b.HasIndex("ProductID");
 
@@ -333,9 +386,9 @@ namespace MilmomStore.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImageProductsID"), 1L, 1);
 
-                    b.Property<byte[]>("Image")
+                    b.Property<string>("Image")
                         .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductID")
                         .HasColumnType("int");
@@ -362,7 +415,8 @@ namespace MilmomStore.Server.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ShippingInforID")
+                    b.Property<int?>("ShippingInforID")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int>("Status")
@@ -444,12 +498,22 @@ namespace MilmomStore.Server.Migrations
                     b.Property<DateTime>("ExpiredDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<double>("Height")
+                        .HasColumnType("float");
+
                     b.Property<string>("Ingredient")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Instruction")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("InventoryQuantity")
                         .HasColumnType("int");
+
+                    b.Property<double>("Length")
+                        .HasColumnType("float");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -474,6 +538,12 @@ namespace MilmomStore.Server.Migrations
 
                     b.Property<DateTime>("UpdateAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<double>("Weight")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Width")
+                        .HasColumnType("float");
 
                     b.HasKey("ProductID");
 
@@ -595,7 +665,15 @@ namespace MilmomStore.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShippingInforID"), 1L, 1);
 
-                    b.Property<string>("Address")
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DetailAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("District")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -603,7 +681,7 @@ namespace MilmomStore.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Receiver")
+                    b.Property<string>("ReceiverName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -769,11 +847,26 @@ namespace MilmomStore.Server.Migrations
                     b.Navigation("Account");
                 });
 
-            modelBuilder.Entity("MilmomStore_BusinessObject.Model.CartItem", b =>
+            modelBuilder.Entity("MilmomStore_BusinessObject.Model.Cart", b =>
                 {
                     b.HasOne("MilmomStore_BusinessObject.Model.AccountApplication", "AccountsApplication")
-                        .WithMany("CartItems")
+                        .WithMany()
                         .HasForeignKey("AccountID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AccountsApplication");
+                });
+
+            modelBuilder.Entity("MilmomStore_BusinessObject.Model.CartItem", b =>
+                {
+                    b.HasOne("MilmomStore_BusinessObject.Model.AccountApplication", null)
+                        .WithMany("CartItems")
+                        .HasForeignKey("AccountApplicationId");
+
+                    b.HasOne("MilmomStore_BusinessObject.Model.Cart", "Cart")
+                        .WithMany("CartItem")
+                        .HasForeignKey("CartID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -783,7 +876,7 @@ namespace MilmomStore.Server.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AccountsApplication");
+                    b.Navigation("Cart");
 
                     b.Navigation("Product");
                 });
@@ -922,6 +1015,11 @@ namespace MilmomStore.Server.Migrations
                     b.Navigation("Reports");
 
                     b.Navigation("Reviews");
+                });
+
+            modelBuilder.Entity("MilmomStore_BusinessObject.Model.Cart", b =>
+                {
+                    b.Navigation("CartItem");
                 });
 
             modelBuilder.Entity("MilmomStore_BusinessObject.Model.Category", b =>

@@ -8,7 +8,7 @@ using MilmomStore_DataAccessObject;
 
 #nullable disable
 
-namespace MilmomStore.Server.Migrations
+namespace MilmomStore_DataAccessObject.Migrations
 {
     [DbContext(typeof(MilmomSystemContext))]
     partial class MilmomSystemContextModelSnapshot : ModelSnapshot
@@ -47,36 +47,6 @@ namespace MilmomStore.Server.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "e6a83981-2a46-49c5-b1d3-ead1ec170e2b",
-                            ConcurrencyStamp = "9191e9b9-9fe6-4174-ac77-faeedb544aa5",
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = "11c6cbc9-f45b-413b-851c-c79e20fa1142",
-                            ConcurrencyStamp = "79aa2dbc-dfa7-432f-8b4b-5cc18252c2fc",
-                            Name = "Customer",
-                            NormalizedName = "CUSTOMER"
-                        },
-                        new
-                        {
-                            Id = "e99618f6-ccdb-433f-a051-903382645066",
-                            ConcurrencyStamp = "1cf9f73a-50db-497f-bd78-30c7a15f64dd",
-                            Name = "Staff",
-                            NormalizedName = "STAFF"
-                        },
-                        new
-                        {
-                            Id = "36d94568-871e-4cc3-bb39-3049a7b9be1e",
-                            ConcurrencyStamp = "1d379941-ba95-4af5-9d07-62426187f8a6",
-                            Name = "Manager",
-                            NormalizedName = "MANAGER"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -28,7 +28,7 @@ namespace MilmomStore_BusinessObject.Model
         public int? ShippingInforID { get; set; }
         //
         public ICollection<OrderDetail> OrderDetails { get; set; }
-        public Transaction Transaction { get; set; } = null!;
+        public Transaction Transaction { get; set; }
         public ShippingInfor ShippingInfor { get; set; } = null!;
 
     }

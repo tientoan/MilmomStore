@@ -38,7 +38,7 @@ namespace MilmomStore.Server.Controllers
         }
         [HttpPost("{accountId}")]
         [ProducesResponseType(StatusCodes.Status302Found)]
-        public async Task<IActionResult> CreateOrder(string accountId, [FromBody] ShippingRequest shippingRequest)
+        public async Task<string> CreateOrder(string accountId, [FromBody] ShippingRequest shippingRequest)
         {
             var amount = await _checkoutService.GetAmount(accountId);
             //vnpay method
@@ -50,9 +50,9 @@ namespace MilmomStore.Server.Controllers
                 FullName = shippingRequest.ReceiverName,
                 OrderId = new Random().Next(10,100)
             };
-            return Redirect(_vnPayService.CreatePaymentUrl(HttpContext, vnPayModel));
-            var order = await _checkoutService.CreateOrder(accountId, shippingRequest);
-            return Ok(order);
+            return _vnPayService.CreatePaymentUrl(HttpContext, vnPayModel);
+            //var order = await _checkoutService.CreateOrder(accountId, shippingRequest);
+            //return Ok(order);
         }
             
     }

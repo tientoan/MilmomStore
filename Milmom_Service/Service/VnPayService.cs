@@ -9,7 +9,7 @@ namespace Milmom_Service.Service;
 
 public class VnPayService : IVnPayService
 {
-    private IConfiguration _configuration;
+    private readonly IConfiguration _configuration;
     public VnPayService(IConfiguration configuration)
     {
         _configuration = configuration;
@@ -27,7 +27,7 @@ public class VnPayService : IVnPayService
         //là: 10000000
 
         vnpay.AddRequestData("vnp_CreateDate", requestModel.CreatedDate.ToString("yyyyMMddHHmmss"));
-        vnpay.AddRequestData("vnp_CurrCode", _configuration["VnPay:VND"]);
+        vnpay.AddRequestData("vnp_CurrCode", _configuration["VnPay:Currency"]);
         vnpay.AddRequestData("vnp_IpAddr", Utils.GetIpAddress(context));
         vnpay.AddRequestData("vnp_Locale", _configuration["VnPay:Locale"]);
         //

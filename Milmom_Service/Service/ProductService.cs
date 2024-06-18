@@ -21,27 +21,29 @@ namespace Milmom_Service.Service
     {
         private readonly IMapper _mapper;
         private readonly IProductRepository _productRepository;
+        private readonly IRatingRepository _ratingRepository;
 
-        public ProductService(IMapper mapper, IProductRepository productRepository)
+        public ProductService(IMapper mapper, IProductRepository productRepository, IRatingRepository ratingRepository)
         {
             _mapper = mapper;
             _productRepository = productRepository;
+            _ratingRepository = ratingRepository;
         }
 
-        public async Task<BaseResponse<Product>> DeleteProduct(int id)
-        {
-            var existingProduct = await _productRepository.GetByIdAsync(id);
-            if (existingProduct == null)
-            {
-                return new BaseResponse<Product>("Product not found", StatusCodeEnum.NotFound_404, null);
-            }
-            var result = await _productRepository.DeleteProduct(existingProduct);
-            if(result == 0)
-            {
-                return new BaseResponse<Product>("Failed to delete product", StatusCodeEnum.BadRequest_400, existingProduct);
-            }
-            return new BaseResponse<Product>("Product deleted successfully", StatusCodeEnum.OK_200, existingProduct);
-        }
+        //public async Task<BaseResponse<Product>> DeleteProduct(int id)
+        //{
+        //    var existingProduct = await _productRepository.GetByIdAsync(id);
+        //    if (existingProduct == null)
+        //    {
+        //        return new BaseResponse<Product>("Product not found", StatusCodeEnum.NotFound_404, null);
+        //    }
+        //    var result = await _productRepository.DeleteProduct(existingProduct);
+        //    if(result == 0)
+        //    {
+        //        return new BaseResponse<Product>("Failed to delete product", StatusCodeEnum.BadRequest_400, existingProduct);
+        //    }
+        //    return new BaseResponse<Product>("Product deleted successfully", StatusCodeEnum.OK_200, existingProduct);
+        //}
 
         public async Task<BaseResponse<IEnumerable<GetAllProductsForManagerResponse>>> GetAllProductsFromBase()
         {
@@ -82,6 +84,10 @@ namespace Milmom_Service.Service
         {
             IEnumerable<Product> products = await _productRepository.ViewProductForHomePage();
             var product = _mapper.Map<IEnumerable<ViewProductHomePageResponse>>(products);
+            foreach (var item in product)
+            {
+                item.AverageRating = await _ratingRepository.GetAverageRating(item.ProductId);
+            }
             return new BaseResponse<IEnumerable<ViewProductHomePageResponse>>("Get all product for home page success",
                 StatusCodeEnum.OK_200, product);
         }
@@ -99,6 +105,25 @@ namespace Milmom_Service.Service
             var product = _mapper.Map<IEnumerable<GetFilterProductResponse>>(products);
             return new BaseResponse<IEnumerable<GetFilterProductResponse>>("Get filter product as base success",
                 StatusCodeEnum.OK_200, product);
+        }
+
+        public async Task<bool> DeleteTest(int id)
+        {
+            var existingProduct = await _productRepository.GetByIdAsync(id);
+            if (existingProduct == null)
+            {
+                return false;
+            }
+            return await _productRepository.DeleteTest(existingProduct);
+        }
+
+        public async Task<BaseResponse<AddProductRequest>> AddProductByIdFromBase(AddProductRequest request)
+        {
+            Product product = _mapper.Map<Product>(request);
+            await _productRepository.AddAsync(product);
+
+            var response = _mapper.Map<AddProductRequest>(product);
+            return new BaseResponse<AddProductRequest>("Create product as base success", StatusCodeEnum.Created_201, response);
         }
     }
 }

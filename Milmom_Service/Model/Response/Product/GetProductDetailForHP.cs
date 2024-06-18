@@ -30,6 +30,9 @@ namespace Milmom_Service.Model.Response.Product
         
         public string Instruction { get; set; }
         public double Weight { get; set; }
+        public double Height { get; set; }
+        public double Width { get; set; }
+        public double Length { get; set; }
         public ICollection<GetAllImageProductsResponse> ImageProducts { get; set; }
 
         public ICollection<GetRatingResponse> Rating { get; set; }

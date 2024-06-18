@@ -29,15 +29,23 @@ namespace MilmomStore_DataAccessObject
         public async Task<Product> GetByIdAsync(int id)
         {
             return await _context.Set<Product>()
+                .Where(p => p.Status == true)
                 .Include(p => p.ImageProducts)
                 .Include(p => p.Ratings)
                 .SingleOrDefaultAsync(p => p.ProductID == id);
         }
 
-        public async Task<int> DeleteProduct(Product product)
+        //public async Task<int> DeleteProduct(Product product)
+        //{
+        //    product.Status = false;
+        //    return await _context.SaveChangesAsync();
+        //}
+
+        public async Task<bool> DeleteTest(Product product)
         {
             product.Status = false;
-            return await _context.SaveChangesAsync();
+            int result = await _context.SaveChangesAsync();
+            return result > 0;
         }
 
         public async Task<IEnumerable<Product>> ViewProductForHomePage()
@@ -49,30 +57,7 @@ namespace MilmomStore_DataAccessObject
            .ToListAsync();
         }
 
-        public async Task<Product> UpdateAsync(Product entity)
-        {
-            var existingProduct = await _context.Products
-            .Include(p => p.ImageProducts)
-            .FirstOrDefaultAsync(p => p.ProductID == entity.ProductID); // Ensure you fetch the existing entity with its relationships
-
-            if (existingProduct == null)
-            {
-                return null; // Or handle the case where the product doesn't exist in your preferred way
-            }
-
-            // Update the main product properties
-            _context.Entry(existingProduct).CurrentValues.SetValues(entity);
-
-            // Update the related ImageProducts collection
-            existingProduct.ImageProducts.Clear();
-            foreach (var imageProduct in entity.ImageProducts)
-            {
-                existingProduct.ImageProducts.Add(imageProduct);
-            }
-
-            await _context.SaveChangesAsync();
-            return existingProduct;
-        }
+        
         public async Task<IEnumerable<Product>> SearchProductAsync(string search, int pageIndex, int pageSize)
         {
             IQueryable<Product> searchProducts = _context.Products;

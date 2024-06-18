@@ -36,17 +36,38 @@ namespace MilmomStore.Server.Controllers
             return await _productService.GetProductByIdFromBase(id);
         }
 
-        [HttpGet]
-        [Route("/ProductDetail/base/{id}")]
-        public async Task<ActionResult<BaseResponse<GetProductDetailsResponse>>> GetProductDetailByIdFromBase(int id)
-        {
-            return await _productService.GetProductDetailByIdFromBase(id);
-        }
+        //[HttpGet]
+        //[Route("/ProductDetail/base/{id}")]
+        //public async Task<ActionResult<BaseResponse<GetProductDetailsResponse>>> GetProductDetailByIdFromBase(int id)
+        //{
+        //    return await _productService.GetProductDetailByIdFromBase(id);
+        //}
+
+        //[HttpDelete]
+        //[Route("{id}")]
+        //public async Task<ActionResult<BaseResponse<Product>>> DeleteProduct(int id)
+        //{
+        //    return await _productService.DeleteProduct(id);
+        //}
+
         [HttpDelete]
         [Route("{id}")]
         public async Task<ActionResult<BaseResponse<Product>>> DeleteProduct(int id)
         {
-            return await _productService.DeleteProduct(id);
+            var existingProduct = await _productService.GetProductByIdFromBase(id);
+            if (existingProduct == null)
+            {
+                return NotFound(new { message = "Product not found" });
+            }
+
+            var success = await _productService.DeleteTest(id);
+
+            if (!success)
+            {
+                return BadRequest(new { message = "Failed to delete product" });
+            }
+
+            return Ok(new { message = "Delete successful" });
         }
 
         [HttpGet]
@@ -65,15 +86,23 @@ namespace MilmomStore.Server.Controllers
             return await _productService.UpdateProductFromBase(id, product);
         }
 
-        [HttpGet]
-        [Route("base/{id}")]
-        public async Task<ActionResult<BaseResponse<GetProductDetailForHP>>> GetProductByIdFromBase(int id)
+        [HttpPost]
+        [Route("AddForManagement")]
+        public async Task<ActionResult<BaseResponse<AddProductRequest>>> CreateProductFromBase([FromBody] AddProductRequest request)
         {
-            return await _productService.GetProductByIdFromBase(id);
+            var user = await _productService.AddProductByIdFromBase(request);
+            return user;
         }
 
+        //[HttpGet]
+        //[Route("base/{id}")]
+        //public async Task<ActionResult<BaseResponse<GetProductDetailForHP>>> GetProductByIdFromBase(int id)
+        //{
+        //    return await _productService.GetProductByIdFromBase(id);
+        //}
+
         [HttpGet]
-        [Route("base/string")]
+        [Route("base/search")]
         public async Task<ActionResult<BaseResponse<IEnumerable<GetSearchProductResponse>>>> GetSearchProductFromBase(string search, int pageIndex, int pageSize)
         {
             return await _productService.GetSearchProductFromBase(search, pageIndex, pageSize);

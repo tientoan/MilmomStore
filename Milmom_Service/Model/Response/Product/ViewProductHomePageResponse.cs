@@ -17,6 +17,7 @@ namespace Milmom_Service.Model.Response.Product
         public ICollection<GetAllImageProductsResponse> ImageProducts { get; set; }
 
         public ICollection<GetRatingResponse> Rating { get; set; }
+        public double AverageRating { get; set; }
 
     }
 }

@@ -35,11 +35,13 @@ namespace MilmomStore_BusinessObject.Model
     public enum OrderStatus
     {
         ToPay = 0,
-        ToShip = 1,
-        ToReceive = 2,
-        Completed = 3,
-        Cancelled = 4,
-        ReturnRefund = 5,
+        ToConfirm = 1,
+        ToShip = 2,
+        ToReceive = 3,
+        Completed = 4,
+        Cancelled = 5,
+        ReturnRefund = 6,
+        RequestReturn = 7
     }
 
 }

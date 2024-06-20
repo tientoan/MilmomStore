@@ -26,4 +26,24 @@ public class OrderRepository : BaseRepository<Order>, IOrderRepository
     {
         return _orderDao.GetOrderByIdAsync(orderId);
     }
+
+    public async Task<IEnumerable<Order>> GetOrdersByAccountId(string accountId)
+    {
+        return await _orderDao.GetOrdersByAccountId(accountId);
+    }
+
+    public async Task<IEnumerable<Order>> GetOrdersByDateAsync(DateTime date)
+    {
+        return await _orderDao.GetOrdersByDateAsync(date);
+    }
+
+    public async Task<Order> ChangeOrderStatus(int orderId, OrderStatus status)
+    {
+        return await _orderDao.ChangeOrderStatus(orderId, status);
+    }
+
+    public async Task<IEnumerable<Order>> GetOrdersByStatusAsync(OrderStatus status)
+    {
+        return await _orderDao.GetOrdersByStatusAsync(status);
+    }
 }

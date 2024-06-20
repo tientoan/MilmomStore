@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.Http;
 using Milmom_Service.Model.Request.ShippingRequest;
 using Milmom_Service.Model.Request.VnPayModel;
 using Milmom_Service.Model.Response.Checkout;
-using Newtonsoft.Json;
-using Newtonsoft.Json;
 namespace Milmom_Service.Service;
 
 public class CheckoutService : ICheckoutService
@@ -15,17 +13,14 @@ public class CheckoutService : ICheckoutService
     private readonly ICartRepository _cartRepository;
     private readonly IOrderRepository _orderRepository;
     private readonly IProductRepository _productRepository;
-    //private readonly IHttpContextAccessor _httpContextAccessor;
     public CheckoutService(ICartRepository cartRepository, 
         IOrderRepository orderRepository,
         IProductRepository productRepository
-        //IHttpContextAccessor httpContextAccessor
         )
     {
         _cartRepository = cartRepository;
         _orderRepository = orderRepository;
         _productRepository = productRepository;
-        //_httpContextAccessor = httpContextAccessor;
     }
     public async Task<Order> Checkout(string accountId, ShippingRequest shippingRequest)
     {
@@ -39,7 +34,6 @@ public class CheckoutService : ICheckoutService
             var product = await _productRepository.GetByIdAsync(item.ProductID);
             if (product == null || product.InventoryQuantity < item.Quantity)
             {
-                //_cartRepository.RemoveFromCart(accountId, productId);
                 throw new Exception("Product not found or out of stock");
             }
         }
@@ -70,6 +64,8 @@ public class CheckoutService : ICheckoutService
             if (product != null)
             {
                 total += item.Quantity * product.PurchasePrice;
+                product.InventoryQuantity -= item.Quantity; // Adjust inventory
+                await _productRepository.UpdateAsync(product); // Update product in repository
             }
         }
         order.Total = total;
@@ -95,7 +91,6 @@ public class CheckoutService : ICheckoutService
                 throw new Exception("Product not found or out of stock");
             }
         }
-
         return true;
     }
 
@@ -106,19 +101,17 @@ public async Task<Order> CreateOrder(int orderId, Transaction transaction)
     {
         throw new Exception("Order not found");
     }
-
     order.Transaction = transaction;
-    order.Status = OrderStatus.ToShip;
+    order.Status = OrderStatus.ToConfirm;
     await _orderRepository.UpdateAsync(order);
     return order;
 }
-
     public async Task<double> GetAmount(string accountId)
     {
         return await _cartRepository.GetAmount(accountId);
     }
 
-//not done yet
+    //not done yet
     public async Task CancelOrder(int orderId)
     {
         var order = await _orderRepository.GetByIdAsync(orderId);
@@ -140,6 +133,17 @@ public async Task<Order> CreateOrder(int orderId, Transaction transaction)
 
         // Update the order status to Cancelled
         order.Status = OrderStatus.Cancelled;
+        await _orderRepository.UpdateAsync(order);
+    }
+
+    public async Task UpdateOrderStatus(int orderId, string status)
+    {
+        var order = await _orderRepository.GetByIdAsync(orderId);
+        if (order == null)
+        {
+            throw new Exception("Order not found");
+        }
+        order.Status = Enum.Parse<OrderStatus>(status);
         await _orderRepository.UpdateAsync(order);
     }
 }

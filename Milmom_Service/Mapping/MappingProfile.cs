@@ -12,6 +12,7 @@ using Milmom_Service.Model.Response.AccountApplication;
 using Milmom_Service.Model.Response.Cart;
 using Milmom_Service.Model.Response.Category;
 using Milmom_Service.Model.Response.ImageProduct;
+using Milmom_Service.Model.Response.Order;
 using Milmom_Service.Model.Response.Product;
 using Milmom_Service.Model.Response.Rating;
 using MilmomStore_BusinessObject.Model;
@@ -62,6 +63,7 @@ namespace Milmom_Service.Mapping
             CreateMap<CartItem, CartItemResponse>();
             CreateMap<Rating, RatingResponse>();
             CreateMap<CreateRatingRequest, Rating>().ReverseMap();
+            CreateMap<Order, OrderResponse>();
         }
     }
 }

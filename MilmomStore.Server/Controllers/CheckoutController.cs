@@ -20,24 +20,12 @@ namespace MilmomStore.Server.Controllers
     {
         private readonly ICheckoutService _checkoutService;
         private readonly IVnPayService _vnPayService;
-        
         public CheckoutController(ICheckoutService checkoutService, IVnPayService vnPayService)
         {
             _checkoutService = checkoutService;
             _vnPayService = vnPayService;
-            
         }
-        //
-        // [HttpGet("{accountId}")]
-        // public async Task<IActionResult> Checkout(string accountId)
-        // {
-        //     var validationResult = await _checkoutService.ValidateCart(accountId);
-        //     if (validationResult == false)
-        //     {
-        //         return BadRequest("Cart is empty or invalid");
-        //     }
-        //     return Ok();
-        // }
+        
         [HttpPost("createOrder")]
         [ProducesResponseType(StatusCodes.Status302Found)]
         public async Task<string>  CreateOrder(string accountId, [FromBody] ShippingRequest shippingRequest)
@@ -45,9 +33,7 @@ namespace MilmomStore.Server.Controllers
             var amount = await _checkoutService.GetAmount(accountId);
             var order = await _checkoutService.Checkout(accountId, shippingRequest);
             var orderId = order.OrderID;
-            
-            //
-            //vnpay method
+            // create payment vnpay
             var vnPayModel = new VnPayRequestModel
             {
                 Amount = amount,
@@ -59,6 +45,7 @@ namespace MilmomStore.Server.Controllers
             };
             return _vnPayService.CreatePaymentUrl(HttpContext, vnPayModel);
         }
+        
         [HttpGet("vnpay-return")]
         public async Task<IActionResult> HandleVnPayReturn([FromQuery] VnPayReturnModel model)
         {
@@ -83,6 +70,7 @@ namespace MilmomStore.Server.Controllers
             var order = await _checkoutService.CreateOrder(Convert.ToInt32(model.Vnp_OrderInfo), transaction);
             return Ok(order);
         }
-            
+        
+        
     }
 }

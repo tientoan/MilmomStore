@@ -5,13 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Milmom_Service.Model.Request.AccountApplication;
+using Milmom_Service.Model.Request.Blog;
 using Milmom_Service.Model.Request.Product;
 using Milmom_Service.Model.Request.Rating;
+using Milmom_Service.Model.Request.Slider;
 using Milmom_Service.Model.Response.AccountApplication;
+using Milmom_Service.Model.Response.Blog;
 using Milmom_Service.Model.Response.Cart;
 using Milmom_Service.Model.Response.ImageProduct;
 using Milmom_Service.Model.Response.Product;
 using Milmom_Service.Model.Response.Rating;
+using Milmom_Service.Model.Response.Slider;
 using MilmomStore_BusinessObject.Model;
 
 namespace Milmom_Service.Mapping
@@ -54,6 +58,24 @@ namespace Milmom_Service.Mapping
             CreateMap<CartItem, CartItemResponse>();
             CreateMap<Rating, RatingResponse>();
             CreateMap<CreateRatingRequest, Rating>().ReverseMap();
+
+            //
+            CreateMap<Slider, GetSliderForHomePageResponse>();
+            CreateMap<Slider, GetSliderByIdResponse>();
+            CreateMap<Slider, GetAllSliderForStaffResponse>();
+            CreateMap<UpdateSliderRequest,  Slider>().ReverseMap();
+            CreateMap<Slider, UpdateSliderRequest>();
+            CreateMap<AddSliderRequest, Slider>().ReverseMap();
+            CreateMap<Slider, AddSliderRequest>();
+
+            //
+            CreateMap<Blog, GetBlogForHomepageResponse>();
+            CreateMap<Blog, GetBlogForManageResponse>();
+            CreateMap<Blog, GetBlogByIdResponse>();
+            CreateMap<UpdateBlogRequest, Blog>().ReverseMap();
+            CreateMap<Blog, UpdateBlogRequest>();
+            CreateMap<AddBlogRequest, Blog>().ReverseMap();
+            CreateMap<Blog, AddBlogRequest>();
         }
     }
 }

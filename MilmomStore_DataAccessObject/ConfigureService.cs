@@ -24,6 +24,8 @@ namespace MilmomStore_DataAccessObject
             services.AddScoped<ShippingInfor>();
             services.AddScoped<Transaction>();
             services.AddScoped<Rating>();
+            services.AddScoped<Slider>();
+            services.AddScoped<Blog>();
             services.AddScoped(typeof(IBaseDAO<>), typeof(BaseDAO<>));
             return services;
         }

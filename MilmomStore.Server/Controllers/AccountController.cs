@@ -45,6 +45,7 @@ namespace MilmomStore.Server.Controllers
             return Ok(
                 new NewUserDto
                 {
+                    UserID = user.Id,
                     UserName = user.UserName,
                     Email = user.Email,
                     Roles = roles.ToList(),

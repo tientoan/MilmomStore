@@ -21,6 +21,6 @@ namespace MilmomStore_BusinessObject.IdentityModel
         public string? Phone { get; set; }
        
         public string? Role { get; set; }
-        public byte[]? Image { get; set; }
+        public string? Image { get; set; }
     }
 }

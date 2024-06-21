@@ -10,7 +10,7 @@ namespace MilmomStore_BusinessObject.Model
 
         public string Phone { get; set; }
 
-        public byte[] Image { get; set; }
+        public string? Image { get; set; }
 
         //public bool Status { get; set; }
         

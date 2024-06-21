@@ -16,6 +16,6 @@ namespace MilmomStore_BusinessObject.IdentityModel
         public IList<string> Roles { get; set; }
         public string Token { get; set; }
         public string RefreshToken { get; set; }
-        public byte[]? Image { get; set; }
+        public string? Image { get; set; }
     }
 }

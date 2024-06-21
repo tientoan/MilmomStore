@@ -49,5 +49,12 @@ namespace MilmomStore.Server.Controllers
             await _cartService.ClearCart(accountId);
             return Ok();
         }
+
+        [HttpPut("{accountId}")]
+        public async Task<ActionResult<BaseResponse<CartResponse>>> UpdateProductQuantityInCart(string accountId,int productId, int newQuantity)
+        {
+            var cartUpdate = await _cartService.UpdateProductQuantityInCart(accountId,productId, newQuantity);
+            return Ok(cartUpdate);
+        }
     }
 }

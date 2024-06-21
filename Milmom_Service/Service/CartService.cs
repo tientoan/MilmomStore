@@ -60,4 +60,30 @@ public class CartService : ICartService
     {
         await _cartRepository.ClearCart(accountId);
     }
+
+    public async Task<BaseResponse<CartResponse>> UpdateProductQuantityInCart(string accountId, int productId, int newQuantity)
+    {
+        var product = await _productRepository.GetByIdAsync(productId);
+        if (product == null || product.InventoryQuantity < 1)
+        {
+            throw new Exception("Product not found or out of stock");
+        }
+
+        var cart = await _cartRepository.GetCart(accountId);
+        var cartItem = cart?.CartItem.FirstOrDefault(ci => ci.ProductID == productId);
+        if (cartItem == null)
+        {
+            throw new Exception("Product not found in cart");
+        }
+
+        if (newQuantity < 1)
+        {
+            throw new Exception("Quantity must be greater than 0");
+        }
+
+        cartItem.Quantity = newQuantity;
+        await _cartRepository.UpdateAsync(cart);
+        var result = _mapper.Map<CartResponse>(cart);
+        return new BaseResponse<CartResponse>("Update product quantity in cart success", StatusCodeEnum.OK_200, result);
+    }
 }

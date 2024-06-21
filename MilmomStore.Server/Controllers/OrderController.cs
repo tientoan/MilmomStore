@@ -56,5 +56,10 @@ namespace MilmomStore.Server.Controllers
         {
             return await _orderService.ChangeOrderStatus(orderId, status);
         }
+        [HttpGet("get-order-by-id/{orderId}")]
+        public async Task<BaseResponse<OrderResponse>> GetOrderByIdAsync(int orderId)
+        {
+            return await _orderService.GetOrderByIdAsync(orderId);
+        }
     }
 }

@@ -51,7 +51,7 @@ public class CheckoutService : ICheckoutService
             ShippingInfor = new ShippingInfor
             {
                 DetailAddress = shippingRequest.DetailAddress,
-                City = shippingRequest.City,
+                Province = shippingRequest.Province,
                 District = shippingRequest.District,
                 Phone = shippingRequest.Phone,
                 ReceiverName = shippingRequest.ReceiverName

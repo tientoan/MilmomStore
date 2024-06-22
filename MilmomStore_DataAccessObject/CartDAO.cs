@@ -71,7 +71,9 @@ public class CartDAO : BaseDAO<Cart>
         
         return await _context.Carts
             .Include(c => c.CartItem)
+            .Include(ci => ci.CartItem)
             .ThenInclude(ci => ci.Product)
+            .ThenInclude(p => p.ImageProducts)
             .FirstOrDefaultAsync(c => c.AccountID == accountId);
         
     }

@@ -53,6 +53,7 @@ public class CheckoutService : ICheckoutService
                 DetailAddress = shippingRequest.DetailAddress,
                 Province = shippingRequest.Province,
                 District = shippingRequest.District,
+                Ward = shippingRequest.Ward,
                 Phone = shippingRequest.Phone,
                 ReceiverName = shippingRequest.ReceiverName
             }

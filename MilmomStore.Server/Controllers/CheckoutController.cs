@@ -20,10 +20,12 @@ namespace MilmomStore.Server.Controllers
     {
         private readonly ICheckoutService _checkoutService;
         private readonly IVnPayService _vnPayService;
-        public CheckoutController(ICheckoutService checkoutService, IVnPayService vnPayService)
+        private readonly IConfiguration _configuration;
+        public CheckoutController(ICheckoutService checkoutService, IVnPayService vnPayService, IConfiguration configuration)
         {
             _checkoutService = checkoutService;
             _vnPayService = vnPayService;
+            _configuration = configuration;
         }
         
         [HttpPost("createOrder")]
@@ -67,8 +69,9 @@ namespace MilmomStore.Server.Controllers
                 ResponseId = model.Vnp_TransactionNo,
                 Message = model.Vnp_ResponseCode
             };
-            var order = await _checkoutService.CreateOrder(Convert.ToInt32(model.Vnp_OrderInfo), transaction);
-            return Ok(order);
+            var orderId = Convert.ToInt32(model.Vnp_OrderInfo);
+            var order = await _checkoutService.CreateOrder(orderId, transaction);
+            return Redirect($"{_configuration["VnPay:UrlReturnPayment"]}/{orderId}");
         }
         
         

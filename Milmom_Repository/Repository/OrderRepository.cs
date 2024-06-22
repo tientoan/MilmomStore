@@ -22,9 +22,9 @@ public class OrderRepository : BaseRepository<Order>, IOrderRepository
         return await _orderDao.HasPurchasedProductAsync(accountId, productId);
     }
 
-    public Task<Order?> GetOrderByIdAsync(int orderId)
+    public async Task<Order?> GetOrderByIdAsync(int orderId)
     {
-        return _orderDao.GetOrderByIdAsync(orderId);
+        return await _orderDao.GetOrderByIdAsync(orderId);
     }
 
     public async Task<IEnumerable<Order>> GetOrdersByAccountId(string accountId)

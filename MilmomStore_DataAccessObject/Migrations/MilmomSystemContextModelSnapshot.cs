@@ -47,6 +47,36 @@ namespace MilmomStore_DataAccessObject.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "6fb19721-bf92-44fa-bbc3-517e7567325f",
+                            ConcurrencyStamp = "caab34ec-2fc7-4730-834f-f35284baa14b",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "16093eb8-386c-4b03-be11-8b4bdd2d9a90",
+                            ConcurrencyStamp = "2a6dd224-bd1e-41ff-abc8-695c3683e9e0",
+                            Name = "Customer",
+                            NormalizedName = "CUSTOMER"
+                        },
+                        new
+                        {
+                            Id = "eea3459d-4acc-4822-a9d3-d3c691d5b48a",
+                            ConcurrencyStamp = "534d58e2-f2a9-4afb-b404-029092ad8269",
+                            Name = "Staff",
+                            NormalizedName = "STAFF"
+                        },
+                        new
+                        {
+                            Id = "6b39bf0d-f267-4468-8268-9e4a593a7c04",
+                            ConcurrencyStamp = "c03ce5fb-b8f6-41d3-9d11-32ded51cb270",
+                            Name = "Manager",
+                            NormalizedName = "MANAGER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -632,10 +662,6 @@ namespace MilmomStore_DataAccessObject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShippingInforID"), 1L, 1);
 
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("DetailAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -648,12 +674,20 @@ namespace MilmomStore_DataAccessObject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Province")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ReceiverName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("ShippingCost")
                         .HasColumnType("float");
+
+                    b.Property<string>("Ward")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ShippingInforID");
 

@@ -23,19 +23,11 @@ public class OrderDAO : BaseDAO<Order>
     public async Task<IEnumerable<Order>> GetOrdersByAccountId(string accountId)
     {
         return await _context.Orders
-            .Include(o => o.AccountApplication)
             .Include(o => o.OrderDetails)
             .Include(o => o.ShippingInfor)
             .Include(o => o.Transaction)
             .Where(o => o.AccountID == accountId)
             .ToListAsync();
-    }
-    public async Task<Order?> GetOrderByIdAsync(int orderId)
-    {
-        return await _context.Orders
-            .Include(o => o.AccountApplication)
-            .Include(o => o.OrderDetails)
-            .FirstOrDefaultAsync(o => o.OrderID == orderId);
     }
     public async Task<Order?> ChangeOrderStatus(int orderId, OrderStatus status)
     {
@@ -74,6 +66,13 @@ public class OrderDAO : BaseDAO<Order>
             .Where(o => o.Status == status)
             .ToListAsync();
     }
-
+    public async Task<Order?> GetOrderByIdAsync(int orderId)
+    {
+        return await _context.Orders
+            .Include(o => o.OrderDetails)
+            .Include(o => o.ShippingInfor)
+            .Include(o => o.Transaction)
+            .FirstOrDefaultAsync(o => o.OrderID == orderId);
+    }
     
 }

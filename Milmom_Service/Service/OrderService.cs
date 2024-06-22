@@ -65,7 +65,7 @@ public class OrderService : IOrderService
 
     public async Task<BaseResponse<OrderResponse>> GetOrderByIdAsync(int orderId)
     {
-           var order = await _orderRepository.GetOrderByIdAsync(orderId);
+            var order = await _orderRepository.GetOrderByIdAsync(orderId);
             var orderResponse = _mapper.Map<OrderResponse>(order);
             return new BaseResponse<OrderResponse>("Get ok", StatusCodeEnum.OK_200, orderResponse);
     }

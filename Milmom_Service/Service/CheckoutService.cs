@@ -38,15 +38,29 @@ public class CheckoutService : ICheckoutService
             }
         }
         // Create order
+        var orderDetailTasks = cart.CartItem.Select(async x => 
+        {
+            var product = await _productRepository.GetByIdAsync(x.ProductID);
+            if (product == null)
+            {
+                throw new Exception("Product not found");
+            }
+            var unitPrice = product.PurchasePrice;
+            var totalAmount = unitPrice * x.Quantity;
+            return new OrderDetail
+            {
+                ProductID = x.ProductID,
+                Quantity = x.Quantity,
+                unitPrice = unitPrice,
+                TotalAmount = totalAmount
+            };
+        });
+
         var order = new Order
         {
             AccountID = accountId,
             OrderDate = DateTime.Now,
-            OrderDetails = cart.CartItem.Select(x => new OrderDetail
-            {
-                ProductID = x.ProductID,
-                Quantity = x.Quantity
-            }).ToList(),
+            OrderDetails = (await Task.WhenAll(orderDetailTasks)).ToList(),
             Status = OrderStatus.ToPay,
             ShippingInfor = new ShippingInfor
             {

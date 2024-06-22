@@ -70,8 +70,11 @@ public class OrderDAO : BaseDAO<Order>
     {
         return await _context.Orders
             .Include(o => o.OrderDetails)
+            .ThenInclude(o => o.Product)
+            .ThenInclude(o=>o.ImageProducts)
             .Include(o => o.ShippingInfor)
             .Include(o => o.Transaction)
+            
             .FirstOrDefaultAsync(o => o.OrderID == orderId);
     }
     

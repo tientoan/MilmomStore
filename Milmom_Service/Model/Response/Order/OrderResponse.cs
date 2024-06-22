@@ -1,4 +1,4 @@
-﻿using Milmom_Service.Model.Response.OrderDetail;
+﻿using Milmom_Service.Model.Response.Checkout;
 using Milmom_Service.Model.Response.ShippingInfor;
 using Milmom_Service.Model.Response.Transaction;
 using MilmomStore_BusinessObject.Model;

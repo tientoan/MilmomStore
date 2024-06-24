@@ -3,12 +3,244 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\MilmomStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|c:\\users\\admin\\desktop\\milmomstore\\milmomstore.server\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|c:\\users\\admin\\desktop\\milmomstore\\milmom_service\\service\\reportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\service\\reportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\iservice\\ireportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\iservice\\ireportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore.server\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|solutionrelative:milmomstore.server\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore.server\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|solutionrelative:milmomstore.server\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\repository\\reportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|solutionrelative:milmom_repository\\repository\\reportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\irepository\\ireportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|solutionrelative:milmom_repository\\irepository\\ireportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_dataaccessobject\\reportdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|solutionrelative:milmomstore_dataaccessobject\\reportdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_businessobject\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|solutionrelative:milmomstore_businessobject\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\response\\product\\getallproductsformanagerresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\response\\product\\getallproductsformanagerresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_businessobject\\model\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|solutionrelative:milmomstore_businessobject\\model\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\response\\report\\reportresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\response\\report\\reportresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\response\\accountapplication\\getuserbystringidresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\response\\accountapplication\\getuserbystringidresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\response\\accountapplication\\getuserbyidresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\response\\accountapplication\\getuserbyidresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\response\\product\\getproductbyidresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\response\\product\\getproductbyidresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\response\\checkout\\checkoutresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\response\\checkout\\checkoutresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\response\\rating\\ratingresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\response\\rating\\ratingresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\response\\rating\\getratingresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\response\\rating\\getratingresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_businessobject\\model\\accountapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|solutionrelative:milmomstore_businessobject\\model\\accountapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\request\\accountapplication\\createnewuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\request\\accountapplication\\createnewuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\configureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\configureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_dataaccessobject\\productdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|solutionrelative:milmomstore_dataaccessobject\\productdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\response\\category\\getallcategoryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\response\\category\\getallcategoryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore.server\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|solutionrelative:milmomstore.server\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore.server\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|solutionrelative:milmomstore.server\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore.server\\controllers\\ratingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|solutionrelative:milmomstore.server\\controllers\\ratingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore.server\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|solutionrelative:milmomstore.server\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_businessobject\\model\\blog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|solutionrelative:milmomstore_businessobject\\model\\blog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\irepository\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|solutionrelative:milmom_repository\\irepository\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\irepository\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|solutionrelative:milmom_repository\\irepository\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\service\\ratingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\service\\ratingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\repository\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|solutionrelative:milmom_repository\\repository\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\iservice\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\iservice\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\configureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|solutionrelative:milmom_repository\\configureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\service\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\service\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\service\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\service\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\iservice\\iratingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\iservice\\iratingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_dataaccessobject\\ratingdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|solutionrelative:milmomstore_dataaccessobject\\ratingdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_dataaccessobject\\categorydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|solutionrelative:milmomstore_dataaccessobject\\categorydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_dataaccessobject\\basedao\\basedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|solutionrelative:milmomstore_dataaccessobject\\basedao\\basedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\iservice\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\iservice\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\iservice\\iimageproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\iservice\\iimageproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\iservice\\icheckoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\iservice\\icheckoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\iservice\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\iservice\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\iservice\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\iservice\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\request\\report\\updatereportrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\request\\report\\updatereportrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\request\\report\\createreportrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\request\\report\\createreportrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\request\\product\\updateproductrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\request\\product\\updateproductrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\request\\product\\addproductrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\request\\product\\addproductrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\request\\category\\updatecategoryrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\request\\category\\updatecategoryrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_businessobject\\identitymodel\\newuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|solutionrelative:milmomstore_businessobject\\identitymodel\\newuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_businessobject\\identitymodel\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|solutionrelative:milmomstore_businessobject\\identitymodel\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\response\\product\\getfilterproductresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\response\\product\\getfilterproductresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_businessobject\\identitymodel\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|solutionrelative:milmomstore_businessobject\\identitymodel\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\irepository\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|solutionrelative:milmom_repository\\irepository\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\irepository\\iaccountapprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|solutionrelative:milmom_repository\\irepository\\iaccountapprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\irepository\\icartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|solutionrelative:milmom_repository\\irepository\\icartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_dataaccessobject\\shippingdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|solutionrelative:milmomstore_dataaccessobject\\shippingdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_dataaccessobject\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|solutionrelative:milmomstore_dataaccessobject\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_dataaccessobject\\milmomsystemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +249,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|solutionrelative:milmomstore.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_businessobject\\identitymodel\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|solutionrelative:milmomstore_businessobject\\identitymodel\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_businessobject\\identitymodel\\updateaccountdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,48 +263,8 @@
       "RelativeMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|solutionrelative:milmomstore.server\\controllers\\accountappcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_dataaccessobject\\productdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|solutionrelative:milmomstore_dataaccessobject\\productdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_dataaccessobject\\categorydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|solutionrelative:milmomstore_dataaccessobject\\categorydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore.server\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|solutionrelative:milmomstore.server\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore.server\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|solutionrelative:milmomstore.server\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\service\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\service\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\iservice\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\iservice\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\repository\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|solutionrelative:milmom_repository\\repository\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\irepository\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|solutionrelative:milmom_repository\\irepository\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\iservice\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\iservice\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\irepository\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|solutionrelative:milmom_repository\\irepository\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\response\\product\\getsearchproductresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -95,20 +283,8 @@
       "RelativeMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|solutionrelative:milmomstore_dataaccessobject\\imageproductdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\configureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|solutionrelative:milmom_repository\\configureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\configureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\configureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|solutionrelative:milmomstore.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore.server\\controllers\\ratingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5FE2958-226B-4B5D-BCE3-F3F89EC37DB5}|MilmomStore.Server\\MilmomStore.Server.csproj|solutionrelative:milmomstore.server\\controllers\\ratingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\service\\imageproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -123,60 +299,16 @@
       "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\request\\category\\createcategoryrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\request\\category\\updatecategoryrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\request\\category\\updatecategoryrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\iservice\\iratingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\iservice\\iratingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\response\\category\\getallcategoryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\response\\category\\getallcategoryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\request\\product\\updateproductrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\request\\product\\updateproductrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\request\\product\\addproductrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\request\\product\\addproductrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_businessobject\\model\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|solutionrelative:milmomstore_businessobject\\model\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\iservice\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\iservice\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\response\\product\\getallproductsresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\response\\product\\getallproductsresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_service\\model\\response\\product\\getallproductsformanagerresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7D684B3-1D98-4465-BE9C-BDC39293178B}|Milmom_Service\\Milmom_Service.csproj|solutionrelative:milmom_service\\model\\response\\product\\getallproductsformanagerresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\repository\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|solutionrelative:milmom_repository\\repository\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\repository\\imageproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|solutionrelative:milmom_repository\\repository\\imageproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_dataaccessobject\\basedao\\basedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|solutionrelative:milmomstore_dataaccessobject\\basedao\\basedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\irepository\\iaccountapprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|solutionrelative:milmom_repository\\irepository\\iaccountapprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\baserepository\\tokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -185,18 +317,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmom_repository\\interfacerepository\\itokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F979A494-FD37-4B0A-89EB-E94E407B6243}|Milmom_Repository\\Milmom_Repository.csproj|solutionrelative:milmom_repository\\interfacerepository\\itokenrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_dataaccessobject\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|solutionrelative:milmomstore_dataaccessobject\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_dataaccessobject\\shippingdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28F113E0-DA3F-4862-966F-130AEA632B1D}|MilmomStore_DataAccessObject\\MilmomStore_DataAccessObject.csproj|solutionrelative:milmomstore_dataaccessobject\\shippingdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_businessobject\\model\\accountapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9EE16516-0D63-4CF5-BA5E-62DAC4A2DFFF}|MilmomStore_BusinessObject\\MilmomStore_BusinessObject.csproj|solutionrelative:milmomstore_businessobject\\model\\accountapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Desktop\\MilmomStore\\milmomstore_dataaccessobject\\migrations\\20240617034315_initdb1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -210,7 +330,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -226,467 +346,260 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AccountAppController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\AccountAppController.cs",
-              "RelativeDocumentMoniker": "MilmomStore.Server\\Controllers\\AccountAppController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\AccountAppController.cs",
-              "RelativeToolTip": "MilmomStore.Server\\Controllers\\AccountAppController.cs",
-              "ViewState": "AQIAACsAAAAAAAAAAAAkwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T13:44:10.879Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "CategoryDAO.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\CategoryDAO.cs",
-              "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\CategoryDAO.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\CategoryDAO.cs",
-              "RelativeToolTip": "MilmomStore_DataAccessObject\\CategoryDAO.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAmwCkAAAAcAAAA",
+              "Title": "Report.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\Model\\Report.cs",
+              "RelativeDocumentMoniker": "MilmomStore_BusinessObject\\Model\\Report.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\Model\\Report.cs",
+              "RelativeToolTip": "MilmomStore_BusinessObject\\Model\\Report.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABsAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T06:13:53.046Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ProductService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\ProductService.cs",
-              "RelativeDocumentMoniker": "Milmom_Service\\Service\\ProductService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\ProductService.cs",
-              "RelativeToolTip": "Milmom_Service\\Service\\ProductService.cs",
-              "ViewState": "AQIAAFMAAAAAAAAAAAAswGIAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T07:13:40.531Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "MilmomStore.Server\\Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "MilmomStore.Server\\Controllers\\ProductController.cs",
-              "ViewState": "AQIAAF4AAAAAAAAAAAAwwGcAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T08:17:40.457Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CategoryController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\CategoryController.cs",
-              "RelativeDocumentMoniker": "MilmomStore.Server\\Controllers\\CategoryController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\CategoryController.cs",
-              "RelativeToolTip": "MilmomStore.Server\\Controllers\\CategoryController.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAuwDgAAABhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T08:16:28.351Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "MilmomStore.Server\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "MilmomStore.Server\\Controllers\\AccountController.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAUwC8AAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T08:15:56.56Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserDto.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\IdentityModel\\UserDto.cs",
-              "RelativeDocumentMoniker": "MilmomStore_BusinessObject\\IdentityModel\\UserDto.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\IdentityModel\\UserDto.cs",
-              "RelativeToolTip": "MilmomStore_BusinessObject\\IdentityModel\\UserDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T14:41:08.709Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "NewUserDto.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\IdentityModel\\NewUserDto.cs",
-              "RelativeDocumentMoniker": "MilmomStore_BusinessObject\\IdentityModel\\NewUserDto.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\IdentityModel\\NewUserDto.cs",
-              "RelativeToolTip": "MilmomStore_BusinessObject\\IdentityModel\\NewUserDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T14:41:15.183Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MilmomSystemContext.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\MilmomSystemContext.cs",
-              "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\MilmomSystemContext.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\MilmomSystemContext.cs",
-              "RelativeToolTip": "MilmomStore_DataAccessObject\\MilmomSystemContext.cs",
-              "ViewState": "AQIAAEMAAAAAAAAAAAA/wCUAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T05:51:51.46Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\appsettings.json",
-              "RelativeDocumentMoniker": "MilmomStore.Server\\appsettings.json",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\appsettings.json",
-              "RelativeToolTip": "MilmomStore.Server\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAACrAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-06-18T05:51:31.241Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CreateAccountDto.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\IdentityModel\\CreateAccountDto.cs",
-              "RelativeDocumentMoniker": "MilmomStore_BusinessObject\\IdentityModel\\CreateAccountDto.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\IdentityModel\\CreateAccountDto.cs",
-              "RelativeToolTip": "MilmomStore_BusinessObject\\IdentityModel\\CreateAccountDto.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAsAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T13:54:34.339Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UpdateAccountDto.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\IdentityModel\\UpdateAccountDto.cs",
-              "RelativeDocumentMoniker": "MilmomStore_BusinessObject\\IdentityModel\\UpdateAccountDto.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\IdentityModel\\UpdateAccountDto.cs",
-              "RelativeToolTip": "MilmomStore_BusinessObject\\IdentityModel\\UpdateAccountDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T14:21:32.571Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "CategoryService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\CategoryService.cs",
-              "RelativeDocumentMoniker": "Milmom_Service\\Service\\CategoryService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\CategoryService.cs",
-              "RelativeToolTip": "Milmom_Service\\Service\\CategoryService.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAAD0AAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T07:08:35.256Z"
+              "WhenOpened": "2024-06-23T15:20:29.943Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "ProductDAO.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\ProductDAO.cs",
-              "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\ProductDAO.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\ProductDAO.cs",
-              "RelativeToolTip": "MilmomStore_DataAccessObject\\ProductDAO.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAQwDwAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T06:14:04.826Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ICategoryService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\ICategoryService.cs",
-              "RelativeDocumentMoniker": "Milmom_Service\\IService\\ICategoryService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\ICategoryService.cs",
-              "RelativeToolTip": "Milmom_Service\\IService\\ICategoryService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAABRAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T06:59:56.89Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "CategoryRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\Repository\\CategoryRepository.cs",
-              "RelativeDocumentMoniker": "Milmom_Repository\\Repository\\CategoryRepository.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\Repository\\CategoryRepository.cs",
-              "RelativeToolTip": "Milmom_Repository\\Repository\\CategoryRepository.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAQwCwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T06:27:45.747Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ICategoryRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\IRepository\\ICategoryRepository.cs",
-              "RelativeDocumentMoniker": "Milmom_Repository\\IRepository\\ICategoryRepository.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\IRepository\\ICategoryRepository.cs",
-              "RelativeToolTip": "Milmom_Repository\\IRepository\\ICategoryRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T06:26:25.677Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "IProductRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\IRepository\\IProductRepository.cs",
-              "RelativeDocumentMoniker": "Milmom_Repository\\IRepository\\IProductRepository.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\IRepository\\IProductRepository.cs",
-              "RelativeToolTip": "Milmom_Repository\\IRepository\\IProductRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAABiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T06:28:10.361Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "IProductService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\IProductService.cs",
-              "RelativeDocumentMoniker": "Milmom_Service\\IService\\IProductService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\IProductService.cs",
-              "RelativeToolTip": "Milmom_Service\\IService\\IProductService.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABwAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T07:00:37.777Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "GetSearchProductResponse.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Product\\GetSearchProductResponse.cs",
-              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Response\\Product\\GetSearchProductResponse.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Product\\GetSearchProductResponse.cs",
-              "RelativeToolTip": "Milmom_Service\\Model\\Response\\Product\\GetSearchProductResponse.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T06:58:16.463Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "CartDAO.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\CartDAO.cs",
-              "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\CartDAO.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\CartDAO.cs",
-              "RelativeToolTip": "MilmomStore_DataAccessObject\\CartDAO.cs",
-              "ViewState": "AQIAAGAAAAAAAAAAAAAowAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T13:25:02.531Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "OrderDAO.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\OrderDAO.cs",
-              "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\OrderDAO.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\OrderDAO.cs",
-              "RelativeToolTip": "MilmomStore_DataAccessObject\\OrderDAO.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAkwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T13:24:52.303Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "ImageProductService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\ImageProductService.cs",
-              "RelativeDocumentMoniker": "Milmom_Service\\Service\\ImageProductService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\ImageProductService.cs",
-              "RelativeToolTip": "Milmom_Service\\Service\\ImageProductService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T07:31:38.095Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "RatingController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\RatingController.cs",
-              "RelativeDocumentMoniker": "MilmomStore.Server\\Controllers\\RatingController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\RatingController.cs",
-              "RelativeToolTip": "MilmomStore.Server\\Controllers\\RatingController.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAQwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T08:25:47.753Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Program.cs",
-              "RelativeDocumentMoniker": "MilmomStore.Server\\Program.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Program.cs",
-              "RelativeToolTip": "MilmomStore.Server\\Program.cs",
-              "ViewState": "AQIAAGYAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T08:26:29.251Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "ConfigureService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\ConfigureService.cs",
-              "RelativeDocumentMoniker": "Milmom_Service\\ConfigureService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\ConfigureService.cs",
-              "RelativeToolTip": "Milmom_Service\\ConfigureService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAABEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T08:27:00.824Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "ImageProductDAO.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\ImageProductDAO.cs",
-              "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\ImageProductDAO.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\ImageProductDAO.cs",
-              "RelativeToolTip": "MilmomStore_DataAccessObject\\ImageProductDAO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T08:42:57.79Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "ConfigureService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\ConfigureService.cs",
-              "RelativeDocumentMoniker": "Milmom_Repository\\ConfigureService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\ConfigureService.cs",
-              "RelativeToolTip": "Milmom_Repository\\ConfigureService.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAQwCQAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T08:28:03.473Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "20240617034315_InitDb1.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\Migrations\\20240617034315_InitDb1.cs",
-              "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\Migrations\\20240617034315_InitDb1.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\Migrations\\20240617034315_InitDb1.cs",
-              "RelativeToolTip": "MilmomStore_DataAccessObject\\Migrations\\20240617034315_InitDb1.cs",
-              "ViewState": "AQIAAA8BAAAAAAAAAAAQwC4BAABQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T08:35:08.077Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "CheckoutService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\CheckoutService.cs",
-              "RelativeDocumentMoniker": "Milmom_Service\\Service\\CheckoutService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\CheckoutService.cs",
-              "RelativeToolTip": "Milmom_Service\\Service\\CheckoutService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T07:31:36.634Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "CreateCategoryRequest.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Category\\CreateCategoryRequest.cs",
-              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Request\\Category\\CreateCategoryRequest.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Category\\CreateCategoryRequest.cs",
-              "RelativeToolTip": "Milmom_Service\\Model\\Request\\Category\\CreateCategoryRequest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T07:16:52.859Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "IRatingService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\IRatingService.cs",
-              "RelativeDocumentMoniker": "Milmom_Service\\IService\\IRatingService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\IRatingService.cs",
-              "RelativeToolTip": "Milmom_Service\\IService\\IRatingService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T07:16:15.279Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "UpdateCategoryRequest.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Category\\UpdateCategoryRequest.cs",
-              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Request\\Category\\UpdateCategoryRequest.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Category\\UpdateCategoryRequest.cs",
-              "RelativeToolTip": "Milmom_Service\\Model\\Request\\Category\\UpdateCategoryRequest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T07:04:27.342Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "UpdateProductRequest.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Product\\UpdateProductRequest.cs",
-              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Request\\Product\\UpdateProductRequest.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Product\\UpdateProductRequest.cs",
-              "RelativeToolTip": "Milmom_Service\\Model\\Request\\Product\\UpdateProductRequest.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAkAAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T07:03:35.406Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Mapping\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "Milmom_Service\\Mapping\\MappingProfile.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Mapping\\MappingProfile.cs",
-              "RelativeToolTip": "Milmom_Service\\Mapping\\MappingProfile.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAQwDQAAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T05:57:27.439Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "AddProductRequest.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Product\\AddProductRequest.cs",
-              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Request\\Product\\AddProductRequest.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Product\\AddProductRequest.cs",
-              "RelativeToolTip": "Milmom_Service\\Model\\Request\\Product\\AddProductRequest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T07:05:18.583Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "ICartService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\ICartService.cs",
-              "RelativeDocumentMoniker": "Milmom_Service\\IService\\ICartService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\ICartService.cs",
-              "RelativeToolTip": "Milmom_Service\\IService\\ICartService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T07:00:26.267Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
               "Title": "GetAllProductsForManagerResponse.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Product\\GetAllProductsForManagerResponse.cs",
               "RelativeDocumentMoniker": "Milmom_Service\\Model\\Response\\Product\\GetAllProductsForManagerResponse.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Product\\GetAllProductsForManagerResponse.cs",
               "RelativeToolTip": "Milmom_Service\\Model\\Response\\Product\\GetAllProductsForManagerResponse.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAYwAAAAAAAAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAA3wAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-18T06:57:59.757Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 6,
+              "Title": "ReportDAO.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\ReportDAO.cs",
+              "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\ReportDAO.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\ReportDAO.cs",
+              "RelativeToolTip": "MilmomStore_DataAccessObject\\ReportDAO.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABQAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T15:21:24.638Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IReportRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\IRepository\\IReportRepository.cs",
+              "RelativeDocumentMoniker": "Milmom_Repository\\IRepository\\IReportRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\IRepository\\IReportRepository.cs",
+              "RelativeToolTip": "Milmom_Repository\\IRepository\\IReportRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T15:36:36.872Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ReportService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\ReportService.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Service\\ReportService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\ReportService.cs",
+              "RelativeToolTip": "Milmom_Service\\Service\\ReportService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEsAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T17:06:20.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ReportRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\Repository\\ReportRepository.cs",
+              "RelativeDocumentMoniker": "Milmom_Repository\\Repository\\ReportRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\Repository\\ReportRepository.cs",
+              "RelativeToolTip": "Milmom_Repository\\Repository\\ReportRepository.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAYwC0AAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T15:39:50.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AccountApplication.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\Model\\AccountApplication.cs",
+              "RelativeDocumentMoniker": "MilmomStore_BusinessObject\\Model\\AccountApplication.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\Model\\AccountApplication.cs",
+              "RelativeToolTip": "MilmomStore_BusinessObject\\Model\\AccountApplication.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-12T04:26:02.667Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IReportService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\IReportService.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\IService\\IReportService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\IReportService.cs",
+              "RelativeToolTip": "Milmom_Service\\IService\\IReportService.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAmwBIAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T16:40:19.907Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReportController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\ReportController.cs",
+              "RelativeDocumentMoniker": "MilmomStore.Server\\Controllers\\ReportController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\ReportController.cs",
+              "RelativeToolTip": "MilmomStore.Server\\Controllers\\ReportController.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAuwCkAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T01:22:41.172Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "MilmomStore.Server\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "MilmomStore.Server\\Controllers\\ProductController.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwB4AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T08:17:40.457Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "GetUserByStringIdResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\AccountApplication\\GetUserByStringIdResponse.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Response\\AccountApplication\\GetUserByStringIdResponse.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\AccountApplication\\GetUserByStringIdResponse.cs",
+              "RelativeToolTip": "Milmom_Service\\Model\\Response\\AccountApplication\\GetUserByStringIdResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T02:05:20.384Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\Model\\Product.cs",
+              "RelativeDocumentMoniker": "MilmomStore_BusinessObject\\Model\\Product.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\Model\\Product.cs",
+              "RelativeToolTip": "MilmomStore_BusinessObject\\Model\\Product.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAmwC8AAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T02:26:15.998Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GetProductByIdResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Product\\GetProductByIdResponse.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Response\\Product\\GetProductByIdResponse.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Product\\GetProductByIdResponse.cs",
+              "RelativeToolTip": "Milmom_Service\\Model\\Response\\Product\\GetProductByIdResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T16:32:39.157Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ConfigureService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\ConfigureService.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\ConfigureService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\ConfigureService.cs",
+              "RelativeToolTip": "Milmom_Service\\ConfigureService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T08:27:00.824Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ProductDAO.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\ProductDAO.cs",
+              "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\ProductDAO.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\ProductDAO.cs",
+              "RelativeToolTip": "MilmomStore_DataAccessObject\\ProductDAO.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAADwAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T06:14:04.826Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ReportResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Report\\ReportResponse.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Response\\Report\\ReportResponse.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Report\\ReportResponse.cs",
+              "RelativeToolTip": "Milmom_Service\\Model\\Response\\Report\\ReportResponse.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABsAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T16:30:18.537Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "GetUserByIdResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\AccountApplication\\GetUserByIdResponse.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Response\\AccountApplication\\GetUserByIdResponse.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\AccountApplication\\GetUserByIdResponse.cs",
+              "RelativeToolTip": "Milmom_Service\\Model\\Response\\AccountApplication\\GetUserByIdResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T02:08:25.857Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GetRatingResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Rating\\GetRatingResponse.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Response\\Rating\\GetRatingResponse.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Rating\\GetRatingResponse.cs",
+              "RelativeToolTip": "Milmom_Service\\Model\\Response\\Rating\\GetRatingResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T02:08:44.668Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "RatingResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Rating\\RatingResponse.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Response\\Rating\\RatingResponse.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Rating\\RatingResponse.cs",
+              "RelativeToolTip": "Milmom_Service\\Model\\Response\\Rating\\RatingResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T02:08:46.708Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CheckoutResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Checkout\\CheckoutResponse.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Response\\Checkout\\CheckoutResponse.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Checkout\\CheckoutResponse.cs",
+              "RelativeToolTip": "Milmom_Service\\Model\\Response\\Checkout\\CheckoutResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T02:09:19.489Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CreateNewUserRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\AccountApplication\\CreateNewUserRequest.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Request\\AccountApplication\\CreateNewUserRequest.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\AccountApplication\\CreateNewUserRequest.cs",
+              "RelativeToolTip": "Milmom_Service\\Model\\Request\\AccountApplication\\CreateNewUserRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T02:02:50.347Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "GetAllCategoryResponse.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Category\\GetAllCategoryResponse.cs",
               "RelativeDocumentMoniker": "Milmom_Service\\Model\\Response\\Category\\GetAllCategoryResponse.cs",
@@ -698,103 +611,427 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "Category.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\Model\\Category.cs",
-              "RelativeDocumentMoniker": "MilmomStore_BusinessObject\\Model\\Category.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\Model\\Category.cs",
-              "RelativeToolTip": "MilmomStore_BusinessObject\\Model\\Category.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAIAAAA",
+              "DocumentIndex": 19,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Mapping\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Mapping\\MappingProfile.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Mapping\\MappingProfile.cs",
+              "RelativeToolTip": "Milmom_Service\\Mapping\\MappingProfile.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAQwD8AAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T06:23:50.593Z"
+              "WhenOpened": "2024-06-18T05:57:27.439Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "GetAllProductsResponse.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Product\\GetAllProductsResponse.cs",
-              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Response\\Product\\GetAllProductsResponse.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Product\\GetAllProductsResponse.cs",
-              "RelativeToolTip": "Milmom_Service\\Model\\Response\\Product\\GetAllProductsResponse.cs",
+              "DocumentIndex": 31,
+              "Title": "RatingService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\RatingService.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Service\\RatingService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\RatingService.cs",
+              "RelativeToolTip": "Milmom_Service\\Service\\RatingService.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAYwD8AAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T17:04:21.552Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "MilmomStore.Server\\Controllers\\CartController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\CartController.cs",
+              "RelativeToolTip": "MilmomStore.Server\\Controllers\\CartController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T06:55:31.052Z"
+              "WhenOpened": "2024-06-24T01:23:10.558Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "ImageProductRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\Repository\\ImageProductRepository.cs",
-              "RelativeDocumentMoniker": "Milmom_Repository\\Repository\\ImageProductRepository.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\Repository\\ImageProductRepository.cs",
-              "RelativeToolTip": "Milmom_Repository\\Repository\\ImageProductRepository.cs",
+              "DocumentIndex": 23,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "MilmomStore.Server\\Controllers\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "MilmomStore.Server\\Controllers\\CategoryController.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAA+wDkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T08:16:28.351Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "RatingController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\RatingController.cs",
+              "RelativeDocumentMoniker": "MilmomStore.Server\\Controllers\\RatingController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\RatingController.cs",
+              "RelativeToolTip": "MilmomStore.Server\\Controllers\\RatingController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T06:49:00.349Z"
+              "WhenOpened": "2024-06-18T08:25:47.753Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 29,
+              "Title": "ICategoryRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\IRepository\\ICategoryRepository.cs",
+              "RelativeDocumentMoniker": "Milmom_Repository\\IRepository\\ICategoryRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\IRepository\\ICategoryRepository.cs",
+              "RelativeToolTip": "Milmom_Repository\\IRepository\\ICategoryRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T06:26:25.677Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Blog.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\Model\\Blog.cs",
+              "RelativeDocumentMoniker": "MilmomStore_BusinessObject\\Model\\Blog.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\Model\\Blog.cs",
+              "RelativeToolTip": "MilmomStore_BusinessObject\\Model\\Blog.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T01:22:59.366Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "MilmomStore.Server\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "MilmomStore.Server\\Controllers\\AccountController.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAUwC8AAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T08:15:56.56Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "IProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\IRepository\\IProductRepository.cs",
+              "RelativeDocumentMoniker": "Milmom_Repository\\IRepository\\IProductRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\IRepository\\IProductRepository.cs",
+              "RelativeToolTip": "Milmom_Repository\\IRepository\\IProductRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T06:28:10.361Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\ProductService.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Service\\ProductService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\ProductService.cs",
+              "RelativeToolTip": "Milmom_Service\\Service\\ProductService.cs",
+              "ViewState": "AQIAAD4AAAAAAAAAAAAgwE8AAAB7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T07:13:40.531Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
               "Title": "ProductRepository.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\Repository\\ProductRepository.cs",
               "RelativeDocumentMoniker": "Milmom_Repository\\Repository\\ProductRepository.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\Repository\\ProductRepository.cs",
               "RelativeToolTip": "Milmom_Repository\\Repository\\ProductRepository.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAA9AAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAA1wDMAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-18T06:39:29.858Z"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "IProductService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\IProductService.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\IService\\IProductService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\IProductService.cs",
+              "RelativeToolTip": "Milmom_Service\\IService\\IProductService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAABRAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T07:00:37.777Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ConfigureService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\ConfigureService.cs",
+              "RelativeDocumentMoniker": "Milmom_Repository\\ConfigureService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\ConfigureService.cs",
+              "RelativeToolTip": "Milmom_Repository\\ConfigureService.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABsAAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T08:28:03.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "CategoryService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\CategoryService.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Service\\CategoryService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\CategoryService.cs",
+              "RelativeToolTip": "Milmom_Service\\Service\\CategoryService.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAcwD0AAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T07:08:35.256Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "CartService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\CartService.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Service\\CartService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\CartService.cs",
+              "RelativeToolTip": "Milmom_Service\\Service\\CartService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T17:08:39.75Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "RatingDAO.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\RatingDAO.cs",
+              "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\RatingDAO.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\RatingDAO.cs",
+              "RelativeToolTip": "MilmomStore_DataAccessObject\\RatingDAO.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAYwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T17:03:43.792Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "IOrderService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\IOrderService.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\IService\\IOrderService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\IOrderService.cs",
+              "RelativeToolTip": "Milmom_Service\\IService\\IOrderService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T16:59:25.053Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 42,
+              "Title": "IImageProductService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\IImageProductService.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\IService\\IImageProductService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\IImageProductService.cs",
+              "RelativeToolTip": "Milmom_Service\\IService\\IImageProductService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T16:59:22.312Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
               "Title": "BaseDAO.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\BaseDAO\\BaseDAO.cs",
               "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\BaseDAO\\BaseDAO.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\BaseDAO\\BaseDAO.cs",
               "RelativeToolTip": "MilmomStore_DataAccessObject\\BaseDAO\\BaseDAO.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "ViewState": "AQIAABcAAAAAAAAAAAAgwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-18T06:28:53.323Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "IAccountAppRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\IRepository\\IAccountAppRepository.cs",
-              "RelativeDocumentMoniker": "Milmom_Repository\\IRepository\\IAccountAppRepository.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\IRepository\\IAccountAppRepository.cs",
-              "RelativeToolTip": "Milmom_Repository\\IRepository\\IAccountAppRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAABQAAAA",
+              "DocumentIndex": 39,
+              "Title": "CategoryDAO.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\CategoryDAO.cs",
+              "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\CategoryDAO.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\CategoryDAO.cs",
+              "RelativeToolTip": "MilmomStore_DataAccessObject\\CategoryDAO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T06:26:39.382Z"
+              "WhenOpened": "2024-06-18T06:13:53.046Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "TokenRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\BaseRepository\\TokenRepository.cs",
-              "RelativeDocumentMoniker": "Milmom_Repository\\BaseRepository\\TokenRepository.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\BaseRepository\\TokenRepository.cs",
-              "RelativeToolTip": "Milmom_Repository\\BaseRepository\\TokenRepository.cs",
+              "DocumentIndex": 37,
+              "Title": "IRatingService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\IRatingService.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\IService\\IRatingService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\IRatingService.cs",
+              "RelativeToolTip": "Milmom_Service\\IService\\IRatingService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T06:25:52.977Z"
+              "WhenOpened": "2024-06-18T07:16:15.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "ICheckoutService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\ICheckoutService.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\IService\\ICheckoutService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\ICheckoutService.cs",
+              "RelativeToolTip": "Milmom_Service\\IService\\ICheckoutService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T16:59:18.941Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 45,
-              "Title": "ITokenRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\InterfaceRepository\\ITokenRepository.cs",
-              "RelativeDocumentMoniker": "Milmom_Repository\\InterfaceRepository\\ITokenRepository.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\InterfaceRepository\\ITokenRepository.cs",
-              "RelativeToolTip": "Milmom_Repository\\InterfaceRepository\\ITokenRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "ICategoryService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\ICategoryService.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\IService\\ICategoryService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\ICategoryService.cs",
+              "RelativeToolTip": "Milmom_Service\\IService\\ICategoryService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T06:25:47.702Z"
+              "WhenOpened": "2024-06-18T06:59:56.89Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 46,
+              "Title": "UpdateReportRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Report\\UpdateReportRequest.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Request\\Report\\UpdateReportRequest.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Report\\UpdateReportRequest.cs",
+              "RelativeToolTip": "Milmom_Service\\Model\\Request\\Report\\UpdateReportRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T16:45:17.547Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "UpdateProductRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Product\\UpdateProductRequest.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Request\\Product\\UpdateProductRequest.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Product\\UpdateProductRequest.cs",
+              "RelativeToolTip": "Milmom_Service\\Model\\Request\\Product\\UpdateProductRequest.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAuwAkAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T07:03:35.406Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "AddProductRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Product\\AddProductRequest.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Request\\Product\\AddProductRequest.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Product\\AddProductRequest.cs",
+              "RelativeToolTip": "Milmom_Service\\Model\\Request\\Product\\AddProductRequest.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAA5wAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T07:05:18.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "CreateReportRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Report\\CreateReportRequest.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Request\\Report\\CreateReportRequest.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Report\\CreateReportRequest.cs",
+              "RelativeToolTip": "Milmom_Service\\Model\\Request\\Report\\CreateReportRequest.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAAAA0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T16:01:23.082Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "ICartService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\ICartService.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\IService\\ICartService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\IService\\ICartService.cs",
+              "RelativeToolTip": "Milmom_Service\\IService\\ICartService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T07:00:26.267Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "UpdateCategoryRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Category\\UpdateCategoryRequest.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Request\\Category\\UpdateCategoryRequest.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Category\\UpdateCategoryRequest.cs",
+              "RelativeToolTip": "Milmom_Service\\Model\\Request\\Category\\UpdateCategoryRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T07:04:27.342Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\IdentityModel\\UserDto.cs",
+              "RelativeDocumentMoniker": "MilmomStore_BusinessObject\\IdentityModel\\UserDto.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\IdentityModel\\UserDto.cs",
+              "RelativeToolTip": "MilmomStore_BusinessObject\\IdentityModel\\UserDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T14:41:08.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "GetFilterProductResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Product\\GetFilterProductResponse.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Response\\Product\\GetFilterProductResponse.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Product\\GetFilterProductResponse.cs",
+              "RelativeToolTip": "Milmom_Service\\Model\\Response\\Product\\GetFilterProductResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T16:29:20.639Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "RegisterDto.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\IdentityModel\\RegisterDto.cs",
+              "RelativeDocumentMoniker": "MilmomStore_BusinessObject\\IdentityModel\\RegisterDto.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\IdentityModel\\RegisterDto.cs",
+              "RelativeToolTip": "MilmomStore_BusinessObject\\IdentityModel\\RegisterDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T16:01:36.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "IOrderRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\IRepository\\IOrderRepository.cs",
+              "RelativeDocumentMoniker": "Milmom_Repository\\IRepository\\IOrderRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\IRepository\\IOrderRepository.cs",
+              "RelativeToolTip": "Milmom_Repository\\IRepository\\IOrderRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T15:39:22.089Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "NewUserDto.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\IdentityModel\\NewUserDto.cs",
+              "RelativeDocumentMoniker": "MilmomStore_BusinessObject\\IdentityModel\\NewUserDto.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\IdentityModel\\NewUserDto.cs",
+              "RelativeToolTip": "MilmomStore_BusinessObject\\IdentityModel\\NewUserDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T14:41:15.183Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "ICartRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\IRepository\\ICartRepository.cs",
+              "RelativeDocumentMoniker": "Milmom_Repository\\IRepository\\ICartRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\IRepository\\ICartRepository.cs",
+              "RelativeToolTip": "Milmom_Repository\\IRepository\\ICartRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T15:36:54.789Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
               "Title": "AccountDAO.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\AccountDAO.cs",
               "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\AccountDAO.cs",
@@ -806,7 +1043,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 56,
+              "Title": "IAccountAppRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\IRepository\\IAccountAppRepository.cs",
+              "RelativeDocumentMoniker": "Milmom_Repository\\IRepository\\IAccountAppRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\IRepository\\IAccountAppRepository.cs",
+              "RelativeToolTip": "Milmom_Repository\\IRepository\\IAccountAppRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T06:26:39.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
               "Title": "ShippingDAO.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\ShippingDAO.cs",
               "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\ShippingDAO.cs",
@@ -818,15 +1067,243 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "AccountApplication.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\Model\\AccountApplication.cs",
-              "RelativeDocumentMoniker": "MilmomStore_BusinessObject\\Model\\AccountApplication.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\Model\\AccountApplication.cs",
-              "RelativeToolTip": "MilmomStore_BusinessObject\\Model\\AccountApplication.cs",
+              "DocumentIndex": 64,
+              "Title": "AccountAppController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\AccountAppController.cs",
+              "RelativeDocumentMoniker": "MilmomStore.Server\\Controllers\\AccountAppController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Controllers\\AccountAppController.cs",
+              "RelativeToolTip": "MilmomStore.Server\\Controllers\\AccountAppController.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAkwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T13:44:10.879Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "MilmomSystemContext.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\MilmomSystemContext.cs",
+              "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\MilmomSystemContext.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\MilmomSystemContext.cs",
+              "RelativeToolTip": "MilmomStore_DataAccessObject\\MilmomSystemContext.cs",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAwwFAAAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T05:51:51.46Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\appsettings.json",
+              "RelativeDocumentMoniker": "MilmomStore.Server\\appsettings.json",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\appsettings.json",
+              "RelativeToolTip": "MilmomStore.Server\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAACrAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-18T05:51:31.241Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "CreateAccountDto.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\IdentityModel\\CreateAccountDto.cs",
+              "RelativeDocumentMoniker": "MilmomStore_BusinessObject\\IdentityModel\\CreateAccountDto.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\IdentityModel\\CreateAccountDto.cs",
+              "RelativeToolTip": "MilmomStore_BusinessObject\\IdentityModel\\CreateAccountDto.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAsAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T13:54:34.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "UpdateAccountDto.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\IdentityModel\\UpdateAccountDto.cs",
+              "RelativeDocumentMoniker": "MilmomStore_BusinessObject\\IdentityModel\\UpdateAccountDto.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\IdentityModel\\UpdateAccountDto.cs",
+              "RelativeToolTip": "MilmomStore_BusinessObject\\IdentityModel\\UpdateAccountDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T14:21:32.571Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "CategoryRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\Repository\\CategoryRepository.cs",
+              "RelativeDocumentMoniker": "Milmom_Repository\\Repository\\CategoryRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\Repository\\CategoryRepository.cs",
+              "RelativeToolTip": "Milmom_Repository\\Repository\\CategoryRepository.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAQwCwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T06:27:45.747Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "GetSearchProductResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Product\\GetSearchProductResponse.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Response\\Product\\GetSearchProductResponse.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Product\\GetSearchProductResponse.cs",
+              "RelativeToolTip": "Milmom_Service\\Model\\Response\\Product\\GetSearchProductResponse.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-12T04:26:02.667Z"
+              "WhenOpened": "2024-06-18T06:58:16.463Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "CartDAO.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\CartDAO.cs",
+              "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\CartDAO.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\CartDAO.cs",
+              "RelativeToolTip": "MilmomStore_DataAccessObject\\CartDAO.cs",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAowAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T13:25:02.531Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "OrderDAO.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\OrderDAO.cs",
+              "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\OrderDAO.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\OrderDAO.cs",
+              "RelativeToolTip": "MilmomStore_DataAccessObject\\OrderDAO.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAkwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T13:24:52.303Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "ImageProductService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\ImageProductService.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Service\\ImageProductService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\ImageProductService.cs",
+              "RelativeToolTip": "Milmom_Service\\Service\\ImageProductService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T07:31:38.095Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Program.cs",
+              "RelativeDocumentMoniker": "MilmomStore.Server\\Program.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore.Server\\Program.cs",
+              "RelativeToolTip": "MilmomStore.Server\\Program.cs",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T08:26:29.251Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "ImageProductDAO.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\ImageProductDAO.cs",
+              "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\ImageProductDAO.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\ImageProductDAO.cs",
+              "RelativeToolTip": "MilmomStore_DataAccessObject\\ImageProductDAO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T08:42:57.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "20240617034315_InitDb1.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\Migrations\\20240617034315_InitDb1.cs",
+              "RelativeDocumentMoniker": "MilmomStore_DataAccessObject\\Migrations\\20240617034315_InitDb1.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_DataAccessObject\\Migrations\\20240617034315_InitDb1.cs",
+              "RelativeToolTip": "MilmomStore_DataAccessObject\\Migrations\\20240617034315_InitDb1.cs",
+              "ViewState": "AQIAAA8BAAAAAAAAAAAQwC4BAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T08:35:08.077Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "CheckoutService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\CheckoutService.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Service\\CheckoutService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Service\\CheckoutService.cs",
+              "RelativeToolTip": "Milmom_Service\\Service\\CheckoutService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T07:31:36.634Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "CreateCategoryRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Category\\CreateCategoryRequest.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Request\\Category\\CreateCategoryRequest.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Request\\Category\\CreateCategoryRequest.cs",
+              "RelativeToolTip": "Milmom_Service\\Model\\Request\\Category\\CreateCategoryRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T07:16:52.859Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\Model\\Category.cs",
+              "RelativeDocumentMoniker": "MilmomStore_BusinessObject\\Model\\Category.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\MilmomStore_BusinessObject\\Model\\Category.cs",
+              "RelativeToolTip": "MilmomStore_BusinessObject\\Model\\Category.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T06:23:50.593Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "GetAllProductsResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Product\\GetAllProductsResponse.cs",
+              "RelativeDocumentMoniker": "Milmom_Service\\Model\\Response\\Product\\GetAllProductsResponse.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Service\\Model\\Response\\Product\\GetAllProductsResponse.cs",
+              "RelativeToolTip": "Milmom_Service\\Model\\Response\\Product\\GetAllProductsResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T06:55:31.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "ImageProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\Repository\\ImageProductRepository.cs",
+              "RelativeDocumentMoniker": "Milmom_Repository\\Repository\\ImageProductRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\Repository\\ImageProductRepository.cs",
+              "RelativeToolTip": "Milmom_Repository\\Repository\\ImageProductRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T06:49:00.349Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "TokenRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\BaseRepository\\TokenRepository.cs",
+              "RelativeDocumentMoniker": "Milmom_Repository\\BaseRepository\\TokenRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\BaseRepository\\TokenRepository.cs",
+              "RelativeToolTip": "Milmom_Repository\\BaseRepository\\TokenRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T06:25:52.977Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
+              "Title": "ITokenRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\InterfaceRepository\\ITokenRepository.cs",
+              "RelativeDocumentMoniker": "Milmom_Repository\\InterfaceRepository\\ITokenRepository.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\MilmomStore\\Milmom_Repository\\InterfaceRepository\\ITokenRepository.cs",
+              "RelativeToolTip": "Milmom_Repository\\InterfaceRepository\\ITokenRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T06:25:47.702Z"
             }
           ]
         },

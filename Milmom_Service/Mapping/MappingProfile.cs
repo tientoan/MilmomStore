@@ -8,6 +8,7 @@ using Milmom_Service.Model.Request.AccountApplication;
 using Milmom_Service.Model.Request.Category;
 using Milmom_Service.Model.Request.Product;
 using Milmom_Service.Model.Request.Rating;
+using Milmom_Service.Model.Request.Report;
 using Milmom_Service.Model.Response.AccountApplication;
 using Milmom_Service.Model.Response.Cart;
 using Milmom_Service.Model.Response.Category;
@@ -16,6 +17,7 @@ using Milmom_Service.Model.Response.ImageProduct;
 using Milmom_Service.Model.Response.Order;
 using Milmom_Service.Model.Response.Product;
 using Milmom_Service.Model.Response.Rating;
+using Milmom_Service.Model.Response.Report;
 using Milmom_Service.Model.Response.ShippingInfor;
 using Milmom_Service.Model.Response.Transaction;
 using MilmomStore_BusinessObject.Model;
@@ -56,6 +58,10 @@ namespace Milmom_Service.Mapping
             CreateMap<Category, GetAllCategoryResponse>();
             CreateMap<CreateCategoryRequest, Category>().ReverseMap();
             CreateMap<UpdateCategoryRequest, Category>().ReverseMap();
+
+            CreateMap<Report, ReportResponse>();
+            CreateMap<CreateReportRequest, Report>().ReverseMap();
+            CreateMap<UpdateReportRequest, Report>().ReverseMap();
 
             //
             CreateMap<Rating, GetRatingResponse>();

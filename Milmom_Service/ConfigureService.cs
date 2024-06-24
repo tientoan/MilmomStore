@@ -25,6 +25,7 @@ namespace Milmom_Service
             services.AddScoped<IRatingService, RatingService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IReportService, ReportService>();
             //services.AddScoped<ITokenService, TokenService>();
             return services;
         }

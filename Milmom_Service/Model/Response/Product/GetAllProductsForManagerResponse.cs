@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MilmomStore_BusinessObject;
 using Milmom_Service.Model.Response.Rating;
+using Milmom_Service.Model.Response.Category;
 
 namespace Milmom_Service.Model.Response.Product
 {
@@ -37,6 +38,7 @@ namespace Milmom_Service.Model.Response.Product
         public double Length { get; set; }
         public ICollection<GetAllImageProductsResponse> ImageProducts { get; set; }
 
-        
+        public GetCategoryResponse Category { get; set; }
+        public ICollection<RatingResponse> Ratings { get; set; }
     }
 }

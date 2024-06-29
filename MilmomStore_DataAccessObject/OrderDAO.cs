@@ -85,5 +85,17 @@ public class OrderDAO : BaseDAO<Order>
             
             .FirstOrDefaultAsync(o => o.OrderID == orderId);
     }
+
+    public async Task<Order?> UpdateOrderAsync(int orderId, Order order)
+    {
+
+        var existOrder = await _context.Orders.FindAsync(orderId);
+        if (existOrder != null)
+        {
+            existOrder.ReportID = order.ReportID;
+        }
+        await _context.SaveChangesAsync();
+        return existOrder;
+    }
     
 }

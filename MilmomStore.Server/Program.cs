@@ -12,6 +12,7 @@ using Milmom_Repository.Repository;
 using Milmom_Service;
 using Milmom_Service.IService;
 using Milmom_Service.Service;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +41,8 @@ builder.Services.ConfigureServiceService(builder.Configuration);
 builder.Services.ConfigureDataAccessObjectService(builder.Configuration);
 builder.Services.AddScoped<ITokenRepository, TokenRepository>();
 builder.Services.AddScoped<ITokenService,TokenService>();
+builder.Services.AddScoped<MilmomSystemContext>();
+/*builder.Services.AddTransient<MilmomSystemContext>();*/
 //
 //Add SwaggerGen for Authentication
 builder.Services.AddSwaggerGen(option =>
@@ -112,10 +115,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 //
-//Add Dependency Injection here
-builder.Services.AddScoped<ITokenRepository, TokenRepository>();
-builder.Services.AddScoped<ITokenService, TokenService>();
-//
+
 
 var app = builder.Build();
 
@@ -135,6 +135,14 @@ app.UseCors(builder => builder
 //
 //app.UseSession();
 app.UseHttpsRedirection();
+//app.UseStaticFile
+/*app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+           Path.Combine(Directory.GetCurrentDirectory(), "Uploads")),
+   *//* RequestPath = "/Resources"*//*
+});*/
+//
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseAuthentication();

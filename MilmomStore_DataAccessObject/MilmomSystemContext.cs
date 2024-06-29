@@ -34,31 +34,35 @@ namespace MilmomStore_DataAccessObject
                 .HasOne(e => e.Order)
                 .WithOne(e => e.ShippingInfor)
                 .HasForeignKey<Order>(e => e.ShippingInforID);
+            modelBuilder.Entity<Report>()
+                .HasOne(e => e.Order)
+                .WithOne(e => e.Report)
+                .HasForeignKey<Order>(e => e.ReportID);
 
-             //  List<IdentityRole> roles = new List<IdentityRole>
-             //  {
-             //      new IdentityRole
-             //      {
-             //          Name = "Admin",
-             //          NormalizedName = "ADMIN"
-             //      },
-             //      new IdentityRole
-             //      {
-             //          Name = "Customer",
-             //          NormalizedName = "CUSTOMER"
-             //      },
-             //      new IdentityRole
-             //     {
-             //          Name = "Staff",
-             //          NormalizedName = "STAFF"
-             //      },
-             //      new IdentityRole
-             //      {
-             //          Name = "Manager",
-             //          NormalizedName = "MANAGER"
-             //      }
-             // };
-             //  modelBuilder.Entity<IdentityRole>().HasData(roles);
+            List<IdentityRole> roles = new List<IdentityRole>
+              {
+                  new IdentityRole
+                  {
+                      Name = "Admin",
+                      NormalizedName = "ADMIN"
+                  },
+                  new IdentityRole
+                  {
+                      Name = "Customer",
+                      NormalizedName = "CUSTOMER"
+                  },
+                  new IdentityRole
+                 {
+                      Name = "Staff",
+                      NormalizedName = "STAFF"
+                  },
+                  new IdentityRole
+                  {
+                      Name = "Manager",
+                      NormalizedName = "MANAGER"
+                  }
+             };
+            modelBuilder.Entity<IdentityRole>().HasData(roles);
         }
 
 
@@ -67,6 +71,7 @@ namespace MilmomStore_DataAccessObject
         public DbSet<CartItem> CartItems { set; get; }
         public DbSet<Category> Categories { set; get; }
         public DbSet<ImageProduct> ImageProducts { set; get; }
+        public DbSet<ImageBlog> ImageBlogs { set; get; }
         public DbSet<Order> Orders { set; get; }
         public DbSet<OrderDetail> OrderDetails { set; get; }
         public DbSet<Product> Products { set; get; }

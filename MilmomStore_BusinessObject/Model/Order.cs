@@ -20,6 +20,9 @@ namespace MilmomStore_BusinessObject.Model
         public OrderStatus Status { get; set; }
         public double Total { get; set; }
         
+        public int? ReportID { get; set; }
+        public Report? Report { get; set; }
+
         public string AccountID { get; set; }
         [ForeignKey("AccountID")]
         public AccountApplication AccountApplication { get; set; }

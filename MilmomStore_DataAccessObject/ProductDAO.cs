@@ -21,7 +21,9 @@ namespace MilmomStore_DataAccessObject
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
             return await _context.Products
+           .Include(p => p.Category)
            .Include(p => p.ImageProducts)
+           .Include(p => p.Ratings)
            .ToListAsync();
 
         }
@@ -30,6 +32,7 @@ namespace MilmomStore_DataAccessObject
         {
             return await _context.Set<Product>()
                 .Where(p => p.Status == true)
+                .Include(p => p.Category)
                 .Include(p => p.ImageProducts)
                 .Include(p => p.Ratings)
                 .SingleOrDefaultAsync(p => p.ProductID == id);
@@ -51,6 +54,7 @@ namespace MilmomStore_DataAccessObject
         public async Task<IEnumerable<Product>> ViewProductForHomePage()
         {
             return await _context.Products
+           .Include(p => p.Category)
            .Include(p => p.ImageProducts)
            .Include(p => p.Ratings)
            .Where(p => p.Status == true)
@@ -65,7 +69,9 @@ namespace MilmomStore_DataAccessObject
             if (!string.IsNullOrEmpty(search))
             {
                 searchProducts = searchProducts.Include(p => p.ImageProducts)
-                            .Where(p => p.Name.ToLower().Contains(search.ToLower()));
+                    .Include(p => p.Category)
+                    .Include(p => p.Ratings)
+                    .Where(p => p.Name.ToLower().Contains(search.ToLower()));
             }
 
             var result = PaginatedList<Product>.Create(searchProducts, pageIndex, pageSize).ToList();
@@ -74,7 +80,10 @@ namespace MilmomStore_DataAccessObject
 
         public async Task<IEnumerable<Product>> FilterProductAsync(double? lowPrice, double? highPrice, int? category, string? sortBy, int pageIndex, int pageSize)
         {
-            IQueryable<Product> filterProducts = _context.Products.Include(p => p.ImageProducts);
+            IQueryable<Product> filterProducts = _context.Products
+                                                .Include(p => p.ImageProducts)
+                                                .Include(p => p.Category)
+                                                .Include(p => p.Ratings);
 
             if (lowPrice.HasValue)
             {

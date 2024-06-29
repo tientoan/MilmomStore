@@ -12,8 +12,8 @@ using MilmomStore_DataAccessObject;
 namespace MilmomStore_DataAccessObject.Migrations
 {
     [DbContext(typeof(MilmomSystemContext))]
-    [Migration("20240618173832_Initial")]
-    partial class Initial
+    [Migration("20240626084842_FixBlog")]
+    partial class FixBlog
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,29 +53,29 @@ namespace MilmomStore_DataAccessObject.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "70e5ff66-0b3f-4efb-83f0-0ca055e5394f",
-                            ConcurrencyStamp = "6ab62be2-271b-4943-ab13-8ba23f1e7dbc",
+                            Id = "93383f89-d8aa-4f23-b02c-ab5a948ac197",
+                            ConcurrencyStamp = "f5cf8312-80ae-443e-a233-f6d3529358a8",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "39f37c8c-2379-4793-a07d-92d6aa222952",
-                            ConcurrencyStamp = "a7080e2a-6213-4e3e-9d9d-11c453fdd402",
+                            Id = "f54ff409-f0f0-4ba3-91f0-a7a04cee38f9",
+                            ConcurrencyStamp = "41ec6f4f-939b-4722-9bc9-59d14a63e75e",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "b70707db-7811-4937-83bf-ffc472c41b41",
-                            ConcurrencyStamp = "36e5a9ba-cb2f-4a0f-b3b4-dc3f9b3e3a7e",
+                            Id = "1b520ba9-0116-4545-a476-beb67020e8ba",
+                            ConcurrencyStamp = "54968217-6ca3-4cae-819f-a7b2e4344d76",
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         },
                         new
                         {
-                            Id = "8e270673-94d8-4cac-9d3e-df7c9472d2fa",
-                            ConcurrencyStamp = "bf5f5b9d-c49b-459e-8136-7e7ee9e91e3f",
+                            Id = "3ec1c1c8-f1f7-49b3-957e-376488581ca5",
+                            ConcurrencyStamp = "f103be6b-04c2-4a8a-b34b-7e1d7c95efd4",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         });
@@ -213,9 +213,8 @@ namespace MilmomStore_DataAccessObject.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<byte[]>("Image")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -283,16 +282,16 @@ namespace MilmomStore_DataAccessObject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("Author")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -378,6 +377,28 @@ namespace MilmomStore_DataAccessObject.Migrations
                     b.ToTable("Category");
                 });
 
+            modelBuilder.Entity("MilmomStore_BusinessObject.Model.ImageBlog", b =>
+                {
+                    b.Property<int>("ImageBlogsID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImageBlogsID"), 1L, 1);
+
+                    b.Property<int>("BlogID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ImageBlogsID");
+
+                    b.HasIndex("BlogID");
+
+                    b.ToTable("ImageBlog");
+                });
+
             modelBuilder.Entity("MilmomStore_BusinessObject.Model.ImageProduct", b =>
                 {
                     b.Property<int>("ImageProductsID")
@@ -415,6 +436,9 @@ namespace MilmomStore_DataAccessObject.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("ReportID")
+                        .HasColumnType("int");
+
                     b.Property<int?>("ShippingInforID")
                         .IsRequired()
                         .HasColumnType("int");
@@ -431,6 +455,10 @@ namespace MilmomStore_DataAccessObject.Migrations
                     b.HasKey("OrderID");
 
                     b.HasIndex("AccountID");
+
+                    b.HasIndex("ReportID")
+                        .IsUnique()
+                        .HasFilter("[ReportID] IS NOT NULL");
 
                     b.HasIndex("ShippingInforID")
                         .IsUnique();
@@ -600,6 +628,12 @@ namespace MilmomStore_DataAccessObject.Migrations
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<int>("OrderID")
+                        .HasColumnType("int");
+
                     b.Property<int>("ProductID")
                         .HasColumnType("int");
 
@@ -665,10 +699,6 @@ namespace MilmomStore_DataAccessObject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShippingInforID"), 1L, 1);
 
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("DetailAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -681,12 +711,20 @@ namespace MilmomStore_DataAccessObject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Province")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ReceiverName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("ShippingCost")
                         .HasColumnType("float");
+
+                    b.Property<string>("Ward")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ShippingInforID");
 
@@ -893,6 +931,17 @@ namespace MilmomStore_DataAccessObject.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("MilmomStore_BusinessObject.Model.ImageBlog", b =>
+                {
+                    b.HasOne("MilmomStore_BusinessObject.Model.Blog", "Blogs")
+                        .WithMany("ImageBlogs")
+                        .HasForeignKey("BlogID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Blogs");
+                });
+
             modelBuilder.Entity("MilmomStore_BusinessObject.Model.ImageProduct", b =>
                 {
                     b.HasOne("MilmomStore_BusinessObject.Model.Product", "Products")
@@ -912,6 +961,10 @@ namespace MilmomStore_DataAccessObject.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("MilmomStore_BusinessObject.Model.Report", "Report")
+                        .WithOne("Order")
+                        .HasForeignKey("MilmomStore_BusinessObject.Model.Order", "ReportID");
+
                     b.HasOne("MilmomStore_BusinessObject.Model.ShippingInfor", "ShippingInfor")
                         .WithOne("Order")
                         .HasForeignKey("MilmomStore_BusinessObject.Model.Order", "ShippingInforID")
@@ -923,6 +976,8 @@ namespace MilmomStore_DataAccessObject.Migrations
                         .HasForeignKey("MilmomStore_BusinessObject.Model.Order", "transactionID");
 
                     b.Navigation("AccountApplication");
+
+                    b.Navigation("Report");
 
                     b.Navigation("ShippingInfor");
 
@@ -1027,6 +1082,11 @@ namespace MilmomStore_DataAccessObject.Migrations
                     b.Navigation("Reviews");
                 });
 
+            modelBuilder.Entity("MilmomStore_BusinessObject.Model.Blog", b =>
+                {
+                    b.Navigation("ImageBlogs");
+                });
+
             modelBuilder.Entity("MilmomStore_BusinessObject.Model.Cart", b =>
                 {
                     b.Navigation("CartItem");
@@ -1055,6 +1115,12 @@ namespace MilmomStore_DataAccessObject.Migrations
                     b.Navigation("Reports");
 
                     b.Navigation("Reviews");
+                });
+
+            modelBuilder.Entity("MilmomStore_BusinessObject.Model.Report", b =>
+                {
+                    b.Navigation("Order")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MilmomStore_BusinessObject.Model.ShippingInfor", b =>

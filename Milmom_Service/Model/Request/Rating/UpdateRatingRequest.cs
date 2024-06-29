@@ -1,4 +1,6 @@
-﻿namespace Milmom_Service.Model.Request.Rating;
+﻿using Microsoft.AspNetCore.Http;
+
+namespace Milmom_Service.Model.Request.Rating;
 
 public class UpdateRatingRequest
 {
@@ -6,4 +8,6 @@ public class UpdateRatingRequest
     public string AccountID { get; set; }
     public int Rate   { get; set; }
     public int ProductID { get; set; }
+
+    
 }

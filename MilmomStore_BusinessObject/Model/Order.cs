@@ -19,6 +19,8 @@ namespace MilmomStore_BusinessObject.Model
         [EnumDataType(typeof(OrderStatus))]
         public OrderStatus Status { get; set; }
         public double Total { get; set; }
+        public int? ReportID { get; set; }
+        public Report? Report { get; set; }
 
         public string AccountID { get; set; }
         [ForeignKey("AccountID")]

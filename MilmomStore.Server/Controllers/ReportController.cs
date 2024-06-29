@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Milmom_Service.IService;
 using Milmom_Service.Model.BaseResponse;
+using Milmom_Service.Model.Request.Order;
 using Milmom_Service.Model.Request.Product;
 using Milmom_Service.Model.Request.Report;
 using Milmom_Service.Model.Response.Category;
@@ -14,9 +15,13 @@ namespace MilmomStore.Server.Controllers
     public class ReportController : ControllerBase
     {
         private readonly IReportService _reportService;
-        public ReportController(IReportService reportService) 
+        private readonly IFileService _fileService;
+        private readonly IOrderService _orderService;
+        public ReportController(IReportService reportService, IFileService fileService, IOrderService orderService) 
         {
             _reportService = reportService;
+            _fileService = fileService;
+            _orderService = orderService;
         }
 
         [HttpGet]
@@ -44,11 +49,31 @@ namespace MilmomStore.Server.Controllers
 
         [HttpPost]
         [Route("CreateReport")]
-        public async Task<ActionResult<BaseResponse<CreateReportRequest>>> CreateReportFromBase([FromBody] CreateReportRequest request)
+        public async Task<ActionResult<BaseResponse<ReportResponse>>> CreateReportFromBase([FromForm] CreateReportRequest request)
         {
-            var report = await _reportService.CreateReportFromBase(request);
-            return report;
+            byte[] createdImageName = null;
+
+            if (request.ImageFile != null && request.ImageFile.Length > 0)
+            {
+                createdImageName = _fileService.ConvertToByteArray(request.ImageFile);
+            }
+            
+            var report = new ReportRequest
+            {
+                CreateAt = request.CreateAt,
+                UpdateAt = request.UpdateAt,
+                ReportText = request.ReportText,
+                ResponseText = request.ResponseText,
+                AccountID = request.AccountID,
+                ProductID = request.ProductID,
+                OrderID = request.OrderID,
+                Image = createdImageName,
+            };
+
+            var result = await _reportService.CreateReportFromBase(report);
+            return result;
         }
+        
 
         [HttpDelete]
         [Route("{id}")]
@@ -72,10 +97,23 @@ namespace MilmomStore.Server.Controllers
 
         [HttpPut]
         [Route("UpdateReport")]
-        public async Task<ActionResult<BaseResponse<UpdateReportRequest>>> UpdateReportFromBase(int id,
-            [FromBody] UpdateReportRequest report)
+        public async Task<ActionResult<BaseResponse<ReportRequestUpdate>>> UpdateReportFromBase(int id,
+            [FromForm] UpdateReportRequest report)
         {
-            return await _reportService.UpdateReportFromBase(id, report);
+            byte[] createdImageName = null;
+
+            if (report.ImageFile != null && report.ImageFile.Length > 0)
+            {
+                createdImageName = _fileService.ConvertToByteArray(report.ImageFile);
+            }
+            var reportResult = new ReportRequestUpdate
+            {
+                ReportText = report.ReportText,
+                ResponseText = report.ResponseText,
+                Image = createdImageName,
+                UpdateAt = report.UpdateAt
+            };
+            return await _reportService.UpdateReportFromBase(id, reportResult);
         }
     }
 }

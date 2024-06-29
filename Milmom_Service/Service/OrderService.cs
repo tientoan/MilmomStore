@@ -2,6 +2,7 @@
 using Milmom_Repository.IRepository;
 using Milmom_Service.IService;
 using Milmom_Service.Model.BaseResponse;
+using Milmom_Service.Model.Request.Order;
 using Milmom_Service.Model.Response.Order;
 using Milmom_Service.Models.Enums;
 using MilmomStore_BusinessObject.Model;
@@ -68,5 +69,18 @@ public class OrderService : IOrderService
             var order = await _orderRepository.GetOrderByIdAsync(orderId);
             var orderResponse = _mapper.Map<OrderResponse>(order);
             return new BaseResponse<OrderResponse>("Get ok", StatusCodeEnum.OK_200, orderResponse);
+    }
+
+    public async Task<BaseResponse<OrderRequest>> UpdateOrderAsync(int orderId, OrderRequest request)
+    {
+        var orderExist = await _orderRepository.GetByIdAsync(orderId);
+        if (orderExist == null)
+        {
+            throw new Exception("Order not found");
+        }
+        orderExist.ReportID = request.ReportID;
+        var OrderUpdate = await _orderRepository.UpdateAsync(orderExist);
+        var orderResponse = _mapper.Map<OrderRequest>(OrderUpdate);
+        return new BaseResponse<OrderRequest>("Get ok", StatusCodeEnum.OK_200, orderResponse);
     }
 }

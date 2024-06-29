@@ -35,6 +35,6 @@ namespace Milmom_Service.Model.Response.Product
         public double Length { get; set; }
         public ICollection<GetAllImageProductsResponse> ImageProducts { get; set; }
 
-        public ICollection<GetRatingResponse> Rating { get; set; }
+        public ICollection<GetRatingResponse> Ratings { get; set; }
     }
 }

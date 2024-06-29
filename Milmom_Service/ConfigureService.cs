@@ -26,6 +26,11 @@ namespace Milmom_Service
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IReportService, ReportService>();
+            services.AddScoped<IImageBlogService, ImageBlogService>();
+            services.AddScoped<IBlogService, BlogService>();
+            services.AddScoped<IFileService, FileService>();
+            /*services.AddTransient<IReportService, ReportService>();
+            services.AddTransient<IFileService, FileService>();*/
             //services.AddScoped<ITokenService, TokenService>();
             return services;
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace Milmom_Service.Model.Request.Report
     {
         public string ReportText { get; set; }
         public string ResponseText { get; set; }
-        public string AccountID { get; set; }
-        public int ProductID { get; set; }
+        public DateTime UpdateAt { get; set; } = DateTime.Now;
+        public IFormFile? ImageFile { get; set; }
     }
 }

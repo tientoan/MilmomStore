@@ -1,4 +1,5 @@
 ﻿using Milmom_Service.Model.BaseResponse;
+using Milmom_Service.Model.Request.Order;
 using Milmom_Service.Model.Response.Order;
 using MilmomStore_BusinessObject.Model;
 
@@ -15,4 +16,5 @@ public interface IOrderService
     public Task<BaseResponse<OrderResponse>> ChangeOrderStatus(int orderId, OrderStatus status);
     public Task<BaseResponse<IEnumerable<OrderResponse>>> GetOrdersByStatusAsync(OrderStatus status);
     public Task<BaseResponse<OrderResponse>> GetOrderByIdAsync(int orderId);
+    public Task<BaseResponse<OrderRequest>> UpdateOrderAsync(int orderId, OrderRequest request);
 }

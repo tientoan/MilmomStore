@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Milmom_Repository.IRepository;
 using Milmom_Repository.Repository;
 using Milmom_Service.IService;
@@ -20,25 +21,45 @@ namespace Milmom_Service.Service
     public class ReportService : IReportService
     {
         private readonly IReportRepository _reportRepository;
+        private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
-        public ReportService(IMapper mapper, IReportRepository reportRepository) 
+        public ReportService(IMapper mapper, IReportRepository reportRepository, IOrderRepository orderRepository) 
         {
             _mapper = mapper;
             _reportRepository = reportRepository;
+            _orderRepository = orderRepository;
         }
 
-        public async Task<BaseResponse<CreateReportRequest>> CreateReportFromBase(CreateReportRequest request)
+        public async Task<BaseResponse<ReportResponse>> CreateReportFromBase(ReportRequest request)
         {
             Report report = _mapper.Map<Report>(request);
             await _reportRepository.AddAsync(report);
 
-            var response = _mapper.Map<CreateReportRequest>(report);
-            return new BaseResponse<CreateReportRequest>("Create Report as base success", StatusCodeEnum.Created_201, response);
+            var response = _mapper.Map<ReportResponse>(report);
+            if(response != null)
+            {
+                var order = await _orderRepository.GetByIdAsync(response.OrderID);
+                if(order != null)
+                {
+                    order.ReportID = response.ReportID;
+                    await _orderRepository.UpdateAsync(order);
+                }
+            }
+            return new BaseResponse<ReportResponse>("Create Report as base success", StatusCodeEnum.Created_201, response);
         }
 
         public async Task<Report> DeleteReport(int id)
         {
             var reportExist = await _reportRepository.GetReportByIdAsync(id);
+            if(reportExist != null)
+            {
+                var order = await _orderRepository.GetByIdAsync(reportExist.OrderID);
+                if (order != null)
+                {
+                    order.ReportID = null;
+                    await _orderRepository.UpdateAsync(order);
+                }
+            }
             return await _reportRepository.DeleteAsync(reportExist);
         }
 
@@ -66,14 +87,29 @@ namespace Milmom_Service.Service
                 StatusCodeEnum.OK_200, report);
         }
 
-        public async Task<BaseResponse<UpdateReportRequest>> UpdateReportFromBase(int id, UpdateReportRequest report)
+        public async Task<BaseResponse<ReportRequestUpdate>> UpdateReportFromBase(int id, ReportRequestUpdate report)
         {
             Report existingReport = await _reportRepository.GetReportByIdAsync(id);
-            _mapper.Map(report, existingReport);
+
+            if (!string.IsNullOrEmpty(report.ReportText))
+            {
+                existingReport.ReportText = report.ReportText;
+            }
+
+            if (!string.IsNullOrEmpty(report.ResponseText))
+            {
+                existingReport.ResponseText = report.ResponseText;
+            }
+
+            // Update Image only if a new Image is provided
+            if (report.Image != null && report.Image.Length > 0)
+            {
+                existingReport.Image = report.Image;
+            }
              await _reportRepository.UpdateAsync(existingReport);
 
-            var result = _mapper.Map<UpdateReportRequest>(existingReport);
-            return new BaseResponse<UpdateReportRequest>("Update Report as base success", StatusCodeEnum.OK_200, result);
+            var result = _mapper.Map<ReportRequestUpdate>(existingReport);
+            return new BaseResponse<ReportRequestUpdate>("Update Report as base success", StatusCodeEnum.OK_200, result);
         }
     }
 }

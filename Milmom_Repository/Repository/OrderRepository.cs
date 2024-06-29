@@ -17,6 +17,11 @@ public class OrderRepository : BaseRepository<Order>, IOrderRepository
          await _orderDao.AddOrderAsync(order);
     }
 
+    public async Task UpdateOrderAsync( Order order)
+    {
+       await _orderDao.UpdateAsync(order);
+    }
+
     public async Task<bool> HasPurchasedProductAsync(string accountId, int productId)
     {
         return await _orderDao.HasPurchasedProductAsync(accountId, productId);

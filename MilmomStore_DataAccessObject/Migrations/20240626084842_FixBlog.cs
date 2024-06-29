@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MilmomStore_DataAccessObject.Migrations
 {
-    public partial class Initial : Migration
+    public partial class FixBlog : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,7 +31,7 @@ namespace MilmomStore_DataAccessObject.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -73,7 +73,8 @@ namespace MilmomStore_DataAccessObject.Migrations
                     ShippingInforID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DetailAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Province = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Ward = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     District = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ReceiverName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -243,10 +244,10 @@ namespace MilmomStore_DataAccessObject.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AccountID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -316,38 +317,23 @@ namespace MilmomStore_DataAccessObject.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Order",
+                name: "ImageBlog",
                 columns: table => new
                 {
-                    OrderID = table.Column<int>(type: "int", nullable: false)
+                    ImageBlogsID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
-                    Total = table.Column<double>(type: "float", nullable: false),
-                    AccountID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    transactionID = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    ShippingInforID = table.Column<int>(type: "int", nullable: false)
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BlogID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Order", x => x.OrderID);
+                    table.PrimaryKey("PK_ImageBlog", x => x.ImageBlogsID);
                     table.ForeignKey(
-                        name: "FK_Order_AspNetUsers_AccountID",
-                        column: x => x.AccountID,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
+                        name: "FK_ImageBlog_Blogs_BlogID",
+                        column: x => x.BlogID,
+                        principalTable: "Blogs",
+                        principalColumn: "BlogID",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Order_ShippingInfor_ShippingInforID",
-                        column: x => x.ShippingInforID,
-                        principalTable: "ShippingInfor",
-                        principalColumn: "ShippingInforID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Order_Transaction_transactionID",
-                        column: x => x.transactionID,
-                        principalTable: "Transaction",
-                        principalColumn: "ResponseId");
                 });
 
             migrationBuilder.CreateTable(
@@ -442,8 +428,10 @@ namespace MilmomStore_DataAccessObject.Migrations
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ReportText = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ResponseText = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OrderID = table.Column<int>(type: "int", nullable: false),
                     AccountID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProductID = table.Column<int>(type: "int", nullable: false)
+                    ProductID = table.Column<int>(type: "int", nullable: false),
+                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -492,6 +480,47 @@ namespace MilmomStore_DataAccessObject.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Order",
+                columns: table => new
+                {
+                    OrderID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    Total = table.Column<double>(type: "float", nullable: false),
+                    ReportID = table.Column<int>(type: "int", nullable: true),
+                    AccountID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    transactionID = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    ShippingInforID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Order", x => x.OrderID);
+                    table.ForeignKey(
+                        name: "FK_Order_AspNetUsers_AccountID",
+                        column: x => x.AccountID,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Order_Report_ReportID",
+                        column: x => x.ReportID,
+                        principalTable: "Report",
+                        principalColumn: "ReportID");
+                    table.ForeignKey(
+                        name: "FK_Order_ShippingInfor_ShippingInforID",
+                        column: x => x.ShippingInforID,
+                        principalTable: "ShippingInfor",
+                        principalColumn: "ShippingInforID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Order_Transaction_transactionID",
+                        column: x => x.transactionID,
+                        principalTable: "Transaction",
+                        principalColumn: "ResponseId");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "OrderDetail",
                 columns: table => new
                 {
@@ -525,10 +554,10 @@ namespace MilmomStore_DataAccessObject.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "39f37c8c-2379-4793-a07d-92d6aa222952", "a7080e2a-6213-4e3e-9d9d-11c453fdd402", "Customer", "CUSTOMER" },
-                    { "70e5ff66-0b3f-4efb-83f0-0ca055e5394f", "6ab62be2-271b-4943-ab13-8ba23f1e7dbc", "Admin", "ADMIN" },
-                    { "8e270673-94d8-4cac-9d3e-df7c9472d2fa", "bf5f5b9d-c49b-459e-8136-7e7ee9e91e3f", "Manager", "MANAGER" },
-                    { "b70707db-7811-4937-83bf-ffc472c41b41", "36e5a9ba-cb2f-4a0f-b3b4-dc3f9b3e3a7e", "Staff", "STAFF" }
+                    { "1b520ba9-0116-4545-a476-beb67020e8ba", "54968217-6ca3-4cae-819f-a7b2e4344d76", "Staff", "STAFF" },
+                    { "3ec1c1c8-f1f7-49b3-957e-376488581ca5", "f103be6b-04c2-4a8a-b34b-7e1d7c95efd4", "Manager", "MANAGER" },
+                    { "93383f89-d8aa-4f23-b02c-ab5a948ac197", "f5cf8312-80ae-443e-a233-f6d3529358a8", "Admin", "ADMIN" },
+                    { "f54ff409-f0f0-4ba3-91f0-a7a04cee38f9", "41ec6f4f-939b-4722-9bc9-59d14a63e75e", "Customer", "CUSTOMER" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -596,6 +625,11 @@ namespace MilmomStore_DataAccessObject.Migrations
                 column: "AccountID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ImageBlog_BlogID",
+                table: "ImageBlog",
+                column: "BlogID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ImageProduct_ProductID",
                 table: "ImageProduct",
                 column: "ProductID");
@@ -604,6 +638,13 @@ namespace MilmomStore_DataAccessObject.Migrations
                 name: "IX_Order_AccountID",
                 table: "Order",
                 column: "AccountID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Order_ReportID",
+                table: "Order",
+                column: "ReportID",
+                unique: true,
+                filter: "[ReportID] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Order_ShippingInforID",
@@ -682,10 +723,10 @@ namespace MilmomStore_DataAccessObject.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Blogs");
+                name: "CartItems");
 
             migrationBuilder.DropTable(
-                name: "CartItems");
+                name: "ImageBlog");
 
             migrationBuilder.DropTable(
                 name: "ImageProduct");
@@ -695,9 +736,6 @@ namespace MilmomStore_DataAccessObject.Migrations
 
             migrationBuilder.DropTable(
                 name: "Rating");
-
-            migrationBuilder.DropTable(
-                name: "Report");
 
             migrationBuilder.DropTable(
                 name: "Reviews");
@@ -712,19 +750,25 @@ namespace MilmomStore_DataAccessObject.Migrations
                 name: "Carts");
 
             migrationBuilder.DropTable(
+                name: "Blogs");
+
+            migrationBuilder.DropTable(
                 name: "Order");
 
             migrationBuilder.DropTable(
-                name: "Product");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Report");
 
             migrationBuilder.DropTable(
                 name: "ShippingInfor");
 
             migrationBuilder.DropTable(
                 name: "Transaction");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Product");
 
             migrationBuilder.DropTable(
                 name: "Category");

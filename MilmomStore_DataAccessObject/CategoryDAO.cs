@@ -22,13 +22,11 @@ namespace MilmomStore_DataAccessObject
         public async Task<IEnumerable<Category>> GetAllAsync()
         {
             return await _context.Categories
-            .Include(c => c.Products)
             .ToListAsync();
         }
         public async Task<Category> GetByIdAsync(int id)
         {
             return await _context.Set<Category>()
-                .Include(c => c.Products)
                 .SingleOrDefaultAsync(c => c.CategoryID == id);
         }
 
@@ -39,7 +37,6 @@ namespace MilmomStore_DataAccessObject
             if (!string.IsNullOrEmpty(search))
             {
                 searchCategories = searchCategories
-                            .Include(c => c.Products)
                             .Where(c => c.Name.ToLower().Contains(search.ToLower()));
             }
 

@@ -24,18 +24,23 @@ namespace Milmom_Repository
             services.AddScoped<ICartRepository, CartRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IRatingRepository, RatingRepository>();
-            services.AddScoped<ISliderRepository, SliderRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IReportRepository, ReportRepository>();
+            services.AddScoped<IImageBlogRepository, ImageBlogRepository>();
             services.AddScoped<IBlogRepository, BlogRepository>();
+            services.AddTransient<IReportRepository, ReportRepository>();
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             
             //
             services.AddScoped<AccountDAO>();
             services.AddScoped<ProductDAO>();
             services.AddScoped<ImageProductDAO>();
+            services.AddScoped<ImageBlogDAO>();
             services.AddScoped<CartDAO>();
             services.AddScoped<OrderDAO>();
             services.AddScoped<RatingDAO>();
-            services.AddScoped<SliderDAO>();
+            services.AddScoped<CategoryDAO>();
+            services.AddScoped<ReportDAO>();
             services.AddScoped<BlogDAO>();
             //
             

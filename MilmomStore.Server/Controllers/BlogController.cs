@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Milmom_Service.IService;
 using Milmom_Service.Model.BaseResponse;
 using Milmom_Service.Model.Request.Blog;
-using Milmom_Service.Model.Request.Slider;
+using Milmom_Service.Model.Request.Product;
 using Milmom_Service.Model.Response.Blog;
-using Milmom_Service.Model.Response.Slider;
+using Milmom_Service.Model.Response.Product;
+using Milmom_Service.Service;
 using MilmomStore_BusinessObject.Model;
 
 namespace MilmomStore.Server.Controllers
@@ -15,18 +15,33 @@ namespace MilmomStore.Server.Controllers
     public class BlogController : ControllerBase
     {
         private readonly IBlogService _blogService;
-
         public BlogController(IBlogService blogService)
         {
             _blogService = blogService;
         }
 
         [HttpGet]
-        [Route("BlogForHomepage")]
-        public async Task<ActionResult<BaseResponse<IEnumerable<GetBlogForHomepageResponse>>>> GetBlogForHomepage()
+        [Route("GetAllBlogs")]
+        public async Task<ActionResult<BaseResponse<IEnumerable<BlogResponse>>>> GetAllBlogsForManager()
         {
-            var blogs = await _blogService.GetBlogForHomepage();
+            var blogs = await _blogService.GetAllBlogFromBase();
             return Ok(blogs);
+        }
+
+        [HttpGet]
+
+        [Route("BlogDetails/{id}")]
+        public async Task<ActionResult<BaseResponse<BlogResponse>>> GetBlogDetailForHomePage(int id)
+        {
+            return await _blogService.GetBlogByIdFromBase(id);
+        }
+
+        [HttpPost]
+        [Route("CreateBlog")]
+        public async Task<ActionResult<BaseResponse<BlogRequest>>> CreateBlogFromBase([FromBody] BlogRequest request)
+        {
+            var blog = await _blogService.CreateBlogFromBase(request);
+            return blog;
         }
 
         [HttpDelete]
@@ -43,34 +58,25 @@ namespace MilmomStore.Server.Controllers
 
             if (!success)
             {
-                return BadRequest(new { message = "Failed to delete blog" });
+                return BadRequest(new { message = "Failed to delete Blog" });
             }
 
-            return Ok(new { message = "Delete blog success" });
-        }
-
-        [HttpGet]
-        [Route("Get For Staff")]
-        public async Task<ActionResult<BaseResponse<IEnumerable<GetBlogForManageResponse>>>> GetAllBlogForManagement()
-        {
-            var blogs = await _blogService.GetBlogForManagement();
-            return Ok(blogs);
-        }
-
-        [HttpPost]
-        [Route("Add For Staff")]
-        public async Task<ActionResult<BaseResponse<AddBlogRequest>>> CreateBlogFromBase([FromBody] AddBlogRequest request)
-        {
-            var blog = await _blogService.CreateBlogFromBase(request);
-            return blog;
+            return Ok(new { message = "Delete Blog successfully" });
         }
 
         [HttpPut]
-        [Route("Update")]
+        [Route("UpdateBlog")]
         public async Task<ActionResult<BaseResponse<UpdateBlogRequest>>> UpdateBlogFromBase(int id,
             [FromBody] UpdateBlogRequest blog)
         {
             return await _blogService.UpdateBlogFromBase(id, blog);
+        }
+
+        [HttpGet]
+        [Route("base/search")]
+        public async Task<ActionResult<BaseResponse<IEnumerable<BlogResponse>>>> GetSearchProductFromBase(string search, int pageIndex, int pageSize)
+        {
+            return await _blogService.GetSearchBlogFromBase(search, pageIndex, pageSize);
         }
     }
 }

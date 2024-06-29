@@ -1,13 +1,13 @@
 ﻿using Milmom_Repository.IRepository;
 using MilmomStore_BusinessObject.Model;
 using MilmomStore_DataAccessObject;
-
+using Milmom_Repository.BaseRepository;
 namespace Milmom_Repository.Repository;
 
-public class CartRepository : ICartRepository
+public class CartRepository : BaseRepository<Cart>,ICartRepository
 {
     public readonly CartDAO _cartDAO;
-    public CartRepository(CartDAO cartDAO)
+    public CartRepository(CartDAO cartDAO) : base(cartDAO)
     {
         _cartDAO = cartDAO;
     }

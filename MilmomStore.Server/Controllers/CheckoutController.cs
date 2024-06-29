@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,42 +20,60 @@ namespace MilmomStore.Server.Controllers
     {
         private readonly ICheckoutService _checkoutService;
         private readonly IVnPayService _vnPayService;
-        
-        public CheckoutController(ICheckoutService checkoutService, IVnPayService vnPayService)
+        private readonly IConfiguration _configuration;
+        public CheckoutController(ICheckoutService checkoutService, IVnPayService vnPayService, IConfiguration configuration)
         {
             _checkoutService = checkoutService;
             _vnPayService = vnPayService;
-            
+            _configuration = configuration;
         }
-        //
-        [HttpGet("{accountId}")]
-        public async Task<IActionResult> Checkout(string accountId)
-        {
-            var validationResult = await _checkoutService.ValidateCart(accountId);
-            if (validationResult == false)
-            {
-                return BadRequest("Cart is empty or invalid");
-            }
-            return Ok();
-        }
-        [HttpPost("{accountId}")]
+        
+        [HttpPost("createOrder")]
         [ProducesResponseType(StatusCodes.Status302Found)]
-        public async Task<string> CreateOrder(string accountId, [FromBody] ShippingRequest shippingRequest)
+        public async Task<string>  CreateOrder(string accountId, [FromBody] ShippingRequest shippingRequest)
         {
             var amount = await _checkoutService.GetAmount(accountId);
-            //vnpay method
+            var order = await _checkoutService.Checkout(accountId, shippingRequest);
+            var orderId = order.OrderID;
+            // create payment vnpay
             var vnPayModel = new VnPayRequestModel
             {
                 Amount = amount,
                 CreatedDate = DateTime.Now,
                 Description = $"{shippingRequest.ReceiverName} {shippingRequest.Phone}",
                 FullName = shippingRequest.ReceiverName,
-                OrderId = new Random().Next(10,100)
+                OrderId = orderId,
+                OrderInfor = JsonSerializer.Serialize(new {AccountId = accountId, ShippingRequest = shippingRequest})
             };
             return _vnPayService.CreatePaymentUrl(HttpContext, vnPayModel);
-            //var order = await _checkoutService.CreateOrder(accountId, shippingRequest);
-            //return Ok(order);
         }
-            
+        
+        [HttpGet("vnpay-return")]
+        public async Task<IActionResult> HandleVnPayReturn([FromQuery] VnPayReturnModel model)
+        {
+            if (model.Vnp_TransactionStatus != "00") return BadRequest();
+            var transaction = new Transaction
+            {
+                Amount = model.Vnp_Amount,
+                BankCode = model.Vnp_BankCode,
+                BankTranNo = model.Vnp_BankTranNo,
+                TransactionType = model.Vnp_CardType,
+                OrderInfo = model.Vnp_OrderInfo,
+                PayDate = DateTime.ParseExact((string)model.Vnp_PayDate, "yyyyMMddHHmmss", CultureInfo.InvariantCulture),
+                ResponseCode = model.Vnp_ResponseCode,
+                TmnCode = model.Vnp_TmnCode,
+                TransactionNo = model.Vnp_TransactionNo,
+                TransactionStatus = model.Vnp_TransactionStatus,
+                TxnRef = model.Vnp_TxnRef,
+                SecureHash = model.Vnp_SecureHash,
+                ResponseId = model.Vnp_TransactionNo,
+                Message = model.Vnp_ResponseCode
+            };
+            var orderId = Convert.ToInt32(model.Vnp_OrderInfo);
+            var order = await _checkoutService.CreateOrder(orderId, transaction);
+            return Redirect($"{_configuration["VnPay:UrlReturnPayment"]}/{orderId}");
+        }
+        
+        
     }
 }

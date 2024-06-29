@@ -16,11 +16,15 @@ namespace MilmomStore_DataAccessObject
         public static IServiceCollection ConfigureDataAccessObjectService(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<AccountApplication>();
+            services.AddScoped<Blog>();
+            services.AddScoped<ImageBlog>();
             services.AddScoped<Product>();
             services.AddScoped<ImageProduct>();
             services.AddScoped<Cart>();
+            services.AddScoped<Category>();
             services.AddScoped<Order>();
             services.AddScoped<OrderDetail>();
+            services.AddScoped<Report>();
             services.AddScoped<ShippingInfor>();
             services.AddScoped<Transaction>();
             services.AddScoped<Rating>();

@@ -2,7 +2,6 @@
 using Milmom_Repository.IRepository;
 using MilmomStore_BusinessObject.Model;
 using MilmomStore_DataAccessObject;
-using MilmomStore_DataAccessObject.BaseDAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,26 +12,25 @@ namespace Milmom_Repository.Repository
 {
     public class BlogRepository : BaseRepository<Blog>, IBlogRepository
     {
-        private readonly BlogDAO _blogDAO;
-
-        public BlogRepository(BlogDAO blogDao) : base(blogDao)
+        public readonly BlogDAO _blogDAO;
+        public BlogRepository(BlogDAO blogDAO) : base(blogDAO)
         {
-            _blogDAO = blogDao;
+            _blogDAO = blogDAO;
         }
 
-        public async Task<IEnumerable<Blog>> GetAllAsync()
+        public Task<IEnumerable<Blog>> GetAllBlogsAsync()
         {
-            return await _blogDAO.GetAllAsync();
+            return _blogDAO.GetAllBlogsAsync();
         }
 
-        public async Task<Blog> GetByIdAsync(int id)
+        public Task<Blog> GetBlogByIdAsync(int id)
         {
-            return await _blogDAO.GetByIdAsync(id);
+            return _blogDAO.GetBlogByIdAsync(id);
         }
 
-        public async Task<Blog> GetByStringIdAsync(string id)
+        public Task<IEnumerable<Blog>> SearchBlogsAsync(string search, int pageIndex, int pageSize)
         {
-            return await _blogDAO.GetByStringIdAsync(id);
+            return _blogDAO.SearchBlogsAsync(search, pageIndex, pageSize);
         }
 
         public async Task<Blog> AddAsync(Blog entity)
@@ -45,18 +43,9 @@ namespace Milmom_Repository.Repository
             return await _blogDAO.UpdateAsync(entity);
         }
 
-        public async Task<Blog > DeleteAsync(Blog entity)
-        {
-            return await _blogDAO.DeleteAsync(entity);
-        }
         public async Task<bool> DeleteBlog(Blog blog)
         {
             return await _blogDAO.DeleteBlog(blog);
-        }
-
-        public async Task<IEnumerable<Blog>> GetBlogForHomepage()
-        {
-            return await _blogDAO.GetBlogForHomepage();
         }
     }
 }

@@ -13,4 +13,6 @@ public interface ICartService
     public Task<BaseResponse<CartResponse>> GetCart(string accountId);
     
     public Task ClearCart(string accountId);
+    
+    public Task<BaseResponse<CartResponse>> UpdateProductQuantityInCart(string accountId, int productId, int newQuantity);
 }

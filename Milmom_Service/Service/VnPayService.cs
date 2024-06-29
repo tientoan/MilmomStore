@@ -31,7 +31,7 @@ public class VnPayService : IVnPayService
         vnpay.AddRequestData("vnp_IpAddr", Utils.GetIpAddress(context));
         vnpay.AddRequestData("vnp_Locale", _configuration["VnPay:Locale"]);
         //
-        vnpay.AddRequestData("vnp_OrderInfo", "Thanh toan cho don hang:" + requestModel.OrderId);
+        vnpay.AddRequestData("vnp_OrderInfo", Convert.ToString(requestModel.OrderId));
         vnpay.AddRequestData("vnp_OrderType", "other"); //default value: other
         vnpay.AddRequestData("vnp_ReturnUrl", _configuration["VnPay:PaymentBackReturnUrl"]);
         vnpay.AddRequestData("vnp_TxnRef", $"{requestModel.OrderId}-{tick}");

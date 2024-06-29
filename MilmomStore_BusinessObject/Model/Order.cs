@@ -19,6 +19,8 @@ namespace MilmomStore_BusinessObject.Model
         [EnumDataType(typeof(OrderStatus))]
         public OrderStatus Status { get; set; }
         public double Total { get; set; }
+        public int? ReportID { get; set; }
+        public Report? Report { get; set; }
 
         public string AccountID { get; set; }
         [ForeignKey("AccountID")]
@@ -28,18 +30,20 @@ namespace MilmomStore_BusinessObject.Model
         public int? ShippingInforID { get; set; }
         //
         public ICollection<OrderDetail> OrderDetails { get; set; }
-        public Transaction Transaction { get; set; }
+        public Transaction? Transaction { get; set; }
         public ShippingInfor ShippingInfor { get; set; } = null!;
 
     }
     public enum OrderStatus
     {
         ToPay = 0,
-        ToShip = 1,
-        ToReceive = 2,
-        Completed = 3,
-        Cancelled = 4,
-        ReturnRefund = 5,
+        ToConfirm = 1,
+        ToShip = 2,
+        ToReceive = 3,
+        Completed = 4,
+        Cancelled = 5,
+        ReturnRefund = 6,
+        RequestReturn = 7
     }
 
 }

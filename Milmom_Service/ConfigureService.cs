@@ -23,8 +23,14 @@ namespace Milmom_Service
             services.AddScoped<ICheckoutService, CheckoutService>();
             services.AddScoped<IVnPayService, VnPayService>();
             services.AddScoped<IRatingService, RatingService>();
-            services.AddScoped<ISliderService, SliderService>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IReportService, ReportService>();
+            services.AddScoped<IImageBlogService, ImageBlogService>();
             services.AddScoped<IBlogService, BlogService>();
+            services.AddScoped<IFileService, FileService>();
+            /*services.AddTransient<IReportService, ReportService>();
+            services.AddTransient<IFileService, FileService>();*/
             //services.AddScoped<ITokenService, TokenService>();
             return services;
         }

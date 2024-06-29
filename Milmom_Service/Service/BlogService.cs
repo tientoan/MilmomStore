@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using Milmom_Repository.IRepository;
+using Milmom_Repository.Repository;
 using Milmom_Service.IService;
 using Milmom_Service.Model.BaseResponse;
 using Milmom_Service.Model.Request.Blog;
-using Milmom_Service.Model.Request.Slider;
+using Milmom_Service.Model.Request.Product;
 using Milmom_Service.Model.Response.Blog;
-using Milmom_Service.Model.Response.Slider;
+using Milmom_Service.Model.Response.Product;
 using Milmom_Service.Models.Enums;
 using MilmomStore_BusinessObject.Model;
 using System;
@@ -16,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace Milmom_Service.Service
 {
-    public class BlogService:IBlogService
+    public class BlogService : IBlogService
     {
         private readonly IMapper _mapper;
         private readonly IBlogRepository _blogRepository;
@@ -27,18 +28,18 @@ namespace Milmom_Service.Service
             _blogRepository = blogRepository;
         }
 
-        public async Task<BaseResponse<AddBlogRequest>> CreateBlogFromBase(AddBlogRequest request)
+        public async Task<BaseResponse<BlogRequest>> CreateBlogFromBase(BlogRequest request)
         {
             Blog blog = _mapper.Map<Blog>(request);
             await _blogRepository.AddAsync(blog);
 
-            var response = _mapper.Map<AddBlogRequest>(blog);
-            return new BaseResponse<AddBlogRequest>("Create blog as base success", StatusCodeEnum.Created_201, response);
+            var response = _mapper.Map<BlogRequest>(request);
+            return new BaseResponse<BlogRequest>("Create Blog as base success", StatusCodeEnum.Created_201, response);
         }
 
         public async Task<bool> DeleteBlog(int id)
         {
-            var existingBlog = await _blogRepository.GetByIdAsync(id);
+            var existingBlog = await _blogRepository.GetBlogByIdAsync(id);
             if (existingBlog == null)
             {
                 return false;
@@ -46,40 +47,38 @@ namespace Milmom_Service.Service
             return await _blogRepository.DeleteBlog(existingBlog);
         }
 
-        public async Task<BaseResponse<IEnumerable<GetBlogForManageResponse>>> GetBlogForManagement()
+        public async Task<BaseResponse<IEnumerable<BlogResponse>>> GetAllBlogFromBase()
         {
-            IEnumerable<Blog> blogs = await _blogRepository.GetAllAsync();
-            var blog = _mapper.Map<IEnumerable<GetBlogForManageResponse>>(blogs);
-            return new BaseResponse<IEnumerable<GetBlogForManageResponse>>("Get all  for staff as base success",
+            IEnumerable<Blog> blogs = await _blogRepository.GetAllBlogsAsync();
+            var blog = _mapper.Map<IEnumerable<BlogResponse>>(blogs);
+            return new BaseResponse<IEnumerable<BlogResponse>>("Get all Blogs as base success",
                 StatusCodeEnum.OK_200, blog);
         }
 
-        public async Task<BaseResponse<GetBlogByIdResponse>> GetBlogByIdFromBase(int id)
+        public async Task<BaseResponse<BlogResponse>> GetBlogByIdFromBase(int id)
         {
-            Blog blog = await _blogRepository.GetByIdAsync(id);
-            var result = _mapper.Map<GetBlogByIdResponse>(blog);
-            return new BaseResponse<GetBlogByIdResponse>("Get blog by id success", StatusCodeEnum.OK_200,
+            Blog blog = await _blogRepository.GetBlogByIdAsync(id);
+            var result = _mapper.Map<BlogResponse>(blog);
+            return new BaseResponse<BlogResponse>("Get Blog details success", StatusCodeEnum.OK_200,
                 result);
         }
 
-        public async Task<BaseResponse<IEnumerable<GetBlogForHomepageResponse>>> GetBlogForHomepage()
+        public async Task<BaseResponse<IEnumerable<BlogResponse>>> GetSearchBlogFromBase(string search, int pageIndex, int pageSize)
         {
-            IEnumerable<Blog> blogs = await _blogRepository.GetBlogForHomepage();
-            var blog = _mapper.Map<IEnumerable<GetBlogForHomepageResponse>>(blogs);
-            return new BaseResponse<IEnumerable<GetBlogForHomepageResponse>>("Get all blogs for home page success",
-                StatusCodeEnum.OK_200, blog);
+            IEnumerable<Blog> blogs = await _blogRepository.SearchBlogsAsync(search, pageIndex, pageSize);
+            var product = _mapper.Map<IEnumerable<BlogResponse>>(blogs);
+            return new BaseResponse<IEnumerable<BlogResponse>>("Get search Blog as base success",
+                StatusCodeEnum.OK_200, product);
         }
 
         public async Task<BaseResponse<UpdateBlogRequest>> UpdateBlogFromBase(int id, UpdateBlogRequest request)
         {
-            Blog existingBlog = await _blogRepository.GetByIdAsync(id);
+            Blog existingBlog = await _blogRepository.GetBlogByIdAsync(id);
             _mapper.Map(request, existingBlog);
             await _blogRepository.UpdateAsync(existingBlog);
 
             var result = _mapper.Map<UpdateBlogRequest>(existingBlog);
-            return new BaseResponse<UpdateBlogRequest>("Update blog as base success", StatusCodeEnum.OK_200, result);
+            return new BaseResponse<UpdateBlogRequest>("Update Blog as base success", StatusCodeEnum.OK_200, result);
         }
-
-        
     }
 }

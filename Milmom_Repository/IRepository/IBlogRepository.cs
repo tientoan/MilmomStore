@@ -8,9 +8,11 @@ using System.Threading.Tasks;
 
 namespace Milmom_Repository.IRepository
 {
-    public interface IBlogRepository:IBaseRepository<Blog>
+    public interface IBlogRepository : IBaseRepository<Blog>
     {
-        public Task<IEnumerable<Blog>> GetBlogForHomepage();
-        public Task<bool> DeleteBlog(Blog blog);
+        Task<IEnumerable<Blog>> GetAllBlogsAsync();
+        Task<IEnumerable<Blog>> SearchBlogsAsync(string search, int pageIndex, int pageSize);
+        Task<Blog> GetBlogByIdAsync(int id);
+        Task<bool> DeleteBlog(Blog blog);
     }
 }

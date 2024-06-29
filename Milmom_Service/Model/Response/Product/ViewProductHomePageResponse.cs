@@ -16,7 +16,7 @@ namespace Milmom_Service.Model.Response.Product
         //thieu rating voi image
         public ICollection<GetAllImageProductsResponse> ImageProducts { get; set; }
 
-        public ICollection<GetRatingResponse> Rating { get; set; }
+        public ICollection<RatingResponse> Ratings { get; set; }
         public double AverageRating { get; set; }
 
     }

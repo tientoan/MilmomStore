@@ -7,6 +7,8 @@ public interface ICheckoutService
 {
     public Task<Order> Checkout(string accountId, ShippingRequest shippingRequest);
     public Task<bool> ValidateCart(string accountId);
-    public Task<Order> CreateOrder(string accountId, ShippingRequest shippingRequest);
+    public Task<Order> CreateOrder(int orderId, Transaction transaction);
     public Task<double> GetAmount(string accountId);
+    
+    
 }

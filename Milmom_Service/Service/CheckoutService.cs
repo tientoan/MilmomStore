@@ -22,7 +22,7 @@ public class CheckoutService : ICheckoutService
         _orderRepository = orderRepository;
         _productRepository = productRepository;
     }
-    public async Task<Order> Checkout(string accountId, ShippingRequest shippingRequest)
+    public async Task<Order> Checkout(string accountId, ShippingRequest shippingRequest, PaymentMethod paymentMethod)
     {
         var cart = await _cartRepository.GetCart(accountId);
         if (cart == null || cart.CartItem.Count < 1)
@@ -37,30 +37,18 @@ public class CheckoutService : ICheckoutService
                 throw new Exception("Product not found or out of stock");
             }
         }
-        // Create order
-        var orderDetailTasks = cart.CartItem.Select(async x => 
-        {
-            var product = await _productRepository.GetByIdAsync(x.ProductID);
-            if (product == null)
-            {
-                throw new Exception("Product not found");
-            }
-            var unitPrice = product.PurchasePrice;
-            var totalAmount = unitPrice * x.Quantity;
-            return new OrderDetail
-            {
-                ProductID = x.ProductID,
-                Quantity = x.Quantity,
-                unitPrice = unitPrice,
-                TotalAmount = totalAmount
-            };
-        });
 
         var order = new Order
         {
             AccountID = accountId,
             OrderDate = DateTime.Now,
-            OrderDetails = (await Task.WhenAll(orderDetailTasks)).ToList(),
+            OrderDetails = cart.CartItem.Select(x => new OrderDetail
+            {
+                ProductID = x.ProductID,
+                Quantity = x.Quantity,
+                unitPrice = _productRepository.GetByIdAsync(x.ProductID).Result.PurchasePrice,
+                TotalAmount = _productRepository.GetByIdAsync(x.ProductID).Result.PurchasePrice * x.Quantity
+            }).ToList(),
             Status = OrderStatus.ToPay,
             ShippingInfor = new ShippingInfor
             {
@@ -69,8 +57,10 @@ public class CheckoutService : ICheckoutService
                 District = shippingRequest.District,
                 Ward = shippingRequest.Ward,
                 Phone = shippingRequest.Phone,
-                ReceiverName = shippingRequest.ReceiverName
-            }
+                ReceiverName = shippingRequest.ReceiverName,
+                ShippingCost = CalculateShippingFee(shippingRequest.ProvinceCode)
+            },
+            PaymentMethod = paymentMethod == PaymentMethod.Cod ? PaymentMethod.Cod : PaymentMethod.VnPay
         };
         double total = 0;
         foreach (var item in order.OrderDetails)
@@ -83,12 +73,33 @@ public class CheckoutService : ICheckoutService
                 await _productRepository.UpdateAsync(product); // Update product in repository
             }
         }
-        order.Total = total;
+
+        order.Total = total + CalculateShippingFee(shippingRequest.ProvinceCode);
         await _orderRepository.AddOrderAsync(order);
         await _cartRepository.ClearCart(accountId);
         return order;
     }
+    
+    private async void ValidateCart(Cart? cart)
+    {
+        if (cart == null || cart.CartItem.Count < 1)
+        {
+            throw new Exception("Cart is empty");
+        }
+        foreach (var item in cart.CartItem)
+        {
+            var product = await _productRepository.GetByIdAsync(item.ProductID);
+            if (product == null || product.InventoryQuantity < item.Quantity)
+            {
+                throw new Exception("Product not found or out of stock");
+            }
+        }
+    }
 
+    public  double CalculateShippingFee(string provinceCode)
+    {
+        return provinceCode == "79" ? 30000 : 50000;
+    }
     public async Task<bool> ValidateCart(string accountId)
     {
         var cart = await _cartRepository.GetCart(accountId);

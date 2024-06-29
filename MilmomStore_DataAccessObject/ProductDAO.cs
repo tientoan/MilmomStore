@@ -26,7 +26,7 @@ namespace MilmomStore_DataAccessObject
 
         }
 
-        public async Task<Product> GetByIdAsync(int id)
+        public async Task<Product?> GetByIdAsync(int id)
         {
             return await _context.Set<Product>()
                 .Where(p => p.Status == true)

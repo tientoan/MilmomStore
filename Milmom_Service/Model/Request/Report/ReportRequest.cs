@@ -16,6 +16,6 @@ namespace Milmom_Service.Model.Request.Report
         public string AccountID { get; set; }
         public int ProductID { get; set; }
         public int OrderID { get; set; }
-        public byte[]? Image { get; set; }
+        public string? Image { get; set; }
     }
 }

@@ -12,6 +12,6 @@ namespace Milmom_Service.Model.Request.Report
         public string ReportText { get; set; }
         public string ResponseText { get; set; }
         public DateTime UpdateAt { get; set; }
-        public byte[]? Image { get; set; }
+        public string? Image { get; set; }
     }
 }

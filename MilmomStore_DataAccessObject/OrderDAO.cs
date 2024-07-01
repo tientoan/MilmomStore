@@ -11,19 +11,23 @@ public class OrderDAO : BaseDAO<Order>
     {
         _context = context;
     }
-    public async Task<IEnumerable<Order>> GetAllAsync()
+    public new async Task<IEnumerable<Order>> GetAllOrderAsync()
     {
         return await _context.Orders
             .Include(o => o.AccountApplication)
-            //.Include(o => o.ShippingInfor)
-            //.Include(o => o.Transaction)
+            .Include(o => o.ShippingInfor)
+            .Include(o => o.Transaction)
             .Include(o => o.OrderDetails)
+            .ThenInclude(o => o.Product)
+            .ThenInclude(o=>o.ImageProducts)
             .ToListAsync();
     }
     public async Task<IEnumerable<Order>> GetOrdersByAccountId(string accountId)
     {
         return await _context.Orders
             .Include(o => o.OrderDetails)
+            .ThenInclude(o => o.Product)
+            .ThenInclude(o=>o.ImageProducts)
             .Include(o => o.ShippingInfor)
             .Include(o => o.Transaction)
             .Where(o => o.AccountID == accountId)
@@ -54,7 +58,11 @@ public class OrderDAO : BaseDAO<Order>
     {
         return await _context.Orders
             .Include(o => o.AccountApplication)
+            .Include(o => o.ShippingInfor)
+            .Include(o => o.Transaction)
             .Include(o => o.OrderDetails)
+            .ThenInclude(o => o.Product)
+            .ThenInclude(o=>o.ImageProducts)
             .Where(o => o.OrderDate.Date == date.Date)
             .ToListAsync();
     }

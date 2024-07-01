@@ -83,13 +83,12 @@ namespace MilmomStore_DataAccessObject
         public DbSet<Transaction> Transaction { set; get; }
 
         //
-        public const string ConnectString = "server=DESKTOP-88329MO\\KHANHVU21;database=MilmomStore_Db4;uid=sa;pwd=12345;Integrated Security=true;Trusted_Connection=false;TrustServerCertificate=True";
-    
+        private const string ConnectString = "server=TOANNT\\SQLEXPRESS;database=MilmomStore;uid=sa;pwd=12345;Integrated Security=true;Trusted_Connection=false;TrustServerCertificate=True";
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(ConnectString);
         
-    }
+        }
 
 
         /*public const string ConnectString = "server=TOANNT\\SQLEXPRESS;database=MilmomStore;uid=sa;pwd=12345;Integrated Security=true;Trusted_Connection=false;TrustServerCertificate=True";

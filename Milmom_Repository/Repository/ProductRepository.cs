@@ -32,7 +32,7 @@ namespace Milmom_Repository.Repository
            return await _productDao.FilterProductAsync(lowPrice, highPrice, category, sortBy, pageIndex, pageSize);
         }
 
-        public async Task<Product> GetByIdAsync(int id)
+        public async Task<Product?> GetByIdAsync(int id)
         {
             return await _productDao.GetByIdAsync(id);
         }

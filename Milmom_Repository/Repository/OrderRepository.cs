@@ -51,4 +51,9 @@ public class OrderRepository : BaseRepository<Order>, IOrderRepository
     {
         return await _orderDao.GetOrdersByStatusAsync(status);
     }
+
+    public async Task<IEnumerable<Order>> GetAllOrderAsync()
+    {
+        return await _orderDao.GetAllOrderAsync();
+    }
 }

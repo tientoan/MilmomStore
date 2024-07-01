@@ -18,7 +18,7 @@ namespace MilmomStore_DataAccessObject
         {
             _context = context;
         }
-        public async Task<IEnumerable<Product>> GetAllAsync()
+        public async Task<IEnumerable<Product>> GetAllOrdersAsync()
         {
             return await _context.Products
            .Include(p => p.Category)
@@ -28,7 +28,7 @@ namespace MilmomStore_DataAccessObject
 
         }
 
-        public async Task<Product?> GetByIdAsync(int id)
+        public async Task<Product?> GetProductByIdAsync(int id)
         {
             return await _context.Set<Product>()
                 .Where(p => p.Status == true)
@@ -37,12 +37,6 @@ namespace MilmomStore_DataAccessObject
                 .Include(p => p.Ratings)
                 .SingleOrDefaultAsync(p => p.ProductID == id);
         }
-
-        //public async Task<int> DeleteProduct(Product product)
-        //{
-        //    product.Status = false;
-        //    return await _context.SaveChangesAsync();
-        //}
 
         public async Task<bool> DeleteTest(Product product)
         {
@@ -59,66 +53,6 @@ namespace MilmomStore_DataAccessObject
                 .Include(p => p.Ratings)
                 .Where(p => p.Status == true)
                 .ToListAsync();
-        }
-
-        
-        public async Task<IEnumerable<Product>> SearchProductAsync(string search, int pageIndex, int pageSize)
-        {
-            IQueryable<Product> searchProducts = _context.Products;
-
-            if (!string.IsNullOrEmpty(search))
-            {
-                searchProducts = searchProducts.Include(p => p.ImageProducts)
-                    .Include(p => p.Category)
-                    .Include(p => p.Ratings)
-                    .Where(p => p.Name.ToLower().Contains(search.ToLower()));
-            }
-
-            var result = PaginatedList<Product>.Create(searchProducts, pageIndex, pageSize).ToList();
-            return result;
-        }
-
-        public async Task<IEnumerable<Product>> FilterProductAsync(double? lowPrice, double? highPrice, int? category, string? sortBy, int pageIndex, int pageSize)
-        {
-            IQueryable<Product> filterProducts = _context.Products
-                                                .Include(p => p.ImageProducts)
-                                                .Include(p => p.Category)
-                                                .Include(p => p.Ratings);
-
-            if (lowPrice.HasValue)
-            {
-                filterProducts = filterProducts.Where(p => p.PurchasePrice >= lowPrice.Value);
-            }
-
-            if (highPrice.HasValue)
-            {
-                filterProducts = filterProducts.Where(p => p.PurchasePrice <= highPrice);
-            }
-
-            if (category.HasValue && category > 0)
-            {
-                filterProducts = filterProducts.Where(p => p.CategoryID == category);
-            }
-
-            // Apply default sorting
-            filterProducts = filterProducts.OrderBy(p => p.Name);
-
-            // Apply sorting based on sortBy parameter, if provided
-            if (!string.IsNullOrEmpty(sortBy))
-            {
-                switch (sortBy)
-                {
-                    case "price_asc":
-                        filterProducts = filterProducts.OrderBy(p => p.PurchasePrice);
-                        break;
-                    case "price_desc":
-                        filterProducts = filterProducts.OrderByDescending(p => p.PurchasePrice);
-                        break;
-                }
-            }
-            var result = PaginatedList<Product>.Create(filterProducts, pageIndex, pageSize).ToList();
-            // Execute the query and return the results as a list
-            return result;
         }
         
         public async Task<IEnumerable<Product>> GetProductsAsync(string search = null, double? lowPrice = null, double? highPrice = null, int? category = null, string sortBy = null, int pageIndex = 1, int pageSize = 10)

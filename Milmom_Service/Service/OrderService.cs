@@ -29,13 +29,6 @@ public class OrderService : IOrderService
         await _orderRepository.UpdateAsync(order);
     }
 
-    public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrdersByDateAsync(DateTime date)
-    {
-        var orders = await _orderRepository.GetOrdersByDateAsync(date);
-        var ordersResponse = _mapper.Map<IEnumerable<OrderResponse>>(orders);
-        return new BaseResponse<IEnumerable<OrderResponse>>("Get ok", StatusCodeEnum.OK_200, ordersResponse);
-    }
-
     public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrdersByAccountIdAsync(string accountId)
     {
         var orders = await _orderRepository.GetOrdersByAccountId(accountId);
@@ -48,13 +41,6 @@ public class OrderService : IOrderService
         var order = await _orderRepository.ChangeOrderStatus(orderId, status);
         var orderResponse = _mapper.Map<OrderResponse>(order);
         return new BaseResponse<OrderResponse>("Change status ok", StatusCodeEnum.OK_200, orderResponse);
-    }
-
-    public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetOrdersByStatusAsync(OrderStatus status)
-    {
-        var orders = await _orderRepository.GetOrdersByStatusAsync(status);
-        var ordersResponse = _mapper.Map<IEnumerable<OrderResponse>>(orders);
-        return new BaseResponse<IEnumerable<OrderResponse>>("Get ok", StatusCodeEnum.OK_200, ordersResponse);
     }
 
     public async Task<BaseResponse<OrderResponse>> GetOrderByIdAsync(int orderId)

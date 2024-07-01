@@ -32,17 +32,14 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
 builder.Services.AddDbContext<MilmomSystemContext>(p
     => p.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"),
         (b) => b.MigrationsAssembly("MilmomStore.Server")));
-//
-//builder.Services.AddIdentity<AccountApplication, IdentityRole>()
-//    .AddEntityFrameworkStores<MilmomSystemContext>().AddDefaultTokenProviders();
-//
+
 builder.Services.ConfigureRepositoryService(builder.Configuration);
 builder.Services.ConfigureServiceService(builder.Configuration);
 builder.Services.ConfigureDataAccessObjectService(builder.Configuration);
 builder.Services.AddScoped<ITokenRepository, TokenRepository>();
 builder.Services.AddScoped<ITokenService,TokenService>();
 builder.Services.AddScoped<MilmomSystemContext>();
-/*builder.Services.AddTransient<MilmomSystemContext>();*/
+
 //
 //Add SwaggerGen for Authentication
 builder.Services.AddSwaggerGen(option =>

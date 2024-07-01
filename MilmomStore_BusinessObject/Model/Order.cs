@@ -21,8 +21,6 @@ namespace MilmomStore_BusinessObject.Model
         public double Total { get; set; }
         
         public int? ReportID { get; set; }
-        public Report? Report { get; set; }
-
         public string AccountID { get; set; }
         [ForeignKey("AccountID")]
         public AccountApplication AccountApplication { get; set; }
@@ -36,6 +34,7 @@ namespace MilmomStore_BusinessObject.Model
         public ICollection<OrderDetail> OrderDetails { get; set; }
         public Transaction? Transaction { get; set; }
         public ShippingInfor ShippingInfor { get; set; } = null!;
+        public Report? Report { get; set; }
         
     }
 

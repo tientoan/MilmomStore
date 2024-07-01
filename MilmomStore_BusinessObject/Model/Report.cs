@@ -21,7 +21,8 @@ namespace MilmomStore_BusinessObject.Model
         public string ResponseText { get; set; }
         [ForeignKey("OrderID")]
         public int OrderID { get; set; }
-        public Order Order { get; set; }
+
+        public Order? Order { get; set; } = null!;
         public string AccountID { get; set; }
         [ForeignKey("AccountID")]
         public AccountApplication AccountsApplication { get; set; }

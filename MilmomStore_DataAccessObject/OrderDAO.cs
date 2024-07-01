@@ -11,17 +11,33 @@ public class OrderDAO : BaseDAO<Order>
     {
         _context = context;
     }
-    public new async Task<IEnumerable<Order>> GetAllOrderAsync()
+
+    public async Task<IEnumerable<Order>> GetAllOrderAsync(DateTime? date = null, OrderStatus? status = null)
     {
-        return await _context.Orders
+        IQueryable<Order> orders = _context.Orders
             .Include(o => o.AccountApplication)
             .Include(o => o.ShippingInfor)
             .Include(o => o.Transaction)
             .Include(o => o.OrderDetails)
-            .ThenInclude(o => o.Product)
-            .ThenInclude(o=>o.ImageProducts)
-            .ToListAsync();
+            .ThenInclude(od => od.Product)
+            .ThenInclude(p => p.ImageProducts);
+
+        // Apply date filter if provided
+        if (date.HasValue)
+        {
+            orders = orders.Where(o => o.OrderDate.Date == date.Value.Date);
+        }
+
+        // Apply status filter if provided
+        if (status.HasValue)
+        {
+            orders = orders.Where(o => o.Status == status.Value);
+        }
+
+        // Execute the query and return the results as a list
+        return await orders.ToListAsync();
     }
+
     public async Task<IEnumerable<Order>> GetOrdersByAccountId(string accountId)
     {
         return await _context.Orders

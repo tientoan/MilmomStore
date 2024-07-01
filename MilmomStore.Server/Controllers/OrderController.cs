@@ -30,11 +30,11 @@ namespace MilmomStore.Server.Controllers
             await _orderService.UpdateOrderStatus(orderId, "ToReceive");
             return Ok();
         }
-        [HttpGet("get-all-orders-by-date")]
-        public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrdersByDateAsync(DateTime date)
-        {
-            return await _orderService.GetAllOrdersByDateAsync(date);
-        }
+        // [HttpGet("get-all-orders-by-date")]
+        // public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrdersByDateAsync(DateTime date)
+        // {
+        //     return await _orderService.GetAllOrdersByDateAsync(date);
+        // }
         
         [HttpGet("get-all-orders-by-id/{accountId}")]
         public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrdersByAccountIdAsync(string accountId)
@@ -42,16 +42,16 @@ namespace MilmomStore.Server.Controllers
             return await _orderService.GetAllOrdersByAccountIdAsync(accountId);
         }
         [HttpGet("get-all-orders")]
-        public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrdersAsync()
+        public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrdersAsync(DateTime? date, OrderStatus? status)
         {
-            return await _orderService.GetAllOrdersAsync();
+            return await _orderService.GetAllOrderAsync(date, status);
         }
-        [HttpGet("get-orders-by-status")]
-        public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetOrdersByStatusAsync(OrderStatus status)
-        {
-            return await _orderService.GetOrdersByStatusAsync(status);
-        }
-        [HttpPut("change-order-status")]
+        // [HttpGet("get-orders-by-status")]
+        // public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetOrdersByStatusAsync(OrderStatus status)
+        // {
+        //     return await _orderService.GetOrdersByStatusAsync(status);
+        // }
+        [HttpPut("update-order-status")]
         public async Task<BaseResponse<OrderResponse>> ChangeOrderStatus(int orderId, OrderStatus status)
         {
             return await _orderService.ChangeOrderStatus(orderId, status);

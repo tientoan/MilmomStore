@@ -22,6 +22,11 @@ public class OrderRepository : BaseRepository<Order>, IOrderRepository
        await _orderDao.UpdateAsync(order);
     }
 
+    public async Task<IEnumerable<Order>> GetAllOrderAsync(DateTime? date, OrderStatus? status)
+    {
+        return await _orderDao.GetAllOrderAsync(date, status);
+    }
+
     public async Task<bool> HasPurchasedProductAsync(string accountId, int productId)
     {
         return await _orderDao.HasPurchasedProductAsync(accountId, productId);
@@ -50,10 +55,5 @@ public class OrderRepository : BaseRepository<Order>, IOrderRepository
     public async Task<IEnumerable<Order>> GetOrdersByStatusAsync(OrderStatus status)
     {
         return await _orderDao.GetOrdersByStatusAsync(status);
-    }
-
-    public async Task<IEnumerable<Order>> GetAllOrderAsync()
-    {
-        return await _orderDao.GetAllOrderAsync();
     }
 }

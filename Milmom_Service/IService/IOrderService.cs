@@ -8,8 +8,6 @@ namespace Milmom_Service.IService;
 public interface IOrderService
 {
     public Task UpdateOrderStatus(int orderId, string status);
-
-    public Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrdersAsync();
     public Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrdersByDateAsync(DateTime date);
     public Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrdersByAccountIdAsync(string accountId);
     
@@ -17,4 +15,5 @@ public interface IOrderService
     public Task<BaseResponse<IEnumerable<OrderResponse>>> GetOrdersByStatusAsync(OrderStatus status);
     public Task<BaseResponse<OrderResponse>> GetOrderByIdAsync(int orderId);
     public Task<BaseResponse<OrderRequest>> UpdateOrderAsync(int orderId, OrderRequest request);
+    public Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrderAsync(DateTime? date, OrderStatus? status);
 }

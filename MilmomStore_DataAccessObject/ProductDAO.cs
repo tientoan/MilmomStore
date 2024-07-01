@@ -54,11 +54,11 @@ namespace MilmomStore_DataAccessObject
         public async Task<IEnumerable<Product>> ViewProductForHomePage()
         {
             return await _context.Products
-           .Include(p => p.Category)
-           .Include(p => p.ImageProducts)
-           .Include(p => p.Ratings)
-           .Where(p => p.Status == true)
-           .ToListAsync();
+                .Include(p => p.Category)
+                .Include(p => p.ImageProducts)
+                .Include(p => p.Ratings)
+                .Where(p => p.Status == true)
+                .ToListAsync();
         }
 
         
@@ -116,11 +116,64 @@ namespace MilmomStore_DataAccessObject
                         break;
                 }
             }
-            
             var result = PaginatedList<Product>.Create(filterProducts, pageIndex, pageSize).ToList();
             // Execute the query and return the results as a list
             return result;
         }
+        
+        public async Task<IEnumerable<Product>> GetProductsAsync(string search = null, double? lowPrice = null, double? highPrice = null, int? category = null, string sortBy = null, int pageIndex = 1, int pageSize = 10)
+        {
+            IQueryable<Product> products = _context.Products
+                .Include(p => p.ImageProducts)
+                .Include(p => p.Category)
+                .Include(p => p.Ratings);
+
+            // Apply search
+            if (!string.IsNullOrEmpty(search))
+            {
+                products = products.Where(p => p.Name.ToLower().Contains(search.ToLower()));
+            }
+
+            // Apply filters
+            if (lowPrice.HasValue)
+            {
+                products = products.Where(p => p.PurchasePrice >= lowPrice.Value);
+            }
+
+            if (highPrice.HasValue)
+            {
+                products = products.Where(p => p.PurchasePrice <= highPrice.Value);
+            }
+
+            if (category.HasValue && category > 0)
+            {
+                products = products.Where(p => p.CategoryID == category);
+            }
+
+            // Apply default sorting
+            products = products.OrderBy(p => p.Name);
+
+            // Apply sorting based on sortBy parameter, if provided
+            if (!string.IsNullOrEmpty(sortBy))
+            {
+                switch (sortBy)
+                {
+                    case "price_asc":
+                        products = products.OrderBy(p => p.PurchasePrice);
+                        break;
+                    case "price_desc":
+                        products = products.OrderByDescending(p => p.PurchasePrice);
+                        break;
+                }
+            }
+
+            // Apply pagination
+            var paginatedProducts =  PaginatedList<Product>.Create(products, pageIndex, pageSize);
+
+            // Execute the query and return the results as a list
+            return paginatedProducts;
+        }
+
     }
     
 }

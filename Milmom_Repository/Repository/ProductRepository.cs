@@ -32,6 +32,12 @@ namespace Milmom_Repository.Repository
            return await _productDao.FilterProductAsync(lowPrice, highPrice, category, sortBy, pageIndex, pageSize);
         }
 
+        public async Task<IEnumerable<Product>> GetProductsAsync(string search, double? lowPrice, double? highPrice, int? category, string sortBy, int pageIndex,
+            int pageSize)
+        {
+            return await _productDao.GetProductsAsync(search, lowPrice, highPrice, category, sortBy, pageIndex, pageSize);
+        }
+
         public async Task<Product?> GetByIdAsync(int id)
         {
             return await _productDao.GetByIdAsync(id);

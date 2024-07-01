@@ -70,13 +70,13 @@ namespace MilmomStore.Server.Controllers
             return Ok(new { message = "Delete successful" });
         }
 
-        [HttpGet]
-        [Route("viewProduct")]
-        public async Task<ActionResult<BaseResponse<IEnumerable<ViewProductHomePageResponse>>>> ViewProductForHomePage()
-        {
-            var products = await _productService.ViewProductHomePage();
-            return Ok(products);
-        }
+        // [HttpGet]
+        // [Route("viewProduct")]
+        // public async Task<ActionResult<BaseResponse<IEnumerable<ViewProductHomePageResponse>>>> ViewProductForHomePage()
+        // {
+        //     var products = await _productService.ViewProductHomePage();
+        //     return Ok(products);
+        // }
 
         [HttpPut]
         [Route("UpdateForManagement")]
@@ -101,18 +101,26 @@ namespace MilmomStore.Server.Controllers
         //    return await _productService.GetProductByIdFromBase(id);
         //}
 
+        // [HttpGet]
+        // [Route("base/search")]
+        // public async Task<ActionResult<BaseResponse<IEnumerable<GetSearchProductResponse>>>> GetSearchProductFromBase(string search, int pageIndex, int pageSize)
+        // {
+        //     return await _productService.GetSearchProductFromBase(search, pageIndex, pageSize);
+        // }
+        //
+        // [HttpGet]
+        // [Route("base/filter")]
+        // public async Task<ActionResult<BaseResponse<IEnumerable<GetFilterProductResponse>>>> GetFilterProductFromBase(double? lowPrice, double? highPrice, int? category, string? sortBy, int pageIndex, int pageSize)
+        // {
+        //     return await _productService.FilterProductFromBase(lowPrice, highPrice, category, sortBy, pageIndex, pageSize);
+        // }
+        
         [HttpGet]
-        [Route("base/search")]
-        public async Task<ActionResult<BaseResponse<IEnumerable<GetSearchProductResponse>>>> GetSearchProductFromBase(string search, int pageIndex, int pageSize)
+        [Route("base/getProducts")]
+        public async Task<ActionResult<BaseResponse<IEnumerable<GetFilterProductResponse>>>> GetProductsAsync(string? search, double? lowPrice, double? highPrice, int? category, string sortBy, int pageIndex,
+            int pageSize)
         {
-            return await _productService.GetSearchProductFromBase(search, pageIndex, pageSize);
-        }
-
-        [HttpGet]
-        [Route("base/filter")]
-        public async Task<ActionResult<BaseResponse<IEnumerable<GetFilterProductResponse>>>> GetFilterProductFromBase(double? lowPrice, double? highPrice, int? category, string? sortBy, int pageIndex, int pageSize)
-        {
-            return await _productService.FilterProductFromBase(lowPrice, highPrice, category, sortBy, pageIndex, pageSize);
+            return await _productService.GetProductsAsync(search, lowPrice, highPrice, category, sortBy, pageIndex, pageSize);
         }
     }
 }

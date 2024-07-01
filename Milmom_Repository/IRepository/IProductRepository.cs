@@ -16,5 +16,6 @@ namespace Milmom_Repository.IRepository
         public Task<IEnumerable<Product>> ViewProductForHomePage();
         Task<IEnumerable<Product>> SearchProductAsync(string search, int pageIndex, int pageSize);
         Task<IEnumerable<Product>> FilterProductAsync(double? lowPrice, double? highPrice, int? category, string? sortBy, int pageIndex, int pageSize);
+        Task<IEnumerable<Product>> GetProductsAsync(string? search ,double? lowPrice ,double? highPrice ,int? category,string sortBy,int pageIndex,int pageSize);
     }
 }

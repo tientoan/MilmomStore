@@ -107,6 +107,15 @@ namespace Milmom_Service.Service
                 StatusCodeEnum.OK_200, product);
         }
 
+        public async Task<BaseResponse<IEnumerable<GetFilterProductResponse>>> GetProductsAsync(string? search, double? lowPrice, double? highPrice, int? category, string sortBy, int pageIndex,
+            int pageSize)
+        {
+            IEnumerable<Product> products = await _productRepository.GetProductsAsync(search, lowPrice, highPrice, category, sortBy, pageIndex, pageSize);
+            var product = _mapper.Map<IEnumerable<GetFilterProductResponse>>(products);
+            return new BaseResponse<IEnumerable<GetFilterProductResponse>>("Get filter product as base success",
+                StatusCodeEnum.OK_200, product);
+        }
+
         public async Task<bool> DeleteTest(int id)
         {
             var existingProduct = await _productRepository.GetByIdAsync(id);

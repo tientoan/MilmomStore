@@ -51,11 +51,11 @@ namespace MilmomStore.Server.Controllers
         [Route("CreateReport")]
         public async Task<ActionResult<BaseResponse<ReportResponse>>> CreateReportFromBase([FromForm] CreateReportRequest request)
         {
-            byte[] createdImageName = null;
+            string createdImageName = null;
 
             if (request.ImageFile != null && request.ImageFile.Length > 0)
             {
-                createdImageName = _fileService.ConvertToByteArray(request.ImageFile);
+                createdImageName = _fileService.ConvertToString(request.ImageFile);
             }
             
             var report = new ReportRequest
@@ -100,11 +100,11 @@ namespace MilmomStore.Server.Controllers
         public async Task<ActionResult<BaseResponse<ReportRequestUpdate>>> UpdateReportFromBase(int id,
             [FromForm] UpdateReportRequest report)
         {
-            byte[] createdImageName = null;
+            string createdImageName = null;
 
             if (report.ImageFile != null && report.ImageFile.Length > 0)
             {
-                createdImageName = _fileService.ConvertToByteArray(report.ImageFile);
+                createdImageName = _fileService.ConvertToString(report.ImageFile);
             }
             var reportResult = new ReportRequestUpdate
             {

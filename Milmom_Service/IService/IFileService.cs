@@ -12,8 +12,8 @@ namespace Milmom_Service.IService
     {
         /*Task<string> SaveFileAsync(IFormFile imageFile, string[] allowedFileExtentions);
         void DeleteFile(string fileNameWithExtention);*/
-        /*string ConvertToString(IFormFile file);*/
-        byte[] ConvertToByteArray(IFormFile file);
+        string ConvertToString(IFormFile file);
+        /*byte[] ConvertToByteArray(IFormFile file);*/
 
 
     }

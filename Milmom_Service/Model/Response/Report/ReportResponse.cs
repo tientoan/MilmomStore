@@ -29,9 +29,9 @@ namespace Milmom_Service.Model.Response.Report
 
         public GetProductByIdResponse Products { get; set; }
 
-        public byte[]? Image { get; set; }
+        public string? Image { get; set; }
         
-        public string? ImageBase64 
+        /*public string? ImageBase64 
         {
             get
             {
@@ -42,6 +42,6 @@ namespace Milmom_Service.Model.Response.Report
                 return null; // or return "" if you prefer an empty string for null Image
             }
             set { } // This setter is here just to satisfy the compiler; it's not used.
-        }
+        }*/
     }
 }

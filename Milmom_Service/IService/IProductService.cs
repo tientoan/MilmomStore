@@ -17,17 +17,11 @@ namespace Milmom_Service.IService
     {
         
         Task<BaseResponse<GetProductDetailsResponse>> GetProductDetailByIdFromBase(int id);
-
-
         Task<BaseResponse<IEnumerable<GetAllProductsForManagerResponse>>> GetAllProductsFromBase();
         Task<BaseResponse<GetProductDetailForHP>> GetProductByIdFromBase(int id);
         Task<BaseResponse<AddProductRequest>> AddProductByIdFromBase(AddProductRequest request);
-        //Task<BaseResponse<Product>> DeleteProduct(int id);
         Task<Boolean> DeleteTest(int id);
         Task<BaseResponse<UpdateProductRequest>> UpdateProductFromBase(int id, UpdateProductRequest product);
-        Task<BaseResponse<IEnumerable<ViewProductHomePageResponse>>> ViewProductHomePage();
-        Task<BaseResponse<IEnumerable<GetSearchProductResponse>>> GetSearchProductFromBase(string search, int pageIndex, int pageSize);
-        Task<BaseResponse<IEnumerable<GetFilterProductResponse>>> FilterProductFromBase(double? lowPrice, double? highPrice, int? category, string? sortBy, int pageIndex, int pageSize);
-
+        Task<BaseResponse<IEnumerable<GetFilterProductResponse>>> GetProductsAsync(string? search , double? lowPrice , double? highPrice , int? category, string sortBy, int pageIndex, int pageSize);
     }
 }

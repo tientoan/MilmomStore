@@ -12,4 +12,5 @@ public interface IOrderRepository:IBaseRepository<Order>
     public Task<Order> ChangeOrderStatus(int orderId, OrderStatus status);
     public Task<IEnumerable<Order>> GetOrdersByStatusAsync(OrderStatus status);
     public Task UpdateOrderAsync( Order order);
+    public Task<IEnumerable<Order>> GetAllOrderAsync(DateTime? date, OrderStatus? status);
 }

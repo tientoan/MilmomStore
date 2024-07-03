@@ -29,20 +29,6 @@ public class OrderService : IOrderService
         await _orderRepository.UpdateAsync(order);
     }
 
-    public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrdersAsync()
-    {
-        var orders = await _orderRepository.GetAllAsync();
-        var ordersResponse = _mapper.Map<IEnumerable<OrderResponse>>(orders);
-        return new BaseResponse<IEnumerable<OrderResponse>>("Get ok", StatusCodeEnum.OK_200, ordersResponse);
-    }
-
-    public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrdersByDateAsync(DateTime date)
-    {
-        var orders = await _orderRepository.GetOrdersByDateAsync(date);
-        var ordersResponse = _mapper.Map<IEnumerable<OrderResponse>>(orders);
-        return new BaseResponse<IEnumerable<OrderResponse>>("Get ok", StatusCodeEnum.OK_200, ordersResponse);
-    }
-
     public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrdersByAccountIdAsync(string accountId)
     {
         var orders = await _orderRepository.GetOrdersByAccountId(accountId);
@@ -55,13 +41,6 @@ public class OrderService : IOrderService
         var order = await _orderRepository.ChangeOrderStatus(orderId, status);
         var orderResponse = _mapper.Map<OrderResponse>(order);
         return new BaseResponse<OrderResponse>("Change status ok", StatusCodeEnum.OK_200, orderResponse);
-    }
-
-    public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetOrdersByStatusAsync(OrderStatus status)
-    {
-        var orders = await _orderRepository.GetOrdersByStatusAsync(status);
-        var ordersResponse = _mapper.Map<IEnumerable<OrderResponse>>(orders);
-        return new BaseResponse<IEnumerable<OrderResponse>>("Get ok", StatusCodeEnum.OK_200, ordersResponse);
     }
 
     public async Task<BaseResponse<OrderResponse>> GetOrderByIdAsync(int orderId)
@@ -82,5 +61,12 @@ public class OrderService : IOrderService
         var OrderUpdate = await _orderRepository.UpdateAsync(orderExist);
         var orderResponse = _mapper.Map<OrderRequest>(OrderUpdate);
         return new BaseResponse<OrderRequest>("Get ok", StatusCodeEnum.OK_200, orderResponse);
+    }
+
+    public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrderAsync(DateTime? date, OrderStatus? status)
+    {
+        var orders = await _orderRepository.GetAllOrderAsync(date, status);
+        var ordersResponse = _mapper.Map<IEnumerable<OrderResponse>>(orders);
+        return new BaseResponse<IEnumerable<OrderResponse>>("Get ok", StatusCodeEnum.OK_200, ordersResponse);
     }
 }

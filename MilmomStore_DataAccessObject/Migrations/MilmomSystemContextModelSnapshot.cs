@@ -51,29 +51,29 @@ namespace MilmomStore_DataAccessObject.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "93383f89-d8aa-4f23-b02c-ab5a948ac197",
-                            ConcurrencyStamp = "f5cf8312-80ae-443e-a233-f6d3529358a8",
+                            Id = "f1f54a4b-4992-4770-a121-f2961ca6f96b",
+                            ConcurrencyStamp = "971c971b-a2d8-4f29-83e5-3166c8fbbfc7",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "f54ff409-f0f0-4ba3-91f0-a7a04cee38f9",
-                            ConcurrencyStamp = "41ec6f4f-939b-4722-9bc9-59d14a63e75e",
+                            Id = "69cce2f9-b613-406d-83dd-6d7691679b5c",
+                            ConcurrencyStamp = "8bfda413-d2fd-4c01-834e-6f9f6b304fa0",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "1b520ba9-0116-4545-a476-beb67020e8ba",
-                            ConcurrencyStamp = "54968217-6ca3-4cae-819f-a7b2e4344d76",
+                            Id = "cb87e796-2d14-4a39-aeeb-4492ebc84a39",
+                            ConcurrencyStamp = "d2e0c766-153a-432e-bf8e-4d297a4be59d",
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         },
                         new
                         {
-                            Id = "3ec1c1c8-f1f7-49b3-957e-376488581ca5",
-                            ConcurrencyStamp = "f103be6b-04c2-4a8a-b34b-7e1d7c95efd4",
+                            Id = "132e542b-72fd-4a80-a68d-471bef1e3f50",
+                            ConcurrencyStamp = "2284a812-d494-4592-a989-31f9b53c1429",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         });
@@ -433,6 +433,9 @@ namespace MilmomStore_DataAccessObject.Migrations
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("PaymentMethod")
+                        .HasColumnType("int");
 
                     b.Property<int?>("ReportID")
                         .HasColumnType("int");
@@ -1117,8 +1120,7 @@ namespace MilmomStore_DataAccessObject.Migrations
 
             modelBuilder.Entity("MilmomStore_BusinessObject.Model.Report", b =>
                 {
-                    b.Navigation("Order")
-                        .IsRequired();
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("MilmomStore_BusinessObject.Model.ShippingInfor", b =>

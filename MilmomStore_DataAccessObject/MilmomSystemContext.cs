@@ -16,13 +16,10 @@ namespace MilmomStore_DataAccessObject
     public class MilmomSystemContext : IdentityDbContext<AccountApplication>
     {
         public MilmomSystemContext() : base()
-        {
-        }
+        { }
         public MilmomSystemContext(DbContextOptions<MilmomSystemContext> options)
             : base(options)
-        {
-
-        }
+        { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -83,32 +80,11 @@ namespace MilmomStore_DataAccessObject
         public DbSet<Transaction> Transaction { set; get; }
 
         //
-        public const string ConnectString = "server=localhost;database=MilmomStore;uid=sa;pwd=12345;Integrated Security=true;Trusted_Connection=false;TrustServerCertificate=True";
-    
+        private const string ConnectString = "server=TOANNT\\SQLEXPRESS;database=MilmomStoreDB;uid=sa;pwd=12345;Integrated Security=true;Trusted_Connection=false;TrustServerCertificate=True";
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(ConnectString);
         
-    }
-
-
-        /*public const string ConnectString = "server=TOANNT\\SQLEXPRESS;database=MilmomStore;uid=sa;pwd=12345;Integrated Security=true;Trusted_Connection=false;TrustServerCertificate=True";
-        
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(ConnectString);
-        }*/
-
-        //    private ILoggerFactory GetLoggerFactory()
-        //    {
-        //        IServiceCollection serviceCollection = new ServiceCollection();
-        //        serviceCollection.AddLogging(builder =>
-        //            builder.AddConsole()
-        //                .AddFilter(DbLoggerCategory.Database.Command.Name,
-        //                    LogLevel.Information));
-        //        return serviceCollection.BuildServiceProvider()
-        //            .GetService<ILoggerFactory>();
-        //    }
+        }
     }
 }

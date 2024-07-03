@@ -27,7 +27,7 @@ namespace MilmomStore.Server.Controllers
         }
         [HttpPut]
         [Route("updateRating")]
-        public async Task<ActionResult<BaseResponse<RatingResponse>>> UpdateRatingAsync(UpdateRatingRequest request)
+        public async Task<ActionResult<BaseResponse<RatingResponse>>> UpdateRatingAsync([FromBody]UpdateRatingRequest request)
         {
             return await _ratingService.UpdateRatingAsync(request);
         }

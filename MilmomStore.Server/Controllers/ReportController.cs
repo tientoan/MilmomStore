@@ -12,6 +12,8 @@ using MilmomStore_BusinessObject.Model;
 
 namespace MilmomStore.Server.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class ReportController : ControllerBase
     {
         private readonly IReportService _reportService;
@@ -25,7 +27,7 @@ namespace MilmomStore.Server.Controllers
         }
 
         [HttpGet]
-        [Route("GetAllReports")]
+        [Route("get-all-reports")]
         public async Task<ActionResult<BaseResponse<IEnumerable<ReportResponse>>>> GetAllReports()
         {
             var reports = await _reportService.GetAllReportFromBase();
@@ -33,7 +35,7 @@ namespace MilmomStore.Server.Controllers
         }
 
         [HttpGet]
-        [Route("base/search")]
+        [Route("/search")]
         public async Task<ActionResult<BaseResponse<IEnumerable<ReportResponse>>>> GetSearchReportFromBase(string search, int pageIndex, int pageSize)
         {
             return await _reportService.GetSearchReportFromBase(search, pageIndex, pageSize);
@@ -41,21 +43,21 @@ namespace MilmomStore.Server.Controllers
 
         [HttpGet]
 
-        [Route("GetReportById/{id}")]
+        [Route("get-report-by-id/{id}")]
         public async Task<ActionResult<BaseResponse<ReportResponse>>> GetReportById(int id)
         {
             return await _reportService.GetReportByIdFromBase(id);
         }
 
         [HttpPost]
-        [Route("CreateReport")]
+        [Route("create-report")]
         public async Task<ActionResult<BaseResponse<ReportResponse>>> CreateReportFromBase([FromForm] CreateReportRequest request)
         {
-            byte[] createdImageName = null;
+            string createdImageName = null;
 
             if (request.ImageFile != null && request.ImageFile.Length > 0)
             {
-                createdImageName = _fileService.ConvertToByteArray(request.ImageFile);
+                createdImageName = _fileService.ConvertToString(request.ImageFile);
             }
             
             var report = new ReportRequest
@@ -96,15 +98,15 @@ namespace MilmomStore.Server.Controllers
         }
 
         [HttpPut]
-        [Route("UpdateReport")]
+        [Route("update-report")]
         public async Task<ActionResult<BaseResponse<ReportRequestUpdate>>> UpdateReportFromBase(int id,
             [FromForm] UpdateReportRequest report)
         {
-            byte[] createdImageName = null;
+            string createdImageName = null;
 
             if (report.ImageFile != null && report.ImageFile.Length > 0)
             {
-                createdImageName = _fileService.ConvertToByteArray(report.ImageFile);
+                createdImageName = _fileService.ConvertToString(report.ImageFile);
             }
             var reportResult = new ReportRequestUpdate
             {

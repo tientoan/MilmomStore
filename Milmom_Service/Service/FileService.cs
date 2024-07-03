@@ -64,7 +64,7 @@ namespace Milmom_Service.Service
             File.Delete(path);
         }*/
 
-        /*public  string ConvertToString(IFormFile file)
+        public string ConvertToString(IFormFile file)
         {
             //extention
             List<string> validExtentions = new List<string>() { ".jpg", ".png", ".gif" };
@@ -83,12 +83,12 @@ namespace Milmom_Service.Service
             string fileName = Guid.NewGuid().ToString() + extention;
             string path = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
             using FileStream stream = new FileStream(path + fileName, FileMode.Create);
-              file.CopyTo(stream);
+            file.CopyTo(stream);
 
             return fileName;
-        }*/
+        }
 
-        public byte[] ConvertToByteArray(IFormFile file)
+        /*public byte[] ConvertToByteArray(IFormFile file)
         {
             if (file == null || file.Length == 0)
             {
@@ -116,7 +116,7 @@ namespace Milmom_Service.Service
                 file.CopyTo(memoryStream);
                 return memoryStream.ToArray();
             }
-        }
+        }*/
 
 
     }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Milmom_Service.IService;
 using Milmom_Service.Model.BaseResponse;
 using Milmom_Service.Model.Request.Category;
@@ -19,6 +20,7 @@ namespace MilmomStore.Server.Controllers
             _categoryService = categoryService;
         }
 
+        [Authorize(Roles = "Staff, Customer")]
         [HttpGet]
         [Route("GetAllCategory")]
         public async Task<ActionResult<BaseResponse<IEnumerable<GetAllCategoryResponse>>>> GetAllCategories()
@@ -27,6 +29,7 @@ namespace MilmomStore.Server.Controllers
             return Ok(categories);
         }
 
+        [Authorize(Roles = "Staff, Customer")]
         [HttpGet]
         [Route("GetCategory/{id}")]
         public async Task<ActionResult<BaseResponse<GetAllCategoryResponse>>> GetCategoryDetailByIdFromBase(int id)
@@ -34,6 +37,7 @@ namespace MilmomStore.Server.Controllers
             return await _categoryService.GetCategoryDetailByIdFromBase(id);
         }
 
+        [Authorize(Roles = "Staff")]
         [HttpPost]
         [Route("CreateCategory")]
         public async Task<ActionResult<BaseResponse<CreateCategoryRequest>>> CreateProductFromBase([FromBody] CreateCategoryRequest request)
@@ -42,6 +46,7 @@ namespace MilmomStore.Server.Controllers
             return user;
         }
 
+        [Authorize(Roles = "Staff")]
         [HttpPut]
         [Route("UpdateCategory")]
         public async Task<ActionResult<BaseResponse<UpdateCategoryRequest>>> UpdateCategoryFromBase(int id,
@@ -50,6 +55,7 @@ namespace MilmomStore.Server.Controllers
             return await _categoryService.UpdateCategoryFromBase(id, category);
         }
 
+        [Authorize(Roles = "Staff, Customer")]
         [HttpGet]
         [Route("base/search")]
         public async Task<ActionResult<BaseResponse<IEnumerable<GetAllCategoryResponse>>>> GetSearchCategoryFromBase(string search, int pageIndex, int pageSize)

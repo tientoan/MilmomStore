@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -77,8 +78,6 @@ namespace MilmomStore.Server.Controllers
                     Image = registerDto.Image
                 };
 
-
-
                 var createdUser = await _userManager.CreateAsync(accountApp, registerDto.Password);
 
                 if (createdUser.Succeeded)
@@ -119,6 +118,7 @@ namespace MilmomStore.Server.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("create account")]
         public async Task<IActionResult> CreateAccount([FromBody] CreateAccountDto createAccountDto)
         {
@@ -140,11 +140,7 @@ namespace MilmomStore.Server.Controllers
                     Image = createAccountDto.Image
                 };
 
-
-
                 var createdUser = await _userManager.CreateAsync(accountApp, createAccountDto.Password);
-
-
 
                 if (createdUser.Succeeded)
                 {
@@ -157,7 +153,6 @@ namespace MilmomStore.Server.Controllers
                             return BadRequest("Cannot create account with role 'Admin'.");
                         }
                         var roleResult = await _userManager.AddToRoleAsync(accountApp, createAccountDto.Role);
-
 
                         if (roleResult.Succeeded)
                         {
@@ -199,6 +194,7 @@ namespace MilmomStore.Server.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("Update-Account")]
         public async Task<IActionResult> UpdateAccount( string userId, [FromBody] UpdateAccountDto updateAccountDto)
         {
@@ -276,6 +272,8 @@ namespace MilmomStore.Server.Controllers
             }
 
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpGet("Get-all-accounts")]
         public async Task<IActionResult> GetAllAccounts()
         {
@@ -304,6 +302,7 @@ namespace MilmomStore.Server.Controllers
             }
         }
 
+        [Authorize(Roles = "Customer")]
         [HttpPost("Reset-Password-Token")]
         public async Task<IActionResult> ResetPasswordToken([FromBody] ResetTokenModel resetTokenModel)
         {
@@ -316,6 +315,7 @@ namespace MilmomStore.Server.Controllers
             return Ok(new { token = token });
         }
 
+        [Authorize(Roles = "Customer")]
         [HttpPost("Reset-Password")]
         public async Task<IActionResult> ResetPassword([FromBody] ResetToken resetToken)
         {

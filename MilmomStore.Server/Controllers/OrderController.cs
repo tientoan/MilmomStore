@@ -45,5 +45,38 @@ namespace MilmomStore.Server.Controllers
         {
             return await _orderService.GetOrderByIdAsync(orderId);
         }
+
+        //for admin Dashboard
+        /*[Authorize(Roles = "")]*/
+        [HttpGet("adminDashBoard/GetTotalAmountTotalProductsOfWeek")]
+        public async Task<BaseResponse<GetTotalAmountTotalProducts>> GetTotalAmountTotalProductsOfWeek()
+        {
+            return await _orderService.GetTotalAmountTotalProductsOfWeek();
+        }
+
+        [HttpGet("adminDashBoard/GetStaticOrders")]
+        public async Task<BaseResponse<GetStaticOrders>> GetStaticOrders()
+        {
+            return await _orderService.GetStaticOrders();
+        }
+
+        [HttpGet("adminDashBoard/GetTopProductsSoldInMonth")]
+        public async Task<BaseResponse<GetTopProductsSoldInMonth>> GetTopProductsSoldInMonthAsync()
+        {
+            return await _orderService.GetTopProductsSoldInMonthAsync();
+        }
+
+        [HttpGet("adminDashBoard/GetStoreRevenueByMonth")]
+        public async Task<BaseResponse<GetStoreRevenueByMonth>> GetStoreRevenueByMonthAsync()
+        {
+            return await _orderService.GetStoreRevenueByMonthAsync();
+        }
+
+        [HttpGet("adminDashBoard/GetTotalOrdersTotalOrdersAmount")]
+        public async Task<BaseResponse<GetTotalOrdersTotalOrdersAmount>> GetTotalOrdersTotalOrdersAmountAsync
+            (DateTime startDate, DateTime endDate, string? timeSpanType)
+        {
+            return await _orderService.GetTotalOrdersTotalOrdersAmountAsync(startDate,endDate,timeSpanType);
+        }
     }
 }

@@ -88,6 +88,10 @@ namespace Milmom_Service.Mapping
             CreateMap<OrderRequest, Order>().ReverseMap();
             CreateMap<ShippingInfor, ShippingInforResponse>();
             CreateMap<Transaction, TransactionResponse>();
+
+            //for admin dashboard
+            /*CreateMap<Order, GetStoreRevenueByMonth>();
+            CreateMap<Order, GetTotalOrdersTotalOrdersAmount>();*/
         }
     }
 }

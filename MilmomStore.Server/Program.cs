@@ -80,7 +80,7 @@ builder.Services.AddIdentity<AccountApplication, IdentityRole>(options =>
     options.Password.RequiredLength = 12;
 })
     .AddEntityFrameworkStores<MilmomSystemContext>().AddDefaultTokenProviders();
-
+// warning: AccountApplication at here is a type of custom from IdentityUser;
 //
 //life span
 builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>

@@ -23,4 +23,5 @@ public interface IAccountApplicationService
     Task<BaseResponse<CreateNewUserResponse>> CreateUserFromBase(CreateNewUserRequest request);
     Task<BaseResponse<GetUserByStringIdResponse>> GetUserByStringIdFromBase(string id);
     Task<BaseResponse<UpdateUserResponseByString>> UpdateUserByStringFromBase(string id, UpdateUserRequestByString user);
+    Task<BaseResponse<GetTotalAccounts>> GetTotalAccounts();
 }

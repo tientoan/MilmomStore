@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Milmom_Service.IService;
@@ -18,7 +19,7 @@ namespace MilmomStore.Server.Controllers
             _userService = userService;
         }
         //
-        [HttpPost]
+        /*[HttpPost]
         [Route("base")]
         public async Task<ActionResult<BaseResponse<CreateNewUserResponse>>> CreateUserFromBase([FromBody] CreateNewUserRequest request)
         {
@@ -31,8 +32,9 @@ namespace MilmomStore.Server.Controllers
         public async Task<ActionResult<BaseResponse<GetUserByIdResponse>>> GetUserByIdFromBase(int id)
         {
             return await _userService.GetUserByIdFromBase(id);
-        }
+        }*/
         //
+        [Authorize(Roles = "Staff, Manager, Customer")]
         [HttpGet]
         [Route("base/string/{id}")]
         public async Task<ActionResult<BaseResponse<GetUserByStringIdResponse>>> GetUserByStringIdFromBase(string id)
@@ -40,6 +42,7 @@ namespace MilmomStore.Server.Controllers
             return await _userService.GetUserByStringIdFromBase(id);
         }
         //
+        [Authorize(Roles = "Manager")]
         [HttpGet]
         [Route("base")]
         public async Task<ActionResult<BaseResponse<IEnumerable<GetAllUserResponse>>>> GetAllUserFromBase()
@@ -48,7 +51,7 @@ namespace MilmomStore.Server.Controllers
             return Ok(users);
         }
         //
-        [HttpDelete]
+        /*[HttpDelete]
         [Route("base/{id}")]
         public async Task<ActionResult<BaseResponse<DeleteUserResponse>>> DeleteUserFromBase(int id)
         {
@@ -60,8 +63,8 @@ namespace MilmomStore.Server.Controllers
         public async Task<ActionResult<BaseResponse<UpdateUserResponse>>> UpdateUserFromBase(int id, [FromBody] UpdateUserRequest user)
         {
             return await _userService.UpdateUserFromBase(id, user);
-        }
-
+        }*/
+        [Authorize(Roles = "Admin, Staff, Manager, Customer")]
         [HttpPut]
         [Route("base/string/{id}")]
         public async Task<ActionResult<BaseResponse<UpdateUserResponseByString>>> UpdateUserByStringFromBase(string id, [FromBody] UpdateUserRequestByString user)

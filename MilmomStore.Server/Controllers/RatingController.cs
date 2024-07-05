@@ -5,6 +5,7 @@ using Milmom_Service.Model.BaseResponse;
 using Milmom_Service.Model.Request.Rating;
 using Milmom_Service.Model.Response.Rating;
 using MilmomStore_BusinessObject.Model;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MilmomStore.Server.Controllers
 {
@@ -19,24 +20,31 @@ namespace MilmomStore.Server.Controllers
             _ratingService = ratingService;
         }
 
+        [Authorize(Roles = "Cusotmer")]
         [HttpPost]
         [Route("addRating")]
         public async Task<ActionResult<BaseResponse<RatingResponse>>> AddRating(CreateRatingRequest request)
         {
             return await _ratingService.AddRating(request);
         }
+
+        [Authorize(Roles = "Cusotmer")]
         [HttpPut]
         [Route("updateRating")]
         public async Task<ActionResult<BaseResponse<RatingResponse>>> UpdateRatingAsync([FromBody]UpdateRatingRequest request)
         {
             return await _ratingService.UpdateRatingAsync(request);
         }
+
+        [Authorize(Roles = "Cusotmer")]
         [HttpDelete]
         [Route("deleteRating")]
         public async Task<ActionResult<bool>> DeleteRatingAsync(int ratingId)
         {
             return await _ratingService.DeleteRatingAsync(ratingId);
         }
+
+        [Authorize(Roles = "Cusotmer, Manager, Staff")]
         [HttpGet]
         [Route("getRatingByAccountId")]
         public async Task<ActionResult<BaseResponse<IEnumerable<RatingResponse>>>> 

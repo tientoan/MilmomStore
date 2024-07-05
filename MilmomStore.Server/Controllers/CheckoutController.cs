@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Milmom_Service.IService;
@@ -32,6 +33,7 @@ namespace MilmomStore.Server.Controllers
             _configuration = configuration;
         }
 
+        [Authorize(Roles = "Customer, Staff")]
         [HttpPost("createOrder")]
         [ProducesResponseType(StatusCodes.Status302Found)]
         public async Task<string> CreateOrder(string accountId, [FromBody] ShippingRequest shippingRequest)
@@ -52,8 +54,9 @@ namespace MilmomStore.Server.Controllers
                 OrderInfor = JsonSerializer.Serialize(new { AccountId = accountId, ShippingRequest = shippingRequest })
             };
             return _vnPayService.CreatePaymentUrl(HttpContext, vnPayModel);
-        } 
-        
+        }
+
+        [Authorize(Roles = "Customer, Staff")]
         [HttpPost("createOrder-cod")]
         public async Task<Order> CreateOrderWithPaymentMethodCod(string accountId, [FromBody] ShippingRequest shippingRequest)
         {
@@ -61,6 +64,7 @@ namespace MilmomStore.Server.Controllers
             return order;
         }
 
+        [Authorize(Roles = "Customer, Staff")]
         [HttpGet("vnpay-return")]
         public async Task<IActionResult> HandleVnPayReturn([FromQuery] VnPayReturnModel model)
         {

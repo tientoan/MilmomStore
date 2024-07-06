@@ -53,5 +53,10 @@ namespace Milmom_Repository.Repository
         {
             return await _productDao.DeleteTest(product);
         }
+
+        public async Task<List<(string ProductName, int QuantitySold)>> GetTopProductsSoldInMonthAsync(int top)
+        {
+            return await _productDao.GetTopProductsSoldInMonthAsync(top);
+        }
     }
 }

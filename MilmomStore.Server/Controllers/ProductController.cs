@@ -5,6 +5,7 @@ using Milmom_Service.IService;
 using Milmom_Service.Model.BaseResponse;
 using Milmom_Service.Model.Request.Product;
 using Milmom_Service.Model.Response.AccountApplication;
+using Milmom_Service.Model.Response.Order;
 using Milmom_Service.Model.Response.Product;
 using MilmomStore_BusinessObject.Model;
 
@@ -83,6 +84,13 @@ namespace MilmomStore.Server.Controllers
             int pageSize)
         {
             return await _productService.GetProductsAsync(search, lowPrice, highPrice, category, sortBy, pageIndex, pageSize);
+        }
+
+        [HttpGet]
+        [Route("base/GetTopProductInMonth")]
+        public async Task<BaseResponse<GetTopProductsSoldInMonth>> GetTopProductsSoldInMonthAsync(int top)
+        {
+            return await _productService.GetTopProductsSoldInMonthAsync(top);
         }
     }
 }

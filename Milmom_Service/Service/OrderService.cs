@@ -102,7 +102,10 @@ public class OrderService : IOrderService
     public async Task<BaseResponse<GetTopProductsSoldInMonth>> GetTopProductsSoldInMonthAsync()
     {
         var products = await _orderRepository.GetTopProductsSoldInMonthAsync();
-        var response = _mapper.Map<GetTopProductsSoldInMonth>(products);
+        var response = new GetTopProductsSoldInMonth
+        {
+            topProducts = products.Select(o => (o.ProductName, o.QuantitySold)).ToList()
+        };
         return new BaseResponse<GetTopProductsSoldInMonth>("Get All Success", StatusCodeEnum.OK_200, response);
     }
 

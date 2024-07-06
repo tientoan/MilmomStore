@@ -3,6 +3,7 @@ using Milmom_Service.Model.BaseResponse;
 using Milmom_Service.Model.Request.AccountApplication;
 using Milmom_Service.Model.Request.Product;
 using Milmom_Service.Model.Response.AccountApplication;
+using Milmom_Service.Model.Response.Order;
 using Milmom_Service.Model.Response.Product;
 using MilmomStore_BusinessObject.Model;
 using System;
@@ -23,5 +24,6 @@ namespace Milmom_Service.IService
         Task<Boolean> DeleteTest(int id);
         Task<BaseResponse<UpdateProductRequest>> UpdateProductFromBase(int id, UpdateProductRequest product);
         Task<BaseResponse<IEnumerable<GetFilterProductResponse>>> GetProductsAsync(string? search , double? lowPrice , double? highPrice , int? category, string sortBy, int pageIndex, int pageSize);
+        Task<BaseResponse<GetTopProductsSoldInMonth>> GetTopProductsSoldInMonthAsync(int top);
     }
 }

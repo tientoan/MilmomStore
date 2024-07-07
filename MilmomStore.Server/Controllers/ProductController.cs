@@ -76,8 +76,7 @@ namespace MilmomStore.Server.Controllers
             var user = await _productService.AddProductByIdFromBase(request);
             return user;
         }
-
-        [Authorize(Roles = "Customer, Manager, Staff")]
+        
         [HttpGet]
         [Route("base/getProducts")]
         public async Task<ActionResult<BaseResponse<IEnumerable<GetFilterProductResponse>>>> GetProductsAsync(string? search, double? lowPrice, double? highPrice, int? category, string sortBy, int pageIndex,

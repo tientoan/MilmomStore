@@ -20,8 +20,7 @@ namespace MilmomStore.Server.Controllers
         {
             _blogService = blogService;
         }
-
-        [Authorize(Roles = "Staff")]
+        
         [HttpGet]
         [Route("GetAllBlogs")]
         public async Task<ActionResult<BaseResponse<IEnumerable<BlogResponse>>>> GetAllBlogsForManager()

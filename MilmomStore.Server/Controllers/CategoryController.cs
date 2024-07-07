@@ -19,8 +19,7 @@ namespace MilmomStore.Server.Controllers
         {
             _categoryService = categoryService;
         }
-
-        [Authorize(Roles = "Staff, Customer")]
+        
         [HttpGet]
         [Route("GetAllCategory")]
         public async Task<ActionResult<BaseResponse<IEnumerable<GetAllCategoryResponse>>>> GetAllCategories()
@@ -28,8 +27,7 @@ namespace MilmomStore.Server.Controllers
             var categories = await _categoryService.GetAllCategoryFromBase();
             return Ok(categories);
         }
-
-        [Authorize(Roles = "Staff, Customer")]
+        
         [HttpGet]
         [Route("GetCategory/{id}")]
         public async Task<ActionResult<BaseResponse<GetAllCategoryResponse>>> GetCategoryDetailByIdFromBase(int id)

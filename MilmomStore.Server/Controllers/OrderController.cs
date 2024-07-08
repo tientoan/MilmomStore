@@ -25,14 +25,14 @@ namespace MilmomStore.Server.Controllers
             return await _orderService.GetAllOrdersByAccountIdAsync(accountId);
         }
 
-        [Authorize(Roles = "Staff, Manager")]
+        [Authorize(Roles = "Staff, Manager, Customer")]
         [HttpGet("get-all-orders")]
         public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrdersAsync(DateTime? date, OrderStatus? status)
         {
             return await _orderService.GetAllOrderAsync(date, status);
         }
 
-        [Authorize(Roles = "Staff, Manager")]
+        [Authorize(Roles = "Staff, Manager, Customer")]
         [HttpPut("update-order-status")]
         public async Task<BaseResponse<OrderResponse>> ChangeOrderStatus(int orderId, OrderStatus status)
         {

@@ -20,7 +20,7 @@ namespace MilmomStore.Server.Controllers
             _ratingService = ratingService;
         }
 
-        [Authorize(Roles = "Customer")]
+        /*[Authorize(Roles = "Customer")]*/
         [HttpPost]
         [Route("addRating")]
         public async Task<ActionResult<BaseResponse<RatingResponse>>> AddRating(CreateRatingRequest request)
@@ -28,7 +28,7 @@ namespace MilmomStore.Server.Controllers
             return await _ratingService.AddRating(request);
         }
 
-        [Authorize(Roles = "Customer")]
+        /*[Authorize(Roles = "Customer")]*/
         [HttpPut]
         [Route("updateRating")]
         public async Task<ActionResult<BaseResponse<RatingResponse>>> UpdateRatingAsync([FromBody]UpdateRatingRequest request)
@@ -36,7 +36,7 @@ namespace MilmomStore.Server.Controllers
             return await _ratingService.UpdateRatingAsync(request);
         }
 
-        [Authorize(Roles = "Customer")]
+        /*[Authorize(Roles = "Customer")]*/
         [HttpDelete]
         [Route("deleteRating")]
         public async Task<ActionResult<bool>> DeleteRatingAsync(int ratingId)
@@ -44,7 +44,7 @@ namespace MilmomStore.Server.Controllers
             return await _ratingService.DeleteRatingAsync(ratingId);
         }
 
-        [Authorize(Roles = "Customer, Manager, Staff")]
+        /*[Authorize(Roles = "Customer, Manager, Staff")]*/
         [HttpGet]
         [Route("getRatingByAccountId")]
         public async Task<ActionResult<BaseResponse<IEnumerable<RatingResponse>>>> 

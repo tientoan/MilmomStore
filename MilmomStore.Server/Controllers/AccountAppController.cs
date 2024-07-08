@@ -34,7 +34,7 @@ namespace MilmomStore.Server.Controllers
             return await _userService.GetUserByIdFromBase(id);
         }*/
         //
-        [Authorize(Roles = "Staff, Manager, Customer")]
+        /*[Authorize(Roles = "Staff, Manager, Customer")]*/
         [HttpGet]
         [Route("base/string/{id}")]
         public async Task<ActionResult<BaseResponse<GetUserByStringIdResponse>>> GetUserByStringIdFromBase(string id)
@@ -49,7 +49,7 @@ namespace MilmomStore.Server.Controllers
             return await _userService.GetTotalAccounts();
         }
         //
-        [Authorize(Roles = "Manager")]
+       /* [Authorize(Roles = "Manager")]*/
         [HttpGet]
         [Route("base")]
         public async Task<ActionResult<BaseResponse<IEnumerable<GetAllUserResponse>>>> GetAllUserFromBase()
@@ -71,7 +71,7 @@ namespace MilmomStore.Server.Controllers
         {
             return await _userService.UpdateUserFromBase(id, user);
         }*/
-        [Authorize(Roles = "Admin, Staff, Manager, Customer")]
+        /*[Authorize(Roles = "Admin, Staff, Manager, Customer")]*/
         [HttpPut]
         [Route("base/string/{id}")]
         public async Task<ActionResult<BaseResponse<UpdateUserResponseByString>>> UpdateUserByStringFromBase(string id, [FromBody] UpdateUserRequestByString user)

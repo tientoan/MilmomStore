@@ -35,7 +35,7 @@ namespace MilmomStore.Server.Controllers
             return await _categoryService.GetCategoryDetailByIdFromBase(id);
         }
 
-        [Authorize(Roles = "Staff")]
+        /*[Authorize(Roles = "Staff")]*/
         [HttpPost]
         [Route("CreateCategory")]
         public async Task<ActionResult<BaseResponse<CreateCategoryRequest>>> CreateProductFromBase([FromBody] CreateCategoryRequest request)
@@ -44,7 +44,7 @@ namespace MilmomStore.Server.Controllers
             return user;
         }
 
-        [Authorize(Roles = "Staff")]
+        /*[Authorize(Roles = "Staff")]*/
         [HttpPut]
         [Route("UpdateCategory")]
         public async Task<ActionResult<BaseResponse<UpdateCategoryRequest>>> UpdateCategoryFromBase(int id,
@@ -53,7 +53,7 @@ namespace MilmomStore.Server.Controllers
             return await _categoryService.UpdateCategoryFromBase(id, category);
         }
 
-        [Authorize(Roles = "Staff, Customer")]
+       /* [Authorize(Roles = "Staff, Customer")]*/
         [HttpGet]
         [Route("base/search")]
         public async Task<ActionResult<BaseResponse<IEnumerable<GetAllCategoryResponse>>>> GetSearchCategoryFromBase(string search, int pageIndex, int pageSize)

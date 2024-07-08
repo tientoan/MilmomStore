@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Milmom_Repository.BaseRepository;
 using Milmom_Repository.IRepository;
 using MilmomStore_BusinessObject.Model;
@@ -13,6 +14,7 @@ namespace Milmom_Repository.Repository
     public class AccountAppRepository : BaseRepository<AccountApplication>,IAccountAppRepository
     {
         private readonly AccountDAO _accountDao;
+        
 
         public AccountAppRepository(AccountDAO accountDao) : base(accountDao)
         {
@@ -47,6 +49,11 @@ namespace Milmom_Repository.Repository
         public async Task<AccountApplication> DeleteAsync(AccountApplication entity)
         {
             return await _accountDao.DeleteAsync(entity);
+        }
+
+        public async Task<(int totalAccount, int staffsAccount, int managersAccount, int customersAccount)> GetTotalAccount()
+        {
+            return await _accountDao.GetTotalAccount();
         }
     }
 }

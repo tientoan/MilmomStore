@@ -10,7 +10,7 @@ namespace Milmom_Repository.IRepository
 {
     public interface IAccountAppRepository : IBaseRepository<AccountApplication>
     {
+       Task<(int totalAccount, int staffsAccount, int managersAccount, int customersAccount)> GetTotalAccount();
 
-        
     }
 }

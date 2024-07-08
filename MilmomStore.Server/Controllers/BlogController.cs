@@ -20,8 +20,7 @@ namespace MilmomStore.Server.Controllers
         {
             _blogService = blogService;
         }
-
-        [Authorize(Roles = "Staff")]
+        
         [HttpGet]
         [Route("GetAllBlogs")]
         public async Task<ActionResult<BaseResponse<IEnumerable<BlogResponse>>>> GetAllBlogsForManager()
@@ -30,7 +29,7 @@ namespace MilmomStore.Server.Controllers
             return Ok(blogs);
         }
 
-        [Authorize(Roles = "Staff")]
+       
         [HttpGet]
         [Route("BlogDetails/{id}")]
         public async Task<ActionResult<BaseResponse<BlogResponse>>> GetBlogDetailForHomePage(int id)
@@ -38,7 +37,7 @@ namespace MilmomStore.Server.Controllers
             return await _blogService.GetBlogByIdFromBase(id);
         }
 
-        [Authorize(Roles = "Staff")]
+        /*[Authorize(Roles = "Staff")]*/
         [HttpPost]
         [Route("CreateBlog")]
         public async Task<ActionResult<BaseResponse<BlogRequest>>> CreateBlogFromBase([FromBody] BlogRequest request)
@@ -47,7 +46,7 @@ namespace MilmomStore.Server.Controllers
             return blog;
         }
 
-        [Authorize(Roles = "Staff")]
+        /*[Authorize(Roles = "Staff")]*/
         [HttpDelete]
         [Route("{id}")]
         public async Task<ActionResult<BaseResponse<Blog>>> DeleteBlog(int id)
@@ -68,7 +67,7 @@ namespace MilmomStore.Server.Controllers
             return Ok(new { message = "Delete Blog successfully" });
         }
 
-        [Authorize(Roles = "Staff")]
+        /*[Authorize(Roles = "Staff")]*/
         [HttpPut]
         [Route("UpdateBlog")]
         public async Task<ActionResult<BaseResponse<UpdateBlogRequest>>> UpdateBlogFromBase(int id,
@@ -77,7 +76,7 @@ namespace MilmomStore.Server.Controllers
             return await _blogService.UpdateBlogFromBase(id, blog);
         }
 
-        [Authorize(Roles = "Staff")]
+        /*[Authorize(Roles = "Staff")]*/
         [HttpGet]
         [Route("base/search")]
         public async Task<ActionResult<BaseResponse<IEnumerable<BlogResponse>>>> GetSearchProductFromBase(string search, int pageIndex, int pageSize)

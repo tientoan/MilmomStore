@@ -89,5 +89,18 @@ namespace Milmom_Service.Service
             var result = _mapper.Map<UpdateUserResponseByString>(user);
             return new BaseResponse<UpdateUserResponseByString>("Update user as base success", StatusCodeEnum.OK_200, result);
         }
+
+        public async Task<BaseResponse<GetTotalAccounts>> GetTotalAccounts()
+        {
+            var total = await _accountAppRepository.GetTotalAccount();
+            var response = new GetTotalAccounts
+            {
+                totalAccount = total.totalAccount,
+                staffsAccount = total.staffsAccount,
+                customersAccount = total.customersAccount,
+                managersAccount = total.managersAccount
+            };
+            return new BaseResponse<GetTotalAccounts>("Get total account success", StatusCodeEnum.OK_200, response);
+        }
     }
 }

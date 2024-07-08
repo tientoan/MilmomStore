@@ -5,6 +5,7 @@ using Milmom_Service.IService;
 using Milmom_Service.Model.BaseResponse;
 using Milmom_Service.Model.Request.Product;
 using Milmom_Service.Model.Response.AccountApplication;
+using Milmom_Service.Model.Response.Order;
 using Milmom_Service.Model.Response.Product;
 using MilmomStore_BusinessObject.Model;
 
@@ -21,7 +22,7 @@ namespace MilmomStore.Server.Controllers
             _productService = productService;
         }
 
-        [Authorize(Roles = "Manager")]
+        /*[Authorize(Roles = "Manager")]*/
         [HttpGet]
         [Route("GetForManagement")]
         public async Task<ActionResult<BaseResponse<IEnumerable<GetAllProductsForManagerResponse>>>> GetAllProductsForManager()
@@ -37,7 +38,7 @@ namespace MilmomStore.Server.Controllers
             return await _productService.GetProductByIdFromBase(id);
         }
 
-        [Authorize(Roles = "Manager")]
+        /*[Authorize(Roles = "Manager")]*/
         [HttpDelete]
         [Route("{id}")]
         public async Task<ActionResult<BaseResponse<Product>>> DeleteProduct(int id)
@@ -58,7 +59,7 @@ namespace MilmomStore.Server.Controllers
             return Ok(new { message = "Delete successful" });
         }
 
-        [Authorize(Roles = "Manager")]
+        /*[Authorize(Roles = "Manager")]*/
         [HttpPut]
         [Route("UpdateForManagement")]
         public async Task<ActionResult<BaseResponse<UpdateProductRequest>>> UpdateProductFromBase(int id,
@@ -67,7 +68,7 @@ namespace MilmomStore.Server.Controllers
             return await _productService.UpdateProductFromBase(id, product);
         }
 
-        [Authorize(Roles = "Manager")]
+       /* [Authorize(Roles = "Manager")]*/
         [HttpPost]
         [Route("AddForManagement")]
         public async Task<ActionResult<BaseResponse<AddProductRequest>>> CreateProductFromBase([FromBody] AddProductRequest request)
@@ -75,14 +76,20 @@ namespace MilmomStore.Server.Controllers
             var user = await _productService.AddProductByIdFromBase(request);
             return user;
         }
-
-        [Authorize(Roles = "Customer, Manager, Staff")]
+        
         [HttpGet]
         [Route("base/getProducts")]
         public async Task<ActionResult<BaseResponse<IEnumerable<GetFilterProductResponse>>>> GetProductsAsync(string? search, double? lowPrice, double? highPrice, int? category, string sortBy, int pageIndex,
             int pageSize)
         {
             return await _productService.GetProductsAsync(search, lowPrice, highPrice, category, sortBy, pageIndex, pageSize);
+        }
+
+        [HttpGet]
+        [Route("base/GetTopProductInMonth")]
+        public async Task<BaseResponse<GetTopProductsSoldInMonth>> GetTopProductsSoldInMonthAsync(int top)
+        {
+            return await _productService.GetTopProductsSoldInMonthAsync(top);
         }
     }
 }

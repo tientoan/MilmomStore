@@ -13,4 +13,13 @@ public interface IOrderRepository:IBaseRepository<Order>
     public Task<IEnumerable<Order>> GetOrdersByStatusAsync(OrderStatus status);
     public Task UpdateOrderAsync( Order order);
     public Task<IEnumerable<Order>> GetAllOrderAsync(DateTime? date, OrderStatus? status);
+
+    // For admin DashBoard
+    public Task<(double totalAmount, double totalProfit, int totalProducts)> GetTotalAmountTotalProductsOfWeek();
+    public Task<(int ordersReturnOrCancell, int orders, int ordersComplete, int ordersCancell, int ordersReturnRefund, int ordersReport)> GetStaticOrders();
+    public Task<List<(string ProductName, int QuantitySold)>> GetTopProductsSoldInMonthAsync();
+    public Task<List<(string Month, double Revenue)>> GetStoreRevenueByMonthAsync();
+    public Task<(int totalOrders, double totalOrdersAmount)> GetTotalOrdersTotalOrdersAmountAsync
+    (DateTime startDate, DateTime endDate, string? timeSpanType);
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
 }

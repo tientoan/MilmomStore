@@ -69,4 +69,64 @@ public class OrderService : IOrderService
         var ordersResponse = _mapper.Map<IEnumerable<OrderResponse>>(orders);
         return new BaseResponse<IEnumerable<OrderResponse>>("Get ok", StatusCodeEnum.OK_200, ordersResponse);
     }
+
+    //For admindashboard
+    public async Task<BaseResponse<GetTotalAmountTotalProducts>> GetTotalAmountTotalProductsOfWeek()
+    {
+        var total = await _orderRepository.GetTotalAmountTotalProductsOfWeek();
+        /*var response = _mapper.Map<GetTotalAmountTotalProducts>(total);*/
+        var response = new GetTotalAmountTotalProducts
+        {
+            totalAmount = total.totalAmount,
+            totalProfit = total.totalProfit,
+            totalProducts = total.totalProducts
+        };
+        return new BaseResponse<GetTotalAmountTotalProducts>("Get All Success", StatusCodeEnum.OK_200, response);
+    }
+
+    public async Task<BaseResponse<GetStaticOrders>> GetStaticOrders()
+    {
+        var order = await _orderRepository.GetStaticOrders();
+        var response = new GetStaticOrders
+        {
+            orders = order.orders,
+            ordersReturnOrCancell = order.ordersReturnOrCancell,
+            ordersCancell = order.ordersCancell,
+            ordersComplete = order.ordersComplete,
+            ordersReport = order.ordersReport,
+            ordersReturnRefund = order.ordersReturnRefund
+        };
+        return new BaseResponse<GetStaticOrders>("Get All Success", StatusCodeEnum.OK_200, response);
+    }
+
+    public async Task<BaseResponse<GetTopProductsSoldInMonth>> GetTopProductsSoldInMonthAsync()
+    {
+        var products = await _orderRepository.GetTopProductsSoldInMonthAsync();
+        var response = new GetTopProductsSoldInMonth
+        {
+            topProducts = products.Select(o => (o.ProductName, o.QuantitySold)).ToList()
+        };
+        return new BaseResponse<GetTopProductsSoldInMonth>("Get All Success", StatusCodeEnum.OK_200, response);
+    }
+
+    public async Task<BaseResponse<GetStoreRevenueByMonth>> GetStoreRevenueByMonthAsync()
+    {
+        var total = await _orderRepository.GetStoreRevenueByMonthAsync();
+        var response = new GetStoreRevenueByMonth
+        {
+            MonthList = total.Select(o => (o.Month,o.Revenue)).ToList()
+        };
+        return new BaseResponse<GetStoreRevenueByMonth>("Get All Success", StatusCodeEnum.OK_200, response);
+    }
+
+    public async Task<BaseResponse<GetTotalOrdersTotalOrdersAmount>> GetTotalOrdersTotalOrdersAmountAsync(DateTime startDate, DateTime endDate, string? timeSpanType)
+    {
+        var total = await _orderRepository.GetTotalOrdersTotalOrdersAmountAsync(startDate, endDate, timeSpanType);
+        var response = new GetTotalOrdersTotalOrdersAmount
+        {
+            totalOrders = total.totalOrders,
+            totalOrdersAmount = total.totalOrdersAmount
+        };
+        return new BaseResponse<GetTotalOrdersTotalOrdersAmount>("Get All Success", StatusCodeEnum.OK_200, response);
+    }
 }

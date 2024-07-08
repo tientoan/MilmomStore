@@ -2,6 +2,7 @@
 using MilmomStore_BusinessObject.Model;
 using MilmomStore_DataAccessObject;
 using Milmom_Repository.BaseRepository;
+
 namespace Milmom_Repository.Repository;
 
 public class OrderRepository : BaseRepository<Order>, IOrderRepository
@@ -55,5 +56,31 @@ public class OrderRepository : BaseRepository<Order>, IOrderRepository
     public async Task<IEnumerable<Order>> GetOrdersByStatusAsync(OrderStatus status)
     {
         return await _orderDao.GetOrdersByStatusAsync(status);
+    }
+
+    //For admin dashboard
+    public async Task<(double totalAmount, double totalProfit, int totalProducts)> GetTotalAmountTotalProductsOfWeek()
+    {
+        return await _orderDao.GetTotalAmountTotalProductsOfWeek();
+    }
+
+    public async Task<List<(string ProductName, int QuantitySold)>> GetTopProductsSoldInMonthAsync()
+    {
+        return await _orderDao.GetTopProductsSoldInMonthAsync();
+    }
+
+    public async Task<List<(string Month, double Revenue)>> GetStoreRevenueByMonthAsync()
+    {
+        return await _orderDao.GetStoreRevenueByMonthAsync();
+    }
+
+    public async Task<(int ordersReturnOrCancell, int orders, int ordersComplete, int ordersCancell, int ordersReturnRefund, int ordersReport)> GetStaticOrders()
+    {
+        return await _orderDao.GetStaticOrders();
+    }
+
+    public async Task<(int totalOrders, double totalOrdersAmount)> GetTotalOrdersTotalOrdersAmountAsync(DateTime startDate, DateTime endDate, string? timeSpanType)
+    {
+        return await _orderDao.GetTotalOrdersTotalOrdersAmountAsync(startDate, endDate, timeSpanType);
     }
 }

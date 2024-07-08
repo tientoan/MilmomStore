@@ -6,6 +6,7 @@ using Milmom_Service.IService;
 using Milmom_Service.Model.BaseResponse;
 using Milmom_Service.Model.Request.Product;
 using Milmom_Service.Model.Response.AccountApplication;
+using Milmom_Service.Model.Response.Order;
 using Milmom_Service.Model.Response.Product;
 using Milmom_Service.Models.Enums;
 using MilmomStore_BusinessObject.Model;
@@ -69,6 +70,10 @@ namespace Milmom_Service.Service
         {
             var products = await _productRepository.GetProductsAsync(search, lowPrice, highPrice, category, sortBy, pageIndex, pageSize);
             var product = _mapper.Map<IEnumerable<GetFilterProductResponse>>(products);
+            foreach (var item in product)
+            {
+                item.AverageRating = await GetRating(item.ProductId);
+            }
             return new BaseResponse<IEnumerable<GetFilterProductResponse>>("Get filter product as base success",
                 StatusCodeEnum.OK_200, product);
         }
@@ -90,6 +95,22 @@ namespace Milmom_Service.Service
 
             var response = _mapper.Map<AddProductRequest>(product);
             return new BaseResponse<AddProductRequest>("Create product as base success", StatusCodeEnum.Created_201, response);
+        }
+
+        public async Task<BaseResponse<GetTopProductsSoldInMonth>> GetTopProductsSoldInMonthAsync(int top)
+        {
+            var products = await _productRepository.GetTopProductsSoldInMonthAsync(top);
+            var response = new GetTopProductsSoldInMonth
+            {
+                topProducts = products.Select(o => (o.ProductName, o.QuantitySold)).ToList()
+            };
+            return new BaseResponse<GetTopProductsSoldInMonth>("Get All Success", StatusCodeEnum.OK_200, response);
+        }
+
+        private async Task<double> GetRating(int productId)
+        {
+            var ratings = await _ratingRepository.GetAverageRating(productId);
+            return ratings;
         }
     }
 }

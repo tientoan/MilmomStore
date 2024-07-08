@@ -87,7 +87,7 @@ namespace MilmomStore.Server.Controllers
 
         [HttpGet]
         [Route("base/GetTopProductInMonth")]
-        public async Task<BaseResponse<GetTopProductsSoldInMonth>> GetTopProductsSoldInMonthAsync(int top)
+        public async Task<BaseResponse<List<GetTopProductSoldInAMonth>>> GetTopProductsSoldInMonthAsync(int top)
         {
             return await _productService.GetTopProductsSoldInMonthAsync(top);
         }

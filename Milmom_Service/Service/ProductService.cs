@@ -97,14 +97,15 @@ namespace Milmom_Service.Service
             return new BaseResponse<AddProductRequest>("Create product as base success", StatusCodeEnum.Created_201, response);
         }
 
-        public async Task<BaseResponse<GetTopProductsSoldInMonth>> GetTopProductsSoldInMonthAsync(int top)
+        public async Task<BaseResponse<List<GetTopProductSoldInAMonth>>> GetTopProductsSoldInMonthAsync(int top)
         {
             var products = await _productRepository.GetTopProductsSoldInMonthAsync(top);
-            var response = new GetTopProductsSoldInMonth
+            var response = products.Select(p => new GetTopProductSoldInAMonth
             {
-                topProducts = products.Select(o => (o.ProductName, o.QuantitySold)).ToList()
-            };
-            return new BaseResponse<GetTopProductsSoldInMonth>("Get All Success", StatusCodeEnum.OK_200, response);
+                ProductName = p.ProductName,
+                QuantitySold = p.QuantitySold
+            }).ToList();
+            return new BaseResponse<List<GetTopProductSoldInAMonth>>("Get Top Product In A Month", StatusCodeEnum.Created_201, response);
         }
 
         private async Task<double> GetRating(int productId)

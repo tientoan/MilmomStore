@@ -70,6 +70,10 @@ namespace Milmom_Service.Service
         {
             var products = await _productRepository.GetProductsAsync(search, lowPrice, highPrice, category, sortBy, pageIndex, pageSize);
             var product = _mapper.Map<IEnumerable<GetFilterProductResponse>>(products);
+            foreach (var item in product)
+            {
+                item.AverageRating = await GetRating(item.ProductId);
+            }
             return new BaseResponse<IEnumerable<GetFilterProductResponse>>("Get filter product as base success",
                 StatusCodeEnum.OK_200, product);
         }
@@ -101,6 +105,12 @@ namespace Milmom_Service.Service
                 topProducts = products.Select(o => (o.ProductName, o.QuantitySold)).ToList()
             };
             return new BaseResponse<GetTopProductsSoldInMonth>("Get All Success", StatusCodeEnum.OK_200, response);
+        }
+
+        private async Task<double> GetRating(int productId)
+        {
+            var ratings = await _ratingRepository.GetAverageRating(productId);
+            return ratings;
         }
     }
 }

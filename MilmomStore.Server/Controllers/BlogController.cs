@@ -29,7 +29,7 @@ namespace MilmomStore.Server.Controllers
             return Ok(blogs);
         }
 
-        [Authorize(Roles = "Staff")]
+       
         [HttpGet]
         [Route("BlogDetails/{id}")]
         public async Task<ActionResult<BaseResponse<BlogResponse>>> GetBlogDetailForHomePage(int id)

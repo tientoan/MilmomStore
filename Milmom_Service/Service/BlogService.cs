@@ -50,7 +50,17 @@ namespace Milmom_Service.Service
         public async Task<BaseResponse<IEnumerable<BlogResponse>>> GetAllBlogFromBase()
         {
             IEnumerable<Blog> blogs = await _blogRepository.GetAllBlogsAsync();
+            if(blogs == null)
+            {
+                return new BaseResponse<IEnumerable<BlogResponse>>("Something went wrong!",
+                StatusCodeEnum.BadGateway_502, null);
+            }
             var blog = _mapper.Map<IEnumerable<BlogResponse>>(blogs);
+            if(blog == null)
+            {
+                return new BaseResponse<IEnumerable<BlogResponse>>("Something went wrong!",
+                StatusCodeEnum.BadGateway_502, null);
+            }
             return new BaseResponse<IEnumerable<BlogResponse>>("Get all Blogs as base success",
                 StatusCodeEnum.OK_200, blog);
         }

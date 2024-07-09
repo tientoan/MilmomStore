@@ -139,6 +139,22 @@ namespace MilmomStore_DataAccessObject
             return topNProducts;
         }
 
-     }
+        public async Task<IEnumerable<Product>> SearchProductAsync(string search, int pageIndex, int pageSize)
+        {
+            IQueryable<Product> searchProducts = _context.Products;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                searchProducts = searchProducts.Include(p => p.ImageProducts)
+                    .Include(p => p.Category)
+                    .Include(p => p.Ratings)
+                    .Where(p => p.Name.ToLower().Contains(search.ToLower()));
+            }
+
+            var result = PaginatedList<Product>.Create(searchProducts, pageIndex, pageSize).ToList();
+            return result;
+        }
+
+    }
     
 }

@@ -91,5 +91,12 @@ namespace MilmomStore.Server.Controllers
         {
             return await _productService.GetTopProductsSoldInMonthAsync(top);
         }
+
+        [HttpGet]
+        [Route("base/getProductsForManager")]
+        public async Task<BaseResponse<IEnumerable<GetFilterProductForManager>>> SearchProductAsync(string search, int pageIndex, int pageSize)
+        {
+            return await _productService.SearchProductAsync(search, pageIndex, pageSize);
+        }
     }
 }

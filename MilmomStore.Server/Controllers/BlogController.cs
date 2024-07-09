@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using Milmom_Service.IService;
 using Milmom_Service.Model.BaseResponse;
 using Milmom_Service.Model.Request.Blog;
@@ -34,6 +35,10 @@ namespace MilmomStore.Server.Controllers
         [Route("BlogDetails/{id}")]
         public async Task<ActionResult<BaseResponse<BlogResponse>>> GetBlogDetailForHomePage(int id)
         {
+            if(id == null || id == 0)
+            {
+                return BadRequest("Please Input the correct Id!");
+            }
             return await _blogService.GetBlogByIdFromBase(id);
         }
 
@@ -42,6 +47,10 @@ namespace MilmomStore.Server.Controllers
         [Route("CreateBlog")]
         public async Task<ActionResult<BaseResponse<BlogRequest>>> CreateBlogFromBase([FromBody] BlogRequest request)
         {
+            if(request == null)
+            {
+                return BadRequest("Please Inplement all information! ");
+            }
             var blog = await _blogService.CreateBlogFromBase(request);
             return blog;
         }
@@ -51,6 +60,10 @@ namespace MilmomStore.Server.Controllers
         [Route("{id}")]
         public async Task<ActionResult<BaseResponse<Blog>>> DeleteBlog(int id)
         {
+            if(id == null || id == 0)
+            {
+                return NotFound(new { message = "Please Input Id, or not found Blog" });
+            }
             var existingBlog = await _blogService.GetBlogByIdFromBase(id);
             if (existingBlog == null)
             {
@@ -73,6 +86,14 @@ namespace MilmomStore.Server.Controllers
         public async Task<ActionResult<BaseResponse<UpdateBlogRequest>>> UpdateBlogFromBase(int id,
             [FromBody] UpdateBlogRequest blog)
         {
+            if(id == null || id == 0)
+            {
+                return NotFound();
+            }
+            if(blog == null)
+            {
+                return BadRequest("Please Inplement all information!");
+            }
             return await _blogService.UpdateBlogFromBase(id, blog);
         }
 
@@ -81,6 +102,23 @@ namespace MilmomStore.Server.Controllers
         [Route("base/search")]
         public async Task<ActionResult<BaseResponse<IEnumerable<BlogResponse>>>> GetSearchProductFromBase(string search, int pageIndex, int pageSize)
         {
+            if (string.IsNullOrEmpty(search) && pageIndex == 0 && pageSize == 0)
+            {
+                // Check if pageIndex is not a valid integer
+                if (!int.TryParse(pageIndex.ToString(), out _))
+                {
+                    return BadRequest("pageIndex must be a valid integer.");
+                }
+
+                // Check if pageSize is not a valid integer
+                if (!int.TryParse(pageSize.ToString(), out _))
+                {
+                    return BadRequest("pageSize must be a valid integer.");
+                }
+
+                // Continue with your logic if all conditions are met
+                return BadRequest("Please Inplement all information!");
+            }
             return await _blogService.GetSearchBlogFromBase(search, pageIndex, pageSize);
         }
     }

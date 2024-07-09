@@ -30,8 +30,17 @@ namespace Milmom_Service.Service
         {
             IEnumerable<AccountApplication> users = await _accountAppRepository.GetAllAsync();
             var user = _mapper.Map<IEnumerable<GetAllUserResponse>>(users);
-            return new BaseResponse<IEnumerable<GetAllUserResponse>>("Get all user as base success",
+            if(user != null)
+            {
+                return new BaseResponse<IEnumerable<GetAllUserResponse>>("Get all user as base success",
                 StatusCodeEnum.OK_200, user);
+            }
+            else
+            {
+                return new BaseResponse<IEnumerable<GetAllUserResponse>>("Get all user as base success",
+                StatusCodeEnum.BadGateway_502, user);
+            }
+            
 
         }
 

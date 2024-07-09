@@ -25,5 +25,6 @@ namespace Milmom_Service.IService
         Task<BaseResponse<UpdateProductRequest>> UpdateProductFromBase(int id, UpdateProductRequest product);
         Task<BaseResponse<IEnumerable<GetFilterProductResponse>>> GetProductsAsync(string? search , double? lowPrice , double? highPrice , int? category, string sortBy, int pageIndex, int pageSize);
         Task<BaseResponse<List<GetTopProductSoldInAMonth>>> GetTopProductsSoldInMonthAsync(int top);
+        Task<BaseResponse<IEnumerable<GetFilterProductForManager>>> SearchProductAsync(string search, int pageIndex, int pageSize);
     }
 }

@@ -73,7 +73,7 @@ namespace MilmomStore.Server.Controllers
         }
 
         [HttpGet("adminDashBoard/GetTotalOrdersTotalOrdersAmount")]
-        public async Task<BaseResponse<GetTotalOrdersTotalOrdersAmount>> GetTotalOrdersTotalOrdersAmountAsync
+        public async Task<BaseResponse<List<GetTotalOrdersTotalOrdersAmount>>> GetTotalOrdersTotalOrdersAmountAsync
             (DateTime startDate, DateTime endDate, string? timeSpanType)
         {
             return await _orderService.GetTotalOrdersTotalOrdersAmountAsync(startDate,endDate,timeSpanType);

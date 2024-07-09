@@ -79,7 +79,8 @@ public class OrderRepository : BaseRepository<Order>, IOrderRepository
         return await _orderDao.GetStaticOrders();
     }
 
-    public async Task<(int totalOrders, double totalOrdersAmount)> GetTotalOrdersTotalOrdersAmountAsync(DateTime startDate, DateTime endDate, string? timeSpanType)
+    public async Task<List<(object span, int totalOrders, double totalOrdersAmount)>> GetTotalOrdersTotalOrdersAmountAsync
+        (DateTime startDate, DateTime endDate, string? timeSpanType)
     {
         return await _orderDao.GetTotalOrdersTotalOrdersAmountAsync(startDate, endDate, timeSpanType);
     }

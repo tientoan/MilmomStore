@@ -14,5 +14,6 @@ namespace Milmom_Repository.IRepository
         public Task<bool> DeleteTest(Product product);
         Task<IEnumerable<Product>> GetProductsAsync(string? search ,double? lowPrice ,double? highPrice ,int? category,string sortBy,int pageIndex,int pageSize);
         Task<List<(string ProductName, int QuantitySold)>> GetTopProductsSoldInMonthAsync(int top);
+        Task<IEnumerable<Product>> SearchProductAsync(string search, int pageIndex, int pageSize);
     }
 }

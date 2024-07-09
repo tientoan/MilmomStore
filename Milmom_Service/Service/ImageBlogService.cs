@@ -28,7 +28,17 @@ namespace Milmom_Service.Service
         public async Task<BaseResponse<IEnumerable<GetAllImageBlogResponse>>> GetAllImageProductsFromBase()
         {
             IEnumerable<ImageBlog> images = await _imageRepository.GetAllAsync();
+            if (images == null)
+            {
+                return new BaseResponse<IEnumerable<GetAllImageBlogResponse>>("Cannot get Images",
+                StatusCodeEnum.BadGateway_502, null);
+            }
             var image = _mapper.Map<IEnumerable<GetAllImageBlogResponse>>(images);
+            if(image == null)
+            {
+                return new BaseResponse<IEnumerable<GetAllImageBlogResponse>>("Cannot get Images",
+                StatusCodeEnum.BadGateway_502, null);
+            }
             return new BaseResponse<IEnumerable<GetAllImageBlogResponse>>("Get all image product as base success",
                 StatusCodeEnum.OK_200, image);
         }

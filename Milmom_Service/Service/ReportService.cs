@@ -66,7 +66,17 @@ namespace Milmom_Service.Service
         public async Task<BaseResponse<IEnumerable<ReportResponse>>> GetAllReportFromBase()
         {
             IEnumerable<Report> reports = await _reportRepository.GetAllReportsAsync();
+            if(reports == null)
+            {
+                return new BaseResponse<IEnumerable<ReportResponse>>("Get all Reports as base fail",
+                StatusCodeEnum.BadRequest_400, null);
+            }
             var report = _mapper.Map<IEnumerable<ReportResponse>>(reports);
+            if(report == null)
+            {
+                return new BaseResponse<IEnumerable<ReportResponse>>("Get all Reports as base fail",
+                StatusCodeEnum.BadRequest_400, report);
+            }
             return new BaseResponse<IEnumerable<ReportResponse>>("Get all Reports as base success",
                 StatusCodeEnum.OK_200, report);
         }

@@ -4,6 +4,7 @@ using Milmom_Service.IService;
 using Milmom_Service.Model.BaseResponse;
 using Milmom_Service.Model.Request.Order;
 using Milmom_Service.Model.Response.Order;
+using Milmom_Service.Model.Response.Product;
 using Milmom_Service.Models.Enums;
 using MilmomStore_BusinessObject.Model;
 
@@ -81,6 +82,10 @@ public class OrderService : IOrderService
             totalProfit = total.totalProfit,
             totalProducts = total.totalProducts
         };
+        if(response == null)
+        {
+            return new BaseResponse<GetTotalAmountTotalProducts>("Get All Fails", StatusCodeEnum.BadGateway_502, response);
+        }
         return new BaseResponse<GetTotalAmountTotalProducts>("Get All Success", StatusCodeEnum.OK_200, response);
     }
 
@@ -96,6 +101,10 @@ public class OrderService : IOrderService
             ordersReport = order.ordersReport,
             ordersReturnRefund = order.ordersReturnRefund
         };
+        if(response == null)
+        {
+            return new BaseResponse<GetStaticOrders>("Get All Fail", StatusCodeEnum.BadGateway_502, response);
+        }
         return new BaseResponse<GetStaticOrders>("Get All Success", StatusCodeEnum.OK_200, response);
     }
 
@@ -106,6 +115,10 @@ public class OrderService : IOrderService
         {
             topProducts = products.Select(o => (o.ProductName, o.QuantitySold)).ToList()
         };
+        if(response == null)
+        {
+            return new BaseResponse<GetTopProductsSoldInMonth>("Get All Fail", StatusCodeEnum.BadGateway_502, response);
+        }
         return new BaseResponse<GetTopProductsSoldInMonth>("Get All Success", StatusCodeEnum.OK_200, response);
     }
 
@@ -116,17 +129,26 @@ public class OrderService : IOrderService
         {
             MonthList = total.Select(o => (o.Month,o.Revenue)).ToList()
         };
+        if(response == null)
+        {
+            return new BaseResponse<GetStoreRevenueByMonth>("Get All Fail", StatusCodeEnum.BadGateway_502, response);
+        }
         return new BaseResponse<GetStoreRevenueByMonth>("Get All Success", StatusCodeEnum.OK_200, response);
     }
 
-    public async Task<BaseResponse<GetTotalOrdersTotalOrdersAmount>> GetTotalOrdersTotalOrdersAmountAsync(DateTime startDate, DateTime endDate, string? timeSpanType)
+    public async Task<BaseResponse<List<GetTotalOrdersTotalOrdersAmount>>> GetTotalOrdersTotalOrdersAmountAsync(DateTime startDate, DateTime endDate, string? timeSpanType)
     {
         var total = await _orderRepository.GetTotalOrdersTotalOrdersAmountAsync(startDate, endDate, timeSpanType);
-        var response = new GetTotalOrdersTotalOrdersAmount
+        var response = total.Select(p => new GetTotalOrdersTotalOrdersAmount
         {
-            totalOrders = total.totalOrders,
-            totalOrdersAmount = total.totalOrdersAmount
-        };
-        return new BaseResponse<GetTotalOrdersTotalOrdersAmount>("Get All Success", StatusCodeEnum.OK_200, response);
+            span = p.span,
+            totalOrders = p.totalOrders,
+            totalOrdersAmount = p.totalOrdersAmount
+        }).ToList();
+        if (response == null)
+        {
+            return new BaseResponse<List<GetTotalOrdersTotalOrdersAmount>>("Get Top Product In A Month Fail", StatusCodeEnum.BadRequest_400, response);
+        }
+        return new BaseResponse<List<GetTotalOrdersTotalOrdersAmount>>("Get All Success", StatusCodeEnum.OK_200, response);
     }
 }

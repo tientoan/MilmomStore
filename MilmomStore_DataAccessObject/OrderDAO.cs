@@ -278,7 +278,7 @@ public class OrderDAO : BaseDAO<Order>
 
         switch (timeSpanType?.ToLower())
         {
-            case "ngày":
+            case "day":
                 // Show results for each day in the specified range
                 for (DateTime date = startDate.Date; date <= endDate.Date; date = date.AddDays(1))
                 {
@@ -300,7 +300,7 @@ public class OrderDAO : BaseDAO<Order>
                     result.Add((date.Date, totalOrders, totalOrdersAmount));
                 }
                 break;
-            case "tuần":
+            case "week":
                 // Show results for each week in the specified range
                 DateTime currentWeekStart = startDate.Date.AddDays(-(int)startDate.DayOfWeek + (int)DayOfWeek.Monday);
                 if (currentWeekStart > startDate.Date)
@@ -337,7 +337,7 @@ public class OrderDAO : BaseDAO<Order>
                     currentWeekStart = currentWeekEnd.AddDays(1);
                 }
                 break;
-            case "tháng":
+            case "month":
                 // Show results for each month in the specified range
                 DateTime currentMonthStart = new DateTime(startDate.Year, startDate.Month, 1);
 

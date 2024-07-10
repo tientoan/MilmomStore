@@ -73,8 +73,8 @@ namespace MilmomStore.Server.Controllers
         [Route("AddForManagement")]
         public async Task<ActionResult<BaseResponse<AddProductRequest>>> CreateProductFromBase([FromBody] AddProductRequest request)
         {
-            var user = await _productService.AddProductByIdFromBase(request);
-            return user;
+            var newProduct = await _productService.AddProductByIdFromBase(request);
+            return newProduct;
         }
         
         [HttpGet]
@@ -89,12 +89,13 @@ namespace MilmomStore.Server.Controllers
         [Route("base/GetTopProductInMonth")]
         public async Task<BaseResponse<List<GetTopProductSoldInAMonth>>> GetTopProductsSoldInMonthAsync(int top)
         {
-            return await _productService.GetTopProductsSoldInMonthAsync(top);
+            var result = await _productService.GetTopProductsSoldInMonthAsync(top);
+            return result;
         }
 
         [HttpGet]
         [Route("base/getProductsForManager")]
-        public async Task<BaseResponse<IEnumerable<GetFilterProductForManager>>> SearchProductAsync(string search, int pageIndex, int pageSize)
+        public async Task<BaseResponse<SearchProductResponse>> SearchProductAsync(string? search, int pageIndex, int pageSize)
         {
             return await _productService.SearchProductAsync(search, pageIndex, pageSize);
         }

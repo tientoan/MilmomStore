@@ -25,4 +25,8 @@
     <ProjectReference Include="..\MilmomStore_BusinessObject\MilmomStore_BusinessObject.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\MilmomSystemContextModelSnapshot.cs" />
+  </ItemGroup>
+
 </Project>

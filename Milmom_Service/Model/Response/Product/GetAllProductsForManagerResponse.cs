@@ -11,7 +11,7 @@ using Milmom_Service.Model.Response.Category;
 
 namespace Milmom_Service.Model.Response.Product
 {
-    public class GetAllProductsForManagerResponse
+    public class  GetAllProductsForManagerResponse
     {
         public int ProductID { get; set; }
 

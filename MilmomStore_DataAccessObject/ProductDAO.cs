@@ -139,19 +139,49 @@ namespace MilmomStore_DataAccessObject
             return topNProducts;
         }
 
-        public async Task<IEnumerable<Product>> SearchProductAsync(string search, int pageIndex, int pageSize)
+        public async Task<IEnumerable<Product>> SearchProductAsync(string? search, int pageIndex, int pageSize)
         {
-            IQueryable<Product> searchProducts = _context.Products;
-
+            IQueryable<Product> searchProducts =  _context.Products
+                .Include(p => p.ImageProducts)
+                .Include(p => p.Category)
+                .Include(p => p.Ratings);
+            
+            
+            // Apply search
             if (!string.IsNullOrEmpty(search))
             {
-                searchProducts = searchProducts.Include(p => p.ImageProducts)
-                    .Include(p => p.Category)
-                    .Include(p => p.Ratings)
-                    .Where(p => p.Name.ToLower().Contains(search.ToLower()));
+                searchProducts = searchProducts.Where(p => p.Name.ToLower().Contains(search.ToLower()));
             }
 
             var result = PaginatedList<Product>.Create(searchProducts, pageIndex, pageSize).ToList();
+            return result;
+        }
+        public int GetTotalPagesAsync(string search, List<Product> products, int pageSize)
+        {
+            var total = GetCountList(search);
+            if (products == null)
+            {
+                throw new ArgumentNullException(nameof(products));
+            }
+
+            if (pageSize <= 0)
+            {
+                throw new ArgumentException("Page size must be greater than 0", nameof(pageSize));
+            }
+
+            int totalPages = (int)Math.Ceiling(total / (double)pageSize);
+            return totalPages;
+        }
+        public int GetCountList(string? search)
+        {
+            IQueryable<Product> searchProducts = _context.Products;
+            // Apply search
+            if (!string.IsNullOrEmpty(search))
+            {
+                searchProducts = searchProducts.Where(p => p.Name.ToLower().Contains(search.ToLower()));
+            }
+
+            var result = searchProducts.Count();
             return result;
         }
 

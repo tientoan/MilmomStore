@@ -99,8 +99,8 @@ namespace Milmom_Service.Service
         }
 
         public async Task<BaseResponse<AddProductRequest>> AddProductByIdFromBase(AddProductRequest request)
-        {
-            Product product = _mapper.Map<Product>(request);
+        { 
+            var product = _mapper.Map<Product>(request);
             await _productRepository.AddAsync(product);
 
             var response = _mapper.Map<AddProductRequest>(product);
@@ -128,12 +128,33 @@ namespace Milmom_Service.Service
             return ratings;
         }
 
-        public async Task<BaseResponse<IEnumerable<GetFilterProductForManager>>> SearchProductAsync(string search, int pageIndex, int pageSize)
+        public async Task<BaseResponse<SearchProductResponse>> SearchProductAsync(string? search, int pageIndex, int pageSize)
         {
-            IEnumerable<Product> products = await _productRepository.SearchProductAsync(search, pageIndex, pageSize);
+            var products = await _productRepository.SearchProductAsync(search, pageIndex, pageSize);
+            var totalPages = GetTotalPagesAsync(search ,products.ToList(), pageSize);
             var product = _mapper.Map<IEnumerable<GetFilterProductForManager>>(products);
-            return new BaseResponse<IEnumerable<GetFilterProductForManager>>("Get search product as base success",
-                StatusCodeEnum.OK_200, product);
+            
+            if(product == null)
+            {
+                return new BaseResponse<SearchProductResponse>("Get search product as base fail",
+                StatusCodeEnum.BadGateway_502, null);
+            }
+            else
+            {
+                var response = new SearchProductResponse
+                {
+                    Products = product,
+                    TotalPages = totalPages
+                };
+                return new BaseResponse<SearchProductResponse>("Get search product as base success",
+                    StatusCodeEnum.OK_200, response);
+            }
+            
+        }
+
+        public  int GetTotalPagesAsync(string search,List<Product> products, int pageSize)
+        {
+            return  _productRepository.GetTotalPagesAsync(search,products, pageSize);
         }
     }
 }

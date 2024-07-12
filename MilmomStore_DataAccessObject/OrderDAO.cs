@@ -274,6 +274,10 @@ public class OrderDAO : BaseDAO<Order>
     public async Task<List<(object span, int totalOrders, double totalOrdersAmount)>> GetTotalOrdersTotalOrdersAmountAsync
         (DateTime startDate, DateTime endDate, string? timeSpanType)
     {
+        if(startDate > endDate)
+        {
+            throw new ArgumentException($"startDate <= endDate");
+        }
         List<(object span, int totalOrders, double totalOrdersAmount)> result = new List<(object, int, double)>();
 
         switch (timeSpanType?.ToLower())

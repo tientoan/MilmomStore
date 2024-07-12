@@ -358,5 +358,35 @@ namespace MilmomStore.Server.Controllers
                 Token = resetToken.Token,
             });
         }
+
+        [HttpPost("Change-Password")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordModel changePassword)
+        {
+            var user = await _userManager.FindByNameAsync(changePassword.UserName);
+            if(user == null) 
+            { 
+                return BadRequest("User Not Exist"); 
+            }
+            if (string.Compare(changePassword.NewPassword, changePassword.ConfirmNewPassword) != 0)
+            {
+                return BadRequest("Password and ConfirmPassword doesnot match! ");
+            }
+            var result = await _userManager.ChangePasswordAsync(user, changePassword.CurrentPassword, changePassword.NewPassword);
+            if(!result.Succeeded)
+            {
+                var errors = new List<string>();
+                foreach (var error in result.Errors)
+                {
+                    errors.Add(error.Description);
+                }
+                return StatusCode(500, result.Errors);
+            }
+            return Ok(new UserDto
+            {
+                Username = changePassword.UserName,
+                Password = changePassword.NewPassword,
+                ConfirmPassword = changePassword.ConfirmNewPassword
+            });
+        }
     }
 }

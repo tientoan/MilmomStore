@@ -58,5 +58,15 @@ namespace Milmom_Repository.Repository
         {
             return await _productDao.GetTopProductsSoldInMonthAsync(top);
         }
+
+        public async Task<IEnumerable<Product>> SearchProductAsync(string? search, int pageIndex, int pageSize)
+        {
+            return await _productDao.SearchProductAsync(search, pageIndex, pageSize);
+        }
+
+        public  int GetTotalPagesAsync(string search, List<Product> products, int pageSize)
+        {
+            return  _productDao.GetTotalPagesAsync(search,products, pageSize);
+        }
     }
 }

@@ -270,49 +270,130 @@ public class OrderDAO : BaseDAO<Order>
         return revenueByMonth;
     }
 
-    public async Task<(int totalOrders, double totalOrdersAmount)> GetTotalOrdersTotalOrdersAmountAsync
-    (DateTime startDate, DateTime endDate, string? timeSpanType)
+    // total order, total amount of day, week, month:
+    public async Task<List<(object span, int totalOrders, double totalOrdersAmount)>> GetTotalOrdersTotalOrdersAmountAsync
+        (DateTime startDate, DateTime endDate, string? timeSpanType)
     {
-        if (string.IsNullOrEmpty(timeSpanType))
+        if(startDate > endDate)
         {
-            startDate = startDate.Date;
-            endDate = startDate.AddDays(1).AddTicks(-1);
+            throw new ArgumentException($"startDate <= endDate");
         }
-        else
+        List<(object span, int totalOrders, double totalOrdersAmount)> result = new List<(object, int, double)>();
+
+        switch (timeSpanType?.ToLower())
         {
-            switch (timeSpanType.ToLower())
-            {
-                case "ngày":
-                    // Xác định ngày bắt đầu và kết thúc của ngày được chọn
-                    startDate = startDate.Date;
-                    endDate = startDate.AddDays(1).AddTicks(-1);
-                    break;
-                case "tuần":
-                    // Xác định ngày bắt đầu và kết thúc của tuần được chọn
-                    startDate = startDate.Date.AddDays(-(int)startDate.DayOfWeek + (int)DayOfWeek.Monday);
-                    endDate = startDate.AddDays(7).AddTicks(-1);
-                    break;
-                case "tháng":
-                    // Xác định ngày bắt đầu và kết thúc của tháng được chọn
-                    startDate = new DateTime(startDate.Year, startDate.Month, 1);
-                    endDate = startDate.AddMonths(1).AddDays(-1);
-                    break;
-                default:
-                    startDate = startDate.Date;
-                    endDate = startDate.AddDays(1).AddTicks(-1);
-                    break;
-            }
+            case "day":
+                // Show results for each day in the specified range
+                for (DateTime date = startDate.Date; date <= endDate.Date; date = date.AddDays(1))
+                {
+                    DateTime currentDayStart = date.Date;
+                    DateTime currentDayEnd = date.Date.AddDays(1).AddTicks(-1);
+
+                    int totalOrders = await _context.Orders
+                        .Where(o => o.OrderDate >= currentDayStart &&
+                               o.OrderDate <= currentDayEnd &&
+                               o.Status == OrderStatus.Completed)
+                        .CountAsync();
+
+                    double totalOrdersAmount = await _context.Orders
+                        .Where(o => o.OrderDate >= currentDayStart &&
+                               o.OrderDate <= currentDayEnd &&
+                               o.Status == OrderStatus.Completed)
+                        .SumAsync(o => o.Total);
+
+                    result.Add((date.Date, totalOrders, totalOrdersAmount));
+                }
+                break;
+            case "week":
+                // Show results for each week in the specified range
+                DateTime currentWeekStart = startDate.Date.AddDays(-(int)startDate.DayOfWeek + (int)DayOfWeek.Monday);
+                if (currentWeekStart > startDate.Date)
+                {
+                    currentWeekStart = startDate.Date.AddDays(-(int)startDate.DayOfWeek - 6);
+                }
+                while (currentWeekStart <= endDate.Date)
+                {
+                    DateTime currentWeekEnd = currentWeekStart.AddDays(6);
+
+                    if (currentWeekEnd > endDate.Date)
+                    {
+                        currentWeekEnd = endDate.Date.AddDays(-(int)endDate.DayOfWeek + 7); 
+                    }
+
+                    int totalOrders = await _context.Orders
+                        .Where(o => o.OrderDate.Date >= currentWeekStart.Date &&
+                                    o.OrderDate.Date <= currentWeekEnd.Date &&
+                                    o.Status == OrderStatus.Completed)
+                        .CountAsync();
+
+                    double totalOrdersAmount = await _context.Orders
+                        .Where(o => o.OrderDate.Date >= currentWeekStart.Date &&
+                                    o.OrderDate.Date <= currentWeekEnd.Date &&
+                                    o.Status == OrderStatus.Completed)
+                        .SumAsync(o => o.Total);
+
+                    // Format the week string as "MM/dd/yyyy - MM/dd/yyyy"
+                    string weekRange = $"{currentWeekStart.ToString("MM/dd/yyyy")} - {currentWeekEnd.ToString("MM/dd/yyyy")}";
+
+                    result.Add((weekRange, totalOrders, totalOrdersAmount));
+
+                    // Move to the start of the next week
+                    currentWeekStart = currentWeekEnd.AddDays(1);
+                }
+                break;
+            case "month":
+                // Show results for each month in the specified range
+                DateTime currentMonthStart = new DateTime(startDate.Year, startDate.Month, 1);
+
+                while (currentMonthStart <= endDate.Date)
+                {
+                    DateTime currentMonthEnd = currentMonthStart.AddMonths(1).AddDays(-1);
+
+                    int totalOrders = await _context.Orders
+                        .Where(o => o.OrderDate >= currentMonthStart &&
+                                    o.OrderDate <= currentMonthEnd &&
+                                    o.Status == OrderStatus.Completed)
+                        .CountAsync();
+
+                    double totalOrdersAmount = await _context.Orders
+                        .Where(o => o.OrderDate >= currentMonthStart &&
+                                    o.OrderDate <= currentMonthEnd &&
+                                    o.Status == OrderStatus.Completed)
+                        .SumAsync(o => o.Total);
+
+                    // Format the month string as "MM/yyyy"
+                    string monthName = currentMonthStart.ToString("MM/yyyy");
+
+                    result.Add((monthName, totalOrders, totalOrdersAmount));
+
+                    // Move to the start of the next month
+                    currentMonthStart = currentMonthStart.AddMonths(1);
+                }
+                break;
+            default:
+                // Default to "ngày" if timeSpanType is unrecognized
+                for (DateTime date = startDate.Date; date <= endDate.Date; date = date.AddDays(1))
+                {
+                    DateTime currentDayStart = date.Date;
+                    DateTime currentDayEnd = date.Date.AddDays(1).AddTicks(-1);
+
+                    int totalOrders = await _context.Orders
+                        .Where(o => o.OrderDate >= currentDayStart &&
+                                    o.OrderDate <= currentDayEnd &&
+                                    o.Status == OrderStatus.Completed)
+                        .CountAsync();
+
+                    double totalOrdersAmount = await _context.Orders
+                        .Where(o => o.OrderDate >= currentDayStart &&
+                                    o.OrderDate <= currentDayEnd &&
+                                    o.Status == OrderStatus.Completed)
+                        .SumAsync(o => o.Total);
+
+                    result.Add((date.Date, totalOrders, totalOrdersAmount));
+                }
+                break;
         }
 
-        // Tính tổng số các đơn hàng trong khoảng thời gian
-        int totalOrders = await _context.Orders
-            .Where(o => o.OrderDate >= startDate && o.OrderDate <= endDate)
-            .CountAsync();
-
-        double totalOrdersAmount = await _context.Orders
-            .Where(o => o.OrderDate >= startDate && o.OrderDate <= endDate)
-            .SumAsync(o => o.Total);
-
-        return (totalOrders,totalOrdersAmount);
+        return result;
     }
 }

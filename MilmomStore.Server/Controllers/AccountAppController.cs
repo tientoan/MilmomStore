@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using Milmom_Service.IService;
 using Milmom_Service.Model.BaseResponse;
 using Milmom_Service.Model.Request.AccountApplication;
@@ -39,6 +40,10 @@ namespace MilmomStore.Server.Controllers
         [Route("base/string/{id}")]
         public async Task<ActionResult<BaseResponse<GetUserByStringIdResponse>>> GetUserByStringIdFromBase(string id)
         {
+            if(id.IsNullOrEmpty()) 
+            {
+                return BadRequest("Please Input userId");
+            }
             return await _userService.GetUserByStringIdFromBase(id);
         }
         //
@@ -76,6 +81,14 @@ namespace MilmomStore.Server.Controllers
         [Route("base/string/{id}")]
         public async Task<ActionResult<BaseResponse<UpdateUserResponseByString>>> UpdateUserByStringFromBase(string id, [FromBody] UpdateUserRequestByString user)
         {
+            if (id.IsNullOrEmpty())
+            {
+                return NotFound();
+            }
+            if(user == null)
+            {
+                return BadRequest("Please Inplement all the Informations");
+            }
             return await _userService.UpdateUserByStringFromBase(id, user);
         }
     }

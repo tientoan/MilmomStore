@@ -7,6 +7,7 @@ using AutoMapper;
 using Milmom_Service.Model.Request.AccountApplication;
 using Milmom_Service.Model.Request.Blog;
 using Milmom_Service.Model.Request.Category;
+using Milmom_Service.Model.Request.ImageProduct;
 using Milmom_Service.Model.Request.Order;
 using Milmom_Service.Model.Request.Product;
 using Milmom_Service.Model.Request.Rating;
@@ -57,7 +58,10 @@ namespace Milmom_Service.Mapping
             CreateMap<AddProductRequest, Product>().ReverseMap();
             CreateMap<Product, AddProductRequest>();
             CreateMap<Product, GetFilterProductResponse>();
+            CreateMap<Product, GetFilterProductForManager>();
             CreateMap<Product, GetSearchProductResponse>();
+            CreateMap<ImageProduct, ProductImage>();
+            CreateMap<ProductImage, ImageProduct>().ReverseMap();
 
             CreateMap<Category, GetAllCategoryResponse>();
             CreateMap<Category, GetCategoryResponse>();

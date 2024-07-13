@@ -41,7 +41,17 @@ namespace Milmom_Service.Service
         {
 
             IEnumerable<Category> category = await  _categoryRepository.GetAllAsync();
+            if(category == null)
+            {
+                return new BaseResponse<IEnumerable<GetAllCategoryResponse>>("Something went wrong!",
+                StatusCodeEnum.BadGateway_502, null);
+            }
             var categories = _mapper.Map<IEnumerable<GetAllCategoryResponse>>(category);
+            if(categories == null)
+            {
+                return new BaseResponse<IEnumerable<GetAllCategoryResponse>>("Something went wrong!",
+                StatusCodeEnum.BadGateway_502, null);
+            }
             return new BaseResponse<IEnumerable<GetAllCategoryResponse>>("Get all category as base success",
                 StatusCodeEnum.OK_200, categories);
         }
@@ -54,7 +64,7 @@ namespace Milmom_Service.Service
                 result);
         }
 
-        public async Task<BaseResponse<IEnumerable<GetAllCategoryResponse>>> GetSearchCategoryFromBase(string search, int pageIndex, int pageSize)
+        public async Task<BaseResponse<IEnumerable<GetAllCategoryResponse>>> GetSearchCategoryFromBase(string? search, int pageIndex, int pageSize)
         {
             IEnumerable<Category> categories = await _categoryRepository.SearchCategoryAsync(search, pageIndex, pageSize);
             var category = _mapper.Map<IEnumerable<GetAllCategoryResponse>>(categories);

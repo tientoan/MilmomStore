@@ -19,7 +19,7 @@ public interface IOrderRepository:IBaseRepository<Order>
     public Task<(int ordersReturnOrCancell, int orders, int ordersComplete, int ordersCancell, int ordersReturnRefund, int ordersReport)> GetStaticOrders();
     public Task<List<(string ProductName, int QuantitySold)>> GetTopProductsSoldInMonthAsync();
     public Task<List<(string Month, double Revenue)>> GetStoreRevenueByMonthAsync();
-    public Task<(int totalOrders, double totalOrdersAmount)> GetTotalOrdersTotalOrdersAmountAsync
-    (DateTime startDate, DateTime endDate, string? timeSpanType);
+    Task<List<(object span, int totalOrders, double totalOrdersAmount)>> GetTotalOrdersTotalOrdersAmountAsync
+        (DateTime startDate, DateTime endDate, string? timeSpanType);
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
 }

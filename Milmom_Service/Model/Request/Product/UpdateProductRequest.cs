@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Milmom_Service.Model.Request.ImageProduct;
 
 namespace Milmom_Service.Model.Request.Product
 {
@@ -31,5 +32,7 @@ namespace Milmom_Service.Model.Request.Product
         public double Height { get; set; }
         public double Width { get; set; }
         public double Length { get; set; }
+        
+        public ICollection<ProductImage> ImageProducts { get; set;}
     }
 }

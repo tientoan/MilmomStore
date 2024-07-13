@@ -32,6 +32,10 @@ namespace MilmomStore.Server.Controllers
         [Route("GetCategory/{id}")]
         public async Task<ActionResult<BaseResponse<GetAllCategoryResponse>>> GetCategoryDetailByIdFromBase(int id)
         {
+            if(id == 0 || id == null)
+            {
+                return BadRequest("Please Input Id!");
+            }
             return await _categoryService.GetCategoryDetailByIdFromBase(id);
         }
 
@@ -40,6 +44,10 @@ namespace MilmomStore.Server.Controllers
         [Route("CreateCategory")]
         public async Task<ActionResult<BaseResponse<CreateCategoryRequest>>> CreateProductFromBase([FromBody] CreateCategoryRequest request)
         {
+            if (request == null)
+            {
+                return BadRequest("Please Implement all Information");
+            }
             var user = await _categoryService.CreateCategoryFromBase(request);
             return user;
         }
@@ -50,6 +58,10 @@ namespace MilmomStore.Server.Controllers
         public async Task<ActionResult<BaseResponse<UpdateCategoryRequest>>> UpdateCategoryFromBase(int id,
             [FromBody] UpdateCategoryRequest category)
         {
+            if (id == 0 || id == null)
+            {
+                return BadRequest("Please Input Id!");
+            }
             return await _categoryService.UpdateCategoryFromBase(id, category);
         }
 
@@ -58,6 +70,23 @@ namespace MilmomStore.Server.Controllers
         [Route("base/search")]
         public async Task<ActionResult<BaseResponse<IEnumerable<GetAllCategoryResponse>>>> GetSearchCategoryFromBase(string search, int pageIndex, int pageSize)
         {
+            if (string.IsNullOrEmpty(search) && pageIndex == 0 && pageSize == 0)
+            {
+                // Check if pageIndex is not a valid integer
+                if (!int.TryParse(pageIndex.ToString(), out _))
+                {
+                    return BadRequest("pageIndex must be a valid integer.");
+                }
+
+                // Check if pageSize is not a valid integer
+                if (!int.TryParse(pageSize.ToString(), out _))
+                {
+                    return BadRequest("pageSize must be a valid integer.");
+                }
+
+                // Continue with your logic if all conditions are met
+                return BadRequest("Please Inplement all information!");
+            }
             return await _categoryService.GetSearchCategoryFromBase(search, pageIndex, pageSize);
         }
 

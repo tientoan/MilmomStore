@@ -50,6 +50,10 @@ namespace MilmomStore.Server.Controllers
         public async Task<ActionResult<BaseResponse<IEnumerable<RatingResponse>>>> 
             GetRatingByAccountId(string accountId)
         {
+            if(accountId == null)
+            {
+                return BadRequest("Please Input Id!");
+            }
             return await _ratingService.GetRatingByAccountId(accountId);
         }
     }

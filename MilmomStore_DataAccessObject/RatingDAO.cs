@@ -15,6 +15,10 @@ public class RatingDAO : BaseDAO<Rating>
     //get avaerage rating of product
     public async Task<double> GetAverageRating(int productId)
     {
+        if (productId == null || productId <= 0)
+        {
+            throw new ArgumentNullException($"id {productId} not found");
+        }
         var ratings = await _context.Rating
             .Where(r => r.ProductID == productId)
             .ToListAsync();
@@ -31,21 +35,52 @@ public class RatingDAO : BaseDAO<Rating>
     }
     public async Task<IEnumerable<Rating?>> GetRatingByProductId(int productId)
     {
-        return await _context.Rating
+        if (productId == null || productId <= 0)
+        {
+            throw new ArgumentNullException($"id {productId} not found");
+        }
+        var entity = await _context.Rating
             .Where(r => r.ProductID == productId)
             .ToListAsync();
+        if (entity == null)
+        {
+            throw new ArgumentNullException($"Entity with id {productId} not found");
+        }
+        return entity;
     }
     public async Task<IEnumerable<Rating?>> GetRatingByAccountId(string accountId)
     {
-        return await _context.Rating
+        if (accountId == null)
+        {
+            throw new ArgumentNullException($"id {accountId} not found");
+        }
+        var entity = await _context.Rating
             .Where(r => r.AccountID == accountId)
             .ToListAsync();
+        if(entity == null)
+        {
+            throw new ArgumentNullException($"Entity with id {accountId} not found");
+        }
+        return entity;
     }
 
     public async Task<Rating?> GetRatingByUserIdAndProduct(string accountId, int productId)
     {
-        return await _context.Rating
+        if (accountId == null)
+        {
+            throw new ArgumentNullException($"id {accountId} not found");
+        }
+        if(productId == null || productId <= 0)
+        {
+            throw new ArgumentNullException($"id {productId} not found");
+        }
+        var entity = await _context.Rating
             .Where(r => r.AccountID == accountId && r.ProductID == productId)
             .FirstOrDefaultAsync();
+        if (entity == null)
+        {
+            throw new ArgumentNullException($"Entity with accountid {accountId}, productId{productId} not found");
+        }
+        return entity;
     }
 }

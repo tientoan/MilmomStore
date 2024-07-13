@@ -34,7 +34,17 @@ namespace Milmom_Service.Service
         public async Task<BaseResponse<IEnumerable<GetAllProductsForManagerResponse>>> GetAllProductsFromBase()
         {
             var products = await _productRepository.GetAllAsync();
+            if(products == null)
+            {
+                return new BaseResponse<IEnumerable<GetAllProductsForManagerResponse>>("Get all product as base fail",
+                StatusCodeEnum.BadGateway_502, null);
+            }
             var product = _mapper.Map<IEnumerable<GetAllProductsForManagerResponse>>(products);
+            if(product == null)
+            {
+                return new BaseResponse<IEnumerable<GetAllProductsForManagerResponse>>("Get all product as base fail",
+                StatusCodeEnum.BadGateway_502, product);
+            }
             return new BaseResponse<IEnumerable<GetAllProductsForManagerResponse>>("Get all product as base success",
                 StatusCodeEnum.OK_200, product);
         }
@@ -89,28 +99,62 @@ namespace Milmom_Service.Service
         }
 
         public async Task<BaseResponse<AddProductRequest>> AddProductByIdFromBase(AddProductRequest request)
-        {
-            Product product = _mapper.Map<Product>(request);
+        { 
+            var product = _mapper.Map<Product>(request);
             await _productRepository.AddAsync(product);
 
             var response = _mapper.Map<AddProductRequest>(product);
             return new BaseResponse<AddProductRequest>("Create product as base success", StatusCodeEnum.Created_201, response);
         }
 
-        public async Task<BaseResponse<GetTopProductsSoldInMonth>> GetTopProductsSoldInMonthAsync(int top)
+        public async Task<BaseResponse<List<GetTopProductSoldInAMonth>>> GetTopProductsSoldInMonthAsync(int top)
         {
             var products = await _productRepository.GetTopProductsSoldInMonthAsync(top);
-            var response = new GetTopProductsSoldInMonth
+            var response = products.Select(p => new GetTopProductSoldInAMonth
             {
-                topProducts = products.Select(o => (o.ProductName, o.QuantitySold)).ToList()
-            };
-            return new BaseResponse<GetTopProductsSoldInMonth>("Get All Success", StatusCodeEnum.OK_200, response);
+                ProductName = p.ProductName,
+                QuantitySold = p.QuantitySold
+            }).ToList();
+            if(response == null)
+            {
+                return new BaseResponse<List<GetTopProductSoldInAMonth>>("Get Top Product In A Month Fail", StatusCodeEnum.BadRequest_400, response);
+            }
+            return new BaseResponse<List<GetTopProductSoldInAMonth>>("Get Top Product In A Month Success", StatusCodeEnum.  OK_200, response);
         }
 
         private async Task<double> GetRating(int productId)
         {
             var ratings = await _ratingRepository.GetAverageRating(productId);
             return ratings;
+        }
+
+        public async Task<BaseResponse<SearchProductResponse>> SearchProductAsync(string? search, int pageIndex, int pageSize)
+        {
+            var products = await _productRepository.SearchProductAsync(search, pageIndex, pageSize);
+            var totalPages = GetTotalPagesAsync(search ,products.ToList(), pageSize);
+            var product = _mapper.Map<IEnumerable<GetFilterProductForManager>>(products);
+            
+            if(product == null)
+            {
+                return new BaseResponse<SearchProductResponse>("Get search product as base fail",
+                StatusCodeEnum.BadGateway_502, null);
+            }
+            else
+            {
+                var response = new SearchProductResponse
+                {
+                    Products = product,
+                    TotalPages = totalPages
+                };
+                return new BaseResponse<SearchProductResponse>("Get search product as base success",
+                    StatusCodeEnum.OK_200, response);
+            }
+            
+        }
+
+        public  int GetTotalPagesAsync(string search,List<Product> products, int pageSize)
+        {
+            return  _productRepository.GetTotalPagesAsync(search,products, pageSize);
         }
     }
 }

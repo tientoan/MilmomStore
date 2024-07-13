@@ -56,5 +56,5 @@ namespace MilmomStore_BusinessObject.Model
 
         public ICollection<OrderDetail> OrderDetails { get; set;}
 
-}
+    }
 }

@@ -18,7 +18,7 @@ public interface IOrderService
     public Task<BaseResponse<GetStaticOrders>> GetStaticOrders();
     public Task<BaseResponse<GetTopProductsSoldInMonth>> GetTopProductsSoldInMonthAsync();
     public Task<BaseResponse<GetStoreRevenueByMonth>> GetStoreRevenueByMonthAsync();
-    public Task<BaseResponse<GetTotalOrdersTotalOrdersAmount>> GetTotalOrdersTotalOrdersAmountAsync
+    public Task<BaseResponse<List<GetTotalOrdersTotalOrdersAmount>>> GetTotalOrdersTotalOrdersAmountAsync
     (DateTime startDate, DateTime endDate, string? timeSpanType);
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
 }

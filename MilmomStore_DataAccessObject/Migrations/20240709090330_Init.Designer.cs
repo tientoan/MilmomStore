@@ -12,8 +12,8 @@ using MilmomStore_DataAccessObject;
 namespace MilmomStore_DataAccessObject.Migrations
 {
     [DbContext(typeof(MilmomSystemContext))]
-    [Migration("20240701090145_FixReport")]
-    partial class FixReport
+    [Migration("20240709090330_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,29 +53,29 @@ namespace MilmomStore_DataAccessObject.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ebb4d9bf-4cd0-4435-a1a2-e8884218e506",
-                            ConcurrencyStamp = "5edd689e-5ba7-4e00-845f-4712467575c8",
+                            Id = "eea789bf-7eea-4232-93e8-4135072aa150",
+                            ConcurrencyStamp = "b2f9f9ca-29d5-4686-a6a8-3af12ed001ac",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "ee019746-a9b4-4568-8a9b-fedf69f58b03",
-                            ConcurrencyStamp = "ff0fab1e-4685-4aa9-948b-b9a1cdfc5979",
+                            Id = "1c101f53-6913-4cc6-9e7b-994103e7a7c4",
+                            ConcurrencyStamp = "7f1da67c-ca5d-433a-b98a-e041b02c2bbc",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "80fcb55c-390c-4596-b2a1-08c2424f4907",
-                            ConcurrencyStamp = "6c3ca9ca-eb77-4f1d-a8dc-ca2b2c0e4141",
+                            Id = "84642fc5-0992-420d-ac27-80c9414ea07e",
+                            ConcurrencyStamp = "a1e27fd2-35f1-4fec-a4e8-d6c75612bd38",
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         },
                         new
                         {
-                            Id = "7255f9fb-d180-47cd-badb-010366a78aad",
-                            ConcurrencyStamp = "5675275c-96c3-4ec8-aa34-3e1fa1fdf99e",
+                            Id = "8c502029-8ca4-455a-8d58-fc83b11613ac",
+                            ConcurrencyStamp = "13f53dbf-6568-463b-a762-0dad793a2c3f",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         });
@@ -435,6 +435,9 @@ namespace MilmomStore_DataAccessObject.Migrations
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("PaymentMethod")
+                        .HasColumnType("int");
 
                     b.Property<int?>("ReportID")
                         .HasColumnType("int");
@@ -1119,8 +1122,7 @@ namespace MilmomStore_DataAccessObject.Migrations
 
             modelBuilder.Entity("MilmomStore_BusinessObject.Model.Report", b =>
                 {
-                    b.Navigation("Order")
-                        .IsRequired();
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("MilmomStore_BusinessObject.Model.ShippingInfor", b =>

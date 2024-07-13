@@ -80,7 +80,7 @@ namespace MilmomStore_DataAccessObject
         public DbSet<Transaction> Transaction { set; get; }
 
         //
-        private const string ConnectString = "server=DESKTOP-88329MO\\KHANHVU21;database=MilmomStore_Db4;uid=sa;pwd=12345;Integrated Security=true;Trusted_Connection=false;TrustServerCertificate=True";
+        private const string ConnectString = "server=localhost;database=MilmomStore;uid=sa;pwd=12345;Integrated Security=true;Trusted_Connection=false;TrustServerCertificate=True";
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(ConnectString);

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MilmomStore_DataAccessObject.Migrations
 {
-    public partial class FixReport : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -491,7 +491,8 @@ namespace MilmomStore_DataAccessObject.Migrations
                     ReportID = table.Column<int>(type: "int", nullable: true),
                     AccountID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     transactionID = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    ShippingInforID = table.Column<int>(type: "int", nullable: false)
+                    ShippingInforID = table.Column<int>(type: "int", nullable: false),
+                    PaymentMethod = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -554,10 +555,10 @@ namespace MilmomStore_DataAccessObject.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "7255f9fb-d180-47cd-badb-010366a78aad", "5675275c-96c3-4ec8-aa34-3e1fa1fdf99e", "Manager", "MANAGER" },
-                    { "80fcb55c-390c-4596-b2a1-08c2424f4907", "6c3ca9ca-eb77-4f1d-a8dc-ca2b2c0e4141", "Staff", "STAFF" },
-                    { "ebb4d9bf-4cd0-4435-a1a2-e8884218e506", "5edd689e-5ba7-4e00-845f-4712467575c8", "Admin", "ADMIN" },
-                    { "ee019746-a9b4-4568-8a9b-fedf69f58b03", "ff0fab1e-4685-4aa9-948b-b9a1cdfc5979", "Customer", "CUSTOMER" }
+                    { "1c101f53-6913-4cc6-9e7b-994103e7a7c4", "7f1da67c-ca5d-433a-b98a-e041b02c2bbc", "Customer", "CUSTOMER" },
+                    { "84642fc5-0992-420d-ac27-80c9414ea07e", "a1e27fd2-35f1-4fec-a4e8-d6c75612bd38", "Staff", "STAFF" },
+                    { "8c502029-8ca4-455a-8d58-fc83b11613ac", "13f53dbf-6568-463b-a762-0dad793a2c3f", "Manager", "MANAGER" },
+                    { "eea789bf-7eea-4232-93e8-4135072aa150", "b2f9f9ca-29d5-4686-a6a8-3af12ed001ac", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.CreateIndex(

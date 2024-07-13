@@ -51,29 +51,29 @@ namespace MilmomStore_DataAccessObject.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f1f54a4b-4992-4770-a121-f2961ca6f96b",
-                            ConcurrencyStamp = "971c971b-a2d8-4f29-83e5-3166c8fbbfc7",
+                            Id = "eea789bf-7eea-4232-93e8-4135072aa150",
+                            ConcurrencyStamp = "b2f9f9ca-29d5-4686-a6a8-3af12ed001ac",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "69cce2f9-b613-406d-83dd-6d7691679b5c",
-                            ConcurrencyStamp = "8bfda413-d2fd-4c01-834e-6f9f6b304fa0",
+                            Id = "1c101f53-6913-4cc6-9e7b-994103e7a7c4",
+                            ConcurrencyStamp = "7f1da67c-ca5d-433a-b98a-e041b02c2bbc",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "cb87e796-2d14-4a39-aeeb-4492ebc84a39",
-                            ConcurrencyStamp = "d2e0c766-153a-432e-bf8e-4d297a4be59d",
+                            Id = "84642fc5-0992-420d-ac27-80c9414ea07e",
+                            ConcurrencyStamp = "a1e27fd2-35f1-4fec-a4e8-d6c75612bd38",
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         },
                         new
                         {
-                            Id = "132e542b-72fd-4a80-a68d-471bef1e3f50",
-                            ConcurrencyStamp = "2284a812-d494-4592-a989-31f9b53c1429",
+                            Id = "8c502029-8ca4-455a-8d58-fc83b11613ac",
+                            ConcurrencyStamp = "13f53dbf-6568-463b-a762-0dad793a2c3f",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         });
@@ -629,8 +629,8 @@ namespace MilmomStore_DataAccessObject.Migrations
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<byte[]>("Image")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("OrderID")
                         .HasColumnType("int");

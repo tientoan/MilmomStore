@@ -44,7 +44,7 @@ namespace MilmomStore.Server.Controllers
             return await _ratingService.DeleteRatingAsync(ratingId);
         }
 
-        [Authorize(Roles = "Customer, Manager, Staff")]
+        [Authorize(Roles = "Customer")]
         [HttpGet]
         [Route("getRatingByAccountId")]
         public async Task<ActionResult<BaseResponse<IEnumerable<RatingResponse>>>> 

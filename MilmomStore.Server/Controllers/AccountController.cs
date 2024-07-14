@@ -359,6 +359,7 @@ namespace MilmomStore.Server.Controllers
             });
         }
 
+        [Authorize(Roles = "Admin, Manager, Staff, Customer")]
         [HttpPost("Change-Password")]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordModel changePassword)
         {

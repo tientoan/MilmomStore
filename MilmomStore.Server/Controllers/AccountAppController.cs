@@ -47,6 +47,7 @@ namespace MilmomStore.Server.Controllers
             return await _userService.GetUserByStringIdFromBase(id);
         }
         //
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         [Route("base/GetTotalAccount")]
         public async Task<BaseResponse<GetTotalAccounts>> GetTotalAccounts()
@@ -54,7 +55,7 @@ namespace MilmomStore.Server.Controllers
             return await _userService.GetTotalAccounts();
         }
         //
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         [Route("base")]
         public async Task<ActionResult<BaseResponse<IEnumerable<GetAllUserResponse>>>> GetAllUserFromBase()

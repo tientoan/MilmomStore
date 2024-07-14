@@ -94,6 +94,7 @@ namespace MilmomStore.Server.Controllers
             return result;
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpGet]
         [Route("base/getProductsForManager")]
         public async Task<BaseResponse<SearchProductResponse>> SearchProductAsync(string? search, int pageIndex, int pageSize)

@@ -118,7 +118,7 @@ namespace MilmomStore.Server.Controllers
             }
         }
 
-        /*[Authorize(Roles = "Admin")]*/
+        [Authorize(Roles = "Admin")]
         [HttpPost("create account")]
         public async Task<IActionResult> CreateAccount([FromBody] CreateAccountDto createAccountDto)
         {
@@ -194,7 +194,7 @@ namespace MilmomStore.Server.Controllers
             }
         }
 
-        /*[Authorize(Roles = "Admin")]*/
+        [Authorize(Roles = "Admin")]
         [HttpPut("Update-Account")]
         public async Task<IActionResult> UpdateAccount( string userId, [FromBody] UpdateAccountDto updateAccountDto)
         {
@@ -273,7 +273,7 @@ namespace MilmomStore.Server.Controllers
 
         }
 
-        /*[Authorize(Roles = "Admin")]*/
+        [Authorize(Roles = "Admin")]
         [HttpGet("Get-all-accounts")]
         public async Task<IActionResult> GetAllAccounts()
         {
@@ -302,7 +302,7 @@ namespace MilmomStore.Server.Controllers
             }
         }
 
-       /* [Authorize(Roles = "Customer")]*/
+        [Authorize(Roles = "Customer")]
         [HttpPost("Reset-Password-Token")]
         public async Task<IActionResult> ResetPasswordToken([FromBody] ResetTokenModel resetTokenModel)
         {
@@ -315,7 +315,7 @@ namespace MilmomStore.Server.Controllers
             return Ok(new { token = token });
         }
 
-        /*[Authorize(Roles = "Customer")]*/
+        [Authorize(Roles = "Customer")]
         [HttpPost("Reset-Password")]
         public async Task<IActionResult> ResetPassword([FromBody] ResetToken resetToken)
         {

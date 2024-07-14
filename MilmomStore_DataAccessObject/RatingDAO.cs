@@ -15,9 +15,9 @@ public class RatingDAO : BaseDAO<Rating>
     //get avaerage rating of product
     public async Task<double> GetAverageRating(int productId)
     {
-        if (productId == null || productId <= 0)
+        if (productId <= 0)
         {
-            throw new ArgumentNullException($"id {productId} not found");
+            throw new ArgumentException("Product ID must be greater than zero.", nameof(productId));
         }
         var ratings = await _context.Rating
             .Where(r => r.ProductID == productId)
@@ -35,9 +35,9 @@ public class RatingDAO : BaseDAO<Rating>
     }
     public async Task<IEnumerable<Rating?>> GetRatingByProductId(int productId)
     {
-        if (productId == null || productId <= 0)
+        if (productId <= 0)
         {
-            throw new ArgumentNullException($"id {productId} not found");
+            throw new ArgumentException("Product ID must be greater than zero.", nameof(productId));
         }
         var entity = await _context.Rating
             .Where(r => r.ProductID == productId)
@@ -50,9 +50,9 @@ public class RatingDAO : BaseDAO<Rating>
     }
     public async Task<IEnumerable<Rating?>> GetRatingByAccountId(string accountId)
     {
-        if (accountId == null)
+        if (string.IsNullOrEmpty(accountId))
         {
-            throw new ArgumentNullException($"id {accountId} not found");
+            throw new ArgumentException("Account ID is required.", nameof(accountId));
         }
         var entity = await _context.Rating
             .Where(r => r.AccountID == accountId)
@@ -66,13 +66,13 @@ public class RatingDAO : BaseDAO<Rating>
 
     public async Task<Rating?> GetRatingByUserIdAndProduct(string accountId, int productId)
     {
-        if (accountId == null)
+        if (string.IsNullOrEmpty(accountId))
         {
-            throw new ArgumentNullException($"id {accountId} not found");
+            throw new ArgumentException("Account ID is required.", nameof(accountId));
         }
-        if(productId == null || productId <= 0)
+        if (productId <= 0)
         {
-            throw new ArgumentNullException($"id {productId} not found");
+            throw new ArgumentException("Product ID must be greater than zero.", nameof(productId));
         }
         var entity = await _context.Rating
             .Where(r => r.AccountID == accountId && r.ProductID == productId)

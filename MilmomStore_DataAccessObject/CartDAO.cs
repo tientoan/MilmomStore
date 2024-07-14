@@ -50,13 +50,13 @@ public class CartDAO : BaseDAO<Cart>
 
     public async Task RemoveFromCart(string accountId, int productId)
     {
-        if (accountId == null)
+        if (string.IsNullOrEmpty(accountId))
         {
-            throw new ArgumentNullException($"id {accountId} not found");
+            throw new ArgumentException("Account ID is required.", nameof(accountId));
         }
-        if (productId == null || productId <= 0)
+        if (productId <= 0)
         {
-            throw new ArgumentNullException($"id {productId} not found");
+            throw new ArgumentException("Product ID must be greater than zero.", nameof(productId));
         }
         var cart = await _context.Carts
             .Include(c => c.CartItem)
@@ -84,9 +84,9 @@ public class CartDAO : BaseDAO<Cart>
 
     public async Task<Cart?> GetCart(string accountId)
     {
-        if (accountId == null)
+        if (string.IsNullOrEmpty(accountId))
         {
-            throw new ArgumentNullException($"id {accountId} not found");
+            throw new ArgumentException("Account ID is required.", nameof(accountId));
         }
 
         return await _context.Carts
@@ -99,9 +99,9 @@ public class CartDAO : BaseDAO<Cart>
     }
     public async Task<double> GetAmount(string accountId)
 {
-        if (accountId == null)
+        if (string.IsNullOrEmpty(accountId))
         {
-            throw new ArgumentNullException($"id {accountId} not found");
+            throw new ArgumentException("Account ID is required.", nameof(accountId));
         }
         var cart = await _context.Carts
         .Include(c => c.CartItem)
@@ -124,9 +124,9 @@ public class CartDAO : BaseDAO<Cart>
 
     public async Task ClearCart(string accountId)
     {
-        if (accountId == null)
+        if (string.IsNullOrEmpty(accountId))
         {
-            throw new ArgumentNullException($"id {accountId} not found");
+            throw new ArgumentException("Account ID is required.", nameof(accountId));
         }
         var cart = await _context.Carts
             .Include(c => c.CartItem)

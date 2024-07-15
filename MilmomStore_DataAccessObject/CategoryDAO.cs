@@ -26,7 +26,7 @@ namespace MilmomStore_DataAccessObject
         }
         public async Task<Category> GetByIdAsync(int id)
         {
-            if (id == null || id <= 0)
+            if (id <= 0)
             {
                 throw new ArgumentNullException($"id {id} not found");
             }

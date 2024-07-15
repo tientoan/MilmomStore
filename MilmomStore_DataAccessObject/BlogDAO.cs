@@ -28,7 +28,7 @@ namespace MilmomStore_DataAccessObject
 
         public async Task<Blog> GetBlogByIdAsync(int id)
         {
-            if (id == null || id <= 0)
+            if (id <= 0)
             {
                 throw new ArgumentNullException($"id {id} not found");
             }

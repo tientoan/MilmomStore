@@ -12,7 +12,7 @@ public class OrderDAO : BaseDAO<Order>
         _context = context;
     }
 
-    public async Task<IEnumerable<Order>> GetAllOrderAsync(DateTime? date = null, OrderStatus? status = null)
+    public async Task<IEnumerable<Order>> GetAllOrderAsync(string?  search,DateTime? date = null, OrderStatus? status = null)
     {
         IQueryable<Order> orders = _context.Orders
             .Include(o => o.AccountApplication)
@@ -32,6 +32,12 @@ public class OrderDAO : BaseDAO<Order>
         if (status.HasValue)
         {
             orders = orders.Where(o => o.Status == status.Value);
+        }
+
+        if (!string.IsNullOrEmpty(search))
+        {
+            orders = orders.Where(o => o.OrderID.ToString().Contains(search.ToLower()) || o.ShippingInfor.Phone.ToLower().Contains(search.ToLower()));
+               
         }
 
         // Execute the query and return the results as a list
@@ -292,16 +298,17 @@ public class OrderDAO : BaseDAO<Order>
                     DateTime currentDayStart = date.Date;
                     DateTime currentDayEnd = date.Date.AddDays(1).AddTicks(-1);
 
+                    var interestedStatuses = new List<OrderStatus> { OrderStatus.ToConfirm, OrderStatus.Completed, OrderStatus.ToShip, OrderStatus.ToReceive };
                     int totalOrders = await _context.Orders
                         .Where(o => o.OrderDate >= currentDayStart &&
-                               o.OrderDate <= currentDayEnd &&
-                               o.Status == OrderStatus.Completed)
+                                    o.OrderDate <= currentDayEnd &&
+                                    interestedStatuses.Contains(o.Status))
                         .CountAsync();
 
                     double totalOrdersAmount = await _context.Orders
                         .Where(o => o.OrderDate >= currentDayStart &&
                                o.OrderDate <= currentDayEnd &&
-                               o.Status == OrderStatus.Completed)
+                               interestedStatuses.Contains(o.Status))
                         .SumAsync(o => o.Total);
 
                     result.Add((date.Date, totalOrders, totalOrdersAmount));

@@ -27,9 +27,9 @@ namespace MilmomStore.Server.Controllers
 
         /*[Authorize(Roles = "Staff, Manager, Customer")]*/
         [HttpGet("get-all-orders")]
-        public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrdersAsync(DateTime? date, OrderStatus? status)
+        public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrdersAsync(string? search, DateTime? date, OrderStatus? status)
         {
-            return await _orderService.GetAllOrderAsync(date, status);
+            return await _orderService.GetAllOrderAsync(search, date, status);
         }
 
         /*[Authorize(Roles = "Staff, Manager, Customer")]*/

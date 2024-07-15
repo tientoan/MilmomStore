@@ -64,9 +64,9 @@ public class OrderService : IOrderService
         return new BaseResponse<OrderRequest>("Get ok", StatusCodeEnum.OK_200, orderResponse);
     }
 
-    public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrderAsync(DateTime? date, OrderStatus? status)
+    public async Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrderAsync(string?  search,DateTime? date, OrderStatus? status)
     {
-        var orders = await _orderRepository.GetAllOrderAsync(date, status);
+        var orders = await _orderRepository.GetAllOrderAsync(search, date, status);
         var ordersResponse = _mapper.Map<IEnumerable<OrderResponse>>(orders);
         return new BaseResponse<IEnumerable<OrderResponse>>("Get ok", StatusCodeEnum.OK_200, ordersResponse);
     }

@@ -11,7 +11,7 @@ public interface IOrderService
     public Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrdersByAccountIdAsync(string accountId);
     public Task<BaseResponse<OrderResponse>> ChangeOrderStatus(int orderId, OrderStatus status);
     public Task<BaseResponse<OrderResponse>> GetOrderByIdAsync(int orderId);
-    public Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrderAsync(DateTime? date, OrderStatus? status);
+    public Task<BaseResponse<IEnumerable<OrderResponse>>> GetAllOrderAsync(string?  search, DateTime? date, OrderStatus? status);
 
     // For admin DashBoard
     public Task<BaseResponse<GetTotalAmountTotalProducts>> GetTotalAmountTotalProductsOfWeek();

@@ -12,7 +12,7 @@ public interface IOrderRepository:IBaseRepository<Order>
     public Task<Order> ChangeOrderStatus(int orderId, OrderStatus status);
     public Task<IEnumerable<Order>> GetOrdersByStatusAsync(OrderStatus status);
     public Task UpdateOrderAsync( Order order);
-    public Task<IEnumerable<Order>> GetAllOrderAsync(DateTime? date, OrderStatus? status);
+    public Task<IEnumerable<Order>> GetAllOrderAsync(string?  search, DateTime? date, OrderStatus? status);
 
     // For admin DashBoard
     public Task<(double totalAmount, double totalProfit, int totalProducts)> GetTotalAmountTotalProductsOfWeek();

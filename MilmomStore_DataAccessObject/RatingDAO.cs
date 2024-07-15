@@ -66,21 +66,25 @@ public class RatingDAO : BaseDAO<Rating>
 
     public async Task<Rating?> GetRatingByUserIdAndProduct(string accountId, int productId)
     {
-        if (accountId == null)
+        if (string.IsNullOrEmpty(accountId))
         {
-            throw new ArgumentNullException($"id {accountId} not found");
+            throw new ArgumentException("Account ID is required.", nameof(accountId));
         }
-        if(productId == null || productId <= 0)
+        if (productId <= 0)
         {
-            throw new ArgumentNullException($"id {productId} not found");
+            throw new ArgumentException("Product ID must be greater than zero.", nameof(productId));
         }
+
         var entity = await _context.Rating
             .Where(r => r.AccountID == accountId && r.ProductID == productId)
             .FirstOrDefaultAsync();
+
         if (entity == null)
         {
-            throw new ArgumentNullException($"Entity with accountid {accountId}, productId{productId} not found");
+            // It's better to return null if the entity is not found rather than throwing an exception
+            return null;
         }
+
         return entity;
     }
 }
